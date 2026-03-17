@@ -14,14 +14,14 @@ Inspirada no nome da Iara, a plataforma carrega a ideia de identidade brasileira
 
 ## Refêrencias
 
-#### STEAM
-![App Screenshot](https://media.discordapp.net/attachments/1478164589576454305/1480715540002508860/image.png?ex=69b0af4f&is=69af5dcf&hm=ab272d863d06eebd7ee9eb79c5540993d4c1e08a9e25dd59acdd7702e40a46d9&=&format=webp&quality=lossless&width=1030&height=553)
+#### Steam
+![App Screenshot](assets/images/steam.png)
 
-#### gog
-![App Screenshot](https://media.discordapp.net/attachments/1478164589576454305/1480715823357231285/image.png?ex=69b0af92&is=69af5e12&hm=9c6c5d70e73269fee31c70c610c39020bedfa2e9ebdead82d8cb20a7c2a1bd1b&=&format=webp&quality=lossless&width=1030&height=492)
+#### GOG
+![App Screenshot](assets/images/gog.png)
 
 #### Epic
-![App Screenshot](https://media.discordapp.net/attachments/1478164589576454305/1480715884849922129/image.png?ex=69b0afa1&is=69af5e21&hm=497c781a2bfa1f73863ba7eb87c789445ca5fc9f03a56537a65360854647d729&=&format=webp&quality=lossless&width=1030&height=554)
+![App Screenshot](assets/images/epic.png)
 
 
 
@@ -65,7 +65,7 @@ Também foram utilizados cards para apresentar os jogos, agrupando imagem, títu
 Além disso, os textos possuem hierarquia clara entre títulos, descrições e informações complementares, contribuindo para uma leitura mais fluida. Esses cuidados ajudam a tornar a interface mais intuitiva, acessível e alinhada com boas práticas de experiência do usuário.
 ## Layout
 
-![App Screenshot](assets/images/skydust_thumbnail.png)
+![App Screenshot](assets/images/iaragames.jpg)
 
 ## Roadmap
 
