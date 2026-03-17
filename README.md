@@ -67,9 +67,3 @@ Além disso, os textos possuem hierarquia clara entre títulos, descrições e i
 
 ![App Screenshot](assets/images/iaragames.jpg)
 
-## Roadmap
-
-- Additional browser support
-
-- Add more integrations
-
