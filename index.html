@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iara Games</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
 
     <link rel="stylesheet" href="assets/CSS/style.css" />
   </head>
@@ -57,7 +60,6 @@
             class="hero__card-img"
           />
           <div class="hero__card-overlay">
-           
             <div class="hero__card-footer">
               <span class="price">R$ 100,00</span>
               <button class="btn btn--yellow">Comprar jogo &rarr;</button>
@@ -67,12 +69,93 @@
       </div>
     </section>
 
-    <!-- ===== MAPA BRASIL ===== -->
-    <div class="container">
-      <img src="assets/images/frame-brasil.png" alt="" />
-    </div>
+    <!-- ===== EXPLORE PELO BRASIL ===== -->
+    <section class="explore section-gap">
+      <div class="container">
+        <div class="explore__inner">
+          <div class="explore__map-side">
+            <h2 class="explore__title">Explore jogos pelo Brasil</h2>
+            <div class="explore__map">
+              <!-- Simplified Brazil SVG silhouette -->
+              <svg
+                viewBox="0 0 300 340"
+                xmlns="http://www.w3.org/2000/svg"
+                class="brazil-map"
+              >
+                <path
+                  d="M150 10 L200 25 L240 55 L260 90 L255 130 L240 155 L245 185 L230 210 L215 240 L195 270 L175 300 L155 320 L140 310 L120 290 L100 260 L80 230 L65 200 L60 170 L50 145 L45 115 L55 85 L75 60 L105 35 Z"
+                  fill="#F5C400"
+                  stroke="#111"
+                  stroke-width="2"
+                />
+                <path
+                  d="M215 240 L235 250 L250 260 L255 280 L245 295 L230 300 L215 290 Z"
+                  fill="#F5C400"
+                  stroke="#111"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="165"
+                  cy="230"
+                  r="6"
+                  fill="#E63946"
+                  stroke="#fff"
+                  stroke-width="2"
+                />
+                <line
+                  x1="165"
+                  y1="236"
+                  x2="200"
+                  y2="290"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 3"
+                />
+              </svg>
+              <div class="explore__city-label">São Paulo</div>
+            </div>
+          </div>
+          <div class="explore__games-side">
+            <div class="explore__featured">
+              <div class="explore__featured-badge">em em SP</div>
+              <img
+                src="https://placehold.co/360x220/0d0010/ff0050?text=FOBIA"
+                alt="Fobia"
+                class="explore__featured-img"
+              />
+              <div class="explore__featured-name">
+                FOBIA<br /><small>ST. DINFNA HOTEL</small>
+              </div>
+              <div class="explore__scores">
+                <span>5/100<br /><small>GX Brazil</small></span>
+                <span>4.5/5<br /><small>Games Enquirer</small></span>
+                <span>9.5/10<br /><small>Nerds Da Galaxia</small></span>
+                <span>8/10<br /><small>Gaming Next</small></span>
+              </div>
+            </div>
+            <div class="explore__thumbs">
+              <img
+                src="https://placehold.co/115x80/111/aaa?text=Squad"
+                alt="Squad"
+              />
+              <img
+                src="https://placehold.co/115x80/111/aaa?text=HellClock"
+                alt="HellClock"
+              />
+              <img
+                src="https://placehold.co/115x80/111/aaa?text=9Kings"
+                alt="9Kings"
+              />
+            </div>
+            <div class="explore__ver-mais">
+              <a href="#" class="link-see-all">Ver mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-     <!-- ===== CARDS ===== -->
+    <!-- ===== CARDS ===== -->
 
     <div class="container" style="display: flex">
       <!-- Area Card 1 -->
@@ -243,5 +326,66 @@
         </form>
       </div>
     </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" fill="#F5C400" opacity=".15" />
+              <path
+                d="M8 20 Q16 6 24 20"
+                stroke="#F5C400"
+                stroke-width="2.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <circle cx="16" cy="20" r="3" fill="#F5C400" />
+            </svg>
+            <span>Iara <strong>Games</strong></span>
+          </div>
+          <p class="footer__tagline">
+            Plataforma de jogos desenvolvidos por brasileiros ou jogos
+            ambientados no Brasil.
+          </p>
+          <div class="footer__lang">
+            <label>Idioma e País</label>
+            <div class="footer__selects">
+              <select>
+                <option>Português</option>
+              </select>
+              <select>
+                <option>Brasil</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <nav class="footer__nav">
+          <a href="#">Sobre</a>
+          <a href="#">Loja</a>
+          <a href="#">Comunidade</a>
+          <a href="#">Blog</a>
+          <a href="#">Suporte</a>
+        </nav>
+
+        <div class="footer__social">
+          <a href="#"><span class="social-icon">&#128248;</span> Twitch</a>
+          <a href="#"><span class="social-icon">&#128247;</span> Instagram</a>
+          <a href="#"><span class="social-icon">&#128038;</span> Twitter</a>
+          <a href="#"><span class="social-icon">&#9654;</span> Youtube</a>
+        </div>
+
+        <div class="footer__legal-links">
+          <a href="#">Contato</a>
+          <a href="#" class="link-yellow">Políticas de Privacidade</a>
+          <a href="#" class="link-yellow">Termos e Condições</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>2026 – Desenvolvido by grupo 2</span>
+      </div>
+    </footer>
   </body>
 </html>
