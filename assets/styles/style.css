@@ -146,6 +146,7 @@ body {
   inset: 0;
   background-image: url(../images/banner-asleep.jpg);
   background-size: cover;
+  background-position: 50% 20%;
 }
 
 .hero__bg::before {
@@ -279,6 +280,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.link-see-all {
+  font-weight: 700;
 }
 
 .dot {
@@ -792,7 +797,7 @@ body {
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 280px 160px 180px auto;
+  grid-template-columns: 370px 160px 140px auto;
   gap: 40px;
   padding-bottom: 48px;
   border-bottom: 1px solid #ffffff;
@@ -847,7 +852,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-top: 4px;
+  padding-top: 25px;
 }
 .footer__nav a {
   font-size: 0.88rem;
@@ -862,7 +867,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 4px;
+  padding-top: 25px;
 }
 .footer__social a {
   font-size: 0.88rem;
@@ -883,7 +888,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 4px;
+  padding-top: 25px;
 }
 .footer__legal-links a {
   font-size: 0.88rem;
