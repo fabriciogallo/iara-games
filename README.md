@@ -63,6 +63,18 @@ Também foram utilizados cards para apresentar os jogos, agrupando imagem, títu
 
 
 Além disso, os textos possuem hierarquia clara entre títulos, descrições e informações complementares, contribuindo para uma leitura mais fluida. Esses cuidados ajudam a tornar a interface mais intuitiva, acessível e alinhada com boas práticas de experiência do usuário.
+
+## Mapa de arquivos
+    
+    iara-games-sprint01
+    └───assets
+    │   ├───images
+    │   └───styles
+    │       └───style.css
+    ├─index.html 
+    └─README.md
+
+
 ## Layout
 
 ![App Screenshot](assets/images/iaragames.jpg)
