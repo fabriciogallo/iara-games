@@ -13,23 +13,21 @@
   --color-grey: #bfbfbf;
   --color-dark-grey: #8c8c8c;
   --color-yellow: #ffcb20;
-  --color-yellow-d: #C99B00;
-  --bg:       #0c0c0c;
-  --bg2:      #111111;
-  --bg3:      #161616;
-  --surface:  #1c1c1c;
-  --border:   #2a2a2a;
-  --text:     #e8e8e8;
-  --muted:    #888;
-  --red:      #E63946;
+  --color-yellow-d: #c99b00;
+  --bg: #0c0c0c;
+  --bg2: #111111;
+  --bg3: #161616;
+  --surface: #1c1c1c;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #888;
+  --red: #e63946;
   --font-head: "Montserrat", sans-serif;
   --font-body: "Montserrat", sans-serif;
   --font-cond: "Montserrat", sans-serif;
   --radius: 10px;
-  --transition: .22s cubic-bezier(.4,0,.2,1);
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
 
 * {
   margin: 0;
@@ -56,6 +54,10 @@ ul,
 ol {
   list-style: none;
 }
+
+/* ============================
+   HEADER
+   ============================ */
 
 .header-page {
   position: absolute;
@@ -123,7 +125,9 @@ h1 {
   letter-spacing: 1px;
 }
 
-/* Area hero */
+/* ============================
+  HERO
+  ============================ */
 
 body {
   background: #000;
@@ -211,7 +215,102 @@ body {
   align-items: center;
 }
 
-/* F Area do hero */
+.hero__card {
+  flex-shrink: 0;
+  width: 460px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  transition: transform var(--transition);
+}
+
+.hero__card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  background: var(--color-light);
+  color: #111;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.hero__card .price {
+  color: #fff;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.06em;
+}
+
+.hero__card-img {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+.hero__card-overlay {
+  padding: 20px 18px 18px;
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 2px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    -16px 16px 34px 0 rgba(0, 0, 0, 0.25),
+    -16px 16px 34px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(17.5px);
+}
+
+.hero__card-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.hero__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(39, 39, 39);
+  margin: 0 3px;
+}
+.dot--active {
+  background: #ffcb20;
+  width: 22px;
+  border-radius: 4px;
+}
+
+.hero__title {
+  animation: fadeUp 0.6s ease both;
+}
+.hero__sub {
+  animation: fadeUp 0.6s 0.12s ease both;
+}
+.hero__dots {
+  animation: fadeUp 0.6s 0.22s ease both;
+}
+.hero__card {
+  animation: fadeUp 0.7s 0.08s ease both;
+}
+
+/* ============================
+  POPULAR NO BRASIL
+  ============================ */
 
 .popbr {
   position: relative;
@@ -302,6 +401,9 @@ body {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+
   line-height: 1.5;
   max-height: calc(1.5 * 3);
 }
@@ -386,7 +488,176 @@ body {
   color: #71717a;
 }
 
-/* Area card de ofertas */
+/* ============================
+   EXPLORE
+   ============================ */
+.explore {
+  background: var(--bg3);
+}
+
+.explore__inner {
+  display: grid;
+  grid-template-columns: 580px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.explore__title {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.explore__map {
+  position: relative;
+  display: inline-block;
+}
+
+.brazil-map {
+  width: 260px;
+  filter: drop-shadow(0 0 20px rgba(245, 196, 0, 0.15));
+}
+
+.explore__city-label {
+  position: absolute;
+  bottom: 10px;
+  right: -40px;
+  background: rgba(245, 196, 0, 0.12);
+  border: 1px solid rgba(245, 196, 0, 0.3);
+  color: var(--color-yellow);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* ----------------------------
+  EXPLORE - CARD DESTAQUE
+  ---------------------------- */
+.explore__featured {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.explore__featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(245, 196, 0, 0.9);
+  color: #111;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.explore__featured-img {
+  height: 100%;
+}
+
+.explore__featured-name {
+  font-family: var(--font-cond);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  padding: 12px 16px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.explore__featured-name small {
+  font-size: 0.75rem;
+  display: block;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.explore__scores {
+  display: flex;
+  gap: 1px;
+  padding: 10px 16px 16px;
+}
+.explore__scores span {
+  flex: 1;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+  border-right: 1px solid var(--border);
+  padding-right: 12px;
+}
+.explore__scores span:last-child {
+  border-right: none;
+}
+.explore__scores small {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.explore__thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.explore__thumbs img {
+  border-radius: 8px;
+  height: 80px;
+  border: 1px solid var(--border);
+}
+
+.explore__ver-mais {
+  text-align: right;
+}
+
+#svg-map path {
+  fill: #fab615;
+}
+
+#svg-map text {
+  fill: #fff;
+  font:
+    12px Arial-BoldMT,
+    sans-serif;
+  cursor: pointer;
+}
+
+#svg-map a {
+  text-decoration: none;
+}
+
+#svg-map a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#svg-map a:hover path {
+  fill: #2550ff !important;
+}
+
+#svg-map .circle {
+  fill: #146636;
+}
+
+#svg-map a:hover .circle {
+  fill: #2550ff !important;
+  cursor: pointer;
+}
+
+/* ============================
+  OFERTAS
+  ============================ */
 
 .container {
   display: flex;
@@ -425,106 +696,9 @@ body {
   font-size: 2rem;
 }
 
-.hero__card {
-  flex-shrink: 0;
-  width: 460px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  position: relative;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-  transition: transform var(--transition);
-}
-.hero__card:hover {
-  transform: translateY(-1.5px);
-}
-
-.hero__card-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 3;
-  background: var(--color-light);
-  color: #111;
-  font-size: 0.6rem;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 10px;
-}
-
-.price {
-  color: #fff;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.06em;
-}
-
-.hero__card-img {
-  width: 100%;
-  height: 220px;
-  display: block;
-}
-
-.hero__card-overlay {
-  padding: 20px 18px 18px;
-  background: #ffffff05;
-
-  border: 2px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow:
-    -16px 16px 34px 0 rgba(0, 0, 0, 0.25),
-    -16px 16px 34px 0 rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(17.5px);
-}
-
-.hero__card-title {
-  font-family: var(--font-head);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-.hero__card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgb(39, 39, 39);
-  margin: 0 3px;
-}
-.dot--active {
-  background: #ffcb20;
-  width: 22px;
-  border-radius: 4px;
-}
-
-.hero__title {
-  animation: fadeUp 0.6s ease both;
-}
-.hero__sub {
-  animation: fadeUp 0.6s 0.12s ease both;
-}
-.hero__dots {
-  animation: fadeUp 0.6s 0.22s ease both;
-}
-.hero__card {
-  animation: fadeUp 0.7s 0.08s ease both;
-}
-
 /* ============================
-   CTA EMAIL
-   ============================ */
+  CTA E-MAIL
+  ============================ */
 .cta-email {
   position: relative;
   overflow: hidden;
@@ -604,7 +778,6 @@ body {
   box-shadow: 0 6px 24px rgba(245, 196, 0, 0.25);
 }
 
-
 /* ============================
    FOOTER
    ============================ */
@@ -619,7 +792,7 @@ body {
   grid-template-columns: 280px 160px 180px auto;
   gap: 40px;
   padding-bottom: 48px;
-  border-bottom: 1px solid  #ffffff
+  border-bottom: 1px solid #ffffff;
 }
 
 .footer__logo {
@@ -628,26 +801,28 @@ body {
   gap: 10px;
   font-size: 1.1rem;
   color: #fff;
-  letter-spacing: .04em;
+  letter-spacing: 0.04em;
   margin-bottom: 14px;
 }
-.footer__logo strong { color: #fab615; }
+.footer__logo strong {
+  color: #fab615;
+}
 
 .footer__tagline {
-  font-size: .82rem;
-  color:  #ffffff;
+  font-size: 0.82rem;
+  color: #ffffff;
   line-height: 1.65;
   margin-bottom: 24px;
 }
 
 .footer__lang label {
   display: block;
-  font-size: .78rem;
-  color:  #ffffff;
+  font-size: 0.78rem;
+  color: #ffffff;
   margin-bottom: 8px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 }
 
 .footer__selects {
@@ -658,10 +833,10 @@ body {
 .footer__selects select {
   background: var(--surface);
   border: 1px solid var(--border);
-  color:  #ffffff;
+  color: #ffffff;
   padding: 7px 12px;
   border-radius: 6px;
-  font-size: .82rem;
+  font-size: 0.82rem;
   cursor: pointer;
 }
 
@@ -672,11 +847,13 @@ body {
   padding-top: 4px;
 }
 .footer__nav a {
-  font-size: .88rem;
-  color:  #ffffff;
-  transition: color  #ffffff;
+  font-size: 0.88rem;
+  color: #ffffff;
+  transition: color #ffffff;
 }
-.footer__nav a:hover { color: #fff; }
+.footer__nav a:hover {
+  color: #fff;
+}
 
 .footer__social {
   display: flex;
@@ -685,15 +862,19 @@ body {
   padding-top: 4px;
 }
 .footer__social a {
-  font-size: .88rem;
-  color:  #ffffff;
+  font-size: 0.88rem;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: color  #ffffff;
+  transition: color #ffffff;
 }
-.footer__social a:hover { color: #fff; }
-.social-icon { font-size: .9rem; }
+.footer__social a:hover {
+  color: #fff;
+}
+.social-icon {
+  font-size: 0.9rem;
+}
 
 .footer__legal-links {
   display: flex;
@@ -702,170 +883,20 @@ body {
   padding-top: 4px;
 }
 .footer__legal-links a {
-  font-size: .88rem;
+  font-size: 0.88rem;
   color: #ffffff;
   transition: color #ffffff;
 }
-.footer__legal-links a:hover { color: #fff; }
-.link-yellow { color: #fab615 !important; }
+.footer__legal-links a:hover {
+  color: #fff;
+}
+.link-yellow {
+  color: #fab615 !important;
+}
 
 .footer__bottom {
   padding: 20px 24px;
   text-align: center;
-  font-size: .78rem;
+  font-size: 0.78rem;
   color: #ffffff;
-}
-
-/* ============================
-   EXPLORE
-   ============================ */
-.explore { background: var(--bg3); }
-
-.explore__inner {
-  display: grid;
-  grid-template-columns: 580px 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.explore__title {
-  font-family: var(--font-head);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 24px;
-}
-
-.explore__map {
-  position: relative;
-  display: inline-block;
-}
-
-.brazil-map {
-  width: 260px;
-  filter: drop-shadow(0 0 20px rgba(245,196,0,.15));
-}
-
-.explore__city-label {
-  position: absolute;
-  bottom: 10px;
-  right: -40px;
-  background: rgba(245,196,0,.12);
-  border: 1px solid rgba(245,196,0,.3);
-  color: var(--color-yellow);
-  font-size: .8rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 20px;
-  letter-spacing: .04em;
-}
-
-/* featured game card */
-.explore__featured {
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.explore__featured-badge {
-  position: absolute;
-  top: 10px; right: 10px;
-  background: rgba(245,196,0,.9);
-  color: #111;
-  font-size: .65rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  z-index: 2;
-}
-
-.explore__featured-img {
-  height: 100%;
-}
-
-.explore__featured-name {
-  font-family: var(--font-cond);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #fff;
-  padding: 12px 16px 4px;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-.explore__featured-name small {
-  font-size: .75rem;
-  display: block;
-  color: var(--muted);
-  letter-spacing: .1em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.explore__scores {
-  display: flex;
-  gap: 1px;
-  padding: 10px 16px 16px;
-}
-.explore__scores span {
-  flex: 1;
-  font-size: .75rem;
-  color: var(--muted);
-  line-height: 1.4;
-  border-right: 1px solid var(--border);
-  padding-right: 12px;
-}
-.explore__scores span:last-child { border-right: none; }
-.explore__scores small { font-size: .7rem; color: #555; }
-
-.explore__thumbs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.explore__thumbs img {
-  border-radius: 8px;
-  height: 80px;
-  border: 1px solid var(--border);
-}
-
-.explore__ver-mais { text-align: right; }
-
-
-#svg-map path {
-  fill: #fab615
-}
-
-#svg-map text {
-  fill: #fff;
-  font: 12px Arial-BoldMT, sans-serif;
-  cursor: pointer
-}
-
-#svg-map a {
-  text-decoration: none
-}
-
-#svg-map a:hover {
-  cursor: pointer;
-  text-decoration: none
-}
-
-#svg-map a:hover path {
-  fill: #2550FF !important
-}
-
-#svg-map .circle {
-  fill: #146636
-}
-
-#svg-map a:hover .circle {
-  fill: #2550FF !important;
-  cursor: pointer
 }
