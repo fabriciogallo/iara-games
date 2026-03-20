@@ -493,12 +493,14 @@ body {
    ============================ */
 .explore {
   background: var(--bg3);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .explore__inner {
   display: grid;
   grid-template-columns: 580px 1fr;
-  gap: 60px;
+  gap: 140px;
   align-items: start;
 }
 
@@ -721,6 +723,7 @@ body {
       transparent 60%
     ),
     linear-gradient(180deg, #0c0c0c, #101008, #0c0c0c);
+  border-top: 1px solid var(--border);
 }
 
 .cta-email__content {
