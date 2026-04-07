@@ -1,10 +1,3 @@
-/* Font Baixada */
-
-/* @font-face {
-  font-family: "Russo";
-  src: url(../fonts/RussoOne-Regular.ttf);
-} */
-
 :root {
   --font-text: "Montserrat", sans-serif;
   --font-title: "Lexend", sans-serif;
@@ -25,6 +18,7 @@
   --font-head: "Montserrat", sans-serif;
   --font-body: "Montserrat", sans-serif;
   --font-cond: "Montserrat", sans-serif;
+  --font-price: "Montserrat", sans-serif;
   --radius: 10px;
   --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -73,8 +67,7 @@ ol {
   padding-inline: 100px;
 }
 
-.logo,
-h1 {
+.logo {
   flex: 1;
   display: flex;
   align-items: center;
@@ -216,7 +209,7 @@ body {
 
 .hero__card {
   flex-shrink: 0;
-  width: 460px;
+  width: 480px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -246,6 +239,7 @@ body {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.06em;
+  font-family: var(--font-price);
 }
 
 .hero__card-img {
@@ -438,13 +432,13 @@ body {
   display: flex;
   flex-direction: column;
 }
-.old {
+.old-price {
   font-size: 13px;
   text-decoration: line-through;
   color: #a1a1aa;
   margin-bottom: 2px;
 }
-.new {
+.new-price {
   font-size: 20px;
   font-weight: 700;
   color: #18181b;
@@ -911,11 +905,11 @@ body {
 }
 
 /* Popular no Brasil */
-.Popular{
-  padding-top: 20px;
+.Popular {
+  padding-top: 40px;
 }
 
-.pop{
+.pop {
   font-family: var(--font-head);
   font-size: 1.5rem;
   color: #fff;
@@ -923,47 +917,47 @@ body {
   margin-left: 100px;
 }
 
-.imghell {
-  /* max-width: 1200px; */
+.pop-conteudo {
   margin: 0 auto;
   display: flex;
-  gap: 40px;
+  gap: 5rem;
   align-items: flex-start;
-  padding: 0 24px;
+  padding: 35px 60px;
   padding-bottom: 100px;
 }
 
-.img-hell-container {
+.pop-container {
   position: relative;
   flex-shrink: 0;
   border: 3px solid #000;
   border-radius: var(--radius);
   padding: 10px;
   background: var(--surface);
-  display: inline-block; 
+  display: inline-block;
 }
 
 .img-hell {
-  width: 940px;        
-  height: auto;       
+  width: 720px;
+  height: auto;
   /* max-width: 100%;     */
   display: block;
   border-radius: calc(var(--radius) - 4px);
-
 }
 
 .price-pop {
-  color: white;
-  display: inline-block;
-  flex-direction: column;
-  top: 300px;
-  left: 20px;
-  padding: 8px;
-  font-size: 1.5em;
+  color: #fff;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.06em;
+  font-family: var(--font-price);
+  padding-left: 1rem;
 }
 
 .popular-preco {
-  padding-top: 10px;
+  padding: 1.5%;
+  padding-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -976,25 +970,45 @@ body {
   font-size: 1.1rem;
 }
 
-.popular-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.popular-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  transform: translateY(-6px);
+}
 
-.tag {
+#tag {
   display: inline-block;
   padding: 2px 10px;
-  border-radius: 20px;
+  border-radius: 7px;
   border: 1px solid var(--border);
-  font-size: .75rem;
-  color: black;
-  background-color: white;
+  font-size: 0.85rem;
   white-space: nowrap;
+}
+
+.tag-rpg {
+  background-color: red;
+  color: rgb(255, 255, 255);
+}
+.tag-acao {
+  background-color: rgb(0, 89, 255);
+  color: white;
+}
+.tag-roguelike {
+  background-color: orange;
+  color: rgb(255, 255, 255);
 }
 
 .popular__name-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 16px;
+}
+
+.popular__name-row h1 {
+  margin-bottom: 0;
 }
 
 .synopsis {
