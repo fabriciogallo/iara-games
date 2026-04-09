@@ -117,7 +117,7 @@ body {
 
 .hero {
   position: relative;
-  height: 647px;
+  height: 700px;
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -248,7 +248,7 @@ body {
 }
 
 .hero-card-img {
-  height: 350px;
+  height: 330px;
   display: block;
   margin: 24px 24px 24px;
   border-radius: 14px;
