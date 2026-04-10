@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <!-- Link Icons Bootstrap -->
@@ -1088,23 +1088,90 @@
     <!-- Fim Area de Ofertas -->
 
     <!--  Area Formulario Divulgar Jogos  -->
+    <form
+      id="form-divulga-games"
+      name="form-divulga-games"
+      class="form-divulga-games"
+      method="post"
+      action=""
+    >
+      <!-- Nome -->
+      <fieldset>
+        <div>
+          <h2 class="titulo-divulgar-jogos">
+            Deseja divulgar seus jogos na <br />Iara Games? <br />Envie seus
+            dados
+          </h2>
+        </div>
+        <section class="form-campos">
+          <div>
+            <label for="nome-usuario"></label>
+          </div>
+          <div class="form-field">
+            <input
+              type="text"
+              name="nome-usuario"
+              id="nome-usuario"
+              required
+              minlength="5"
+              maxlength="50"
+              placeholder="Nome completo"
+              autocomplete="name"
+            />
+          </div>
+          <!-- Email -->
+          <div>
+            <label for="email-usuario"></label>
+          </div>
+          <div class="form-field">
+            <input
+              type="text"
+              name="email-usuario"
+              id="email-usuario"
+              required
+              maxlength="30"
+              placeholder="E-mail"
+              autocomplete="email"
+            />
+          </div>
+          <!-- Telefone -->
+          <div>
+            <label for="tel-usuario"></label>
+            <div class="form-field">
+              <input
+                type="text"
+                name="tel-usuario"
+                id="tel-usuario"
+                placeholder="Telefone"
+                autocomplete="tel"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="regiao-usuario"></label>
+            <div class="form-field">
+              <input
+                type="text"
+                name="regiao-usuario"
+                id="regiao-usuario"
+                placeholder="Região"
+              />
+            </div>
+          </div>
+        </section>
+        <div class="btn-container">
+          <button
+            type="submit"
+            id="enviar-form"
+            name="enviar-form"
+            class="btn-form"
+          >
+            Enviar
+          </button>
+        </div>
+      </fieldset>
+    </form>
 
-    <section class="cta-email">
-      <div class="cta-email-bg"></div>
-      <div class="cta-email-content">
-        <h2>
-          Deseja divulgar seus jogos na Iara Games?<br />Envie-nos um e-mail
-        </h2>
-        <form class="cta-email-form">
-          <input
-            type="email"
-            placeholder="Insira seu e-mail"
-            class="cta-email-input"
-          />
-          <button type="submit" class="navbar-button">Enviar</button>
-        </form>
-      </div>
-    </section>
     <!-- Fim Area Formulario Divulgar Jogos  -->
 
     <!-- Area do Footer -->
@@ -1182,5 +1249,9 @@
       </div>
     </footer>
     <!-- Fim Area do Footer -->
+    <!-- Script -->
+    <!-- **Máscara JS** -->
+    <script src="https://unpkg.com/imask"></script>
+    <script src="assets/js/tel.mask.js"></script>
   </body>
 </html>
