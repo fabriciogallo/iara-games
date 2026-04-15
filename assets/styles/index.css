@@ -37,7 +37,7 @@ h4 {
 }
 
 .titulo-logo {
-  color: var(--color-yellow);
+  color: var(--color-light);
 }
 
 a {
@@ -307,6 +307,7 @@ body {
 }
 
 /* Fim Area do Hero */
+
 /* Area do Popular no Brasil */
 
 .popular {
@@ -824,6 +825,7 @@ input {
   width: 774px;
   height: 40px;
 
+  color: #f5ffe6;
   font-family: "Outfit";
   font-size: 16px;
   font-style: normal;
@@ -906,6 +908,7 @@ select {
   grid-template-columns: 370px 160px 140px auto;
   gap: 40px;
   padding-bottom: 48px;
+  margin: 0 auto;       
   border-bottom: 1px solid #ffffff;
 }
 

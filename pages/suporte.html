@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iara Games</title>
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link Icons Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- Link Css -->
+    <link rel="stylesheet" href="../assets/styles/suporte.css" />
+  </head>
+  <body>
+    <!-- Area Header  -->
+    <header class="header-page">
+      <div class="logo">
+        <img
+          src="../assets/images/icone-iara-games.svg"
+          alt="Logo da Iara Games"
+        />
+        <h1 class="titulo-logo">Iara Games</h1>
+      </div>
+      <nav>
+        <ul class="header-menu">
+          <li><a href="../pages/jogos.html" class="item-menu">Loja</a></li>
+          <li><a href="#" class="item-menu">Comunidade</a></li>
+          <li><a href="#footer" class="item-menu">Sobre</a></li>
+          <li><a href="./pages/suporte.html" class="item-menu">Suporte</a></li>
+        </ul>
+      </nav>
+      <div class="header-button">
+        <a href="../pages/jogos.html" class="navbar-button">Entrar</a>
+      </div>
+    </header>
+    <!-- Fim Area Header  -->
+    <!-- Area do hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Como podemos <br />
+            ajudar?
+          </h1>
+          <p class="hero-sub">
+            Acesse recursos técnicos, gerenciamento de conta e canais diretos de
+            comunicação com desenvolvedores para todo o ecossistema Iara Games.
+          </p>
+          <div class="hero-dots">
+            <span class="dot dot--active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Fim Area do Hero -->
+
+    <!-- Area novo chamado -->
+    <section class="section-contato" id="contato">
+      <div class="container-contato">
+        <div class="contato-wrapper">
+          <div class="contato-info">
+            <div class="contato-header">
+              <h2>NOVO CHAMADO</h2>
+              <p>
+                Não encontrou o que precisa nas perguntas frequentes?
+                <br /><br />
+                <span class="subtitulo-contato">
+                  Envie um e-mail detalhando o problema para nossa equipe.
+                  Normalmente respondemos o mais rápido possível para sua melhor
+                  experiência.
+                </span>
+              </p>
+            </div>
+
+            <address class="contato-canais">
+              <div class="canal">
+                <div class="container-imagem-social">
+                  <img src="../assets/images/mail.png" alt="Email" />
+                </div>
+                <div class="container-titulo-social">
+                  <span class="titulo-social">Envio por e-mail</span>
+                  <a href="#" class="link-contato-socail"
+                    >iaragames@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="canal">
+                <div class="container-imagem-social">
+                  <img src="../assets/images/forum.png" alt="Discord" />
+                </div>
+
+                <div class="container-titulo-social">
+                  <span class="titulo-social">Fórum da Comunidade</span>
+                  <a
+                    href="https://discord.gg/iaragames"
+                    class="link-contato-socail"
+                    >discord.gg/iaragames</a
+                  >
+                </div>
+              </div>
+            </address>
+          </div>
+
+          <form class="contato-form">
+            <form
+              id="form-cadastro"
+              name="form-cadastro"
+              class="form-cadastro"
+              method="post"
+              action=""
+            >
+              <fieldset class="formulario-novo">
+                <section class="form-campos">
+                  <!-- Nome -->
+                  <div class="container-nome-e-id">
+                    <div class="container-nome-usuario">
+                      <label for="nome-usuario-novo" id="nome-completo-novo"
+                        >Nome completo</label
+                      >
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          name="nome-usuario-novo"
+                          id="nome-usuario-novo"
+                          required
+                          minlength="5"
+                          maxlength="50"
+                          placeholder="Comandante Shepherd"
+                          autocomplete="name"
+                        />
+                        <i class="fa-regular fa-user icon"></i>
+                      </div>
+                    </div>
+
+                    <!-- ID Iara -->
+                    <div class="container-id-usuario">
+                      <label for="id-iara-usuario" id="id-iara-novo"
+                        >ID Iara</label
+                      >
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          name="id-iara-usuario"
+                          id="id-iara-usuario"
+                          required
+                          placeholder="#9900221"
+                        />
+                        <i class="fa-regular fa-user icon"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="container-email-novo">
+                    <label for="email-usuario" id="email-usuario-novo"
+                      >Email</label
+                    >
+                    <div class="form-field">
+                      <input
+                        type="email"
+                        name="email-usuario"
+                        id="email-usuario"
+                        required
+                        maxlength="30"
+                        placeholder="Insira seu e-mail"
+                        autocomplete="email"
+                      />
+                    </div>
+                  </div>
+                  <!-- Assunto -->
+                  <div class="container-assunto">
+                    <label for="assunto-sup-usuario" id="assunto-sup-novo"
+                      >Assunto</label
+                    >
+                    <div class="form-field">
+                      <select
+                        name="assunto-sup-usuario"
+                        id="assunto-sup-usuario"
+                      >
+                        <option value="qual-problema" disabled selected>
+                          Qual problema você está tendo com este produto?
+                        </option>
+                        <option value="problemas-com-itens">
+                          Problemas com itens
+                        </option>
+                        <option value="conteudo-adicional">
+                          Conteúdo adicional ou bônus ausente
+                        </option>
+                        <option value="problema-tecnico">
+                          Problema técnico ou de jogabilidade
+                        </option>
+                        <option value="nao-consta-na-biblio">
+                          Não consta na minha biblioteca
+                        </option>
+                        <option value="outro-problema">Outro</option>
+                      </select>
+
+                      <i class="fa-solid fa-angle-down icon"></i>
+                    </div>
+                  </div>
+                  <div class="container-mensagem-usuario">
+                    <label for="mensagem" id="mensagem-novo">Mensagem</label>
+                    <textarea
+                      id="mensagem"
+                      name="mensagem"
+                      rows="6"
+                      cols="50"
+                      placeholder="Descreva seu problema com o máximo de detalhes possível..."
+                    ></textarea>
+                  </div>
+                </section>
+                <div class="btn-container">
+                  <button
+                    type="submit"
+                    id="enviar-mensagem"
+                    name="enviar-mensagem"
+                    class="btn-form"
+                  >
+                    Enviar mensagem
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Area do Footer -->
+    <footer class="footer" id="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img
+              src="../assets/images/icone-iara-games.svg"
+              alt="Logo da Iara Games"
+            />
+            <h2 class="titulo-logo">Iara Games</h2>
+          </div>
+          <p class="footer-tagline">
+            Plataforma de venda de jogos desenvolvidos por brasileiros ou jogos
+            ambientados no Brasil.
+          </p>
+          <div class="footer-lang">
+            <label>Idioma e País</label>
+            <div class="footer-selects">
+              <select>
+                <option>Português</option>
+              </select>
+              <select>
+                <option>Brasil</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="#">Sobre</a>
+          <a href="../pages/jogos.html">Loja</a>
+          <a href="#">Comunidade</a>
+          <a href="#">Blog</a>
+          <a href="../pages/suporte.html">Suporte</a>
+        </nav>
+
+        <div class="footer-social">
+          <a
+            href="https://www.twitch.tv"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitch</a
+          >
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+            >Twitter</a
+          >
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Youtube</a
+          >
+        </div>
+
+        <div class="footer-legal-links">
+          <a href="#">Contato</a>
+          <a href="../pages/politica-privacidade.html" class="link-yellow"
+            >Políticas de Privacidade</a
+          >
+          <a href="../pages/termos-condicoes.html" class="link-yellow"
+            >Termos e Condições</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>2026 – Desenvolvido por grupo 10</span>
+      </div>
+    </footer>
+    <!-- Fim Area do Footer -->
+  </body>
+</html>
