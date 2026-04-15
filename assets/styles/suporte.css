@@ -142,7 +142,7 @@ body {
   position: relative;
   /* z-index: 2; */
   width: 100%;
-  max-width: 1710px;
+  max-width: 1690px;
   margin: 0 auto;
   padding-top: 100px;
   padding-bottom: 30px;
@@ -412,13 +412,12 @@ body {
 
 .container-contato {
   display: flex;
-  height: 867px;
-  padding: 64px 64px 64px 100px;
+  height: 950px;
+  padding: 64px 135px 64px 100px;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
-
   background:
     cover no-repeat,
     linear-gradient(180deg, #000 5.01%, rgba(0, 0, 0, 0) 50.73%),
@@ -544,7 +543,7 @@ body {
 
   display: flex;
   width: 787px;
-  height: 732px;
+  height: 740px;
   padding: 48px 48px 64px 48px;
   flex-direction: column;
   align-items: flex-start;
@@ -1067,11 +1066,19 @@ input::placeholder {
   }
 
   /* Fim Area Faq */
+
+  /* Area Novo Chamado */
+
+  .container-contato {
+    padding: 64px 98px 64px 100px;
+  }
+
+  /* Fim Area Novo Chamado */
 }
 
 /* Notebooks grandes (até 1440px) */
 @media (max-width: 1440px) {
-  /* Area Form o */
+  /* Area Form */
   .contato-info {
     width: 50rem;
   }
@@ -1136,6 +1143,14 @@ input::placeholder {
     margin-inline: auto;
   }
   /* Fim Area Faq */
+
+  /* Area Novo Chamado */
+
+  .container-contato {
+    padding: 64px 65px 64px 100px;
+  }
+
+  /* Fim Area Novo Chamado */
 }
 
 @media (max-width: 1280px) {
@@ -1195,10 +1210,11 @@ input::placeholder {
 
   /* Area novo chamado */
 
+  /* Area Novo Chamado */
+
   .container-contato {
-    height: 90rem;
-    padding: 4rem 4rem 4rem 7.2rem;
+    padding: 64px 15px 64px 100px;
   }
 
-  /* Fim Area novo chamado */
+  /* Fim Area Novo Chamado */
 }
