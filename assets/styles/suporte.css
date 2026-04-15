@@ -1008,6 +1008,8 @@ input::placeholder {
 /* Area Media Queries */
 /* Basicamente gambiarras enquanto não esta feito o mobile first */
 @media (max-width: 1680px) {
+  /* Area Hero */
+
   .hero-content {
     width: 89%;
     padding-inline: 1rem;
@@ -1017,6 +1019,9 @@ input::placeholder {
     font-size: 7rem;
   }
 
+  /* Fim Area Hero */
+
+  /* Area Form */
   .formulario-novo {
     width: 710px;
   }
@@ -1039,10 +1044,34 @@ input::placeholder {
   .btn-form {
     width: 610px;
   }
+
+  /* Fim Area Form */
+
+  /* Area Faq */
+
+  .container-faq {
+    width: 100rem;
+    margin-inline: auto;
+  }
+
+  .section-faq {
+    padding: 1rem 23rem 10rem 0;
+  }
+
+  .container-faq-status {
+    width: 124rem;
+  }
+
+  .container-faq {
+    margin-inline: auto;
+  }
+
+  /* Fim Area Faq */
 }
 
 /* Notebooks grandes (até 1440px) */
 @media (max-width: 1440px) {
+  /* Area Form o */
   .contato-info {
     width: 50rem;
   }
@@ -1090,13 +1119,35 @@ input::placeholder {
   .btn-form {
     width: 500px;
   }
+
+  /* Fim Area Form  */
+
+  /* Area Faq */
+  .section-faq {
+    padding: 1rem 4rem 10rem 0;
+  }
+
+  .container-faq-status {
+    width: 124rem;
+  }
+
+  .container-faq {
+    width: 82rem;
+    margin-inline: auto;
+  }
+  /* Fim Area Faq */
 }
 
 @media (max-width: 1280px) {
+  /* Area Header */
+
   .header-page {
     padding-inline: 4rem;
   }
 
+  /* Fim Area Header */
+
+  /* Area Hero */
   .hero {
     height: 60rem;
   }
@@ -1115,12 +1166,39 @@ input::placeholder {
     width: 97%;
   }
 
+  /* Fim Area Header */
+
+  /* Area Faq */
+
+  .section-faq {
+    padding: 1rem 28rem 10rem 0;
+  }
+
+  .container-faq-status {
+    width: 93rem;
+  }
+
+  .container-faq {
+    width: 75rem;
+    margin-inline: auto;
+    height: 600px;
+  }
+
+  .status-card {
+    padding-bottom: 5rem;
+  }
+
+  .status-card h2 {
+    padding-bottom: 45px;
+  }
+  /* Fim Area Faq */
+
+  /* Area novo chamado */
+
   .container-contato {
     height: 90rem;
     padding: 4rem 4rem 4rem 7.2rem;
   }
 
-  .synopsis {
-    padding: 0;
-  }
+  /* Fim Area novo chamado */
 }
