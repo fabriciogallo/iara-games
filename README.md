@@ -1,29 +1,26 @@
-
-![Logo](assets/images/Union.svg)
-
+![Logo](assets/images/logo-iara-games.png)
 
 # Iara Games
 
 A Iara Games é uma plataforma dedicada à divulgação de jogos desenvolvidos por Game Designers brasileiros. Nosso objetivo é ampliar a visibilidade de projetos nacionais e facilitar a conexão entre desenvolvedores e público.
 
-
 Atuamos como um espaço de curadoria e exposição, reunindo produções independentes e autorais feitas no Brasil. A proposta é fortalecer o ecossistema criativo nacional, oferecendo um canal estruturado para apresentar jogos, compartilhar portfólios e destacar novos talentos.
-
 
 Inspirada no nome da Iara, a plataforma carrega a ideia de identidade brasileira, mas com foco prático: criar oportunidades e dar espaço para quem desenvolve jogos no país.
 
 ## Refêrencias
 
 #### Steam
+
 ![App Screenshot](assets/images/steam.png)
 
 #### GOG
+
 ![App Screenshot](assets/images/gog.png)
 
 #### Epic
+
 ![App Screenshot](assets/images/epic.png)
-
-
 
 ## Design
 
@@ -43,39 +40,33 @@ A identidade visual parte de um símbolo que conecta dois universos: o dos jogos
 
 ## Paleta de Cores
 
-| Cor             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primária | ![#FFCB20](https://dummyimage.com/50/FFCB200a192f/white?text=+) #FFCB20 |
-| Secundária | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF |
-| Branco | ![#FFFFFF](https://dummyimage.com/50/FFFFFF/white?text=+) #FFFFFF |
-| Preto | ![#000000](https://dummyimage.com/50/000000/white?text=+) #000000 |
-
+| Cor        | Hex                                                                     |
+| ---------- | ----------------------------------------------------------------------- |
+| Primária   | ![#FFCB20](https://dummyimage.com/50/FFCB200a192f/white?text=+) #FFCB20 |
+| Secundária | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF       |
+| Branco     | ![#FFFFFF](https://dummyimage.com/50/FFFFFF/white?text=+) #FFFFFF       |
+| Preto      | ![#000000](https://dummyimage.com/50/000000/white?text=+) #000000       |
 
 ## Aplicação e explicação de cuidados de usabilidade e acessibilidade
 
 Durante o desenvolvimento da interface, foram considerados alguns princípios de usabilidade e acessibilidade para tornar a navegação mais clara e confortável para diferentes perfis de usuários. A estrutura da página foi organizada em blocos bem definidos, como seções de jogos populares, ofertas e exploração por região, permitindo que o usuário escaneie rapidamente o conteúdo e encontre o que procura sem esforço.
 
-
 O contraste entre o fundo escuro e os elementos de destaque, como botões e informações principais, foi pensado para melhorar a legibilidade e facilitar a identificação das ações disponíveis. Botões como “Comprar jogo” e “Jogar” utilizam cores de destaque e tamanhos consistentes, ajudando o usuário a reconhecer rapidamente quais elementos são interativos.
 
-
 Também foram utilizados cards para apresentar os jogos, agrupando imagem, título, preço e ação em um mesmo espaço visual. Esse padrão cria consistência na navegação e facilita o reconhecimento das informações, evitando sobrecarga visual.
-
 
 Além disso, os textos possuem hierarquia clara entre títulos, descrições e informações complementares, contribuindo para uma leitura mais fluida. Esses cuidados ajudam a tornar a interface mais intuitiva, acessível e alinhada com boas práticas de experiência do usuário.
 
 ## Mapa de arquivos
-    
+
     iara-games-sprint01
     └───assets
     │   ├───images
     │   └───styles
     │       └───style.css
-    ├─index.html 
+    ├─index.html
     └─README.md
-
 
 ## Layout
 
 ![App Screenshot](assets/images/iaragames.jpg)
-
