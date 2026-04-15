@@ -109,7 +109,7 @@ ol {
 .item-menu {
   color: var(--color-light);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 }
 
@@ -169,7 +169,7 @@ body {
 .hero-sub {
   color: #a8aca8;
   font-family: Montserrat;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: 29.25px; /* 162.5% */
@@ -232,8 +232,8 @@ body {
 
 .contato-header h2 {
   color: #27c840;
-  font-family: Montserrat;
-  font-size: 96px;
+  font-family: var(--font-text);
+  font-size: 9.6rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -243,16 +243,16 @@ body {
   align-self: stretch;
 
   color: #fff;
-  font-family: Montserrat;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
   line-height: 24px; /* 150% */
 }
 .subtitulo-contato {
   color: #fff;
-  font-family: Montserrat;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
@@ -298,7 +298,7 @@ body {
 .titulo-social {
   color: #fff;
   font-family: var(--font-text);
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -307,8 +307,8 @@ body {
 }
 .link-contato-socail {
   color: #fff;
-  font-family: Montserrat;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
@@ -391,7 +391,7 @@ body {
 
   color: #000;
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -404,7 +404,7 @@ body {
 
   color: #6b7280;
   font-family: var(--font-text);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -413,7 +413,7 @@ body {
 /* Fim Nome Compeleto */
 
 input::placeholder {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 /* ID Iara  */
@@ -453,7 +453,7 @@ input::placeholder {
 
   color: #000;
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -466,7 +466,7 @@ input::placeholder {
 
   color: #6b7280;
   font-family: var(--font-text);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -510,7 +510,7 @@ input::placeholder {
 
   color: #000;
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -522,8 +522,8 @@ input::placeholder {
   align-self: stretch;
 
   color: #6b7280;
-  font-family: Montserrat;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -555,7 +555,7 @@ input::placeholder {
 
   color: #000;
   font-family: var(--font-text);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
@@ -571,7 +571,7 @@ input::placeholder {
 
   color: #000;
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -612,8 +612,8 @@ input::placeholder {
   justify-content: center;
 
   color: #000;
-  font-family: Lexend;
-  font-size: 12px;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 133.333% */
@@ -625,8 +625,8 @@ input::placeholder {
   align-self: stretch;
 
   color: #6b7280;
-  font-family: Montserrat;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
@@ -647,8 +647,8 @@ input::placeholder {
 
   color: var(--Dark, #111);
   text-align: center;
-  font-family: Montserrat;
-  font-size: 20px;
+  font-family: var(--font-text);
+  font-size: 2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 20px */
@@ -785,35 +785,90 @@ input::placeholder {
 
 /* Area Media Queries */
 /* Basicamente gambiarras enquanto não esta feito o mobile first */
-
-/* Notebooks grandes (até 1440px) */
-@media (max-width: 1440px) {
+@media (max-width: 1680px) {
   .hero-content {
-    width: 85%;
-    padding-inline: 4rem;
+    width: 89%;
+    padding-inline: 1rem;
   }
 
   .hero-title {
-    font-size: 4.2rem; /* título um pouco menor */
+    font-size: 7rem; /* título um pouco menor */
   }
 
-  /* Formulário se ajusta */
   .formulario-novo {
-    width: 60rem;
+    width: 710px;
   }
+  #nome-usuario-novo {
+    width: 250px;
+  }
+
+  #id-iara-usuario {
+    width: 288px;
+  }
+
+  #email-usuario {
+    width: 610px;
+  }
+
+  #assunto-sup-usuario {
+    width: 610px;
+  }
+
+  .btn-form {
+    width: 610px;
+  }
+}
+
+/* Notebooks grandes (até 1440px) */
+@media (max-width: 1440px) {
+  /* Formulário se ajusta */
 
   .contato-info {
     width: 50rem;
   }
 
   .contato-header h2 {
-    font-size: 7rem; /* título de contato menor */
+    font-size: 8rem;
   }
 
-  /* Footer se ajusta */
+  .subtitulo-contato {
+    display: block;
+    max-width: 73%;
+  }
   .footer-inner {
     grid-template-columns: 28rem 14rem 12rem auto;
     padding-inline: 4rem;
+  }
+
+  .formulario-novo {
+    width: 600px;
+  }
+
+  .container-nome-e-id {
+    column-gap: 40px;
+  }
+  #nome-usuario-novo {
+    width: 240px;
+  }
+
+  #id-iara-usuario {
+    width: 230px;
+  }
+
+  #email-usuario {
+    width: 500px;
+  }
+
+  #assunto-sup-usuario {
+    width: 500px;
+  }
+
+  #assunto-sup-usuario {
+    font-size: 1.4rem;
+  }
+
+  .btn-form {
+    width: 500px;
   }
 }
 
@@ -833,42 +888,20 @@ input::placeholder {
   }
 
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 6rem;
   }
 
   .hero-sub {
-    font-size: 1.6rem;
-  }
-
-  /* Formulário de contato empilha verticalmente */
-  .contato-wrapper {
-    flex-direction: column;
-    height: auto;
-    gap: 4rem;
-  }
-
-  .formulario-novo {
-    width: 100%;
-    height: auto;
-  }
-
-  .contato-info {
-    width: 100%;
-    height: auto;
+    font-size: 1.9em;
+    width: 97%;
   }
 
   .container-contato {
-    height: auto;
-    padding: 4rem;
+    height: 90rem;
+    padding: 4rem 4rem 4rem 7.2rem;
   }
 
   .synopsis {
     padding: 0;
-  }
-
-  /* Footer */
-  .footer-inner {
-    grid-template-columns: 1fr 1fr; /* 2 colunas no lugar de 4 */
-    padding-inline: 3rem;
   }
 }
