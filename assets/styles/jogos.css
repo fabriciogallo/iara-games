@@ -78,7 +78,7 @@ ol {
 
 .jogos-page-title {
   color: var(--color-light);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: clamp(2.56rem, 4vw, 3.84rem);
 }
 
 .jogos-page-grid {
@@ -102,7 +102,7 @@ ol {
 }
 
 .jogos-page-item h2 {
-  font-size: 1.05rem;
+  font-size: 1.68rem;
   color: var(--color-light);
   padding: 12px;
 }

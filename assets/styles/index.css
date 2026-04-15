@@ -28,6 +28,10 @@
   font-family: var(--font-text);
 }
 
+html {
+  font-size: 62.5%;
+}
+
 h1,
 h2,
 h3,
@@ -38,6 +42,7 @@ h4 {
 
 .titulo-logo {
   color: var(--color-light);
+  font-size: 3.2rem;
 }
 
 a {
@@ -78,6 +83,7 @@ ol {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  font-size: 16px;
 }
 
 .header-menu {
@@ -185,7 +191,7 @@ body {
 
 .hero-title {
   font-family: var(--font-text);
-  font-size: 5rem;
+  font-size: 8rem;
   font-weight: 800;
   line-height: 1.05;
   color: #fff;
@@ -195,7 +201,7 @@ body {
 
 .hero-sub {
   max-width: 34ch;
-  font-size: 1.1rem;
+  font-size: 1.76rem;
   color: #fff;
   line-height: 1.7;
   margin-bottom: 30px;
@@ -232,7 +238,7 @@ body {
   z-index: 3;
   background: var(--color-light);
   color: #111;
-  font-size: 0.6rem;
+  font-size: 0.96rem;
   font-weight: 600;
   padding: 5px 10px;
   border-radius: 10px;
@@ -266,7 +272,7 @@ body {
 
 .hero-card-title {
   font-family: var(--font-text);
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: #fff;
   margin-bottom: 12px;
@@ -325,13 +331,13 @@ body {
 
 .pop h2 {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   color: #fff;
 }
 
 .popular-see-all {
   color: var(--color-light);
-  font-size: 1.1rem;
+  font-size: 1.76rem;
   font-weight: 500;
   border-bottom: 2px solid var(--color-yellow);
   padding-bottom: 3px;
@@ -348,7 +354,7 @@ body {
 .pop-conteudo {
   margin: 0 auto;
   display: flex;
-  gap: 6rem;
+  gap: 9.6rem;
   align-items: flex-start;
   padding: 35px 100px;
   padding-bottom: 100px;
@@ -380,12 +386,12 @@ body {
   line-height: normal;
   letter-spacing: 0.06em;
   font-family: var(--font-text);
-  padding-left: 1rem;
+  padding-left: 1.6rem;
 }
 
 .popular-preco {
   padding: 1.5%;
-  padding-top: 1rem;
+  padding-top: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -395,12 +401,12 @@ body {
   color: var(--color-light);
   line-height: 1.6;
   margin-bottom: 12px;
-  font-size: 1.1rem;
+  font-size: 1.76rem;
 }
 
 .popular-tags {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
   transform: translateY(-6px);
 }
@@ -410,7 +416,7 @@ body {
   padding: 2px 10px;
   border-radius: 7px;
   border: 1px solid var(--border);
-  font-size: 0.85rem;
+  font-size: 1.36rem;
   white-space: nowrap;
 }
 
@@ -430,7 +436,7 @@ body {
 .popular-name-row {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 3.2rem;
   flex-wrap: wrap;
   margin-bottom: 16px;
 }
@@ -458,7 +464,7 @@ body {
 
 .explore-title {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 24px;
@@ -476,7 +482,7 @@ body {
   background: rgba(245, 196, 0, 0.12);
   border: 1px solid rgba(245, 196, 0, 0.3);
   color: var(--color-yellow);
-  font-size: 0.8rem;
+  font-size: 1.28rem;
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 20px;
@@ -498,7 +504,7 @@ body {
   right: 10px;
   background: rgba(245, 196, 0, 0.9);
   color: #111;
-  font-size: 0.65rem;
+  font-size: 1.04rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
@@ -590,7 +596,7 @@ body {
 
 .ofertas-see-all {
   color: var(--color-light);
-  font-size: 1.1rem;
+  font-size: 1.76rem;
   font-weight: 500;
   border-bottom: 2px solid var(--color-yellow);
   padding-bottom: 3px;
@@ -618,7 +624,7 @@ body {
 }
 .ofertas-title {
   color: var(--color-light);
-  font-size: 2rem;
+  font-size: 3.2rem;
 }
 
 .ofertas-card {
@@ -916,7 +922,7 @@ select {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.1rem;
+  font-size: 1.76rem;
   color: #fff;
   letter-spacing: 0.04em;
   margin-bottom: 14px;
@@ -926,7 +932,7 @@ select {
 }
 
 .footer-tagline {
-  font-size: 0.82rem;
+  font-size: 1.312rem;
   color: #ffffff;
   line-height: 1.65;
   margin-bottom: 24px;
@@ -934,7 +940,7 @@ select {
 
 .footer-lang label {
   display: block;
-  font-size: 0.78rem;
+  font-size: 1.248rem;
   color: #ffffff;
   margin-bottom: 8px;
   font-weight: 600;
@@ -953,7 +959,7 @@ select {
   color: #ffffff;
   padding: 7px 12px;
   border-radius: 6px;
-  font-size: 0.82rem;
+  font-size: 1.312rem;
   cursor: pointer;
 }
 
@@ -970,7 +976,7 @@ select {
 }
 
 .footer-nav a {
-  font-size: 0.88rem;
+  font-size: 1.408rem;
   color: #ffffff;
 }
 .footer-nav a:hover {
@@ -984,7 +990,7 @@ select {
   padding-top: 25px;
 }
 .footer-social a {
-  font-size: 0.88rem;
+  font-size: 1.408rem;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -994,7 +1000,7 @@ select {
   color: #fff;
 }
 .social-icon {
-  font-size: 0.9rem;
+  font-size: 1.44rem;
 }
 
 .footer-legal-links {
@@ -1004,7 +1010,7 @@ select {
   padding-top: 25px;
 }
 .footer-legal-links a {
-  font-size: 0.88rem;
+  font-size: 1.408rem;
   color: #ffffff;
 }
 .footer-legal-links a:hover {
@@ -1017,7 +1023,7 @@ select {
 .footer-bottom {
   padding: 20px 24px;
   text-align: center;
-  font-size: 0.78rem;
+  font-size: 1.248rem;
   color: #ffffff;
 }
 
@@ -1028,7 +1034,7 @@ select {
 
 .synopsis h1 {
   font-family: var(--font-title);
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 800;
   color: var(--color-light);
   margin-bottom: 16px;
@@ -1039,7 +1045,7 @@ select {
   color: var(--text);
   line-height: 1.7;
   margin-bottom: 12px;
-  font-size: 1.1rem;
+  font-size: 1.76rem;
   font-weight: 400;
 }
 
@@ -1054,13 +1060,39 @@ select {
   }
 }
 
+@media (max-width: 1680px) {
+  .hero-content {
+    width: 89%;
+    padding-inline: 1.6rem;
+  }
+
+  .hero-title {
+    font-size: 7rem;
+  }
+
+  .hero-sub {
+    font-size: 1.2;
+  }
+
+  .hero-card-img {
+    height: 250px;
+  }
+
+  .img-hell {
+    width: 625px;
+  }
+  .ofertas-img-wrap img {
+    object-fit: fill;
+  }
+}
+
 @media (max-width: 1440px) {
   .hero-content {
     width: 85%;
   }
 
   .hero-title {
-    font-size: 4.2rem;
+    font-size: 6.72rem;
   }
 
   .hero-card-img {
@@ -1086,7 +1118,7 @@ select {
   }
 
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 5.6rem;
   }
 
   .hero-card-img {
@@ -1128,7 +1160,7 @@ select {
 
   .hero-title {
     max-width: 100%;
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
 
   .hero-sub {
