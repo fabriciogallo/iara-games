@@ -17,6 +17,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
+
+    <!-- Fontes Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="shortcut icon"
       href="../assets/images/logo-iara-games.ico"
@@ -48,6 +57,7 @@
       </div>
     </header>
     <!-- Fim Area Header  -->
+
     <!-- Area do hero -->
     <section class="hero">
       <div class="hero-bg"></div>
@@ -74,6 +84,97 @@
       </div>
     </section>
     <!-- Fim Area do Hero -->
+
+    <!-- Area Faq -->
+    <section class="section-faq">
+      <div class="container-faq-status">
+        <!-- Area Perguntas Frequentes -->
+        <div class="container-faq">
+          <div class="faq-header">
+            <div class="faq-header-text">
+              <h2>Perguntas Frequentes</h2>
+              <p>Tudo o que você precisa saber para começar.</p>
+            </div>
+            <div class="faq-icon">?</div>
+          </div>
+
+          <div class="faq">
+            <div class="faq-info">
+              <h3>
+                Como restauro minha biblioteca de jogos após uma reinstalação?
+              </h3>
+              <p>
+                Sincronize seus salvamentos na nuvem através das configurações
+                do Launcher Iara antes de iniciar uma nova instalação...
+              </p>
+            </div>
+
+            <div class="faq-info">
+              <h3>Transações multiplataforma são suportadas para DLCs?</h3>
+              <p>
+                A maioria dos títulos suporta compra cruzada entre PC e Console
+                quando vinculados ao seu ID Iara.
+              </p>
+            </div>
+
+            <div class="faq-info">
+              <h3>Requisitos de sistema para Sky Dust</h3>
+              <p>
+                Recomendamos no mínimo uma Nvidia GeForce RTX 2060 / AMD Radeon
+                RX 5600 XT para uma experiência ideal.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Fim Area Perguntas Frequentes -->
+
+        <!-- Status do Servidor -->
+        <div class="status-technical">
+          <!-- Card de Status -->
+          <div class="status-card">
+            <h2>Status do Servidor</h2>
+
+            <div class="status-row">
+              <span class="status-name">Autenticação</span>
+              <span class="status-badge badge-online">
+                <span class="dot dot-online"></span>
+                ONLINE
+              </span>
+            </div>
+
+            <div class="status-row">
+              <span class="status-name">Marketplace</span>
+              <span class="status-badge badge-online">
+                <span class="dot dot-online"></span>
+                ONLINE
+              </span>
+            </div>
+
+            <div class="status-row">
+              <span class="status-name">API Multiplayer</span>
+              <span class="status-badge badge-offline">
+                <span class="dot dot-offline"></span>
+                OFFLINE
+              </span>
+            </div>
+          </div>
+          <!-- Fim Card de Status -->
+
+          <!-- Card Imagem Servidor -->
+          <div class="status-card-image">
+            <img
+              src="../assets/images/imagem-data-center.png"
+              alt="Imagem de data center"
+              class="imagem-servidor"
+            />
+            <p class="info-manutencao">Última manutenção: 2 horas atrás</p>
+          </div>
+          <!-- Fim Card Imagem Servidor -->
+        </div>
+        <!-- Fim Status do Servidor -->
+      </div>
+    </section>
+    <!-- Fim Area Faq -->
 
     <!-- Area novo chamado -->
     <section class="section-contato" id="contato">
@@ -150,7 +251,6 @@
                           placeholder="Comandante Shepherd"
                           autocomplete="name"
                         />
-                        <i class="fa-regular fa-user icon"></i>
                       </div>
                     </div>
 
@@ -167,7 +267,6 @@
                           required
                           placeholder="#9900221"
                         />
-                        <i class="fa-regular fa-user icon"></i>
                       </div>
                     </div>
                   </div>
@@ -216,8 +315,6 @@
                         </option>
                         <option value="outro-problema">Outro</option>
                       </select>
-
-                      <i class="fa-solid fa-angle-down icon"></i>
                     </div>
                   </div>
                   <div class="container-mensagem-usuario">
@@ -247,6 +344,7 @@
         </div>
       </div>
     </section>
+    <!-- Fim novo chamado -->
 
     <!-- Area do Footer -->
     <footer class="footer" id="footer">
