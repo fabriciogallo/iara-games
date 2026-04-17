@@ -6,6 +6,8 @@
 
 Da sprint 1 para a sprint 2, o grupo evoluiu a plataforma Iara Games a partir de melhorias significativas. Como principal ponto de atenção, aprimoramos melhor os aspectos da nossa identidade visual, realizando ajustes na paleta de cores e incorporando uma texturização de água ao fundo. Aplicamos uma variação de tonalidade ao longo da navegação, onde, quanto mais profunda a página, mais escuro se torna o layout, assim como as águas de um rio.
 
+Também acrescentamos um formulário e a reorganização do layout dos cards, tornando a experiência mais completa e funcional.
+
 ![App Screenshot](assets/images/HOMEFASE2.jpg)
 
 
