@@ -223,123 +223,121 @@
               </div>
             </address>
           </div>
-
-          <form class="contato-form">
-            <form
-              id="form-cadastro"
-              name="form-cadastro"
-              class="form-cadastro"
-              method="post"
-              action=""
-            >
-              <fieldset class="formulario-novo">
-                <section class="form-campos">
-                  <!-- Nome -->
-                  <div class="container-nome-e-id">
-                    <div class="container-nome-usuario">
-                      <label for="nome-usuario-novo" id="nome-completo-novo"
-                        >Nome completo</label
-                      >
-                      <div class="form-field">
-                        <input
-                          type="text"
-                          name="nome-usuario-novo"
-                          id="nome-usuario-novo"
-                          required
-                          minlength="5"
-                          maxlength="50"
-                          placeholder="Comandante Shepherd"
-                          autocomplete="name"
-                        />
-                      </div>
-                    </div>
-
-                    <!-- ID Iara -->
-                    <div class="container-id-usuario">
-                      <label for="id-iara-usuario" id="id-iara-novo"
-                        >ID Iara</label
-                      >
-                      <div class="form-field">
-                        <input
-                          type="text"
-                          name="id-iara-usuario"
-                          id="id-iara-usuario"
-                          required
-                          placeholder="#9900221"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Email -->
-                  <div class="container-email-novo">
-                    <label for="email-usuario" id="email-usuario-novo"
-                      >Email</label
+          
+          <form
+            id="form-cadastro"
+            name="form-cadastro"
+            class="form-cadastro"
+            method="post"
+            action=""
+          >
+            <fieldset class="formulario-novo">
+              <section class="form-campos">
+                <!-- Nome -->
+                <div class="container-nome-e-id">
+                  <div class="container-nome-usuario">
+                    <label for="nome-usuario-novo" id="nome-completo-novo"
+                      >Nome completo</label
                     >
                     <div class="form-field">
                       <input
-                        type="email"
-                        name="email-usuario"
-                        id="email-usuario"
+                        type="text"
+                        name="nome-usuario-novo"
+                        id="nome-usuario-novo"
                         required
-                        maxlength="30"
-                        placeholder="Insira seu e-mail"
-                        autocomplete="email"
+                        minlength="5"
+                        maxlength="50"
+                        placeholder="Comandante Shepherd"
+                        autocomplete="name"
                       />
                     </div>
                   </div>
-                  <!-- Assunto -->
-                  <div class="container-assunto">
-                    <label for="assunto-sup-usuario" id="assunto-sup-novo"
-                      >Assunto</label
+
+                  <!-- ID Iara -->
+                  <div class="container-id-usuario">
+                    <label for="id-iara-usuario" id="id-iara-novo"
+                      >ID Iara</label
                     >
                     <div class="form-field">
-                      <select
-                        name="assunto-sup-usuario"
-                        id="assunto-sup-usuario"
-                      >
-                        <option value="qual-problema" disabled selected>
-                          Qual problema você está tendo com este produto?
-                        </option>
-                        <option value="problemas-com-itens">
-                          Problemas com itens
-                        </option>
-                        <option value="conteudo-adicional">
-                          Conteúdo adicional ou bônus ausente
-                        </option>
-                        <option value="problema-tecnico">
-                          Problema técnico ou de jogabilidade
-                        </option>
-                        <option value="nao-consta-na-biblio">
-                          Não consta na minha biblioteca
-                        </option>
-                        <option value="outro-problema">Outro</option>
-                      </select>
+                      <input
+                        type="text"
+                        name="id-iara-usuario"
+                        id="id-iara-usuario"
+                        required
+                        placeholder="#9900221"
+                      />
                     </div>
                   </div>
-                  <div class="container-mensagem-usuario">
-                    <label for="mensagem" id="mensagem-novo">Mensagem</label>
-                    <textarea
-                      id="mensagem"
-                      name="mensagem"
-                      rows="6"
-                      cols="50"
-                      placeholder="Descreva seu problema com o máximo de detalhes possível..."
-                    ></textarea>
-                  </div>
-                </section>
-                <div class="btn-container">
-                  <button
-                    type="submit"
-                    id="enviar-mensagem"
-                    name="enviar-mensagem"
-                    class="btn-form"
-                  >
-                    Enviar mensagem
-                  </button>
                 </div>
-              </fieldset>
-            </form>
+
+                <!-- Email -->
+                <div class="container-email-novo">
+                  <label for="email-usuario" id="email-usuario-novo"
+                    >Email</label
+                  >
+                  <div class="form-field">
+                    <input
+                      type="email"
+                      name="email-usuario"
+                      id="email-usuario"
+                      required
+                      maxlength="30"
+                      placeholder="Insira seu e-mail"
+                      autocomplete="email"
+                    />
+                  </div>
+                </div>
+                <!-- Assunto -->
+                <div class="container-assunto">
+                  <label for="assunto-sup-usuario" id="assunto-sup-novo"
+                    >Assunto</label
+                  >
+                  <div class="form-field">
+                    <select
+                      name="assunto-sup-usuario"
+                      id="assunto-sup-usuario"
+                    >
+                      <option value="qual-problema" disabled selected>
+                        Qual problema você está tendo com este produto?
+                      </option>
+                      <option value="problemas-com-itens">
+                        Problemas com itens
+                      </option>
+                      <option value="conteudo-adicional">
+                        Conteúdo adicional ou bônus ausente
+                      </option>
+                      <option value="problema-tecnico">
+                        Problema técnico ou de jogabilidade
+                      </option>
+                      <option value="nao-consta-na-biblio">
+                        Não consta na minha biblioteca
+                      </option>
+                      <option value="outro-problema">Outro</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="container-mensagem-usuario">
+                  <label for="mensagem" id="mensagem-novo">Mensagem</label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows="6"
+                    cols="50"
+                    placeholder="Descreva seu problema com o máximo de detalhes possível..."
+                  ></textarea>
+                </div>
+              </section>
+              <div class="btn-container">
+                <button
+                  type="submit"
+                  id="enviar-mensagem"
+                  name="enviar-mensagem"
+                  class="btn-form"
+                >
+                  Enviar mensagem
+                </button>
+              </div>
+            </fieldset>
           </form>
         </div>
       </div>
