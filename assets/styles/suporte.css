@@ -132,15 +132,60 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 3.75%, #000 94.1%), #2550ff;
-  background-size: cover;
-  background-position: 50% 20%;
+    linear-gradient(
+      180deg,
+      rgba(4, 8, 20, 0.9) 0%,
+      rgba(26, 66, 218, 0.72) 18%,
+      rgba(20, 54, 191, 0.5) 44%,
+      rgba(4, 8, 24, 0.78) 76%,
+      #000 100%
+    ),
+    radial-gradient(
+      110% 70% at 30% 18%,
+      rgba(74, 129, 255, 0.5) 0%,
+      rgba(43, 91, 255, 0.22) 40%,
+      rgba(8, 17, 48, 0) 72%
+    ),
+    url(../images/bg-agua.png), #1f46d8;
+  background-size: cover, cover, cover, auto;
+  background-position:
+    center,
+    22% 18%,
+    50% 20%,
+    center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 58% 42%,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 0, 0, 0.45) 76%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.16) 56%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
 }
 
 .hero-content {
   position: relative;
-  /* z-index: 2; */
+  z-index: 2;
   width: 100%;
   max-width: 1690px;
   margin: 0 auto;
@@ -166,6 +211,11 @@ body {
   margin-bottom: 30px;
 }
 
+.titulo-ajudar {
+  color: #27c840;
+  font-weight: 400;
+}
+
 .hero-sub {
   color: #a8aca8;
   font-family: var(--font-text);
@@ -187,10 +237,28 @@ body {
   align-self: stretch;
 
   background:
-    lightgray 50% / cover no-repeat,
-    linear-gradient(180deg, #000 5.01%, rgba(0, 0, 0, 0) 50.73%),
-    linear-gradient(175deg, #000 2.98%, rgba(0, 0, 0, 0) 51.87%),
-    #03050d;
+    linear-gradient(
+      180deg,
+      rgb(0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.87) 24%,
+      rgba(0, 0, 0, 0.93) 52%,
+      rgba(0, 0, 0, 0.98) 78%,
+      #000 100%
+    ),
+    radial-gradient(
+      110% 70% at 30% 18%,
+      rgba(0, 0, 0, 0.34) 0%,
+      rgba(0, 0, 0, 0.16) 38%,
+      rgba(0, 0, 0, 0) 72%
+    ),
+    url(../images/bg-agua.png), #000000;
+  background-size: cover, cover, cover, auto;
+  background-position:
+    center,
+    22% 18%,
+    50% 20%,
+    center;
+  background-repeat: no-repeat;
 }
 
 .container-faq-status {

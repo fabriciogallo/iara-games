@@ -6,9 +6,9 @@
   --color-dark: #0d0d0d;
   --color-grey: #bfbfbf;
   --color-dark-grey: #8c8c8c;
-  --color-yellow: #ffcb20;
+  --color-yellow: #fed800;
   --color-yellow-d: #c99b00;
-  --color-green: #34c759;
+  --color-green: #27c840;
   --bg: #0c0c0c;
   --bg2: #111111;
   --bg3: #161616;
@@ -30,6 +30,33 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 59, 253, 0.603) 0%,
+      rgba(0, 1, 2, 0.849) 12%,
+      rgba(0, 0, 0, 0.897) 12.1%,
+      rgba(1, 4, 14, 0.856) 52%,
+      rgba(1, 4, 14, 0.856) 8%,
+      rgba(0, 0, 0, 0.856) 100%
+    ),
+    radial-gradient(
+      110% 70% at 30% 18%,
+      rgba(0, 0, 0, 0.34) 0%,
+      rgba(0, 0, 0, 0.16) 38%,
+      rgba(214, 25, 25, 0) 72%
+    ),
+    url(../images/bg-agua.png), #000000;
+  background-size: cover, cover, cover, auto;
+  /* background-position:
+    center,
+    22% 18%,
+    50% 20%,
+    center; */
+  background-repeat: no-repeat;
 }
 
 h1,
@@ -115,10 +142,6 @@ ol {
 
 /* Fim Area Header */
 
-body {
-  background: #000;
-}
-
 /* Area do Hero */
 
 .hero {
@@ -129,7 +152,7 @@ body {
   overflow: hidden;
 }
 
-.hero-bg {
+/* .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -181,7 +204,7 @@ body {
     rgba(0, 0, 0, 0.16) 56%,
     rgba(0, 0, 0, 0.82) 100%
   );
-}
+} */
 
 .hero-content {
   position: relative;
@@ -206,7 +229,7 @@ body {
   font-size: 8rem;
   font-weight: 800;
   line-height: 1.05;
-  color: #fff;
+  color: var(--color-green);
   letter-spacing: -0.01em;
   margin-bottom: 30px;
 }
@@ -217,7 +240,7 @@ body {
   color: #fff;
   line-height: 1.7;
   margin-bottom: 30px;
-  animation: fadeUp 0.6s 0.12s ease both;
+  font-weight: 300;
 }
 
 .hero-dots {
@@ -306,7 +329,8 @@ body {
 }
 
 .link-see-all {
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.6rem;
 }
 
 .dot {
@@ -344,7 +368,7 @@ body {
 .pop h2 {
   font-family: var(--font-title);
   font-size: 2.4rem;
-  color: #fff;
+  color: var(--color-green);
 }
 
 .popular-see-all {
@@ -409,6 +433,28 @@ body {
   justify-content: space-between;
 }
 
+.game-title {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.game-title h1 {
+  color: var(--color-yellow);
+  font-family: var(--font-text);
+  font-size: 12.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.game-title h3 {
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-size: 1.76rem;
+  font-weight: 400;
+}
+
 .white-text {
   color: var(--color-light);
   line-height: 1.6;
@@ -430,9 +476,12 @@ body {
   border: 1px solid var(--border);
   font-size: 1.36rem;
   white-space: nowrap;
+
+  background-color: #fff;
+  color: #000;
 }
 
-.tag-rpg {
+/* .tag-rpg {
   background-color: red;
   color: rgb(255, 255, 255);
 }
@@ -443,7 +492,7 @@ body {
 .tag-roguelike {
   background-color: orange;
   color: rgb(255, 255, 255);
-}
+} */
 
 .popular-name-row {
   display: flex;
@@ -462,16 +511,61 @@ body {
 /* Area Explore jogos pelo Brasil */
 
 .explore {
-  background: var(--bg3);
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+
+  width: 90%;
+  margin: 6rem auto;
+
+  border-radius: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(
+      140deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.836) 52%,
+      rgba(0, 0, 0, 0.897) 100%
+    ),
+    url(../images/vidro-mapa-br.jpg) center / cover no-repeat;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 50px rgba(0, 0, 0, 0.34);
+}
+
+.explore::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 20%,
+    rgba(255, 255, 255, 0) 42%
+  );
+}
+
+.explore .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  padding: 3.8rem 5rem;
 }
 
 .explore-inner {
   display: grid;
-  grid-template-columns: 580px 1fr;
-  gap: 140px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.94fr);
+  gap: 20.6rem;
+  align-items: center;
+}
+
+.explore-map-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
 
 .explore-title {
@@ -479,12 +573,19 @@ body {
   font-size: 2.4rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .explore-map {
   position: relative;
-  display: inline-block;
+  width: 100%;
+  max-width: 560px;
+}
+
+#svg-map {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .explore-city-label {
@@ -501,13 +602,19 @@ body {
   letter-spacing: 0.04em;
 }
 
+.explore-games-side {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+}
+
 .explore-featured {
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #0f1118;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 1.4rem;
 }
 
 .explore-featured-badge {
@@ -526,24 +633,35 @@ body {
 }
 
 .explore-featured-img {
-  height: 100%;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .explore-thumbs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .explore-thumbs img {
+  display: block;
+  width: 100%;
   border-radius: 8px;
-  height: 80px;
-  border: 1px solid var(--border);
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  object-fit: cover;
 }
 
 .explore-ver-mais {
   text-align: right;
+  margin-top: 0.6rem;
+}
+
+.explore-ver-mais .link-see-all {
+  color: var(--color-yellow);
+  font-size: 1.4rem;
 }
 
 #svg-map path {
@@ -580,6 +698,27 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 1280px) {
+  .explore {
+    width: 94%;
+    border-radius: 3rem;
+  }
+
+  .explore .container {
+    padding: 3rem;
+  }
+
+  .explore-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.8rem;
+  }
+
+  .explore-games-side {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+}
+
 /* Fim Area Explore jogos pelo Brasil */
 
 /* Area de Ofertas */
@@ -596,6 +735,7 @@ body {
   max-width: 1830px;
   flex-direction: column;
   align-items: stretch;
+  height: 80rem;
 }
 
 .ofertas-header {
@@ -635,7 +775,7 @@ body {
   width: auto;
 }
 .ofertas-title {
-  color: var(--color-light);
+  color: var(--color-green);
   font-size: 3.2rem;
 }
 
@@ -804,11 +944,9 @@ body {
 
 /* Area Formulario Divulgar Jogos */
 
-.form-divulga-games {
-  background: #090909;
-
-  border-top: 1px solid var(--border);
-}
+/* .form-divulga-games {
+ 
+} */
 fieldset {
   display: flex;
   padding: 96px 40px;
@@ -916,8 +1054,7 @@ select {
 
 /* Area do Footer */
 .footer {
-  background: #090909;
-  border-top: 1px solid var(--border);
+  background: #09090998;
   padding: 60px 0 0;
 }
 
@@ -1039,28 +1176,6 @@ select {
   color: #ffffff;
 }
 
-.synopsis {
-  flex: 1;
-  padding: 20px 0;
-}
-
-.synopsis h1 {
-  font-family: var(--font-title);
-  font-size: 4rem;
-  font-weight: 800;
-  color: var(--color-light);
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-
-.synopsis h3 {
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 12px;
-  font-size: 1.76rem;
-  font-weight: 400;
-}
-
 /* Fim Area do Footer */
 
 /* Area Media Queries */
@@ -1096,6 +1211,10 @@ select {
   .ofertas-img-wrap img {
     object-fit: fill;
   }
+
+  .game-title h1 {
+    font-size: 11.8rem;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -1116,6 +1235,10 @@ select {
   }
   .ofertas-img-wrap img {
     object-fit: fill;
+  }
+
+  .game-title h1 {
+    font-size: 8.8rem;
   }
 }
 
@@ -1145,7 +1268,10 @@ select {
     object-fit: fill;
   }
 
-  .synopsis {
+  .game-title h1 {
+    font-size: 7.8rem;
+  }
+  .game-title {
     padding: 0;
   }
 }
