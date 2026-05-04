@@ -73,7 +73,7 @@ A Iara Games é uma iniciativa que fortalece o ecossistema nacional de games atr
 #### FORMULÁRIO PARA DESENVOLVEDORES DE JOGOS
 ![App Screenshot](assets/images/printHTMLhome.png)
 
-## LINKS
+## LINKS UTEIS
 
  - [VIDEO PITCH](https://www.youtube.com/watch?v=_JsaPTYOMC4)
  - [GitHub](https://github.com/fabriciogallo/iara-games/)
