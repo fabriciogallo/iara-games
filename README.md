@@ -1,6 +1,6 @@
 ![Logo](assets/images/logo-iara-games.png)
 
-# Iara Games - Fase 2
+# Iara Games - Fase 3
 
 #  A EVOLUÇÃO
 
