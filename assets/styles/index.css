@@ -108,7 +108,7 @@ ol {
   gap: 32px;
 }
 
-.navbar-button {
+.login-btn {
   display: flex;
   border: 0;
   height: 50px;
@@ -200,9 +200,6 @@ ol {
   display: grid;
   grid-template-columns: 1.15fr 520px;
   align-items: center;
-
-  padding-top: 100px;
-  padding-bottom: 30px;
 }
 
 .hero-text {
@@ -306,11 +303,20 @@ ol {
   justify-content: space-between;
 }
 
-.hero .navbar-button {
-  display: inline-grid;
-  grid-auto-flow: column;
+.buy-game-btn {
+  display: flex;
+  border: 0;
+  height: 50px;
+  padding: 0 40px 0 32px;
+  justify-content: center;
   align-items: center;
   gap: 10px;
+  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .link-see-all {
@@ -519,12 +525,11 @@ ol {
   );
 }
 
-.explore .container {
+.explore-container {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1400px;
-  padding: 3.8rem 5rem;
+  padding: 5rem 10rem;
 }
 
 .explore-inner {
@@ -676,7 +681,7 @@ ol {
     border-radius: 3rem;
   }
 
-  .explore .container {
+  .explore-container {
     padding: 3rem;
   }
 
@@ -695,16 +700,12 @@ ol {
 
 /* Area de Ofertas */
 
-.container {
+.ofertas-container {
   display: flex;
-  max-width: fit-content;
+  max-width: 1830px;
   width: 100%;
   margin: 0 auto;
   padding: 60px 24px;
-}
-
-.container--ofertas {
-  max-width: 1830px;
   flex-direction: column;
   align-items: stretch;
   height: 80rem;
@@ -977,6 +978,8 @@ fieldset {
 
   background-color: #ffcb20;
   box-shadow: 0 0 34px 0 rgba(255, 203, 32, 0.3);
+
+  font-size: 1.4rem;
 }
 
 select option {
@@ -1025,6 +1028,15 @@ select {
 /* Fim Area Formulario Divulgar Jogos */
 
 /* Area do Footer */
+
+.footer-container {
+  display: flex;
+  max-width: fit-content;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
 .footer {
   background: #09090998;
   padding: 60px 0 0;
