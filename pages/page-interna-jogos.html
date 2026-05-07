@@ -1,672 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-bs-theme="dark">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Águas de Iara – Iara Games</title>
 
   <!-- Bootstrap 5.3 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
-  <style>
-    :root {
-      --bs-body-bg: #0d0d0d;
-      --bs-body-color: #d0d0d0;
-      --bs-card-bg: #141414;
-      --bs-card-border-color: #1f1f1f;
-      --accent: #7FFF00;
-      --accent-dim: #4db800;
-    }
-
-    body { font-family: 'Rajdhani', sans-serif; background: var(--bs-body-bg); }
-
-    /* ── NAVBAR ── */
-    .navbar-pgn-jogo-interna {
-      border-bottom: 1px solid #1a1a1a;
-      backdrop-filter: blur(12px);
-    }
-    .navbar-brand-pgn-jogo-interna {
-      font-family: 'Bebas Neue', sans-serif;
-      color: var(--accent) !important;
-      letter-spacing: 3px;
-      font-size: 1.4rem;
-    }
-    .nav-link-pgn-jogo-interna {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: .8rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #888 !important;
-      transition: color .2s;
-    }
-    .nav-link-pgn-jogo-interna:hover,
-    .nav-link-pgn-jogo-interna.active { color: var(--accent) !important; }
-    .nav-link-pgn-jogo-interna.active { border-bottom: 2px solid var(--accent); }
-
-    /* ── HERO ── */
-    .hero-pgn-jogo-interna {
-      position: relative;
-      min-height: 88vh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: linear-gradient(160deg, #001a10 0%, #002a18 50%, #000e0a 100%);
-    }
-    .hero-pgn-jogo-interna::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(170deg, transparent 0, transparent 60px, rgba(0,200,130,.04) 60px, rgba(0,200,130,.04) 62px);
-      animation: rays-pgn-jogo-interna 10s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes rays-pgn-jogo-interna { to { transform: translateY(80px); } }
-
-    .hero-overlay-pgn-jogo-interna {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.2) 60%, transparent 100%);
-    }
-    .hero-content-pgn-jogo-interna {
-      position: relative;
-      z-index: 2;
-    }
-    .hero-title-pgn-jogo-interna {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 9vw, 7.5rem);
-      line-height: .95;
-      letter-spacing: 3px;
-      color: #fff;
-    }
-    .hero-title-pgn-jogo-interna .accent-pgn-jogo-interna { color: var(--accent); }
-
-    /* ── PARTICLES ── */
-    .particle-pgn-jogo-interna {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: .5;
-      animation: floatp-pgn-jogo-interna linear infinite;
-      pointer-events: none;
-    }
-    @keyframes floatp-pgn-jogo-interna {
-      0%   { transform: translateY(0); opacity: 0; }
-      20%  { opacity: .6; }
-      100% { transform: translateY(-90vh); opacity: 0; }
-    }
-
-    /* ── BADGE ── */
-    .badge-accent-pgn-jogo-interna {
-      background: rgba(127,255,0,.12);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: .7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: .35rem .85rem;
-      border-radius: 2px;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label-pgn-jogo-interna {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: .7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-    .section-label-pgn-jogo-interna::before {
-      content: '';
-      width: 20px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    /* ── CARDS ── */
-    .card-pgn-jogo-interna {
-      border-color: var(--bs-card-border-color);
-      transition: border-color .3s, transform .3s;
-    }
-    .card-pgn-jogo-interna:hover {
-      border-color: var(--accent-dim);
-      transform: translateY(-3px);
-    }
-
-    /* ── FEATURE ICON ── */
-    .feature-icon-pgn-jogo-interna {
-      width: 38px; height: 38px;
-      background: rgba(127,255,0,.1);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent);
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar-sticky-pgn-jogo-interna {
-      position: sticky;
-      top: 76px;
-    }
-    .price-tag-pgn-jogo-interna {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: #fff;
-      line-height: 1;
-      letter-spacing: 1px;
-    }
-
-    /* ── BUTTONS ── */
-    .btn-buy-pgn-jogo-interna {
-      background: var(--accent);
-      color: #000;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: .9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 3px;
-      transition: background .2s, transform .15s;
-    }
-    .btn-buy-pgn-jogo-interna:hover { background: #a0ff3a; transform: translateY(-1px); color: #000; }
-
-    .btn-wish-pgn-jogo-interna {
-      background: transparent;
-      color: #999;
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: .85rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border: 1px solid #2a2a2a;
-      border-radius: 3px;
-      transition: border-color .2s, color .2s;
-    }
-    .btn-wish-pgn-jogo-interna:hover { border-color: #fff; color: #fff; }
-
-    /* ── PROGRESS ── */
-    .progress-pgn-jogo-interna {
-      background: #1a1a1a;
-      border-radius: 2px;
-      height: 5px;
-    }
-    .progress-bar-pgn-jogo-interna {
-      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
-    }
-
-    /* ── SPECS ── */
-    .spec-label-pgn-jogo-interna {
-      font-size: .65rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #555;
-    }
-    .spec-value-pgn-jogo-interna {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: .9rem;
-      color: #ccc;
-    }
-
-    /* ── GALLERY ── */
-    .gallery-grid-pgn-jogo-interna {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 6px;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .gallery-item-pgn-jogo-interna {
-      background: #111;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-    }
-    .gallery-item-pgn-jogo-interna.tall-pgn-jogo-interna { grid-row: span 2; }
-    .gallery-placeholder-pgn-jogo-interna {
-      width: 100%; height: 100%;
-      min-height: 130px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .gallery-item-pgn-jogo-interna::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: rgba(127,255,0,0);
-      transition: background .3s;
-    }
-    .gallery-item-pgn-jogo-interna:hover::after { background: rgba(127,255,0,.07); }
-
-    /* ── REVIEWS ── */
-    .global-score-pgn-jogo-interna {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .avatar-circle-pgn-jogo-interna {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      border: 2px solid #222;
-      flex-shrink: 0;
-    }
-    .review-text-pgn-jogo-interna {
-      font-size: .85rem;
-      color: #888;
-      line-height: 1.65;
-    }
-    .stars-yellow-pgn-jogo-interna { color: #FFD700; font-size: .8rem; }
-
-    /* ── PLATFORM BUTTONS ── */
-    .platform-btn-pgn-jogo-interna {
-      width: 36px; height: 36px;
-      background: #1a1a1a;
-      border: 1px solid #252525;
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: #777; font-size: 1rem;
-      cursor: pointer;
-      transition: color .2s, border-color .2s;
-    }
-    .platform-btn-pgn-jogo-interna:hover { color: var(--accent); border-color: var(--accent-dim); }
-
-    /* ── DEVELOPER ── */
-    .dev-logo-pgn-jogo-interna {
-      width: 56px; height: 56px;
-      background: rgba(127,255,0,.08);
-      border: 1px solid rgba(127,255,0,.2);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent);
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-    .dev-link-pgn-jogo-interna {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: .75rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .dev-link-pgn-jogo-interna:hover { opacity: .7; color: var(--accent); }
-
-    /* ── FOOTER ── */
-    .footer-brand-pgn-jogo-interna {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      color: var(--accent);
-      letter-spacing: 2px;
-    }
-    .footer-heading-pgn-jogo-interna {
-      font-size: .7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #555;
-    }
-    .footer-link-pgn-jogo-interna {
-      color: #666;
-      text-decoration: none;
-      font-size: .85rem;
-      transition: color .2s;
-      display: block;
-    }
-    .footer-link-pgn-jogo-interna:hover { color: var(--accent); }
-
-    .footer-social-pgn-jogo-interna {
-      color: #666;
-      text-decoration: none;
-      font-size: .85rem;
-      display: flex; align-items: center; gap: .65rem;
-      transition: color .2s;
-    }
-    .footer-social-pgn-jogo-interna:hover { color: var(--accent); }
-
-    /* ── SCROLL FADE ── */
-    .fade-up-pgn-jogo-interna {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-up-pgn-jogo-interna.visible { opacity: 1; transform: none; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- CSS da página -->
+  <link href="/assets/styles/internajogos.css" rel="stylesheet" />
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-pgn-jogo-interna navbar-expand-md navbar-dark sticky-top bg-black bg-opacity-90 px-4">
-  <a class="navbar-brand navbar-brand-pgn-jogo-interna" href="#">IARA GAMES</a>
-  <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="mainNav">
-    <ul class="navbar-nav ms-3 gap-1 me-auto">
-      <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna active" href="#">Store</a></li>
-      <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Library</a></li>
-      <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Community</a></li>
-      <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Wishlist</a></li>
-    </ul>
-    <div class="d-flex align-items-center gap-3">
-      <i class="bi bi-cart2 text-secondary fs-5" role="button"></i>
-      <i class="bi bi-person-circle text-secondary fs-5" role="button"></i>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar navbar-pgn-jogo-interna navbar-expand-md navbar-dark sticky-top bg-black bg-opacity-90 px-4">
+    <a class="navbar-brand navbar-brand-pgn-jogo-interna" href="#">IARA GAMES</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+      aria-controls="mainNav" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-3 gap-1 me-auto">
+        <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna active" href="#">Store</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Library</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Community</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-pgn-jogo-interna" href="#">Wishlist</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <i class="bi bi-cart2 text-secondary fs-5" role="button"></i>
+        <i class="bi bi-person-circle text-secondary fs-5" role="button"></i>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section class="hero-pgn-jogo-interna">
-  <div class="particle-pgn-jogo-interna" style="width:3px;height:3px;left:12%;bottom:0;animation-duration:13s"></div>
-  <div class="particle-pgn-jogo-interna" style="width:2px;height:2px;left:32%;bottom:0;animation-duration:9s;animation-delay:2s"></div>
-  <div class="particle-pgn-jogo-interna" style="width:4px;height:4px;left:58%;bottom:0;animation-duration:15s;animation-delay:4s"></div>
-  <div class="particle-pgn-jogo-interna" style="width:2px;height:2px;left:78%;bottom:0;animation-duration:11s;animation-delay:1s"></div>
-  <div class="hero-overlay-pgn-jogo-interna"></div>
+  <!-- ── HERO ── -->
+  <section class="hero-pgn-jogo-interna">
+    <div class="particle-pgn-jogo-interna" style="width:3px;height:3px;left:12%;bottom:0;animation-duration:13s;"></div>
+    <div class="particle-pgn-jogo-interna"
+      style="width:2px;height:2px;left:32%;bottom:0;animation-duration:9s;animation-delay:2s;"></div>
+    <div class="particle-pgn-jogo-interna"
+      style="width:4px;height:4px;left:58%;bottom:0;animation-duration:15s;animation-delay:4s;"></div>
+    <div class="particle-pgn-jogo-interna"
+      style="width:2px;height:2px;left:78%;bottom:0;animation-duration:11s;animation-delay:1s;"></div>
+    <div class="hero-overlay-pgn-jogo-interna"></div>
 
-  <div class="hero-content-pgn-jogo-interna container-fluid px-4 px-md-5 pb-5">
-    <span class="badge badge-accent-pgn-jogo-interna mb-3 d-inline-flex align-items-center gap-1">
-      <i class="bi bi-lightning-charge-fill"></i> Action Adventure
-    </span>
-    <h1 class="hero-title-pgn-jogo-interna mb-3">
-      Águas de <span class="accent-pgn-jogo-interna">Iara</span>
-    </h1>
-    <div class="d-flex flex-wrap align-items-center gap-4">
-      <span class="text-uppercase text-secondary" style="font-size:.7rem;letter-spacing:1.5px">
-        Developer <strong class="ms-1" style="color:var(--accent)">Curipira Studios</strong>
+    <div class="hero-content-pgn-jogo-interna container-fluid px-4 px-md-5 pb-5">
+      <span class="badge badge-accent-pgn-jogo-interna mb-3 d-inline-flex align-items-center gap-1">
+        <i class="bi bi-lightning-charge-fill"></i> Action Adventure
       </span>
-      <span class="text-uppercase text-secondary" style="font-size:.7rem;letter-spacing:1.5px">
-        Release <strong class="ms-1" style="color:var(--accent)">DEC 2024</strong>
-      </span>
-      <span class="stars-yellow-pgn-jogo-interna fs-6">★★★★★</span>
+      <h1 class="hero-title-pgn-jogo-interna mb-3">
+        Águas de <span class="accent-pgn-jogo-interna">Iara</span>
+      </h1>
+      <div class="d-flex flex-wrap align-items-center gap-4">
+        <span class="text-uppercase text-secondary" style="font-size:.7rem;letter-spacing:1.5px">
+          Developer <strong class="ms-1 accent-pgn-jogo-interna">Curipira Studios</strong>
+        </span>
+        <span class="text-uppercase text-secondary" style="font-size:.7rem;letter-spacing:1.5px">
+          Release <strong class="ms-1 accent-pgn-jogo-interna">DEC 2024</strong>
+        </span>
+        <span class="stars-yellow-pgn-jogo-interna fs-6">★★★★★</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- MAIN CONTENT -->
-<div class="container-fluid px-4 px-md-5 py-5">
-  <div class="row g-5">
+  <!-- ── CONTEÚDO PRINCIPAL ── -->
+  <div class="container-fluid px-4 px-md-5 py-5">
+    <div class="row g-5">
 
-    <!-- LEFT COLUMN -->
-    <div class="col-lg-8">
+      <!-- COLUNA ESQUERDA -->
+      <div class="col-lg-8">
 
-      <!-- Description -->
-      <div class="mb-5 fade-up-pgn-jogo-interna">
-        <p class="section-label-pgn-jogo-interna mb-3">The Legend Awakens</p>
-        <p class="text-secondary lh-lg" style="font-size:.92rem">
-          Dive into the mesmerizing depths of the Amazon River in <strong class="text-white">Águas de Iara</strong>, a third-person action-adventure inspired by the rich tapestry of Brazilian folklore. You play as a traveler chosen by the Lady of the Waters herself, tasked with purifying the sacred tributaries from an encroaching industrial rot.
-        </p>
-        <p class="text-secondary lh-lg" style="font-size:.92rem">
-          Master the "Fluid Flow" combat system, where your movements mirror the current of the river. Navigate lush submerged ruins, interact with legendary entities like the Boto and the Boitatá, and discover the hidden secrets of the forest floor.
-        </p>
-      </div>
+        <!-- Descrição -->
+        <div class="mb-5">
+          <p class="section-label-pgn-jogo-interna mb-3">The Legend Awakens</p>
+          <p class="text-secondary lh-lg" style="font-size:.92rem">
+            Dive into the mesmerizing depths of the Amazon River in <strong class="text-white">Águas de Iara</strong>, a
+            third-person action-adventure inspired by the rich tapestry of Brazilian folklore. You play as a traveler
+            chosen by the Lady of the Waters herself, tasked with purifying the sacred tributaries from an encroaching
+            industrial rot.
+          </p>
+          <p class="text-secondary lh-lg" style="font-size:.92rem">
+            Master the "Fluid Flow" combat system, where your movements mirror the current of the river. Navigate lush
+            submerged ruins, interact with legendary entities like the Boto and the Boitatá, and discover the hidden
+            secrets of the forest floor.
+          </p>
+        </div>
 
-      <!-- Feature Cards -->
-      <div class="row g-3 mb-5 fade-up-pgn-jogo-interna">
-        <div class="col-md-6">
-          <div class="card card-pgn-jogo-interna h-100 bg-dark border p-3">
+        <!-- Cards de funcionalidade -->
+        <div class="row g-3 mb-5">
+          <div class="col-md-6">
+            <div class="card card-pgn-jogo-interna h-100 bg-dark border p-3">
+              <div class="card-body p-0 d-flex gap-3">
+                <div class="feature-icon-pgn-jogo-interna"><i class="bi bi-water"></i></div>
+                <div>
+                  <h6 class="card-title text-white mb-1" style="font-family:'Rajdhani',sans-serif">Hydro-Dynamic Combat
+                  </h6>
+                  <p class="card-text text-secondary mb-0" style="font-size:.82rem;line-height:1.55">Harness water-based
+                    abilities to manipulate the battlefield and outmaneuver enemies.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-pgn-jogo-interna h-100 bg-dark border p-3">
+              <div class="card-body p-0 d-flex gap-3">
+                <div class="feature-icon-pgn-jogo-interna"><i class="bi bi-cpu"></i></div>
+                <div>
+                  <h6 class="card-title text-white mb-1" style="font-family:'Rajdhani',sans-serif">Mythical Ecosystem
+                  </h6>
+                  <p class="card-text text-secondary mb-0" style="font-size:.82rem;line-height:1.55">Interact with
+                    AI-driven creatures from Tupi-Guarani lore in a living, breathing world.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galeria -->
+        <div class="mb-5">
+          <p class="section-label-pgn-jogo-interna mb-3">Visions of the Deep</p>
+          <div class="gallery-grid-pgn-jogo-interna">
+            <div class="gallery-item-pgn-jogo-interna tall-pgn-jogo-interna">
+              <div class="gallery-placeholder-pgn-jogo-interna"
+                style="background:linear-gradient(160deg,#001f15,#00100a);min-height:280px">
+                <i class="bi bi-person-fill text-success opacity-25" style="font-size:3.5rem"></i>
+              </div>
+            </div>
+            <div class="gallery-item-pgn-jogo-interna">
+              <div class="gallery-placeholder-pgn-jogo-interna"
+                style="background:linear-gradient(160deg,#0a1a10,#001508)">
+                <i class="bi bi-buildings text-success opacity-25" style="font-size:2rem"></i>
+              </div>
+            </div>
+            <div class="gallery-item-pgn-jogo-interna">
+              <div class="gallery-placeholder-pgn-jogo-interna"
+                style="background:linear-gradient(160deg,#0d1e06,#091400)">
+                <i class="bi bi-person-walking text-success opacity-25" style="font-size:2rem"></i>
+              </div>
+            </div>
+            <div class="gallery-item-pgn-jogo-interna">
+              <div class="gallery-placeholder-pgn-jogo-interna"
+                style="background:linear-gradient(160deg,#00150e,#001a10)">
+                <i class="bi bi-tree text-success opacity-25" style="font-size:2rem"></i>
+              </div>
+            </div>
+            <div class="gallery-item-pgn-jogo-interna">
+              <div class="gallery-placeholder-pgn-jogo-interna"
+                style="background:linear-gradient(160deg,#0d180d,#091209)">
+                <i class="bi bi-fire opacity-25" style="font-size:2rem;color:#FFD700"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avaliações da comunidade -->
+        <div>
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <p class="section-label-pgn-jogo-interna mb-0">Community Echoes</p>
+            <div class="text-end">
+              <div class="global-score-pgn-jogo-interna">4.8</div>
+              <div class="text-uppercase text-secondary" style="font-size:.65rem;letter-spacing:2px">Global Score</div>
+            </div>
+          </div>
+
+          <!-- Avaliação 1 -->
+          <div class="card card-pgn-jogo-interna bg-dark border mb-3 p-3">
+            <div class="card-body p-0">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="avatar-circle-pgn-jogo-interna"
+                  style="background:linear-gradient(135deg,#1a4a2a,#003318);color:var(--accent)">T</div>
+                <div>
+                  <div class="fw-bold text-white" style="font-size:.95rem;font-family:'Rajdhani',sans-serif">Tiago Silva
+                  </div>
+                  <div class="stars-yellow-pgn-jogo-interna">★★★★★</div>
+                </div>
+              </div>
+              <p class="review-text-pgn-jogo-interna mb-0">"The visual direction is absolutely stunning. I've never seen
+                my country's myths treated with such reverence and high-production value. The combat feels like water!"
+              </p>
+            </div>
+          </div>
+
+          <!-- Avaliação 2 -->
+          <div class="card card-pgn-jogo-interna bg-dark border mb-4 p-3">
+            <div class="card-body p-0">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="avatar-circle-pgn-jogo-interna"
+                  style="background:linear-gradient(135deg,#2a1a3a,#180030);color:#bf7fff">M</div>
+                <div>
+                  <div class="fw-bold text-white" style="font-size:.95rem;font-family:'Rajdhani',sans-serif">Marina M.
+                  </div>
+                  <div><span class="stars-yellow-pgn-jogo-interna">★★★★</span><span class="text-secondary">★</span>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text-pgn-jogo-interna mb-0">"Pure atmospheric magic. The soundtrack alone is worth the
+                price. Some minor bugs with the swimming mechanics, but the story kept me hooked."</p>
+            </div>
+          </div>
+
+          <!-- Card do desenvolvedor -->
+          <div class="card card-pgn-jogo-interna bg-black border p-3">
             <div class="card-body p-0 d-flex gap-3">
-              <div class="feature-icon-pgn-jogo-interna"><i class="bi bi-water"></i></div>
+              <div class="dev-logo-pgn-jogo-interna"><i class="bi bi-patch-check-fill"></i></div>
               <div>
-                <h6 class="card-title text-white mb-1" style="font-family:'Rajdhani',sans-serif">Hydro-Dynamic Combat</h6>
-                <p class="card-text text-secondary mb-0" style="font-size:.82rem;line-height:1.55">Harness water-based abilities to manipulate the battlefield and outmaneuver enemies.</p>
+                <div class="fw-bold text-white mb-1" style="font-family:'Rajdhani',sans-serif;font-size:1.1rem">Curipira
+                  Studios</div>
+                <p class="text-secondary mb-2" style="font-size:.82rem;line-height:1.6">A Manaus-based independent
+                  collective dedicated to bringing South American narratives to the global stage through premium
+                  interactive experiences.</p>
+                <div class="d-flex gap-3">
+                  <a href="#" class="dev-link-pgn-jogo-interna">Follow Developer</a>
+                  <a href="#" class="dev-link-pgn-jogo-interna">More from Curipira</a>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
-        <div class="col-md-6">
-          <div class="card card-pgn-jogo-interna h-100 bg-dark border p-3">
-            <div class="card-body p-0 d-flex gap-3">
-              <div class="feature-icon-pgn-jogo-interna"><i class="bi bi-cpu"></i></div>
-              <div>
-                <h6 class="card-title text-white mb-1" style="font-family:'Rajdhani',sans-serif">Mythical Ecosystem</h6>
-                <p class="card-text text-secondary mb-0" style="font-size:.82rem;line-height:1.55">Interact with AI-driven creatures from Tupi-Guarani lore in a living, breathing world.</p>
+      </div><!-- /col-lg-8 -->
+
+      <!-- COLUNA DIREITA — Sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar-sticky-pgn-jogo-interna">
+          <div class="card card-pgn-jogo-interna bg-dark border p-4">
+            <div class="card-body p-0">
+
+              <span class="text-uppercase text-secondary d-block mb-1" style="font-size:.7rem;letter-spacing:2px">Base
+                Game</span>
+              <div class="price-tag-pgn-jogo-interna mb-3">R$ 149,90</div>
+
+              <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-buy-pgn-jogo-interna py-2">
+                  <i class="bi bi-cart-plus-fill me-2"></i>Add to Cart
+                </button>
+                <button class="btn btn-wish-pgn-jogo-interna py-2">
+                  <i class="bi bi-heart me-2"></i>Wishlist
+                </button>
               </div>
+
+              <hr class="border-secondary border-opacity-25" />
+
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-display accent-pgn-jogo-interna"></i>
+                <span class="text-uppercase text-secondary" style="font-size:.68rem;letter-spacing:2px">System
+                  Specs</span>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <div class="spec-label-pgn-jogo-interna">OS</div>
+                  <div class="spec-value-pgn-jogo-interna">Windows 11</div>
+                </div>
+                <div class="col-6">
+                  <div class="spec-label-pgn-jogo-interna">Processor</div>
+                  <div class="spec-value-pgn-jogo-interna">i7-12700K</div>
+                </div>
+                <div class="col-6">
+                  <div class="spec-label-pgn-jogo-interna">Memory</div>
+                  <div class="spec-value-pgn-jogo-interna">16 GB RAM</div>
+                </div>
+                <div class="col-6">
+                  <div class="spec-label-pgn-jogo-interna">Storage</div>
+                  <div class="spec-value-pgn-jogo-interna">45 GB SSD</div>
+                </div>
+              </div>
+
+              <div class="progress progress-pgn-jogo-interna mb-1">
+                <div class="progress-bar progress-bar-pgn-jogo-interna" role="progressbar" style="width:88%"
+                  aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="text-uppercase text-secondary" style="font-size:.65rem;letter-spacing:1.5px">Performance
+                  Mode</span>
+                <span class="text-uppercase fw-bold accent-pgn-jogo-interna"
+                  style="font-size:.65rem;letter-spacing:1.5px">Ready</span>
+              </div>
+
+              <hr class="border-secondary border-opacity-25" />
+
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-device-ssd accent-pgn-jogo-interna"></i>
+                <span class="text-uppercase text-secondary" style="font-size:.68rem;letter-spacing:2px">Available
+                  On</span>
+              </div>
+              <div class="d-flex gap-2">
+                <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-display"></i></div>
+                <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-controller"></i></div>
+                <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-joystick"></i></div>
+              </div>
+
             </div>
           </div>
         </div>
+      </div><!-- /col-lg-4 -->
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+
+  <!-- ── FOOTER ── -->
+  <footer class="bg-black border-top border-secondary border-opacity-10 mt-4 pt-5 pb-4">
+    <div class="container-fluid px-4 px-md-5">
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-water accent-pgn-jogo-interna" style="font-size:1.3rem"></i>
+            <span class="footer-brand-pgn-jogo-interna">Iara Games</span>
+          </div>
+          <p class="text-secondary" style="font-size:.83rem;line-height:1.65;max-width:240px">
+            Plataforma de jogos desenvolvidos por brasileiros ou ambientados no Brasil.
+          </p>
+          <p class="footer-heading-pgn-jogo-interna mt-3 mb-2">Idioma e País</p>
+          <div class="d-flex gap-2">
+            <select class="form-select form-select-sm bg-black border-secondary text-secondary" style="max-width:120px">
+              <option>Português</option>
+              <option>English</option>
+            </select>
+            <select class="form-select form-select-sm bg-black border-secondary text-secondary" style="max-width:100px">
+              <option>Brasil</option>
+              <option>Global</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <p class="footer-heading-pgn-jogo-interna mb-3">Menu</p>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Sobre</a>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Loja</a>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Comunidade</a>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Blog</a>
+          <a class="footer-link-pgn-jogo-interna" href="#">Suporte</a>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <p class="footer-heading-pgn-jogo-interna mb-3">Legal</p>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Contato</a>
+          <a class="footer-link-pgn-jogo-interna mb-2" href="#">Políticas de Privacidade</a>
+          <a class="footer-link-pgn-jogo-interna" href="#">Termos e Condições</a>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <p class="footer-heading-pgn-jogo-interna mb-3">Redes Sociais</p>
+          <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-twitch"></i> Twitch</a>
+          <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-instagram"></i> Instagram</a>
+          <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-twitter-x"></i> Twitter</a>
+          <a class="footer-social-pgn-jogo-interna" href="#"><i class="bi bi-youtube"></i> Youtube</a>
+        </div>
+
       </div>
 
-      <!-- Gallery -->
-      <div class="mb-5 fade-up-pgn-jogo-interna">
-        <p class="section-label-pgn-jogo-interna mb-3">Visions of the Deep</p>
-        <div class="gallery-grid-pgn-jogo-interna">
-          <div class="gallery-item-pgn-jogo-interna tall-pgn-jogo-interna">
-            <div class="gallery-placeholder-pgn-jogo-interna" style="background:linear-gradient(160deg,#001f15,#00100a);min-height:280px">
-              <i class="bi bi-person-fill text-success opacity-25" style="font-size:3.5rem"></i>
-            </div>
-          </div>
-          <div class="gallery-item-pgn-jogo-interna">
-            <div class="gallery-placeholder-pgn-jogo-interna" style="background:linear-gradient(160deg,#0a1a10,#001508)">
-              <i class="bi bi-buildings text-success opacity-25" style="font-size:2rem"></i>
-            </div>
-          </div>
-          <div class="gallery-item-pgn-jogo-interna">
-            <div class="gallery-placeholder-pgn-jogo-interna" style="background:linear-gradient(160deg,#0d1e06,#091400)">
-              <i class="bi bi-person-walking text-success opacity-25" style="font-size:2rem"></i>
-            </div>
-          </div>
-          <div class="gallery-item-pgn-jogo-interna">
-            <div class="gallery-placeholder-pgn-jogo-interna" style="background:linear-gradient(160deg,#00150e,#001a10)">
-              <i class="bi bi-tree text-success opacity-25" style="font-size:2rem"></i>
-            </div>
-          </div>
-          <div class="gallery-item-pgn-jogo-interna">
-            <div class="gallery-placeholder-pgn-jogo-interna" style="background:linear-gradient(160deg,#0d180d,#091209)">
-              <i class="bi bi-fire opacity-25" style="font-size:2rem;color:#FFD700"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Community Reviews -->
-      <div class="fade-up-pgn-jogo-interna">
-        <div class="d-flex justify-content-between align-items-end mb-4">
-          <p class="section-label-pgn-jogo-interna mb-0">Community Echoes</p>
-          <div class="text-end">
-            <div class="global-score-pgn-jogo-interna">4.8</div>
-            <div class="text-uppercase text-secondary" style="font-size:.65rem;letter-spacing:2px">Global Score</div>
-          </div>
-        </div>
-
-        <!-- Review 1 -->
-        <div class="card card-pgn-jogo-interna bg-dark border mb-3 p-3">
-          <div class="card-body p-0">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <div class="avatar-circle-pgn-jogo-interna" style="background:linear-gradient(135deg,#1a4a2a,#003318);color:var(--accent)">T</div>
-              <div>
-                <div class="fw-bold text-white" style="font-size:.95rem;font-family:'Rajdhani',sans-serif">Tiago Silva</div>
-                <div class="stars-yellow-pgn-jogo-interna">★★★★★</div>
-              </div>
-            </div>
-            <p class="review-text-pgn-jogo-interna mb-0">"The visual direction is absolutely stunning. I've never seen my country's myths treated with such reverence and high-production value. The combat feels like water!"</p>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="card card-pgn-jogo-interna bg-dark border mb-4 p-3">
-          <div class="card-body p-0">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <div class="avatar-circle-pgn-jogo-interna" style="background:linear-gradient(135deg,#2a1a3a,#180030);color:#bf7fff">M</div>
-              <div>
-                <div class="fw-bold text-white" style="font-size:.95rem;font-family:'Rajdhani',sans-serif">Marina M.</div>
-                <div><span class="stars-yellow-pgn-jogo-interna">★★★★</span><span class="text-secondary">★</span></div>
-              </div>
-            </div>
-            <p class="review-text-pgn-jogo-interna mb-0">"Pure atmospheric magic. The soundtrack alone is worth the price. Some minor bugs with the swimming mechanics, but the story kept me hooked."</p>
-          </div>
-        </div>
-
-        <!-- Developer Card -->
-        <div class="card card-pgn-jogo-interna bg-black border p-3">
-          <div class="card-body p-0 d-flex gap-3">
-            <div class="dev-logo-pgn-jogo-interna"><i class="bi bi-patch-check-fill"></i></div>
-            <div>
-              <div class="fw-bold text-white mb-1" style="font-family:'Rajdhani',sans-serif;font-size:1.1rem">Curipira Studios</div>
-              <p class="text-secondary mb-2" style="font-size:.82rem;line-height:1.6">A Manaus-based independent collective dedicated to bringing South American narratives to the global stage through premium interactive experiences.</p>
-              <div class="d-flex gap-3">
-                <a href="#" class="dev-link-pgn-jogo-interna">Follow Developer</a>
-                <a href="#" class="dev-link-pgn-jogo-interna">More from Curipira</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /col-lg-8 -->
-
-    <!-- RIGHT COLUMN — Sidebar -->
-    <div class="col-lg-4">
-      <div class="sidebar-sticky-pgn-jogo-interna">
-        <div class="card card-pgn-jogo-interna bg-dark border p-4">
-          <div class="card-body p-0">
-
-            <span class="text-uppercase text-secondary d-block mb-1" style="font-size:.7rem;letter-spacing:2px">Base Game</span>
-            <div class="price-tag-pgn-jogo-interna mb-3">R$ 149,90</div>
-
-            <div class="d-grid gap-2 mb-3">
-              <button class="btn btn-buy-pgn-jogo-interna py-2">
-                <i class="bi bi-cart-plus-fill me-2"></i>Add to Cart
-              </button>
-              <button class="btn btn-wish-pgn-jogo-interna py-2">
-                <i class="bi bi-heart me-2"></i>Wishlist
-              </button>
-            </div>
-
-            <hr class="border-secondary border-opacity-25"/>
-
-            <div class="d-flex align-items-center gap-2 mb-3">
-              <i class="bi bi-display" style="color:var(--accent)"></i>
-              <span class="text-uppercase text-secondary" style="font-size:.68rem;letter-spacing:2px">System Specs</span>
-            </div>
-
-            <div class="row g-3 mb-3">
-              <div class="col-6">
-                <div class="spec-label-pgn-jogo-interna">OS</div>
-                <div class="spec-value-pgn-jogo-interna">Windows 11</div>
-              </div>
-              <div class="col-6">
-                <div class="spec-label-pgn-jogo-interna">Processor</div>
-                <div class="spec-value-pgn-jogo-interna">i7-12700K</div>
-              </div>
-              <div class="col-6">
-                <div class="spec-label-pgn-jogo-interna">Memory</div>
-                <div class="spec-value-pgn-jogo-interna">16 GB RAM</div>
-              </div>
-              <div class="col-6">
-                <div class="spec-label-pgn-jogo-interna">Storage</div>
-                <div class="spec-value-pgn-jogo-interna">45 GB SSD</div>
-              </div>
-            </div>
-
-            <div class="progress progress-pgn-jogo-interna mb-1">
-              <div class="progress-bar progress-bar-pgn-jogo-interna" role="progressbar" style="width:88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <div class="d-flex justify-content-between">
-              <span class="text-uppercase text-secondary" style="font-size:.65rem;letter-spacing:1.5px">Performance Mode</span>
-              <span class="text-uppercase fw-bold" style="font-size:.65rem;letter-spacing:1.5px;color:var(--accent)">Ready</span>
-            </div>
-
-            <hr class="border-secondary border-opacity-25"/>
-
-            <div class="d-flex align-items-center gap-2 mb-3">
-              <i class="bi bi-device-ssd" style="color:var(--accent)"></i>
-              <span class="text-uppercase text-secondary" style="font-size:.68rem;letter-spacing:2px">Available On</span>
-            </div>
-            <div class="d-flex gap-2">
-              <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-display"></i></div>
-              <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-controller"></i></div>
-              <div class="platform-btn-pgn-jogo-interna"><i class="bi bi-joystick"></i></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div><!-- /col-lg-4 -->
-
-  </div><!-- /row -->
-</div><!-- /container -->
-
-<!-- FOOTER -->
-<footer class="bg-black border-top border-secondary border-opacity-10 mt-4 pt-5 pb-4">
-  <div class="container-fluid px-4 px-md-5">
-    <div class="row g-4">
-
-      <div class="col-lg-3 col-md-6">
-        <div class="d-flex align-items-center gap-2 mb-2">
-          <i class="bi bi-water" style="color:var(--accent);font-size:1.3rem"></i>
-          <span class="footer-brand-pgn-jogo-interna">Iara Games</span>
-        </div>
-        <p class="text-secondary" style="font-size:.83rem;line-height:1.65;max-width:240px">
-          Plataforma de jogos desenvolvidos por brasileiros ou ambientados no Brasil.
-        </p>
-        <p class="footer-heading-pgn-jogo-interna mt-3 mb-2">Idioma e País</p>
-        <div class="d-flex gap-2">
-          <select class="form-select form-select-sm bg-black border-secondary text-secondary" style="max-width:120px">
-            <option>Português</option>
-            <option>English</option>
-          </select>
-          <select class="form-select form-select-sm bg-black border-secondary text-secondary" style="max-width:100px">
-            <option>Brasil</option>
-            <option>Global</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-6">
-        <p class="footer-heading-pgn-jogo-interna mb-3">Menu</p>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Sobre</a>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Loja</a>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Comunidade</a>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Blog</a>
-        <a class="footer-link-pgn-jogo-interna" href="#">Suporte</a>
-      </div>
-
-      <div class="col-lg-3 col-6">
-        <p class="footer-heading-pgn-jogo-interna mb-3">Legal</p>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Contato</a>
-        <a class="footer-link-pgn-jogo-interna mb-2" href="#">Políticas de Privacidade</a>
-        <a class="footer-link-pgn-jogo-interna" href="#">Termos e Condições</a>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <p class="footer-heading-pgn-jogo-interna mb-3">Redes Sociais</p>
-        <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-twitch"></i> Twitch</a>
-        <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-instagram"></i> Instagram</a>
-        <a class="footer-social-pgn-jogo-interna mb-2" href="#"><i class="bi bi-twitter-x"></i> Twitter</a>
-        <a class="footer-social-pgn-jogo-interna" href="#"><i class="bi bi-youtube"></i> Youtube</a>
-      </div>
-
+      <hr class="border-secondary border-opacity-10 mt-5" />
+      <p class="text-secondary mb-0" style="font-size:.75rem">2026 · Desenvolvido por grupo 2</p>
     </div>
+  </footer>
 
-    <hr class="border-secondary border-opacity-10 mt-5"/>
-    <p class="text-secondary mb-0" style="font-size:.75rem">2026 · Desenvolvido por grupo 2</p>
-  </div>
-</footer>
-
-<!-- Bootstrap 5.3 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-up-pgn-jogo-interna').forEach(el => io.observe(el));
-</script>
+  <!-- Bootstrap 5.3 JS Bundle (apenas para o navbar collapse responsivo) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

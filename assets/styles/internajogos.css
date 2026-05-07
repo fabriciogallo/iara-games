@@ -1,3 +1,25 @@
+/* =====================================================
+   IARA GAMES — Página Interna de Jogo
+   iara-games.css
+   Todas as classes customizadas com sufixo -pgn-jogo-interna
+   ===================================================== */
+
+/* ── VARIÁVEIS ── */
+:root {
+    --bs-body-bg: #0d0d0d;
+    --bs-body-color: #d0d0d0;
+    --bs-card-bg: #141414;
+    --bs-card-border-color: #1f1f1f;
+    --accent: #7FFF00;
+    --accent-dim: #4db800;
+}
+
+/* ── BASE ── */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--bs-body-bg);
+}
+
 /* ── NAVBAR ── */
 .navbar-pgn-jogo-interna {
     border-bottom: 1px solid #1a1a1a;
@@ -44,7 +66,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(170deg, transparent 0, transparent 60px, rgba(0, 200, 130, .04) 60px, rgba(0, 200, 130, .04) 62px);
+    background: repeating-linear-gradient(170deg,
+            transparent 0,
+            transparent 60px,
+            rgba(0, 200, 130, .04) 60px,
+            rgba(0, 200, 130, .04) 62px);
     animation: rays-pgn-jogo-interna 10s linear infinite;
     pointer-events: none;
 }
@@ -58,7 +84,10 @@
 .hero-overlay-pgn-jogo-interna {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .2) 60%, transparent 100%);
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .9) 0%,
+            rgba(0, 0, 0, .2) 60%,
+            transparent 100%);
 }
 
 .hero-content-pgn-jogo-interna {
@@ -74,11 +103,11 @@
     color: #fff;
 }
 
-.hero-title-pgn-jogo-interna .accent-pgn-jogo-interna {
+.accent-pgn-jogo-interna {
     color: var(--accent);
 }
 
-/* ── PARTICLES ── */
+/* ── PARTÍCULAS ── */
 .particle-pgn-jogo-interna {
     position: absolute;
     border-radius: 50%;
@@ -177,7 +206,7 @@
     letter-spacing: 1px;
 }
 
-/* ── BUTTONS ── */
+/* ── BOTÕES ── */
 .btn-buy-pgn-jogo-interna {
     background: var(--accent);
     color: #000;
@@ -215,7 +244,7 @@
     color: #fff;
 }
 
-/* ── PROGRESS ── */
+/* ── BARRA DE PROGRESSO ── */
 .progress-pgn-jogo-interna {
     background: #1a1a1a;
     border-radius: 2px;
@@ -226,7 +255,7 @@
     background: linear-gradient(90deg, var(--accent-dim), var(--accent));
 }
 
-/* ── SPECS ── */
+/* ── ESPECIFICAÇÕES ── */
 .spec-label-pgn-jogo-interna {
     font-size: .65rem;
     letter-spacing: 1.5px;
@@ -241,7 +270,7 @@
     color: #ccc;
 }
 
-/* ── GALLERY ── */
+/* ── GALERIA ── */
 .gallery-grid-pgn-jogo-interna {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -283,7 +312,7 @@
     background: rgba(127, 255, 0, .07);
 }
 
-/* ── REVIEWS ── */
+/* ── AVALIAÇÕES ── */
 .global-score-pgn-jogo-interna {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
@@ -315,7 +344,7 @@
     font-size: .8rem;
 }
 
-/* ── PLATFORM BUTTONS ── */
+/* ── BOTÕES DE PLATAFORMA ── */
 .platform-btn-pgn-jogo-interna {
     width: 36px;
     height: 36px;
@@ -336,7 +365,7 @@
     border-color: var(--accent-dim);
 }
 
-/* ── DEVELOPER ── */
+/* ── DESENVOLVEDOR ── */
 .dev-logo-pgn-jogo-interna {
     width: 56px;
     height: 56px;
@@ -359,6 +388,7 @@
     text-transform: uppercase;
     color: var(--accent);
     text-decoration: none;
+    transition: opacity .2s;
 }
 
 .dev-link-pgn-jogo-interna:hover {
@@ -385,8 +415,8 @@
     color: #666;
     text-decoration: none;
     font-size: .85rem;
-    transition: color .2s;
     display: block;
+    transition: color .2s;
 }
 
 .footer-link-pgn-jogo-interna:hover {
@@ -405,16 +435,4 @@
 
 .footer-social-pgn-jogo-interna:hover {
     color: var(--accent);
-}
-
-/* ── SCROLL FADE ── */
-.fade-up-pgn-jogo-interna {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .6s ease, transform .6s ease;
-}
-
-.fade-up-pgn-jogo-interna.visible {
-    opacity: 1;
-    transform: none;
 }
