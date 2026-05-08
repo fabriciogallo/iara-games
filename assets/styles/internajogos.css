@@ -20,6 +20,69 @@ body {
     background: var(--bs-body-bg);
 }
 
+
+/* Area Header */
+
+.header-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 110px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 100px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  top: 1px;
+}
+
+.header-button {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.navbar-button {
+  display: flex;
+  border: 0;
+  height: 50px;
+  padding: 0 40px 0 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.item-menu {
+  color: var(--color-light);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Fim Area Header */
+
+
 /* ── NAVBAR ── */
 .navbar-pgn-jogo-interna {
     border-bottom: 1px solid #1a1a1a;
@@ -59,18 +122,19 @@ body {
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-    background: linear-gradient(160deg, #001a10 0%, #002a18 50%, #000e0a 100%);
+    background-image: url(https://png.pngtree.com/background/20250202/original/pngtree-a-serene-mermaid-swimming-in-the-calm-blue-waters-her-glittering-picture-image_16136475.jpg);
+    /* background: linear-gradient(160deg, #001a10 0%, #002a18 50%, #000e0a 100%); */
 }
 
 .hero-pgn-jogo-interna::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(170deg,
+    /* background: repeating-linear-gradient(170deg,
             transparent 0,
             transparent 60px,
             rgba(0, 200, 130, .04) 60px,
-            rgba(0, 200, 130, .04) 62px);
+            rgba(0, 200, 130, .04) 62px); */
     animation: rays-pgn-jogo-interna 10s linear infinite;
     pointer-events: none;
 }
