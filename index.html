@@ -22,34 +22,71 @@
       href="assets/images/logo-iara-games.ico"
       type="image/x-icon"
     />
+    <!-- Bootstrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <!-- Link Css -->
     <link rel="stylesheet" href="assets/styles/index.css" />
   </head>
 
   <body>
     <!-- Area Header  -->
-    <header class="header-page">
-      <a href="index.html" class="logo">
-        <img src="assets/images/logo-iara-games.svg" alt="Logo da Iara Games" />
-        <h1 class="titulo-logo">Iara Games</h1>
-      </a>
-      <nav>
-        <ul class="header-menu">
-          <li><a href="pages/jogos.html" class="item-menu">Loja</a></li>
-          <li><a href="#" class="item-menu">Comunidade</a></li>
-          <li><a href="#footer" class="item-menu">Sobre</a></li>
-          <li><a href="./pages/suporte.html" class="item-menu">Suporte</a></li>
-        </ul>
-      </nav>
-      <div class="header-button">
-        <a href="#" class="navbar-button">Entrar</a>
+    <nav class="navbar navbar-expand-lg px-5 py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="assets/images/logo-iara-games.svg"
+            alt="Logo da Iara Games"
+          />Iara Games</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-2">
+              <a class="nav-link"href="#">Loja</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">Comunidade</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suporte</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control buscar-jogos"
+              type="search"
+              placeholder="Buscar jogos"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+        <div class="header-button">
+          <a href="#" class="login-btn">Entrar</a>
+        </div>
       </div>
-    </header>
+    </nav>
     <!-- Fim Area Header  -->
 
     <!-- Area do hero -->
     <section class="hero">
-      <div class="hero-bg"></div>
       <div class="hero-content">
         <div class="hero-text">
           <h1 class="hero-title">Descubra seus<br />próximos jogos</h1>
@@ -76,7 +113,7 @@
           <div class="hero-card-overlay">
             <div class="hero-card-footer">
               <span class="price">R$ 100,00</span>
-              <button class="navbar-button">
+              <button class="buy-game-btn">
                 Comprar jogo <i class="bi bi-arrow-right"></i>
               </button>
             </div>
@@ -111,9 +148,9 @@
           <div class="popular-name-row">
             <h1>Hell Clock</h1>
             <div class="popular-tags">
-              <span id="tag" class="tag-rpg">RPG</span>
-              <span id="tag" class="tag-acao">Ação</span>
-              <span id="tag" class="tag-roguelike">Roguelike</span>
+              <span class="tag tag-rpg">RPG</span>
+              <span class="tag tag-acao">Ação</span>
+              <span class="tag tag-roguelike">Roguelike</span>
             </div>
           </div>
           <p class="white-text">
@@ -134,7 +171,7 @@
 
     <!-- Area Explore jogos pelo Brasil -->
     <section class="explore section-gap" id="explore">
-      <div class="container">
+      <div class="explore-container">
         <div class="explore-inner">
           <div class="explore-map-side">
             <h2 class="explore-title">Explore jogos pelo Brasil</h2>
@@ -920,7 +957,7 @@
 
     <!-- Area de Ofertas -->
     <section class="ofertas" id="ofertas">
-      <div class="container container--ofertas">
+      <div class="ofertas-container">
         <div class="ofertas-header">
           <h2 class="ofertas-title">Ofertas</h2>
           <a href="pages/jogos.html" class="ofertas-see-all">Ver todos</a>
@@ -1155,7 +1192,7 @@
               >Região do usuário
             </label>
             <div class="form-field">
-              <select id="estado" name="estado">
+              <select id="regiao-usuario" name="regiao-usuario">
                 <option value="Região" selected disabled>Região</option>
                 <option value="Acre (AC)">Acre (AC)</option>
                 <option value="Alagoas (AL)">Alagoas (AL)</option>
@@ -1212,7 +1249,7 @@
     <!-- Fim Area Formulario Divulgar Jogos  -->
 
     <footer class="footer" id="footer">
-      <div class="container footer-inner">
+      <div class="footer-container footer-inner">
         <div class="footer-brand">
           <div class="footer-logo">
             <img
@@ -1271,5 +1308,11 @@
     <!-- **Máscara JS** -->
     <script src="https://unpkg.com/imask"></script>
     <script src="assets/js/tel.mask.js"></script>
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
