@@ -34,52 +34,71 @@
   </head>
 
   <body>
-    <!-- Area Header  -->
+    <!-- Area Header -->
     <nav class="navbar navbar-expand-lg px-5 py-3">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
-          ><img
+        <a class="navbar-brand d-flex align-items-center gap-2 me-4" href="#">
+          <img
             src="assets/images/logo-iara-games.svg"
             alt="Logo da Iara Games"
-          />Iara Games</a
-        >
+            width="59"
+            height="49"
+          />
+          <span class="fw-bold fs-2 title">Iara Games</span>
+        </a>
+
         <button
-          class="navbar-toggler"
+          class="navbar-toggler border-0 menu-hamburguer"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="Abrir menu"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item mx-2">
-              <a class="nav-link"href="#">Loja</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Comunidade</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Sobre</a>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul
+            class="navbar-nav flex-grow-1 justify-content-center ms-5 mb-3 mb-lg-0 gap-2"
+          >
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Loja</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Suporte</a>
+              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Suporte</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control buscar-jogos"
-              type="search"
-              placeholder="Buscar jogos"
-              aria-label="Search"
-            />
-          </form>
-        </div>
-        <div class="header-button">
-          <a href="#" class="login-btn">Entrar</a>
+
+          <div class="d-flex align-items-center gap-3 ms-lg-auto">
+            <div class="position-relative">
+              <i
+                class="bi bi-search position-absolute top-50 translate-middle-y"
+                style="left: 12px; font-size: 15px; pointer-events: none"
+              ></i>
+
+              <input
+                class="form-control ps-5"
+                type="search"
+                placeholder="Buscar jogos"
+                aria-label="Buscar jogos"
+              />
+            </div>
+
+            <a
+              href="#"
+              class="btn btn-warning text-nowrap px-4 fw-semibold login-btn"
+            >
+              Entrar
+            </a>
+          </div>
         </div>
       </div>
     </nav>
