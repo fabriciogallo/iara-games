@@ -276,7 +276,7 @@ ol {
 .hero-card-badge {
   position: absolute;
   top: 40px;
-  left: 40px;
+  left: 35px;
   z-index: 3;
   background: var(--color-light);
   color: #111;
@@ -289,10 +289,9 @@ ol {
 .hero-card-img {
   width: calc(100% - 48px);
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  margin: 24px;
-  border-radius: 14px;
+  margin: 10px 10px 10px 24px;
   flex: 1;
   min-height: 300px;
 }
@@ -466,21 +465,218 @@ ol {
   color: #000;
 }
 
-.navbar-button {
-  display: flex;
-  border: 0;
-  height: 44px;
-  padding: 0 36px 0 24px;
-  align-items: center;
-  gap: 8px;
-  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
-  background-color: var(--color-yellow);
-  color: var(--color-dark);
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
+/* Area Explore jogos pelo Brasil */
+
+.explore {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  width: 90%;
+  margin: 3.75rem auto;
+
+  border-radius: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(
+      140deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.836) 52%,
+      rgba(0, 0, 0, 0.897) 100%
+    ),
+    url(../images/bg-vidro-mapa-br.jpg) center / cover no-repeat;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 50px rgba(0, 0, 0, 0.34);
 }
+
+.explore::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 20%,
+    rgba(255, 255, 255, 0) 42%
+  );
+}
+
+.explore-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 3.125rem 6.25rem;
+}
+
+.explore-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(520px, 0.94fr);
+  gap: 10rem;
+  align-items: center;
+}
+
+.explore-map-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.explore-title {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.explore-map {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+
+#svg-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.explore-city-label {
+  position: absolute;
+  bottom: 10px;
+  right: -40px;
+  background: rgba(245, 196, 0, 0.12);
+  border: 1px solid rgba(245, 196, 0, 0.3);
+  color: var(--color-yellow);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+.explore-games-side {
+  width: 100%;
+  max-width: 520px;
+  justify-self: end;
+}
+
+.explore-featured {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #0f1118;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  margin-bottom: 0.875rem;
+}
+
+.explore-featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(245, 196, 0, 0.9);
+  color: #111;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.explore-featured-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.explore-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+  margin-bottom: 0.625rem;
+}
+
+.explore-thumbs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.explore-ver-mais {
+  text-align: right;
+  margin-top: 0.375rem;
+}
+
+.explore-ver-mais .link-see-all {
+  color: var(--color-yellow);
+  font-size: 0.875rem;
+}
+
+#svg-map path {
+  fill: #27c840;
+}
+
+#svg-map text {
+  fill: #fff;
+  font:
+    12px Arial-BoldMT,
+    sans-serif;
+  cursor: pointer;
+}
+
+#svg-map a {
+  text-decoration: none;
+}
+
+#svg-map a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#svg-map a:hover path {
+  fill: #2550ff !important;
+}
+
+#svg-map .circle {
+  fill: #146636;
+}
+
+#svg-map a:hover .circle {
+  fill: #2550ff !important;
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .explore {
+    width: 94%;
+    border-radius: 3rem;
+  }
+
+  .explore-container {
+    padding: 1.875rem;
+  }
+
+  .explore-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .explore-games-side {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+}
+
+/* Fim Area Explore jogos pelo Brasil */
 
 /* Area Ofertas */
 
@@ -819,7 +1015,6 @@ ol {
 }
 
 .footer-links a {
-  font-size: 1.12rem;
   line-height: 1.28;
   color: rgba(255, 255, 255, 0.96);
   font-weight: 400;
