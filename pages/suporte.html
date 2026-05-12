@@ -8,399 +8,298 @@
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    
     <!-- Link Icons Bootstrap -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
-
-    <!-- Fontes Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="shortcut icon"
-      href="../assets/images/logo-iara-games.ico"
-      type="image/x-icon"
-    />
-    <!-- Link Css -->
+    <!-- Link Bootstrap-->
+     <link
+     rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+     />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <link rel="shortcut icon" href="../assets/images/logo-iara-games.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/styles/suporte.css" />
   </head>
   <body>
-    <!-- Area Header  -->
-    <header class="header-page">
-      <a href="../index.html" class="logo">
-        <img
-          src="../assets/images/logo-iara-games.svg"
-          alt="Logo da Iara Games"
-        />
-        <h1 class="titulo-logo">Iara Games</h1>
-      </a>
-      <nav>
-        <ul class="header-menu">
-          <li><a href="../pages/jogos.html" class="item-menu">Loja</a></li>
-          <li><a href="#" class="item-menu">Comunidade</a></li>
-          <li><a href="#footer" class="item-menu">Sobre</a></li>
-          <li><a href="../pages/suporte.html" class="item-menu">Suporte</a></li>
-        </ul>
-      </nav>
-      <div class="header-button">
-        <a href="#" class="navbar-button">Entrar</a>
+    <!-- Header com Navbar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../index.html">
+          <img src="../assets/images/logo-iara-games.svg" alt="Iara Games" height="30" class="me-2">
+          Iara Games
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="../pages/jogos.html">Loja</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Comunidade</a></li>
+            <li class="nav-item"><a class="nav-link" href="#footer">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../pages/suporte.html">Suporte</a></li>
+          </ul>
+          <a href="#" class="btn btn-outline-light ms-2">Entrar</a>
+        </div>
       </div>
-    </header>
-    <!-- Fim Area Header  -->
+    </nav>
 
-    <!-- Area do hero -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            Como podemos <br />
-            <span class="titulo-ajudar">ajudar?</span>
-          </h1>
-          <p class="hero-sub">
-            Acesse recursos técnicos, gerenciamento de conta e canais diretos de
-            comunicação <br />
-            com desenvolvedores para todo o ecossistema Iara Games.
-          </p>
-          <div class="hero-dots">
-            <span class="dot dot--active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+    <!-- Hero Section -->
+    <section class="hero min-vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-4">
+              Como podemos <br><span class="text-warning">ajudar?</span>
+            </h1>
+            <p class="lead mb-4">Acesse recursos técnicos, gerenciamento de conta e canais diretos de comunicação com desenvolvedores.</p>
+            <div class="d-flex gap-2">
+              <span class="badge bg-light text-dark rounded-pill px-3 py-2">1</span>
+              <span class="badge bg-secondary rounded-pill px-3 py-2">2</span>
+              <span class="badge bg-secondary rounded-pill px-3 py-2">3</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Fim Area do Hero -->
 
-    <!-- Area Faq -->
-    <section class="section-faq">
-      <div class="container-faq-status">
-        <!-- Area Perguntas Frequentes -->
-        <div class="container-faq">
-          <div class="faq-header">
-            <div class="faq-header-text">
-              <h2>Perguntas Frequentes</h2>
-              <p>Tudo o que você precisa saber para começar.</p>
+    <!-- FAQ + Status - Grid Bootstrap -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row g-5">
+          <!-- FAQ -->
+          <div class="col-lg-8">
+            <div class="card shadow">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <h2 class="h3 mb-2">Perguntas Frequentes</h2>
+                    <p class="text-muted">Tudo o que você precisa saber para começar.</p>
+                  </div>
+                  <i class="bi bi-question-circle text-primary fs-1"></i>
+                </div>
+                
+                <div class="accordion" id="faqAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        Como restauro minha biblioteca de jogos?
+                      </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Sincronize seus salvamentos na nuvem através das configurações do Launcher Iara.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        Transações multiplataforma são suportadas?
+                      </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        A maioria dos títulos suporta compra cruzada entre PC e Console quando vinculados ao seu ID Iara.
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        Requisitos de sistema para Sky Dust
+                      </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Nvidia GeForce RTX 2060 / AMD Radeon RX 5600 XT para experiência ideal.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="faq-icon">?</div>
           </div>
 
-          <div class="faq">
-            <div class="faq-info">
-              <h3>
-                Como restauro minha biblioteca de jogos após uma reinstalação?
-              </h3>
-              <p>
-                Sincronize seus salvamentos na nuvem através das configurações
-                do Launcher Iara antes de iniciar uma nova instalação...
-              </p>
-            </div>
-
-            <div class="faq-info">
-              <h3>Transações multiplataforma são suportadas para DLCs?</h3>
-              <p>
-                A maioria dos títulos suporta compra cruzada entre PC e Console
-                quando vinculados ao seu ID Iara.
-              </p>
-            </div>
-
-            <div class="faq-info">
-              <h3>Requisitos de sistema para Sky Dust</h3>
-              <p>
-                Recomendamos no mínimo uma Nvidia GeForce RTX 2060 / AMD Radeon
-                RX 5600 XT para uma experiência ideal.
-              </p>
+          <!-- Status do Servidor -->
+          <div class="col-lg-4">
+            <div class="card h-100 shadow">
+              <div class="card-body">
+                <h3 class="card-title mb-4">Status do Servidor</h3>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Autenticação</span>
+                    <span class="badge bg-success"><i class="bi bi-circle-fill me-1"></i>ONLINE</span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Marketplace</span>
+                    <span class="badge bg-success"><i class="bi bi-circle-fill me-1"></i>ONLINE</span>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>API Multiplayer</span>
+                    <span class="badge bg-danger"><i class="bi bi-circle-fill me-1"></i>OFFLINE</span>
+                  </div>
+                </div>
+                <img src="../assets/images/imagem-data-center.png" alt="Data center" class="img-fluid rounded mb-2">
+                <small class="text-muted">Última manutenção: 2h atrás</small>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Fim Area Perguntas Frequentes -->
-
-        <!-- Status do Servidor -->
-        <div class="status-technical">
-          <!-- Card de Status -->
-          <div class="status-card">
-            <h2>Status do Servidor</h2>
-
-            <div class="status-row">
-              <span class="status-name">Autenticação</span>
-              <span class="status-badge badge-online">
-                <span class="dot dot-online"></span>
-                ONLINE
-              </span>
-            </div>
-
-            <div class="status-row">
-              <span class="status-name">Marketplace</span>
-              <span class="status-badge badge-online">
-                <span class="dot dot-online"></span>
-                ONLINE
-              </span>
-            </div>
-
-            <div class="status-row">
-              <span class="status-name">API Multiplayer</span>
-              <span class="status-badge badge-offline">
-                <span class="dot dot-offline"></span>
-                OFFLINE
-              </span>
-            </div>
-          </div>
-          <!-- Fim Card de Status -->
-
-          <!-- Card Imagem Servidor -->
-          <div class="status-card-image">
-            <img
-              src="../assets/images/imagem-data-center.png"
-              alt="Imagem de data center"
-              class="imagem-servidor"
-            />
-            <p class="info-manutencao">Última manutenção: 2 horas atrás</p>
-          </div>
-          <!-- Fim Card Imagem Servidor -->
-        </div>
-        <!-- Fim Status do Servidor -->
       </div>
     </section>
-    <!-- Fim Area Faq -->
 
-    <!-- Area novo chamado -->
-    <section class="section-contato" id="contato">
-      <div class="container-contato">
-        <div class="contato-wrapper">
-          <div class="contato-info">
-            <div class="contato-header">
-              <h2>NOVO CHAMADO</h2>
-              <p>
-                Não encontrou o que precisa nas perguntas frequentes?
-                <br /><br />
-                <span class="subtitulo-contato">
-                  Envie um e-mail detalhando o problema para nossa equipe.
-                  Normalmente respondemos o mais rápido possível para sua melhor
-                  experiência.
-                </span>
-              </p>
+    <!-- Formulário de Contato -->
+    <section class="py-5" id="contato">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="row g-5">
+              <!-- Info -->
+              <div class="col-lg-5">
+                <div class="card border-0 bg-transparent">
+                  <div class="card-body text-center text-lg-start">
+                    <h2 class="display-6 fw-bold mb-4 text-success">NOVO CHAMADO</h2>
+                    <p class="lead mb-4">Não encontrou nas FAQs? <br>Envie um email detalhado para nossa equipe.</p>
+                    
+                    <div class="list-group list-group-flush">
+                      <div class="list-group-item px-0 border-0 d-flex align-items-center">
+                        <img src="../assets/images/mail.png" alt="Email" class="me-3" style="width: 40px;">
+                        <div>
+                          <strong>Envio por email</strong>
+                          <div>iaragames@gmail.com</div>
+                        </div>
+                      </div>
+                      <div class="list-group-item px-0 border-0 d-flex align-items-center">
+                        <img src="../assets/images/forum.png" alt="Discord" class="me-3" style="width: 40px;">
+                        <div>
+                          <strong>Fórum da Comunidade</strong>
+                          <div><a href="https://discord.gg/iaragames" class="text-decoration-none">discord.gg/iaragames</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Formulário Bootstrap -->
+              <div class="col-lg-7">
+                <div class="card shadow">
+                  <div class="card-body p-4">
+                    <form id="form-cadastro">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">Nome completo</label>
+                          <input type="text" class="form-control" placeholder="Comandante Shepherd" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">ID Iara</label>
+                          <input type="text" class="form-control" placeholder="#9900221" required>
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control" placeholder="Insira seu email" required>
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Assunto</label>
+                          <select class="form-select">
+                            <option selected disabled>Qual problema você está tendo?</option>
+                            <option>Problemas com itens</option>
+                            <option>Conteúdo adicional ausente</option>
+                            <option>Problema técnico</option>
+                            <option>Não consta na biblioteca</option>
+                            <option>Outro</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label">Mensagem</label>
+                          <textarea class="form-control" rows="5" placeholder="Descreva seu problema..."></textarea>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-success btn-lg w-100">Enviar Mensagem</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <address class="contato-canais">
-              <div class="canal">
-                <div class="container-imagem-social">
-                  <img src="../assets/images/mail.png" alt="Email" />
-                </div>
-                <div class="container-titulo-social">
-                  <span class="titulo-social">Envio por e-mail</span>
-                  <a href="#" class="link-contato-socail"
-                    >iaragames@gmail.com</a
-                  >
-                </div>
+    <!-- Footer Bootstrap -->
+    <footer class="bg-dark text-white py-5" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="../assets/images/logo-iara-games.svg" alt="Logo" height="30" class="me-2">
+              <h3 class="mb-0">Iara Games</h3>
+            </div>
+            <p class="text-muted">Plataforma de venda de jogos desenvolvidos por brasileiros.</p>
+            <div>
+              <label class="form-label text-muted mb-2 d-block">Idioma e País</label>
+              <div class="d-flex gap-2">
+                <select class="form-select form-select-sm" style="width: auto;">
+                  <option>Português</option>
+                </select>
+                <select class="form-select form-select-sm" style="width: auto;">
+                  <option>Brasil</option>
+                </select>
               </div>
-
-              <div class="canal">
-                <div class="container-imagem-social">
-                  <img src="../assets/images/forum.png" alt="Discord" />
-                </div>
-
-                <div class="container-titulo-social">
-                  <span class="titulo-social">Fórum da Comunidade</span>
-                  <a
-                    href="https://discord.gg/iaragames"
-                    class="link-contato-socail"
-                    >discord.gg/iaragames</a
-                  >
-                </div>
-              </div>
-            </address>
+            </div>
           </div>
           
-          <form
-            id="form-cadastro"
-            name="form-cadastro"
-            class="form-cadastro"
-            method="post"
-            action=""
-          >
-            <fieldset class="formulario-novo">
-              <section class="form-campos">
-                <!-- Nome -->
-                <div class="container-nome-e-id">
-                  <div class="container-nome-usuario">
-                    <label for="nome-usuario-novo" id="nome-completo-novo"
-                      >Nome completo</label
-                    >
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        name="nome-usuario-novo"
-                        id="nome-usuario-novo"
-                        required
-                        minlength="5"
-                        maxlength="50"
-                        placeholder="Comandante Shepherd"
-                        autocomplete="name"
-                      />
-                    </div>
-                  </div>
-
-                  <!-- ID Iara -->
-                  <div class="container-id-usuario">
-                    <label for="id-iara-usuario" id="id-iara-novo"
-                      >ID Iara</label
-                    >
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        name="id-iara-usuario"
-                        id="id-iara-usuario"
-                        required
-                        placeholder="#9900221"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Email -->
-                <div class="container-email-novo">
-                  <label for="email-usuario" id="email-usuario-novo"
-                    >Email</label
-                  >
-                  <div class="form-field">
-                    <input
-                      type="email"
-                      name="email-usuario"
-                      id="email-usuario"
-                      required
-                      maxlength="30"
-                      placeholder="Insira seu e-mail"
-                      autocomplete="email"
-                    />
-                  </div>
-                </div>
-                <!-- Assunto -->
-                <div class="container-assunto">
-                  <label for="assunto-sup-usuario" id="assunto-sup-novo"
-                    >Assunto</label
-                  >
-                  <div class="form-field">
-                    <select
-                      name="assunto-sup-usuario"
-                      id="assunto-sup-usuario"
-                    >
-                      <option value="qual-problema" disabled selected>
-                        Qual problema você está tendo com este produto?
-                      </option>
-                      <option value="problemas-com-itens">
-                        Problemas com itens
-                      </option>
-                      <option value="conteudo-adicional">
-                        Conteúdo adicional ou bônus ausente
-                      </option>
-                      <option value="problema-tecnico">
-                        Problema técnico ou de jogabilidade
-                      </option>
-                      <option value="nao-consta-na-biblio">
-                        Não consta na minha biblioteca
-                      </option>
-                      <option value="outro-problema">Outro</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="container-mensagem-usuario">
-                  <label for="mensagem" id="mensagem-novo">Mensagem</label>
-                  <textarea
-                    id="mensagem"
-                    name="mensagem"
-                    rows="6"
-                    cols="50"
-                    placeholder="Descreva seu problema com o máximo de detalhes possível..."
-                  ></textarea>
-                </div>
-              </section>
-              <div class="btn-container">
-                <button
-                  type="submit"
-                  id="enviar-mensagem"
-                  name="enviar-mensagem"
-                  class="btn-form"
-                >
-                  Enviar mensagem
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- Fim novo chamado -->
-
-    <!-- Area do Footer -->
-    <footer class="footer" id="footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img
-              src="../assets/images/logo-iara-games.svg"
-              alt="Logo da Iara Games"
-            />
-            <h2 class="titulo-logo">Iara Games</h2>
+          <div class="col-lg-2 col-md-4 mb-4">
+            <h5>Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white-50 text-decoration-none">Sobre</a></li>
+              <li><a href="../pages/jogos.html" class="text-white-50 text-decoration-none">Loja</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Comunidade</a></li>
+            </ul>
           </div>
-          <p class="footer-tagline">
-            Plataforma de venda de jogos desenvolvidos por brasileiros ou jogos
-            ambientados no Brasil.
-          </p>
-          <div class="footer-lang">
-            <label>Idioma e País</label>
-            <div class="footer-selects">
-              <select>
-                <option>Português</option>
-              </select>
-              <select>
-                <option>Brasil</option>
-              </select>
+          
+          <div class="col-lg-2 col-md-4 mb-4">
+            <h5>Social</h5>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white-50"><i class="fab fa-twitch fs-4"></i></a>
+              <a href="#" class="text-white-50"><i class="fab fa-instagram fs-4"></i></a>
+              <a href="#" class="text-white-50"><i class="fab fa-twitter fs-4"></i></a>
+              <a href="#" class="text-white-50"><i class="fab fa-youtube fs-4"></i></a>
             </div>
           </div>
+          
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5>Legal</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white-50 text-decoration-none">Contato</a></li>
+              <li><a href="../pages/politica-privacidade.html" class="text-warning text-decoration-none">Política de Privacidade</a></li>
+              <li><a href="../pages/termos-condicoes.html" class="text-warning text-decoration-none">Termos e Condições</a></li>
+            </ul>
+          </div>
         </div>
-
-        <nav class="footer-nav">
-          <a href="#">Sobre</a>
-          <a href="../pages/jogos.html">Loja</a>
-          <a href="#">Comunidade</a>
-          <a href="#">Blog</a>
-          <a href="../pages/suporte.html">Suporte</a>
-        </nav>
-
-        <div class="footer-social">
-          <a href="#" target="_blank" rel="noopener noreferrer">Twitch</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">Youtube</a>
+        <hr class="my-4">
+        <div class="text-center">
+          <small>© 2026 – Desenvolvido por grupo 10</small>
         </div>
-
-        <div class="footer-legal-links">
-          <a href="#">Contato</a>
-          <a href="../pages/politica-privacidade.html" class="link-yellow"
-            >Políticas de Privacidade</a
-          >
-          <a href="../pages/termos-condicoes.html" class="link-yellow"
-            >Termos e Condições</a
-          >
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>2026 – Desenvolvido por grupo 10</span>
       </div>
     </footer>
-    <!-- Fim Area do Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
