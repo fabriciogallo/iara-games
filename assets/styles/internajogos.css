@@ -1,0 +1,770 @@
+/* =====================================================
+   IARA GAMES — Página Interna de Jogo
+   iara-games.css
+   Todas as classes customizadas com sufixo -pgn-jogo-interna
+   ===================================================== */
+
+/* ── VARIÁVEIS ── */
+:root {
+  --font-text: "Montserrat", sans-serif;
+  --font-title: "Lexend", sans-serif;
+  --color-light: #f4f4f4;
+  --color-true-dark: #000;
+  --color-dark: #0d0d0d;
+  --color-yellow: #fed800;
+  --color-yellow-d: #c99b00;
+  --color-green: #27c840;
+  --bg: #0c0c0c;
+  --bg2: #111111;
+  --bg3: #161616;
+  --surface: #1c1c1c;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #888;
+  --red: #e63946;
+  --radius: 10px;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-text);
+}
+
+
+/* ── BASE ── */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--bs-body-bg);
+}
+
+
+/* Area Header */
+
+.header-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 110px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 100px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  top: 1px;
+}
+
+.header-button {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.navbar-button {
+  display: flex;
+  border: 0;
+  height: 50px;
+  padding: 0 40px 0 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.item-menu {
+  color: var(--color-light);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Fim Area Header */
+
+
+
+/* ── NAVBAR ── */
+.navbar-pgn-jogo-interna {
+    border-bottom: 1px solid #1a1a1a;
+    backdrop-filter: blur(12px);
+}
+
+.navbar-brand-pgn-jogo-interna {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--accent) !important;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+}
+
+.nav-link-pgn-jogo-interna {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: .8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888 !important;
+    transition: color .2s;
+}
+
+.nav-link-pgn-jogo-interna:hover,
+.nav-link-pgn-jogo-interna.active {
+    color: var(--accent) !important;
+}
+
+.nav-link-pgn-jogo-interna.active {
+    border-bottom: 2px solid var(--accent);
+}
+
+.navbar-button {
+  display: flex;
+  border: 0;
+  height: 44px;
+  padding: 0 36px 0 24px;
+  align-items: center;
+  gap: 8px;
+  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero-pgn-jogo-interna {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-image: url(https://png.pngtree.com/background/20250202/original/pngtree-a-serene-mermaid-swimming-in-the-calm-blue-waters-her-glittering-picture-image_16136475.jpg);
+    /* background: linear-gradient(160deg, #001a10 0%, #002a18 50%, #000e0a 100%); */
+}
+
+.hero-pgn-jogo-interna::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* background: repeating-linear-gradient(170deg,
+            transparent 0,
+            transparent 60px,
+            rgba(0, 200, 130, .04) 60px,
+            rgba(0, 200, 130, .04) 62px); */
+    animation: rays-pgn-jogo-interna 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rays-pgn-jogo-interna {
+    to {
+        transform: translateY(80px);
+    }
+}
+
+.hero-overlay-pgn-jogo-interna {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .9) 0%,
+            rgba(0, 0, 0, .2) 60%,
+            transparent 100%);
+}
+
+.hero-content-pgn-jogo-interna {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title-pgn-jogo-interna {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: .95;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.accent-pgn-jogo-interna {
+    color: var(--accent);
+}
+
+/* ── PARTÍCULAS ── */
+.particle-pgn-jogo-interna {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .5;
+    animation: floatp-pgn-jogo-interna linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatp-pgn-jogo-interna {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .6;
+    }
+
+    100% {
+        transform: translateY(-90vh);
+        opacity: 0;
+    }
+}
+
+/* ── BADGE ── */
+.badge-accent-pgn-jogo-interna {
+    background: rgba(127, 255, 0, .12);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: .35rem .85rem;
+    border-radius: 2px;
+}
+
+/* ── SECTION LABEL ── */
+.section-label-pgn-jogo-interna {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.section-label-pgn-jogo-interna::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* ── CARDS ── */
+.card-pgn-jogo-interna {
+    border-color: var(--bs-card-border-color);
+    transition: border-color .3s, transform .3s;
+}
+
+.card-pgn-jogo-interna:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-3px);
+}
+
+/* ── FEATURE ICON ── */
+.feature-icon-pgn-jogo-interna {
+    width: 38px;
+    height: 38px;
+    background: rgba(127, 255, 0, .1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ── SIDEBAR ── */
+.sidebar-sticky-pgn-jogo-interna {
+    position: sticky;
+    top: 76px;
+}
+
+.price-tag-pgn-jogo-interna {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+/* ── BOTÕES ── */
+.btn-buy-pgn-jogo-interna {
+    background: var(--accent);
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    transition: background .2s, transform .15s;
+}
+
+.btn-buy-pgn-jogo-interna:hover {
+    background: #a0ff3a;
+    transform: translateY(-1px);
+    color: #000;
+}
+
+.btn-wish-pgn-jogo-interna {
+    background: transparent;
+    color: #999;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: .85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    transition: border-color .2s, color .2s;
+}
+
+.btn-wish-pgn-jogo-interna:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* ── BARRA DE PROGRESSO ── */
+.progress-pgn-jogo-interna {
+    background: #1a1a1a;
+    border-radius: 2px;
+    height: 5px;
+}
+
+.progress-bar-pgn-jogo-interna {
+    background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+}
+
+/* ── ESPECIFICAÇÕES ── */
+.spec-label-pgn-jogo-interna {
+    font-size: .65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.spec-value-pgn-jogo-interna {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: .9rem;
+    color: #ccc;
+}
+
+/* ── GALERIA ── */
+.gallery-grid-pgn-jogo-interna {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.gallery-item-pgn-jogo-interna {
+    background: #111;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-item-pgn-jogo-interna.tall-pgn-jogo-interna {
+    grid-row: span 2;
+}
+
+.gallery-placeholder-pgn-jogo-interna {
+    width: 100%;
+    height: 100%;
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item-pgn-jogo-interna::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(127, 255, 0, 0);
+    transition: background .3s;
+}
+
+.gallery-item-pgn-jogo-interna:hover::after {
+    background: rgba(127, 255, 0, .07);
+}
+
+/* ── AVALIAÇÕES ── */
+.global-score-pgn-jogo-interna {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.avatar-circle-pgn-jogo-interna {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    border: 2px solid #222;
+    flex-shrink: 0;
+}
+
+.review-text-pgn-jogo-interna {
+    font-size: .85rem;
+    color: #888;
+    line-height: 1.65;
+}
+
+.stars-yellow-pgn-jogo-interna {
+    color: #FFD700;
+    font-size: .8rem;
+}
+
+/* ── BOTÕES DE PLATAFORMA ── */
+.platform-btn-pgn-jogo-interna {
+    width: 36px;
+    height: 36px;
+    background: #1a1a1a;
+    border: 1px solid #252525;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color .2s, border-color .2s;
+}
+
+.platform-btn-pgn-jogo-interna:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+}
+
+/* ── DESENVOLVEDOR ── */
+.dev-logo-pgn-jogo-interna {
+    width: 56px;
+    height: 56px;
+    background: rgba(127, 255, 0, .08);
+    border: 1px solid rgba(127, 255, 0, .2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.dev-link-pgn-jogo-interna {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: .75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity .2s;
+}
+
+.dev-link-pgn-jogo-interna:hover {
+    opacity: .7;
+    color: var(--accent);
+}
+
+/* ── FOOTER ── */
+.hero-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* Area Footer */
+
+.footer {
+  padding: 42px 0 0;
+}
+
+.footer > .container {
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.footer-brand-col {
+  padding-top: 4px;
+}
+
+.footer-panel {
+  background-color: var(--color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 324px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 32px 28px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 47px;
+  height: auto;
+}
+
+.titulo-logo {
+  color: #f4f6f8;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.footer-tagline {
+  max-width: 430px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.26;
+  margin-bottom: 36px;
+}
+
+.footer-lang label {
+  display: block;
+  font-family: var(--font-title);
+  color: #fff;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.footer-selects {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-selects select {
+  appearance: none;
+  -webkit-appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.85) 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 58%,
+    calc(100% - 9px) 58%;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+  border: 0;
+  border-bottom: 1px solid rgba(243, 248, 255, 0.35);
+  color: #fff;
+  padding: 6px 30px 8px 0;
+  min-width: 132px;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+}
+
+.footer-panel-nav {
+  border-right: 1px solid rgba(158, 207, 62, 0.33);
+  padding-right: 28px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 1.12rem;
+  line-height: 1.28;
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.footer-panel-aside {
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-links-social {
+  gap: 20px;
+}
+
+.footer-links-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.footer-links-social i {
+  color: #eaf1df;
+  font-size: 1.08rem;
+  width: 18px;
+}
+
+.footer-links-legal {
+  margin-top: 34px;
+}
+
+.footer-links a:hover,
+.link-yellow:hover {
+  color: var(--color-yellow) !important;
+}
+
+.link-yellow {
+  color: rgba(255, 255, 255, 0.96) !important;
+}
+
+.footer-divider {
+  display: none;
+}
+
+.footer-bottom {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 40px 0px 20px;
+  text-align: left;
+  color: var(--color-light);
+}
+/* F Area Footer */
+
+/* Area Media Queries */
+
+@media (max-width: 1199px) {
+  .titulo-logo {
+    font-size: 1.9rem;
+  }
+
+  .footer-tagline {
+    font-size: 1.6rem;
+  }
+
+  .footer-lang label {
+    font-size: 1.4rem;
+  }
+
+  .footer-selects select {
+    font-size: 1.08rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding-top: 32px;
+  }
+
+  .footer > .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-logo {
+    margin-bottom: 18px;
+  }
+
+  .footer-tagline {
+    font-size: 1.1rem;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .footer-lang label {
+    font-size: 1.2rem;
+  }
+
+  .footer-panel {
+    min-height: unset;
+    padding: 24px 22px;
+  }
+
+  .footer-panel-nav {
+    border-right: 0;
+    border-bottom: 1px solid rgba(158, 207, 62, 0.33);
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+
+  .footer-panel-aside {
+    padding-left: 0;
+  }
+
+  .footer-links-social {
+    padding-top: 8px;
+    gap: 13px;
+  }
+
+  .footer-links-legal {
+    margin-top: 22px;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+  }
+
+  .footer-bottom {
+    padding: 16px 20px 22px;
+    font-size: 0.92rem;
+  }
+}
+
+/* F Area Media Queries */
+
+/* sr-only: acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.bi-arrow-right {
+  position: relative;
+  top: 2px;
+  padding-inline: 5px;
+}

@@ -2,14 +2,13 @@
 
 # Iara Games - Fase 3
 
-#  A EVOLUÇÃO
+# A EVOLUÇÃO
 
 Da sprint 1 para a sprint 2, o grupo evoluiu a plataforma Iara Games a partir de melhorias significativas. Como principal ponto de atenção, aprimoramos melhor os aspectos da nossa identidade visual, realizando ajustes na paleta de cores e incorporando uma texturização de água ao fundo. Aplicamos uma variação de tonalidade ao longo da navegação, onde, quanto mais profunda a página, mais escuro se torna o layout, assim como as águas de um rio.
 
 Também acrescentamos um formulário e a reorganização do layout dos cards, tornando a experiência mais completa e funcional.
 
-![App Screenshot](assets/images/HOMEFASE2.jpg)
-
+![App Screenshot](assets/images/read-home-v2.jpg)
 
 ## PERSONA
 
@@ -17,12 +16,13 @@ Lucas Ferreira, 25 anos, é um designer gráfico de São Paulo apaixonado por jo
 
 No entanto, enfrenta dificuldades em encontrar jogos brasileiros em grandes plataformas, devido à falta de curadoria e organização. Por isso, precisa de uma solução que centralize esses jogos, ofereça recomendações personalizadas e destaque os desenvolvedores, tornando a experiência mais clara e confiável.
 
-![App Screenshot](assets/images/Persona1.jpg)
+![App Screenshot](assets/images/read-persona1.jpg)
+
 ## ESG
 
 A Iara Games é uma plataforma voltada à curadoria, divulgação e acesso a jogos desenvolvidos por criadores brasileiros.
 
-Centralizamos esses conteúdos em um único local, a iniciativa contribui para o fortalecimento do ecossistema nacional de games e da economia criativa. 
+Centralizamos esses conteúdos em um único local, a iniciativa contribui para o fortalecimento do ecossistema nacional de games e da economia criativa.
 
 Nesse contexto, é possível analisar a relação com os princípios de ESG (Environmental, Social and Governance).
 
@@ -57,24 +57,30 @@ A Iara Games é uma iniciativa que fortalece o ecossistema nacional de games atr
 ## ESTRUTURA E LAYOUT
 
 ### HTML SEMANTICO
-![App Screenshot](assets/images/Semantic.png)
+
+![App Screenshot](assets/images/read-semantico.png)
 
 ### LAYOUT COM GRIDS
-![App Screenshot](assets/images/gridform.png)
+
+![App Screenshot](assets/images/read-gridform.png)
 
 ### DESENVOLVIMENTO DA PÁGINA "SUPORTE"
-![App Screenshot](assets/images/figmasuporte.png)
+
+![App Screenshot](assets/images/read-figmasuporte.png)
+.
 
 ### FORMULÁRIOS
 
 #### FORMULÁRIO DE SUPORTE
-![App Screenshot](assets/images/printHTMLsuporte.png)
+
+![App Screenshot](assets/images/read-suporte.png)
 
 #### FORMULÁRIO PARA DESENVOLVEDORES DE JOGOS
-![App Screenshot](assets/images/printHTMLhome.png)
+
+![App Screenshot](assets/images/read-suporte.png)
 
 ## LINKS UTEIS
 
- - [VIDEO PITCH](https://www.youtube.com/watch?v=_JsaPTYOMC4)
- - [GitHub](https://github.com/fabriciogallo/iara-games/)
- - [Projeto](https://fabriciogallo.github.io/iara-games/)
+- [VIDEO PITCH](https://www.youtube.com/watch?v=_JsaPTYOMC4)
+- [GitHub](https://github.com/fabriciogallo/iara-games/)
+- [Projeto](https://fabriciogallo.github.io/iara-games/)
