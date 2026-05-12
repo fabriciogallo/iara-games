@@ -6,13 +6,33 @@
 
 /* ── VARIÁVEIS ── */
 :root {
-    --bs-body-bg: #0d0d0d;
-    --bs-body-color: #d0d0d0;
-    --bs-card-bg: #141414;
-    --bs-card-border-color: #1f1f1f;
-    --accent: #7FFF00;
-    --accent-dim: #4db800;
+  --font-text: "Montserrat", sans-serif;
+  --font-title: "Lexend", sans-serif;
+  --color-light: #f4f4f4;
+  --color-true-dark: #000;
+  --color-dark: #0d0d0d;
+  --color-yellow: #fed800;
+  --color-yellow-d: #c99b00;
+  --color-green: #27c840;
+  --bg: #0c0c0c;
+  --bg2: #111111;
+  --bg3: #161616;
+  --surface: #1c1c1c;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #888;
+  --red: #e63946;
+  --radius: 10px;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-text);
+}
+
 
 /* ── BASE ── */
 body {
@@ -83,6 +103,7 @@ body {
 /* Fim Area Header */
 
 
+
 /* ── NAVBAR ── */
 .navbar-pgn-jogo-interna {
     border-bottom: 1px solid #1a1a1a;
@@ -113,6 +134,22 @@ body {
 
 .nav-link-pgn-jogo-interna.active {
     border-bottom: 2px solid var(--accent);
+}
+
+.navbar-button {
+  display: flex;
+  border: 0;
+  height: 44px;
+  padding: 0 36px 0 24px;
+  align-items: center;
+  gap: 8px;
+  clip-path: polygon(73% 0, 100% 43%, 100% 100%, 0% 100%, 0% 0%);
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 /* ── HERO ── */
@@ -461,42 +498,273 @@ body {
 }
 
 /* ── FOOTER ── */
-.footer-brand-pgn-jogo-interna {
-    font-family: 'Bebas Neue', sans-serif;
+.hero-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* Area Footer */
+
+.footer {
+  padding: 42px 0 0;
+}
+
+.footer > .container {
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.footer-brand-col {
+  padding-top: 4px;
+}
+
+.footer-panel {
+  background-color: var(--color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 324px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 32px 28px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.footer-logo img {
+  width: 47px;
+  height: auto;
+}
+
+.titulo-logo {
+  color: #f4f6f8;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.footer-tagline {
+  max-width: 430px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.26;
+  margin-bottom: 36px;
+}
+
+.footer-lang label {
+  display: block;
+  font-family: var(--font-title);
+  color: #fff;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.footer-selects {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-selects select {
+  appearance: none;
+  -webkit-appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.85) 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 58%,
+    calc(100% - 9px) 58%;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+  border: 0;
+  border-bottom: 1px solid rgba(243, 248, 255, 0.35);
+  color: #fff;
+  padding: 6px 30px 8px 0;
+  min-width: 132px;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+}
+
+.footer-panel-nav {
+  border-right: 1px solid rgba(158, 207, 62, 0.33);
+  padding-right: 28px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 1.12rem;
+  line-height: 1.28;
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.footer-panel-aside {
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-links-social {
+  gap: 20px;
+}
+
+.footer-links-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.footer-links-social i {
+  color: #eaf1df;
+  font-size: 1.08rem;
+  width: 18px;
+}
+
+.footer-links-legal {
+  margin-top: 34px;
+}
+
+.footer-links a:hover,
+.link-yellow:hover {
+  color: var(--color-yellow) !important;
+}
+
+.link-yellow {
+  color: rgba(255, 255, 255, 0.96) !important;
+}
+
+.footer-divider {
+  display: none;
+}
+
+.footer-bottom {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 40px 0px 20px;
+  text-align: left;
+  color: var(--color-light);
+}
+/* F Area Footer */
+
+/* Area Media Queries */
+
+@media (max-width: 1199px) {
+  .titulo-logo {
+    font-size: 1.9rem;
+  }
+
+  .footer-tagline {
+    font-size: 1.6rem;
+  }
+
+  .footer-lang label {
     font-size: 1.4rem;
-    color: var(--accent);
-    letter-spacing: 2px;
+  }
+
+  .footer-selects select {
+    font-size: 1.08rem;
+  }
 }
 
-.footer-heading-pgn-jogo-interna {
-    font-size: .7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #555;
+@media (max-width: 991px) {
+  .footer {
+    padding-top: 32px;
+  }
+
+  .footer > .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-logo {
+    margin-bottom: 18px;
+  }
+
+  .footer-tagline {
+    font-size: 1.1rem;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .footer-lang label {
+    font-size: 1.2rem;
+  }
+
+  .footer-panel {
+    min-height: unset;
+    padding: 24px 22px;
+  }
+
+  .footer-panel-nav {
+    border-right: 0;
+    border-bottom: 1px solid rgba(158, 207, 62, 0.33);
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+
+  .footer-panel-aside {
+    padding-left: 0;
+  }
+
+  .footer-links-social {
+    padding-top: 8px;
+    gap: 13px;
+  }
+
+  .footer-links-legal {
+    margin-top: 22px;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+  }
+
+  .footer-bottom {
+    padding: 16px 20px 22px;
+    font-size: 0.92rem;
+  }
 }
 
-.footer-link-pgn-jogo-interna {
-    color: #666;
-    text-decoration: none;
-    font-size: .85rem;
-    display: block;
-    transition: color .2s;
+/* F Area Media Queries */
+
+/* sr-only: acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-.footer-link-pgn-jogo-interna:hover {
-    color: var(--accent);
-}
-
-.footer-social-pgn-jogo-interna {
-    color: #666;
-    text-decoration: none;
-    font-size: .85rem;
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    transition: color .2s;
-}
-
-.footer-social-pgn-jogo-interna:hover {
-    color: var(--accent);
+.bi-arrow-right {
+  position: relative;
+  top: 2px;
+  padding-inline: 5px;
 }
