@@ -3,65 +3,592 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todos os Jogos | Iara Games</title>
+    <title>Iara Games</title>
+
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="assets/images/logo-iara-games.svg"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="../assets/styles/jogos.css" />
   </head>
   <body>
     <main class="jogos-page">
-      <section class="jogos-page-hero">
-        <a href="../index.html" class="jogos-page-back">
-          <i class="bi bi-arrow-left"></i> Voltar para a home
-        </a>
-        <h1 class="jogos-page-title">Todos os jogos</h1>
+      <!-- Hero Section -->
+      <section class="py-5 mb-5">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <a
+                href="../index.html"
+                class="btn btn-link text-decoration-none jogos-page-back mb-4 d-inline-flex align-items-center gap-2"
+              >
+                <i class="bi bi-arrow-left"></i>
+                <span>Voltar para a home</span>
+              </a>
+              <h1 class="display-4 fw-bold text-light">Todos os Jogos</h1>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="jogos-page-grid">
-        <article class="jogos-page-item">
-          <img
-            src="../assets/images/hellclock_thumbnail.png"
-            alt="Capa do jogo Hell Clock"
-          />
-          <h2>Hell Clock</h2>
-        </article>
-        <article class="jogos-page-item">
-          <img
-            src="../assets/images/9kings_thumbnail.png"
-            alt="Capa do jogo 9 Kings"
-          />
-          <h2>9 Kings</h2>
-        </article>
-        <article class="jogos-page-item">
-          <img
-            src="../assets/images/skydust_thumbnail.png"
-            alt="Capa do jogo Sky Dust"
-          />
-          <h2>Sky Dust</h2>
-        </article>
-        <article class="jogos-page-item">
-          <img
-            src="../assets/images/aviaozinho_thumbnail.png"
-            alt="Capa do jogo Aviaozinho do Trafico"
-          />
-          <h2>Aviaozinho do Trafico</h2>
-        </article>
-        <article class="jogos-page-item">
-          <img
-            src="../assets/images/horizonchase_thumbnail.png"
-            alt="Capa do jogo Horizon Chase Turbo"
-          />
-          <h2>Horizon Chase Turbo</h2>
-        </article>
+      <!-- Games Grid -->
+      <section class="container-fluid pb-5">
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-hellclock.jpg"
+                  alt="Capa do jogo Hell Clock"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Hell Clock</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 100,00</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-9kings.jpg"
+                  alt="Capa do jogo 9 Kings"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">9 Kings</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 39,99</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-sky-dust.jpg"
+                  alt="Capa do jogo Sky Dust"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Sky Dust</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 29,99</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-aviaozinho.jpg"
+                  alt="Capa do jogo Aviãozinho do Tráfico"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Aviãozinho do Tráfico</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 10,50</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-horizon-chase.jpg"
+                  alt="Capa do jogo Horizon Chase Turbo"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Horizon Chase Turbo</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 32,15</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-aila.jpg"
+                  alt="Capa do jogo A.I.L.A"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">A.I.L.A</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 79,95</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-unsighted.jpg"
+                  alt="Capa do jogo Unsighted"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Unsighted</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 54,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-two-strikes.jpg"
+                  alt="Capa do jogo Two Strikes"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Two Strikes</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 44,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-sludge-life.jpg"
+                  alt="Capa do jogo Sludge Life"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Sludge Life</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 49,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-onikura.jpg"
+                  alt="Capa do jogo Onikura"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Onikura</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 39,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-mullet-madjack.jpg"
+                  alt="Capa do jogo Mullet MadJack"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Mullet MadJack</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 59,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-moonleap.jpg"
+                  alt="Capa do jogo Moonleap"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Moonleap</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 34,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-lead-the-dragon.jpg"
+                  alt="Capa do jogo Lead the Dragon"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Lead the Dragon</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 42,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-investigacao-postuma.jpg"
+                  alt="Capa do jogo Investigação Póstuma"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Investigação Póstuma</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 36,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-fobia.jpg"
+                  alt="Capa do jogo Fobia"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Fobia</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 41,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-enigma-do-medo.jpg"
+                  alt="Capa do jogo Enigma do Medo"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Enigma do Medo</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 69,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-dandara.jpg"
+                  alt="Capa do jogo Dandara"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Dandara</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 38,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-cordels-&amp;-spells.jpg"
+                  alt="Capa do jogo Cordels &amp; Spells"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Cordels &amp; Spells</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 46,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-bloodless.jpg"
+                  alt="Capa do jogo Bloodless"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Bloodless</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 57,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-asleep.png"
+                  alt="Capa do jogo Asleep"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Asleep</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 31,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-zueirama-2.jpg"
+                  alt="Capa do jogo Zueirama 2"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">Zueirama 2</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 22,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card game-card h-100">
+              <div class="game-image-wrapper">
+                <img
+                  src="../assets/images/image-99-vidas.jpg"
+                  alt="Capa do jogo 99 Vidas"
+                  class="card-img-top"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold mb-3">99 Vidas</h5>
+                <div
+                  class="mt-auto d-flex justify-content-between align-items-center"
+                >
+                  <span class="game-price fw-bold">R$ 27,90</span>
+                  <button class="btn btn-warning btn-sm fw-bold px-3">
+                    Comprar <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
