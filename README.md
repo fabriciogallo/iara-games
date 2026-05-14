@@ -1,86 +1,92 @@
 ![Logo](assets/images/logo-iara-games.png)
 
-# Iara Games - Fase 3
+# Iara Games
 
-# A EVOLUÇÃO
+Nesta terceira fase do projeto, o grupo teve como objetivo aplicar a identidade visual da Iara Games no ambiente digital, utilizando conceitos modernos de desenvolvimento front-end, responsividade e acessibilidade.
 
-Da sprint 1 para a sprint 2, o grupo evoluiu a plataforma Iara Games a partir de melhorias significativas. Como principal ponto de atenção, aprimoramos melhor os aspectos da nossa identidade visual, realizando ajustes na paleta de cores e incorporando uma texturização de água ao fundo. Aplicamos uma variação de tonalidade ao longo da navegação, onde, quanto mais profunda a página, mais escuro se torna o layout, assim como as águas de um rio.
+A proposta foi transformar a identidade criada anteriormente em uma experiência funcional e visualmente consistente, desenvolvendo páginas responsivas com foco em navegação intuitiva, organização visual e valorização dos jogos brasileiros.
 
-Também acrescentamos um formulário e a reorganização do layout dos cards, tornando a experiência mais completa e funcional.
+Foram desenvolvidas duas páginas principais:
 
-![App Screenshot](assets/images/read-home-v2.jpg)
+- Home da plataforma Iara Games
+- Página extra com temática complementar ao projeto
 
-## PERSONA
+Durante o desenvolvimento, utilizamos o Bootstrap para estruturar os elementos da interface e otimizar a responsividade da plataforma.
+## IDENTIDADE VISUAL
+A identidade visual da Iara Games foi criada para representar a conexão entre tecnologia, games e brasilidade.
 
-Lucas Ferreira, 25 anos, é um designer gráfico de São Paulo apaixonado por jogos indie e cultura brasileira. Ele busca descobrir jogos nacionais de forma prática, valorizando recomendações, reviews e uma experiência de navegação simples.
+O conceito visual combina elementos modernos com referências culturais brasileiras, criando uma marca jovem, dinâmica e facilmente reconhecível.
 
-No entanto, enfrenta dificuldades em encontrar jogos brasileiros em grandes plataformas, devido à falta de curadoria e organização. Por isso, precisa de uma solução que centralize esses jogos, ofereça recomendações personalizadas e destaque os desenvolvedores, tornando a experiência mais clara e confiável.
+### LOGOTIPO
 
-![App Screenshot](assets/images/read-persona1.jpg)
+![Logo](assets/images/logo-iara-games.png)
 
-## ESG
+O logotipo da Iara Games foi desenvolvido de forma original, unindo a representação de uma cauda inspirada na personagem folclórica Iara com um controle de videogame, reforçando a conexão entre cultura brasileira e universo gamer.
 
-A Iara Games é uma plataforma voltada à curadoria, divulgação e acesso a jogos desenvolvidos por criadores brasileiros.
+Essa construção visual transmite:
+- Modernidade
+- Criatividade
+- Tecnologia
+- Identidade nacional
 
-Centralizamos esses conteúdos em um único local, a iniciativa contribui para o fortalecimento do ecossistema nacional de games e da economia criativa.
 
-Nesse contexto, é possível analisar a relação com os princípios de ESG (Environmental, Social and Governance).
+### PALETA DE CORES
+As cores escolhidas foram definidas estrategicamente para fortalecer a identidade da plataforma:
 
-### ASPECTO AMBIENTAL
+| Cor             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| AMARELO | ![#FFCB20](https://dummyimage.com/50/FFCB200a192f/white?text=+) #FFCB20 |
+| AZUL | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF |
+| VERDE | ![#1AA108](https://dummyimage.com/50/1AA108/white?text=+) #1AA108 |
 
-A Iara Games apresenta uma contribuição indireta, característica de plataformas digitais. Por não depender de mídia física para distribuição, reduz impactos relacionados à produção de materiais, logística e descarte.
+AMARELO — Representa criatividade, destaque e energia.
 
-Além disso, a plataforma incentiva a presença de jogos com temáticas ambientais, promovendo a conscientização dos usuários sobre sustentabilidade e preservação de recursos naturais.
+AZUL — Transmite inovação, tecnologia e conexão com o azul da bandeira brasileira.
 
-### PILAR SOCIAL
+VERDE — Simboliza brasilidade, diversidade e crescimento.
 
-O aspecto mais importante para a Iara Games, a plataforma contribui para:
+A combinação dessas cores cria uma identidade vibrante e moderna, alinhada à proposta da plataforma de valorizar jogos brasileiros.
 
-- Valorização de desenvolvedores brasileiros, ampliando a visibilidade no mercado
-- Fomento à economia criativa nacional, especialmente para estúdios independentes
-- Democratização do acesso a jogos produzidos no Brasil
-- Fortalecimento da cultura local, ao evidenciar narrativas, estéticas e referências brasileiras
-- Dessa forma, promovemos inclusão econômica e cultural, alinhando-se diretamente aos objetivos sociais do ESG.
+### TIPOGRAFIA
 
-### PILAR DA GOVERNANÇA
+A fonte principal utilizada é a Montserrat e Lexend.
 
-A plataforma pode se estruturar a partir de práticas que garantam:
+Sua escolha foi baseada em características como:
+- Fácil leitura
+- Visual moderno
+- Boa acessibilidade
+- Clareza em diferentes tamanhos de tela
 
-- Transparência nos critérios de curadoria e recomendação de jogos
-- Equidade na exposição de desenvolvedores, evitando favorecimento desigual
-- Segurança e confiabilidade para usuários e criadores
-- Ética na gestão de dados e conteúdos digitais
-- Esses aspectos são fundamentais para assegurar um ambiente digital justo, responsável e sustentável.
+A tipografia fortalece a proposta tecnológica da plataforma e melhora a experiência de navegação do usuário.
 
-A Iara Games é uma iniciativa que fortalece o ecossistema nacional de games através de acesso, visibilidade e distribuição mais democrática.
+## DESENVOLVIMENTO FRONT-END
 
-## ESTRUTURA E LAYOUT
+### UTILIZAÇÃO DO BOOTSTRAP
 
-### HTML SEMANTICO
+O framework Bootstrap foi utilizado para estruturar e organizar o layout das páginas.
 
-![App Screenshot](assets/images/read-semantico.png)
+Entre os principais recursos utilizados estão:
 
-### LAYOUT COM GRIDS
+- Containers responsivos
+- Sistema de Grid
+- Navbar
+- Cards
+- Responsividade com colunas adaptáveis
+- Espaçamentos e alinhamentos utilitários
 
-![App Screenshot](assets/images/read-gridform.png)
+Esses recursos facilitaram o desenvolvimento de uma interface moderna, organizada e compatível com diferentes resoluções de tela.
 
-### DESENVOLVIMENTO DA PÁGINA "SUPORTE"
+### ACESSIBILIDADE
 
-![App Screenshot](assets/images/read-figmasuporte.png)
-.
+A interface utiliza uma paleta inspirada nas cores do Brasil, reforçando a proposta da plataforma de valorizar jogos desenvolvidos no país. O amarelo aparece como cor de destaque para ações importantes e elementos de navegação, criando contraste com o fundo escuro e ajudando a direcionar a atenção do usuário. Além de fortalecer a identidade visual da plataforma, essa escolha conecta o produto à cultura brasileira de forma sutil e reconhecível.
 
-### FORMULÁRIOS
+Durante o desenvolvimento, aplicamos boas práticas de acessibilidade para garantir melhor usabilidade e inclusão digital.
 
-#### FORMULÁRIO DE SUPORTE
+#### RECURSOS IMPLEMENTADOS
 
-![App Screenshot](assets/images/read-suporte.png)
-
-#### FORMULÁRIO PARA DESENVOLVEDORES DE JOGOS
-
-![App Screenshot](assets/images/read-suporte.png)
-
-## LINKS UTEIS
-
-- [VIDEO PITCH](https://www.youtube.com/watch?v=_JsaPTYOMC4)
-- [GitHub](https://github.com/fabriciogallo/iara-games/)
-- [Projeto](https://fabriciogallo.github.io/iara-games/)
+- Uso correto de tags semânticas
+- Contraste adequado entre texto e fundo
+- Navegação simples e intuitiva
+- Textos alternativos para imagens
+- Fontes legíveis
+- Estrutura clara de conteúdo
