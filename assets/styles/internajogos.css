@@ -1,8 +1,8 @@
 :root {
   --font-text: "Montserrat", sans-serif;
   --font-title: "Lexend", sans-serif;
-  --font-display: "Bebas Neue", sans-serif;
-  --font-ui: "Rajdhani", sans-serif;
+  --font-display: "Lexend", sans-serif;
+  --font-ui: "Lexend", sans-serif;
 
   --color-light: #f4f4f4;
   --color-true-dark: #000;
@@ -247,7 +247,7 @@ ol {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.75);
-  font-family: var(--font-ui);
+  /* font-family: var(--font-ui); */
   font-weight: 600;
   font-size: 0.68rem;
   letter-spacing: 1.5px;
@@ -257,7 +257,7 @@ ol {
 }
 
 .hero-title {
-  font-family: var(--font-display);
+  /* font-family: var(--font-display); */
   font-size: clamp(3.5rem, 10vw, 8rem);
   line-height: 0.9;
   letter-spacing: 2px;
