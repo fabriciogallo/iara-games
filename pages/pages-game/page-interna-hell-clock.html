@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hell Clock</title>
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/logo-iara-games.svg"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../../assets/styles/internajogos.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand d-flex align-items-center gap-3 me-4"
+          href="../../index.html"
+        >
+          <img
+            src="../../assets/images/logo-iara-games.svg"
+            alt="Logo da Iara Games"
+            width="59"
+            height="49"
+          />
+          <span class="fw-bold fs-2 title">Iara Games</span>
+        </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul
+            class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
+          >
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="../../pages/jogos.html"
+                >Loja</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-3 fw-semibold"
+                href="../../pages/suporte.html"
+                >Suporte</a
+              >
+            </li>
+          </ul>
+
+          <div
+            class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-3 ms-lg-auto"
+          >
+            <div class="position-relative search-wrapper">
+              <i
+                class="bi bi-search position-absolute top-50 translate-middle-y"
+                style="
+                  left: 12px;
+                  font-size: 15px;
+                  pointer-events: none;
+                  color: #aaa;
+                "
+              ></i>
+              <input
+                class="form-control ps-5"
+                type="search"
+                placeholder="Buscar jogos"
+                aria-label="Buscar jogos"
+              />
+            </div>
+
+            <!-- Botão Entrar -->
+            <a
+              href="#"
+              class="btn-warning text-nowrap px-4 fw-semibold login-btn"
+            >
+              Entrar
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Fim Navbar -->
+
+    <!-- Area Hero -->
+    <section
+      class="hero-interna"
+      style="
+        background-image: url(&quot;https://assets.games.gg/1753191839685_hell_clock_banner_f93340c26d.jpeg&quot;);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- Escurecimento gradiente -->
+      <div class="hero-overlay"></div>
+
+      <!-- Texto do hero -->
+      <div class="hero-content">
+        <!-- Tags de gênero -->
+        <div class="hero-tags">
+          <span class="hero-tag">RPGs de Ação</span>
+          <span class="hero-tag">Estilizado</span>
+          <span class="hero-tag">Hack and Slash</span>
+          <span class="hero-tag">Roguelike</span>
+        </div>
+
+        <!-- Título grande e amarelo -->
+        <h1 class="hero-title">Hell Clock</h1>
+
+        <!-- Meta-infos: desenvolvedor, data, nota -->
+        <div class="hero-meta">
+          <span>Desenvolvedora: <strong>Rogue Snail</strong></span>
+          <span>Data de lançamento: <strong> 22/06/2025</strong></span>
+          <span>Nota: <span class="stars-yellow">80.83%</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Area Main -->
+    <div class="main-content">
+      <div class="row g-5">
+        <!-- ── COLUNA ESQUERDA ── -->
+        <div class="col-lg-8">
+          <!-- 1. DESCRIÇÃO DO JOGO -->
+          <div class="mb-5">
+            <p class="description-title">O RELÓGIO INFERNAL ESTÁ TOCANDO</p>
+            <p class="description-text">
+              Crie poderosas builds com muito loot nessa combinação incrível de
+              Roguelike e ARPG. Atravesse perigosas masmorras e utilize poderes
+              sobrehumanos numa versão de fantasia sombria da Guerra de Canudos
+              no Brasil.
+            </p>
+          </div>
+
+          <!-- 2. CARTÃO DE CLASSIFICAÇÃO ETÁRIA (substitui os antigos feature-cards) -->
+          <div class="row g-3 mb-5">
+            <div class="col-md-6">
+              <div class="age-card">
+                <img
+                  src="../../assets/images/14-classificacao-idade.png"
+                  alt="Classificação 10"
+                  class="age-badge-img"
+                />
+                <div class="age-text">
+                  <p class="age-title">Classificação etária:</p>
+                  <p class="age-desc">
+                    Coordenação de Classificação Indicativa
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. GALERIA DE IMAGENS -->
+          <div class="mb-5">
+            <p class="gallery-section-title">Imagens</p>
+
+            <div class="gallery-grid">
+              <!-- Imagem grande (2 linhas) -->
+              <div class="gallery-item tall">
+                <img
+                  src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1782460/c6c7a79109fcfb63efe000d313d74fa5a3cdeb2d/ss_c6c7a79109fcfb63efe000d313d74fa5a3cdeb2d.1920x1080.jpg?t=1777312673"
+                  alt="Cena do jogo 1"
+                  class="gallery-img"
+                />
+              </div>
+              <!-- 4 imagens menores -->
+              <div class="gallery-item">
+                <img
+                  src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1782460/ss_6b70449e3272cd8f439fd92c583071edb369d60c.1920x1080.jpg?t=1777312673"
+                  alt="Cena do jogo 2"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1782460/ss_7073d812feb8bb99e5666813efb6fae1e8883000.1920x1080.jpg?t=1777312673"
+                  alt="Cena do jogo 3"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1782460/ss_1f7f40609d53f1fd8a61fe211d6a7eed8519a693.1920x1080.jpg?t=1777312673"
+                  alt="Cena do jogo 4"
+                  class="gallery-img"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1782460/ss_8ce5136393cb79634073a4639ebde18d7cf08e9f.1920x1080.jpg?t=1777312673"
+                  alt="Cena do jogo 5"
+                  class="gallery-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. AVALIAÇÕES DA COMUNIDADE -->
+          <div>
+            <!-- Cabeçalho: título à esquerda, nota global à direita -->
+            <div class="community-header">
+              <p class="community-title">O que a comunidade está dizendo</p>
+              <div class="text-end">
+                <div class="global-score-number">97</div>
+                <div class="global-score-label">Nota Global</div>
+              </div>
+            </div>
+
+            <!-- Avaliação 1 -->
+            <div class="review-card recommend">
+              <div
+                class="d-flex align-items-flex-start justify-content-between gap-3 mb-3"
+              >
+                <div>
+                  <div class="d-flex align-items-flex-start gap-3 mb-2">
+                    <div
+                      class="review-avatar"
+                      style="
+                        background: linear-gradient(135deg, #2a2b4a, #040981);
+                        color: #030407;
+                      "
+                    >
+                      D
+                    </div>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                      <div class="recommend-icon">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </div>
+                      <p class="recommend-title mb-0">Recomenda</p>
+                      <p class="recommend-hours mb-0">15,1 horas registradas</p>
+                    </div>
+                  </div>
+                  <p class="review-name mx-1 mt-2 mb-0">Dona Clotilde</p>
+                </div>
+              </div>
+              <p class="review-text">
+                Jogo me impressionou, no bom sentido. A história é bem ok e a
+                jogabilidade bem satisfatória. Demorei umas 15h pra fechar, e
+                depois que você monta uma build apelona é dificil sequer perder
+                vida ou correr o risco de morrer na dificuldade normal mas,
+                talvez essa seja a graça do jogo. Já na segunda dificuldade,
+                depois de zerar, o buraco é mais embaixo, e gostei também que a
+                arvore de habilidades muda alem do adicional das constelações,
+                então tem um fator rejogabilidade interessante. Um ponto
+                negativo pra mim foi os cenários, parecem meio pequenos e muito
+                lineares, dão a impressão até de repetitivos, o que retira um
+                pouco a urgencia do relógio, já que se você quiser atravessar a
+                coisa toda andando sem matar um unico monstro é perfeitamente
+                possível, basta seguir para cima ou cima-esquerda que
+                eventualmente vai chegar no portal, essa previsibilidade e
+                facilidade em encontrar a saida tira um pouco da graça da coisa.
+                Talvez níveis maiores, com minichefes que aumentam seu tempo de
+                relógio fosse uma solução que resolveria a questão.
+              </p>
+            </div>
+
+            <!-- Avaliação 2 -->
+            <div class="review-card recommend">
+              <div
+                class="d-flex align-items-flex-start justify-content-between gap-3 mb-3"
+              >
+                <div>
+                  <div class="d-flex align-items-flex-start gap-3 mb-2">
+                    <div
+                      class="review-avatar"
+                      style="
+                        background: linear-gradient(135deg, #da930f, #b37503);
+                        color: #181206;
+                      "
+                    >
+                      R
+                    </div>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                      <div class="recommend-icon">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </div>
+                      <p class="recommend-title mb-0">Recomenda</p>
+                      <p class="recommend-hours mb-0">15,5 horas registradas</p>
+                    </div>
+                  </div>
+                  <p class="review-name mx-1 mt-2 mb-0">Ruan</p>
+                </div>
+              </div>
+              <p class="review-text">
+                Recomendo muito. A jogabilidade do jogo é muito boa, os
+                elementos de progressão roguelite junto com os itens do jogo
+                permitem uma boa diversidade de builds e de estilos de jogo
+                diferente. Onde o jogo brilha mais ainda é na ambientação. A
+                história do jogo falando sobre Canudos e com várias figuras
+                históricas e a trama que liga isso com a proposta do jogo são
+                ótimos. A dublagem em PT-BR é maravilhosa e dá vida aos
+                personagens. Recomendo muito. Jogar Hell Clock dá orgulho da
+                história do Brasil e de ver que tem jogos desse nível sendo
+                feitos por aqui
+              </p>
+            </div>
+            <!-- Avaliação 3 -->
+            <div class="review-card recommend">
+              <div
+                class="d-flex align-items-flex-start justify-content-between gap-3 mb-3"
+              >
+                <div>
+                  <div class="d-flex align-items-flex-start gap-3 mb-2">
+                    <div
+                      class="review-avatar"
+                      style="
+                        background: linear-gradient(135deg, #d06291, #910a44);
+                        color: #2b111c;
+                      "
+                    >
+                      G
+                    </div>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                      <div class="recommend-icon">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </div>
+                      <p class="recommend-title mb-0">Recomenda</p>
+                      <p class="recommend-hours mb-0">5,3 horas registradas</p>
+                    </div>
+                  </div>
+                  <p class="review-name mx-1 mt-2 mb-0">Gelatti</p>
+                </div>
+              </div>
+              <p class="review-text">
+                Deveria existir mais jogos assim, ainda mais nacionais, conta
+                uma historia real e consegue ser envolvente super recomendo
+              </p>
+            </div>
+
+            <!-- Card do Desenvolvedor -->
+            <div class="dev-card">
+              <div class="dev-logo">
+                <img
+                  src="https://avatars.fastly.steamstatic.com/ad3150d0ca1184e82532d17b101259456dd242df_full.jpg"
+                  alt="Icone dos Devs"
+                />
+              </div>
+              <div>
+                <p class="dev-name">Rogue Snail</p>
+                <p class="dev-desc">
+                  Fully remote indie game developer located all around Brazil.
+                  We make games to empower and connect people
+                </p>
+                <a
+                  href="https://store.steampowered.com/developer/roguesnail"
+                  class="dev-link"
+                  >Follow Developer</a
+                >
+                <a
+                  href="https://store.steampowered.com/developer/roguesnail/about/"
+                  class="dev-link"
+                  >More from Rogue Snail</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /col-lg-8 -->
+
+        <!-- ── COLUNA DIREITA — Sidebar ── -->
+        <div class="col-lg-4">
+          <div class="sidebar-sticky">
+            <div class="sidebar-card">
+              <!-- Cabeçalho do preço -->
+              <div class="price-row">
+                <span class="price-label">Preço do jogo</span>
+                <span class="price-value">R$ 59,99</span>
+              </div>
+
+              <!-- Botões de ação -->
+              <button class="btn-buy">
+                <i class="bi bi-cart-fill"></i>
+                Comprar jogo
+              </button>
+              <button class="btn-wish">
+                <i class="bi bi-heart"></i>
+                Adicionar aos favoritos
+              </button>
+
+              <hr class="sidebar-divider" />
+
+              <!-- Especificações do sistema -->
+              <div class="sidebar-section-header">
+                <i class="bi bi-display"></i>
+                <span class="sidebar-section-label"
+                  >Especificações do Sistema</span
+                >
+              </div>
+
+              <!-- Specs PC -->
+              <div class="specs-grid">
+                <div>
+                  <p class="spec-label">OS</p>
+                  <p class="spec-value">Windows 10</p>
+                </div>
+                <div>
+                  <p class="spec-label">Processador</p>
+                  <p class="spec-value">Intel Core i5 2500 or AMD FX-4350</p>
+                </div>
+                <div>
+                  <p class="spec-label">Memória</p>
+                  <p class="spec-value">8 GB de RAM</p>
+                </div>
+                <div>
+                  <p class="spec-label">Placa de vídeo</p>
+                  <p class="spec-value">
+                    NVIDIA GTX 1060 / AMD RX 580 with 6GB of VRAM
+                  </p>
+                </div>
+                <div>
+                  <p class="spec-label">DirectX</p>
+                  <p class="spec-value">Versão 11</p>
+                </div>
+                <div>
+                  <p class="spec-label">Storage</p>
+                  <p class="spec-value">2 GB de espaço disponível</p>
+                </div>
+              </div>
+
+              <!-- Disponível para (plataformas) -->
+              <div class="sidebar-section-header">
+                <i class="bi bi-device-ssd"></i>
+                <span class="sidebar-section-label">Disponível Para</span>
+              </div>
+              <div class="platform-btns">
+                <div class="platform-btn"><i class="bi bi-display"></i></div>
+                <div class="platform-btn"><i class="bi bi-controller"></i></div>
+                <div class="platform-btn"><i class="bi bi-joystick"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /col-lg-4 -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /main-content -->
+
+    <!-- Area Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <!-- Coluna 1: Logo + Tagline + Idioma -->
+          <div class="col-12 col-lg-6 footer-brand-col">
+            <div class="footer-logo">
+              <img
+                src="../../assets/images/logo-iara-games.svg"
+                alt="Logo da Iara Games"
+                width="40"
+                height="33"
+              />
+              <h2 class="titulo-logo">Iara Games</h2>
+            </div>
+            <p class="footer-tagline">
+              Plataforma de venda de jogos desenvolvidos por brasileiros ou
+              jogos ambientados no Brasil.
+            </p>
+            <div class="footer-lang">
+              <label>Idioma e País</label>
+              <div class="footer-selects">
+                <select>
+                  <option>Português</option>
+                </select>
+                <select>
+                  <option>Brasil</option>
+                </select>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <span>2026 – Desenvolvido por grupo 10</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6 d-flex">
+            <div class="footer-panel w-100">
+              <div class="row g-4 g-lg-0">
+                <!-- Coluna 2: Navegação -->
+                <div class="col-12 col-md-5 footer-panel-nav">
+                  <nav class="footer-links">
+                    <a href="#">Sobre</a>
+                    <a href="../../pages/jogos.html">Loja</a>
+                    <a href="#">Comunidade</a>
+                    <a href="#">Blog</a>
+                    <a href="../../pages/suporte.html">Suporte</a>
+                  </nav>
+                </div>
+                <!-- Coluna 3: Redes + Legal -->
+                <div class="col-12 col-md-7 footer-panel-aside">
+                  <div class="footer-links footer-links-social">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-twitch" aria-hidden="true"></i> Twitch
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-instagram" aria-hidden="true"></i>
+                      Instagram
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-twitter" aria-hidden="true"></i> Twitter
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-youtube" aria-hidden="true"></i> Youtube
+                    </a>
+                  </div>
+                  <div class="footer-links footer-links-legal">
+                    <a href="#">Contato</a>
+                    <a
+                      href="../../pages/politica-privacidade.html"
+                      class="link-yellow"
+                      >Políticas de Privacidade</a
+                    >
+                    <a
+                      href="../../pages/termos-condicoes.html"
+                      class="link-yellow"
+                      >Termos e Condições</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Fim Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
