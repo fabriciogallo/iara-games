@@ -265,6 +265,15 @@ ol {
   margin-bottom: 16px;
 }
 
+.hero-sub {
+  font-size: 3rem;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: var(--color-yellow);
+  margin-bottom: 16px;
+  margin-left: 15px;
+}
+
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
