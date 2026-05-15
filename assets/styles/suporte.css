@@ -34,7 +34,8 @@ body {
     linear-gradient(
       180deg,
       rgba(0, 59, 253, 0.55) 0%,
-      rgba(1, 4, 14, 0.9) 40%,
+      rgba(1, 4, 14, 0.9) 30%,
+      rgba(1, 4, 14, 0.9) 50%,
       rgba(0, 0, 0, 1) 100%
     ),
     radial-gradient(
@@ -44,9 +45,8 @@ body {
       rgba(214, 25, 25, 0) 72%
     ),
     url(../images/bg-agua.png);
-  background-size: cover;
+  background-size: cover, cover, cover, auto;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 h1,
