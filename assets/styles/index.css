@@ -880,7 +880,8 @@ ol {
   height: 44px;
   color: #f5ffe6;
   font-family: var(--font-text);
-  font-size: 16px;
+  font-size: 14.9px;
+  font-weight: 460;
   padding: 0 32px 0 8px;
   outline: none;
   appearance: none;
