@@ -31,8 +31,8 @@ body {
     linear-gradient(
       180deg,
       rgba(0, 59, 253, 0.603) 0%,
-      rgba(0, 1, 2, 0.849) 12%,
-      rgba(0, 0, 0, 0.897) 12.1%,
+      rgba(0, 1, 2, 0.849) 18%,
+      rgba(0, 0, 0, 0.897) 18.1%,
       rgba(1, 4, 14, 0.856) 52%,
       rgba(1, 4, 14, 0.856) 8%,
       rgba(0, 0, 0, 0.856) 100%
@@ -782,7 +782,6 @@ ol {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  line-clamp: 2;
   -webkit-line-clamp: 2;
   margin-bottom: 12px;
 }
