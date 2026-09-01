@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seu carrinho de compras — Iara Games</title>
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/logo-iara-games.svg"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../assets/styles/index.css" />
+    <link rel="stylesheet" href="../assets/styles/carrinho.css" />
+    <link rel="stylesheet" href="../assets/styles/home-alt.css" />
+    <link rel="stylesheet" href="../assets/styles/carrinho-pagina.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-3 me-4" href="../index.html">
+          <img
+            src="../assets/images/logo-iara-games.svg"
+            alt="Logo da Iara Games"
+            width="59"
+            height="49"
+          />
+          <span class="fw-bold fs-2 title">Iara Games</span>
+        </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul
+            class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
+          >
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="jogos.html">Loja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="suporte.html">Suporte</a>
+            </li>
+          </ul>
+
+          <div
+            class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-3 ms-lg-auto"
+          >
+            <!-- Botão Carrinho -->
+            <button
+              type="button"
+              class="carrinho-btn"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasCarrinho"
+              aria-controls="offcanvasCarrinho"
+              aria-label="Abrir carrinho"
+            >
+              <i class="bi bi-cart3"></i>
+              <span id="carrinho-contador" class="carrinho-contador">0</span>
+            </button>
+
+            <!-- Botão Entrar -->
+            <a
+              href="#"
+              class="btn-warning text-nowrap px-4 fw-semibold login-btn"
+            >
+              Entrar
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Fim Navbar -->
+
+    <section class="carrinho-pg-hero">
+      <h1 class="carrinho-pg-hero-title">Seu carrinho de compras</h1>
+
+      <div class="carrinho-pg-layout">
+        <!-- Lista de itens -->
+        <div>
+          <div id="carrinho-pagina-lista" class="carrinho-pg-lista"></div>
+          <div id="carrinho-pagina-vazio" style="display: none">
+            <p>Seu carrinho está vazio.</p>
+            <a href="jogos.html" class="halt-see-all">Ver jogos disponíveis</a>
+          </div>
+        </div>
+
+        <!-- Coluna lateral -->
+        <div id="carrinho-pagina-resumo-box" class="carrinho-pg-resumo">
+          <div class="carrinho-pg-box">
+            <h3>Resumo</h3>
+            <hr />
+            <div class="carrinho-pg-linha">
+              <span>Subtotal (<span id="resumo-qtd-itens">0</span> itens)</span>
+              <span id="resumo-subtotal">R$ 0,00</span>
+            </div>
+            <div class="carrinho-pg-linha">
+              <span>Taxas</span>
+              <span id="resumo-taxas">R$ 0,00</span>
+            </div>
+          </div>
+
+          <div class="carrinho-pg-box">
+            <h3>Cupom de desconto</h3>
+            <hr />
+            <input
+              type="text"
+              id="cupom-input"
+              placeholder="Digite o código"
+              autocomplete="off"
+            />
+            <button type="button" id="cupom-aplicar">Aplicar</button>
+            <p id="cupom-msg"></p>
+          </div>
+
+          <div class="carrinho-pg-box">
+            <h3>Total</h3>
+            <hr />
+            <div class="carrinho-pg-linha destaque">
+              <span>Desconto</span>
+              <span id="resumo-desconto">R$ 0,00</span>
+            </div>
+            <div class="carrinho-pg-linha">
+              <span>Total</span>
+              <span id="resumo-total">R$ 0,00</span>
+            </div>
+            <hr />
+            <button type="button" id="carrinho-continuar">Continuar</button>
+            <a href="#" class="carrinho-pg-reembolso">Políticas de reembolso</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="halt-footer">
+      <div class="halt-footer-grid">
+        <div class="halt-footer-brand">
+          <div class="halt-footer-logo">
+            <img src="../assets/images/logo-iara-games.svg" alt="Iara Games" />
+            <span>Iara Games</span>
+          </div>
+          <p>
+            A plataforma de jogos desenvolvidas por brasileiros ou jogos
+            ambientados no Brasil.
+          </p>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Produto</h5>
+          <ul>
+            <li><a href="jogos.html">Loja</a></li>
+            <li><a href="#">Biblioteca</a></li>
+            <li><a href="#">Comunidade</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Desenvolvedores</h5>
+          <ul>
+            <li><a href="#">Publicar Jogo</a></li>
+            <li><a href="#">Documentação</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Ferramentas</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Licenças</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="halt-footer-bottom">
+        <p>© 2026 Iara Games. Todos os direitos reservados.</p>
+        <div class="halt-footer-social">
+          <a href="#">Twitter</a>
+          <a href="#">Discord</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Painel do Carrinho (mini-carrinho lateral) -->
+    <div
+      class="offcanvas offcanvas-end offcanvas-carrinho"
+      tabindex="-1"
+      id="offcanvasCarrinho"
+      aria-labelledby="offcanvasCarrinhoLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCarrinhoLabel">
+          <i class="bi bi-cart3 me-2"></i>Seu carrinho
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Fechar"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="carrinho-lista"></div>
+        <p id="carrinho-vazio">Seu carrinho está vazio.</p>
+        <div class="carrinho-rodape">
+          <div class="carrinho-rodape-linha">
+            <span>Subtotal</span>
+            <span id="carrinho-subtotal">R$ 0,00</span>
+          </div>
+          <a href="carrinho.html" class="btn btn-warning w-100 fw-bold text-center">
+            Finalizar compra
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../assets/js/carrinho.js"></script>
+  </body>
+</html>

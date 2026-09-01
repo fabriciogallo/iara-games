@@ -1,0 +1,278 @@
+/*
+  CARRINHO-PAGINA.CSS
+  --------------------
+  Estilos exclusivos da página pages/carrinho.html — o "quadro
+  Carrinho" do Figma: lista de itens grande, resumo de valores,
+  cupom de desconto e total final.
+*/
+
+.carrinho-pg-hero {
+  position: relative;
+  min-height: 260px;
+  padding: 130px 64px 60px;
+  background-size: cover;
+  background-position: center;
+}
+
+.carrinho-pg-hero-title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+.carrinho-pg-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ===== Lista de itens ===== */
+.carrinho-pg-lista {
+  background: #1a1c1d;
+  border: 1px solid rgba(69, 73, 70, 0.15);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.carrinho-pg-item {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.carrinho-pg-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.carrinho-pg-item-img {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.carrinho-pg-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.carrinho-pg-item-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.carrinho-pg-item-nome {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.carrinho-pg-item-plataforma {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 4px 0 0;
+}
+
+.carrinho-pg-item-preco-col {
+  text-align: right;
+}
+
+.carrinho-pg-item-preco {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-green);
+  margin: 0;
+}
+
+.carrinho-pg-item-qtd-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 4px 0 0;
+}
+
+.carrinho-pg-item-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carrinho-pg-item-qtd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carrinho-pg-item-qtd .btn-qtd {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+
+.carrinho-pg-remover {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-yellow);
+  color: #fff;
+  font-size: 16px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.carrinho-pg-remover:hover {
+  color: var(--color-yellow);
+}
+
+#carrinho-pagina-vazio {
+  background: #1a1c1d;
+  border-radius: 24px;
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* ===== Coluna lateral (resumo / cupom / total) ===== */
+.carrinho-pg-resumo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.carrinho-pg-box {
+  background: #1a1c1d;
+  border: 1px solid rgba(69, 73, 70, 0.15);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.carrinho-pg-box h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.carrinho-pg-box hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 0 16px;
+}
+
+.carrinho-pg-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.carrinho-pg-linha:last-child {
+  margin-bottom: 0;
+}
+
+.carrinho-pg-linha.destaque {
+  color: var(--color-green);
+}
+
+#cupom-input {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  background: #f6f6f6;
+  color: #111;
+  padding: 0 16px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+#cupom-aplicar {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background: #f5ffe6;
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#cupom-aplicar:hover {
+  background: #e3ffbd;
+}
+
+#cupom-msg {
+  font-size: 13px;
+  margin-top: 10px;
+  min-height: 16px;
+}
+
+.cupom-msg-sucesso {
+  color: var(--color-green);
+}
+
+.cupom-msg-erro {
+  color: var(--red);
+}
+
+#carrinho-continuar {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background: var(--color-yellow);
+  color: #111;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+#carrinho-continuar:hover {
+  filter: brightness(1.05);
+}
+
+.carrinho-pg-reembolso {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #fff;
+  border-bottom: 1px solid var(--color-yellow);
+  padding-bottom: 4px;
+  font-size: 15px;
+}
+
+@media (max-width: 991px) {
+  .carrinho-pg-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .carrinho-pg-hero {
+    padding: 130px 24px 40px;
+  }
+
+  .carrinho-pg-item {
+    flex-direction: column;
+  }
+
+  .carrinho-pg-item-img {
+    width: 100%;
+    height: 160px;
+  }
+}

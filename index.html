@@ -31,6 +31,8 @@
     />
 
     <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="stylesheet" href="assets/styles/carrinho.css" />
+    <link rel="stylesheet" href="assets/styles/home-alt.css" />
   </head>
 
   <!-- Area Navbar -->
@@ -102,6 +104,19 @@
               />
             </div>
 
+            <!-- Botão Carrinho -->
+            <button
+              type="button"
+              class="carrinho-btn"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasCarrinho"
+              aria-controls="offcanvasCarrinho"
+              aria-label="Abrir carrinho"
+            >
+              <i class="bi bi-cart3"></i>
+              <span id="carrinho-contador" class="carrinho-contador">0</span>
+            </button>
+
             <!-- Botão Entrar -->
             <a
               href="#"
@@ -115,273 +130,298 @@
     </nav>
     <!-- Fim Navbar -->
 
-    <section class="hero">
-      <div class="container-xl">
-        <div class="row align-items-center g-4">
-          <!-- Coluna do texto -->
-          <div
-            class="col-12 col-lg-7 order-2 order-lg-1 text-center text-lg-start"
-          >
-            <h1 class="hero-title">Descubra seus<br />próximos jogos</h1>
-            <p class="hero-sub">
-              A plataforma que te ajuda a encontrar os<br
-                class="d-none d-md-block"
-              />
-              jogos desenvolvidos por brasileiros
-            </p>
-            <div
-              class="hero-dots justify-content-center justify-content-lg-start"
+    <!-- ===== HERO ===== -->
+    <section class="halt-hero halt-hero-bg1">
+      <div class="halt-hero-content">
+        <span class="halt-badge">Destaque</span>
+        <div>
+          <h1 class="halt-hero-title">Enigma do Medo</h1>
+          <p class="halt-hero-sub">
+            Encare o desconhecido, descubra a verdade e sobreviva aos seus
+            próprios medos.
+          </p>
+        </div>
+        <div>
+          <p class="halt-hero-price">R$ 69,90</p>
+          <div class="halt-hero-actions">
+            <a
+              href="pages/pages-game/page-interna-enigma-do-medo.html"
+              class="halt-btn halt-btn-light"
             >
-              <span class="dot dot--active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-
-          <!-- Coluna do carrousel do jogo -->
-          <div
-            class="col-12 col-lg-5 order-2 order-lg-1 d-flex justify-content-center justify-content-lg-end"
-          >
-            <div
-              id="heroCarousel"
-              class="carousel slide hero-carousel"
-              data-bs-ride="carousel"
+              Ver detalhes <i class="bi bi-arrow-right"></i>
+            </a>
+            <button
+              type="button"
+              class="halt-btn halt-btn-yellow btn-add-carrinho"
+              data-id="enigma-do-medo"
+              data-nome="Enigma do Medo"
+              data-preco="69.9"
+              data-imagem="assets/images/image-enigma-do-medo.jpg"
             >
-              <div class="carousel-inner">
-                <!-- Slide 1: Enigma do Medo -->
-                <div class="carousel-item active">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Destaque</div>
-                    <a href="pages/pages-game/page-interna-enigma-do-medo.html">
-                      <img
-                        src="assets/images/image-enigma-do-medo.jpg"
-                        alt="Banner com a imagem do game Enigma do Medo"
-                        class="hero-card-img enigma-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 65,00</span>
-                        <a
-                          href="pages/pages-game/page-interna-enigma-do-medo.html"
-                          class="buy-game-btn"
-                        >
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Slide 2: Moonleap -->
-                <div class="carousel-item">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Destaque</div>
-                    <a href="pages/jogos.html">
-                      <img
-                        src="assets/images/image-moonleap.jpg"
-                        alt="Banner principal com a imagem Moonleap"
-                        class="hero-card-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 17,99</span>
-                        <a href="pages/jogos.html" class="buy-game-btn">
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 3: UNSIGHTED -->
-                <div class="carousel-item">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Novidade</div>
-                    <a href="pages/jogos.html">
-                      <img
-                        src="assets/images/image-unsighted.jpg"
-                        alt="Banner com a imagem do game UNSIGHTED"
-                        class="hero-card-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 49,99</span>
-                        <a href="pages/jogos.html" class="buy-game-btn">
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 4: A Investigação Póstuma -->
-                <div class="carousel-item">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Novidade</div>
-                    <a href="pages/jogos.html">
-                      <img
-                        src="assets/images/image-investigacao-postuma.jpg"
-                        alt="Banner com a imagem do game A Investigação Póstuma"
-                        class="hero-card-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 44,00</span>
-                        <a href="pages/jogos.html" class="buy-game-btn">
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 5: Onikura -->
-                <div class="carousel-item">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Lançamento</div>
-                    <a href="pages/jogos.html">
-                      <img
-                        src="assets/images/image-onikura.jpg"
-                        alt="Banner com a imagem do game Onikura"
-                        class="hero-card-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 79,99</span>
-                        <a href="pages/jogos.html" class="buy-game-btn">
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 6: Asleep: Ato 1 -->
-                <div class="carousel-item">
-                  <div class="hero-card w-100">
-                    <div class="hero-card-badge">Lançamento</div>
-                    <a href="pages/jogos.html">
-                      <img
-                        src="assets/images/image-asleep.png"
-                        alt="Banner com a imagem do game Asleep: Ato 1"
-                        class="hero-card-img"
-                      />
-                    </a>
-                    <div class="hero-card-overlay">
-                      <div class="hero-card-footer">
-                        <span class="price">R$ 19,99</span>
-                        <a href="pages/jogos.html" class="buy-game-btn">
-                          Comprar jogo <i class="bi bi-arrow-right"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Controles do carrousel -->
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#heroCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Anterior</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#heroCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Próximo</span>
-              </button>
-            </div>
+              Adicionar ao carrinho
+            </button>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Fim Hero -->
-
-    <!-- Video de fundo -->
-    <!-- <video class="video" autoplay muted playsinline id="meu-video">
-      <source src="./assets/images/bg-agua-video.mp4" type="video/mp4" />
-    </video> -->
-    <!-- F Video de fundo -->
-
-    <!-- Area Popular no Brasil -->
-    <section class="popular">
-      <div class="container-xl">
-        <!-- Cabeçalho da seção: título + "Ver todos" -->
-        <div class="section-header">
-          <h2>Popular no Brasil</h2>
-          <a href="pages/jogos.html" class="link-ver-todos">Ver todos</a>
-        </div>
-
-        <div class="row g-4 g-xl-5 pb-5 align-items-start">
-          <div class="col-12 col-lg-6">
-            <div class="pop-container">
-              <a href="pages/pages-game/page-interna-hell-clock.html">
-                <img
-                  src="assets/images/image-hellclock.jpg"
-                  alt="Banner do jogo Hellclock"
-                  class="img-hell"
-              /></a>
-
-              <div class="popular-preco">
-                <span class="price-pop">R$ 100,00</span>
-                <a
-                  href="pages/pages-game/page-interna-hell-clock.html"
-                  class="buy-game-btn"
-                >
-                  Comprar jogo <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6">
-            <div class="game-title pt-0 pt-lg-3">
-              <div class="popular-name-row">
-                <h1>Hell Clock</h1>
-                <div class="popular-tags">
-                  <span class="tag">RPG</span>
-                  <span class="tag">Ação</span>
-                  <span class="tag">Roguelike</span>
-                </div>
-              </div>
-              <p class="white-text">
-                Hell Clock é um RPG de ação roguelike brasileiro, desenvolvido
-                pela Rogue Snail e publicado pela Mad Mushroom, ambientado na
-                Guerra de Canudos (1896) com toques de terror gótico nordestino.
-                O jogador controla Pajeú, um guerreiro que desce ao inferno para
-                resgatar a alma de Antônio Conselheiro, enfrentando hordas
-                demoníacas em campanhas rápidas.
-              </p>
-              <h3>Desenvolvedora: Rogue Snail</h3>
-              <h3>Data de lançamento: 22/jul/2025</h3>
-              <h3>Localidade: Brasília</h3>
-            </div>
-          </div>
-        </div>
+      <div class="halt-hero-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </section>
-    <!-- Fim Popular no Brasil -->
+
+    <!-- ===== POPULAR NO BRASIL ===== -->
+    <section class="halt-section">
+      <div class="halt-section-title-row">
+        <p class="halt-section-title">Popular no Brasil</p>
+        <a href="pages/jogos.html" class="halt-see-all">Ver todos</a>
+      </div>
+      <div class="halt-scroll-row">
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-bloodless.jpg"
+            alt="Bloodless"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Bloodless</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.0</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Vaki</p>
+            <p class="halt-game-card-price">R$ 57,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-aviaozinho.jpg"
+            alt="Aviãozinho do Tráfico"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Aviãozinho do Tráfico</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.6</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Yellowhead Productions</p>
+            <p class="halt-game-card-price">R$ 10,50</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-mullet-madjack.jpg"
+            alt="Mullet MadJack"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Mullet MadJack</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.2</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Hammer95</p>
+            <p class="halt-game-card-price">R$ 59,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-aila.jpg"
+            alt="A.I.L.A"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">A.I.L.A</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.4</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Guludo Studio</p>
+            <p class="halt-game-card-price">R$ 79,95</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-zueirama-2.jpg"
+            alt="Zueirama 2"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Zueirama 2</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.9</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Memes Games BR</p>
+            <p class="halt-game-card-price">R$ 22,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-two-strikes.jpg"
+            alt="Two Strikes"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Two Strikes</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.2</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Abstract Black Studios</p>
+            <p class="halt-game-card-price">R$ 44,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-cordels-&-spells.jpg"
+            alt="Cordels & Spells"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Cordels & Spells</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.7</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Supernova Games</p>
+            <p class="halt-game-card-price">R$ 46,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-horizon-chase.jpg"
+            alt="Horizon Chase Turbo"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Horizon Chase Turbo</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.0</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Aquiris Game Studio</p>
+            <p class="halt-game-card-price">R$ 32,15</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-sludge-life.jpg"
+            alt="Sludge Life"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Sludge Life</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.9</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Terri Vellmann</p>
+            <p class="halt-game-card-price">R$ 49,90</p>
+          </div>
+        </a>
+        <a
+          href="pages/pages-game/page-interna-9-kings.html"
+          class="halt-game-card"
+        >
+          <img
+            src="assets/images/image-9kings.jpg"
+            alt="9 Kings"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">9 Kings</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.1</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Hooded Horse</p>
+            <p class="halt-game-card-price">R$ 39,99</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-unsighted.jpg"
+            alt="Unsighted"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Unsighted</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.7</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Studio Pixel Punk</p>
+            <p class="halt-game-card-price">R$ 54,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-99-vidas.jpg"
+            alt="99 Vidas"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">99 Vidas</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.9</span
+              >
+            </div>
+            <p class="halt-game-card-studio">QUByte Interactive</p>
+            <p class="halt-game-card-price">R$ 27,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-onikura.jpg"
+            alt="Onikura"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Onikura</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.5</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Astrolabe Games</p>
+            <p class="halt-game-card-price">R$ 39,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-lead-the-dragon.jpg"
+            alt="Lead the Dragon"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Lead the Dragon</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.5</span
+              >
+            </div>
+            <p class="halt-game-card-studio">3 Lapz</p>
+            <p class="halt-game-card-price">R$ 42,90</p>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <!-- Area Explore jogos pelo Brasil -->
     <div class="explore-wrapper">
@@ -843,461 +883,421 @@
 
     <!-- Fim Explore jogos pelo Brasil -->
 
-    <!-- Fim Area Explore jogos pelo Brasil -->
-
-    <!-- Area Ofertas -->
-    <section class="ofertas">
-      <div class="container-xl">
-        <!-- Cabeçalho -->
-        <div class="section-header mb-4">
-          <h2 class="ofertas-title">Ofertas</h2>
-          <a href="pages/jogos.html" class="link-ver-todos">Ver todos</a>
+    <!-- ===== OFERTAS ===== -->
+    <section class="halt-section">
+      <div class="halt-section-title-row">
+        <div class="halt-section-title-group">
+          <p class="halt-section-title" style="font-size: 24px">Ofertas</p>
+          <div class="halt-filters">
+            <button type="button" class="active">Últimos</button>
+            <button type="button">XBOX</button>
+            <button type="button">PC</button>
+            <button type="button">Mobile</button>
+            <button type="button">Switch</button>
+          </div>
         </div>
-
-        <!-- Cards com scroll horizontal no mobile -->
-        <div class="ofertas-scroll">
-          <!-- Card 1 - Mullet Madjack -->
-          <article class="ofertas-card ofertas-card--1">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-mullet-madjack.jpg"
-                alt="Imagem para Banner jogo Mullet Madjack"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Mullet Madjack</h3>
-              <p class="ofertas-desc">
-                MULLET MAD JACK é um jogo de tiro em primeira pessoa FRENÉTICO
-                de um jogador onde você está dentro de um ANIME da era dos vídeo
-                cassetes! Incremente seu personagem até você alcançar o último
-                andar. Faça seu melhor tempo ou tente de novo. Aqui a PRESSA É
-                AMIGA DA PERFEIÇÃO!
+        <a href="pages/jogos.html" class="halt-see-all">Ver todos</a>
+      </div>
+      <div class="halt-scroll-row">
+        <div class="halt-offer-card">
+          <img
+            src="assets/images/image-hellclock.jpg"
+            alt="Hell Clock"
+            loading="lazy"
+          />
+          <div
+            class="halt-offer-card-info"
+            style="background: #fab615; color: var(--color-true-dark)"
+          >
+            <div>
+              <h4>Hell Clock</h4>
+              <p>
+                O jogo de ação e aventura com ambientação inspirada no Brasil.
               </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 49,95</span>
-                  <span class="ofertas-new-price">R$ 29,96</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
+            </div>
+            <div class="halt-offer-bottom">
+              <div>
+                <div class="halt-offer-discount">-35%</div>
+                <div class="halt-offer-price">De R$ 153,85</div>
               </div>
+              <button
+                type="button"
+                class="halt-offer-play btn-add-carrinho"
+                data-id="hell-clock"
+                data-nome="Hell Clock"
+                data-preco="100.0"
+                data-imagem="assets/images/image-hellclock.jpg"
+              >
+                Jogar <i class="bi bi-arrow-right"></i>
+              </button>
             </div>
-          </article>
-
-          <!-- Card 2 - Zueirama 2 -->
-          <article class="ofertas-card ofertas-card--2">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-zueirama-2.jpg"
-                alt="Imagem para Banner jogo Zueirama 2"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Zueirama 2</h3>
-              <p class="ofertas-desc">
-                Um jogo de aventura caótico cheio de minigames e referências a
-                memes, onde você faz entregas de pizza, enfrenta robôs, faz
-                trollagens e luta contra uma IA que quer acabar com a zueira.
-              </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 19,99</span>
-                  <span class="ofertas-new-price">R$ 14,99</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 - Asleep: Ato 1 -->
-          <article class="ofertas-card ofertas-card--3">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-asleep.png"
-                alt="Imagem para Banner jogo Asleep: Ato 1"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Asleep: Ato 1</h3>
-              <p class="ofertas-desc">
-                Sozinha, confusa e imersa em seus pesadelos numa realidade
-                caótica. O único lugar seguro é o seu quarto, mas não por muito
-                tempo... Vagueie por cenários inóspitos, enquanto foge de
-                criaturas à espreita na escuridão para descobrir o que está
-                acontecendo. Você está na pele de Ana Lúcia.
-              </p>
-
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 16,99 </span>
-                  <span class="ofertas-new-price">R$ 13,59</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4 - Aviãozinho -->
-          <article class="ofertas-card ofertas-card--4">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-aviaozinho.jpg"
-                alt="Imagem para Banner jogo Aviãozinho do Tráfico 3"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Aviãozinho do Tráfico</h3>
-              <p class="ofertas-desc">
-                Um jogo boomer shooter Brasileiro feito com o motor id tech 2!
-                Atire, salte e se aventure por todo o estado do Rio de Janeiro.
-              </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 19,00</span>
-                  <span class="ofertas-new-price">R$ 10,50</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 5 - Horizon Chase -->
-          <article class="ofertas-card ofertas-card--1">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-horizon-chase.jpg"
-                alt="Imagem para Banner jogo Horizon Chase Turbo"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Horizon Chase Turbo</h3>
-              <p class="ofertas-desc">
-                Emocionante jogo de corrida arcade, inspirado pela geração dos
-                clássicos jogos de corrida dos anos 90.
-              </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 49,00</span>
-                  <span class="ofertas-new-price">R$ 32,15</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 6 - SLUDGE LIFE -->
-          <article class="ofertas-card ofertas-card--2">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-sludge-life.jpg"
-                alt="Imagem para Banner jogo SLUDGE LIFE"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">SLUDGE LIFE</h3>
-              <p class="ofertas-desc">
-                Perambule por uma ilha minúscula em um planeta coberto de
-                poluição, onde você é o promissor grafiteiro GHOST, um tranquilo
-                delinquente que busca seu lugar na elite do grafite.
-              </p>
-
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 46,99 </span>
-                  <span class="ofertas-new-price">R$ 34,99</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 7 - Lead The Dragon -->
-          <article class="ofertas-card ofertas-card--3">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-lead-the-dragon.jpg"
-                alt="Imagem para Banner jogo Lead The Dragon"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Lead The Dragon</h3>
-              <p class="ofertas-desc">
-                Junte-se à sua equipe e conquiste as estradas estreitas da
-                América. Explore o mundo aberto, ganhe respeito e dinheiro
-                competindo em corridas de rua, mas quebrar a lei vai te trazer
-                sérios problemas com a polícia.
-              </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 85,00</span>
-                  <span class="ofertas-new-price">R$ 59,99</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 8 - Two Strikes -->
-          <article class="ofertas-card ofertas-card--4">
-            <div class="ofertas-img-wrap">
-              <img
-                src="assets/images/image-two-strikes.jpg"
-                alt="Imagem para Banner jogo Two Strikes"
-                loading="lazy"
-              />
-            </div>
-            <div class="ofertas-info">
-              <h3 class="ofertas-card-title">Two Strikes</h3>
-              <p class="ofertas-desc">
-                Mergulhe no coração do antigo Japão em Two Strikes, uma
-                extravagância de combate 2D com animações deslumbrantes
-                desenhadas à mão. Como um samurai destemido, monge guerreiro ou
-                fora da lei audacioso, envolva-se em duelos eletrizantes onde
-                cada golpe pode ser o seu último.
-              </p>
-              <div class="ofertas-bottom">
-                <div>
-                  <span class="ofertas-old-price">R$ 46,99 </span>
-                  <span class="ofertas-new-price">R$ 23,49</span>
-                </div>
-                <button class="ofertas-btn">
-                  Jogar <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
-        <!-- Fim Ofertas-scroll -->
+        <div class="halt-offer-card">
+          <img
+            src="assets/images/image-enigma-do-medo.jpg"
+            alt="Enigma do Medo"
+            loading="lazy"
+          />
+          <div class="halt-offer-card-info" style="background: #1aa108">
+            <div>
+              <h4>Enigma do Medo</h4>
+              <p>
+                O jogo de ação e aventura com ambientação inspirada no Brasil.
+              </p>
+            </div>
+            <div class="halt-offer-bottom">
+              <div>
+                <div class="halt-offer-discount">-20%</div>
+                <div class="halt-offer-price">De R$ 87,38</div>
+              </div>
+              <button
+                type="button"
+                class="halt-offer-play btn-add-carrinho"
+                data-id="enigma-do-medo"
+                data-nome="Enigma do Medo"
+                data-preco="69.9"
+                data-imagem="assets/images/image-enigma-do-medo.jpg"
+              >
+                Jogar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="halt-offer-card">
+          <img
+            src="assets/images/image-dandara.jpg"
+            alt="Dandara"
+            loading="lazy"
+          />
+          <div class="halt-offer-card-info" style="background: #2550ff">
+            <div>
+              <h4>Dandara</h4>
+              <p>
+                O jogo de ação e aventura com ambientação inspirada no Brasil.
+              </p>
+            </div>
+            <div class="halt-offer-bottom">
+              <div>
+                <div class="halt-offer-discount">-40%</div>
+                <div class="halt-offer-price">De R$ 64,83</div>
+              </div>
+              <button
+                type="button"
+                class="halt-offer-play btn-add-carrinho"
+                data-id="dandara"
+                data-nome="Dandara"
+                data-preco="38.9"
+                data-imagem="assets/images/image-dandara.jpg"
+              >
+                Jogar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="halt-offer-card">
+          <img
+            src="assets/images/image-aviaozinho.jpg"
+            alt="Aviãozinho do Tráfico"
+            loading="lazy"
+          />
+          <div
+            class="halt-offer-card-info"
+            style="background: #e8e8e8; color: var(--color-true-dark)"
+          >
+            <div>
+              <h4>Aviãozinho do Tráfico</h4>
+              <p>
+                O jogo de ação e aventura com ambientação inspirada no Brasil.
+              </p>
+            </div>
+            <div class="halt-offer-bottom">
+              <div>
+                <div class="halt-offer-discount">-15%</div>
+                <div class="halt-offer-price">De R$ 12,35</div>
+              </div>
+              <button
+                type="button"
+                class="halt-offer-play btn-add-carrinho"
+                data-id="aviaozinho-do-trafico"
+                data-nome="Aviãozinho do Tráfico"
+                data-preco="10.5"
+                data-imagem="assets/images/image-aviaozinho.jpg"
+              >
+                Jogar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="halt-offer-card">
+          <img
+            src="assets/images/image-sky-dust.jpg"
+            alt="Sky Dust"
+            loading="lazy"
+          />
+          <div
+            class="halt-offer-card-info"
+            style="background: #fab615; color: var(--color-true-dark)"
+          >
+            <div>
+              <h4>Sky Dust</h4>
+              <p>
+                O jogo de ação e aventura com ambientação inspirada no Brasil.
+              </p>
+            </div>
+            <div class="halt-offer-bottom">
+              <div>
+                <div class="halt-offer-discount">-25%</div>
+                <div class="halt-offer-price">De R$ 62,65</div>
+              </div>
+              <button
+                type="button"
+                class="halt-offer-play btn-add-carrinho"
+                data-id="sky-dust"
+                data-nome="Sky Dust"
+                data-preco="46.99"
+                data-imagem="assets/images/image-sky-dust.jpg"
+              >
+                Jogar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- Fim Ofertas -->
 
-    <!-- Area Formulário -->
-    <form
-      id="form-divulga-games"
-      name="form-divulga-games"
-      class="form-divulga-games"
-      method="post"
-      action=""
-    >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 col-xl-7">
-            <h2 class="titulo-divulgar-jogos">
-              Deseja divulgar seus jogos na<br />Iara Games?<br />Envie seus
-              dados
-            </h2>
-
-            <div class="row g-3">
-              <div class="col-12">
-                <label for="nome-usuario" class="sr-only">Nome completo</label>
-                <input
-                  type="text"
-                  name="nome-usuario"
-                  id="nome-usuario"
-                  class="form-field-custom"
-                  required
-                  minlength="5"
-                  maxlength="50"
-                  placeholder="Nome completo"
-                  autocomplete="name"
-                />
-              </div>
-
-              <div class="col-12">
-                <label for="email-usuario" class="sr-only">Email</label>
-                <input
-                  type="email"
-                  name="email-usuario"
-                  id="email-usuario"
-                  class="form-field-custom"
-                  required
-                  maxlength="50"
-                  placeholder="E-mail"
-                  autocomplete="email"
-                />
-              </div>
-
-              <div class="col-12">
-                <label for="tel-usuario" class="sr-only">Telefone</label>
-                <input
-                  type="text"
-                  name="tel-usuario"
-                  id="tel-usuario"
-                  class="form-field-custom"
-                  placeholder="Telefone"
-                  autocomplete="tel"
-                />
-              </div>
-
-              <div class="col-12">
-                <label for="regiao-usuario" class="sr-only">Região</label>
-                <select
-                  id="regiao-usuario"
-                  name="regiao-usuario"
-                  class="select-custom"
-                >
-                  <option value="" selected disabled>Região</option>
-                  <option value="AC">Acre (AC)</option>
-                  <option value="AL">Alagoas (AL)</option>
-                  <option value="AP">Amapá (AP)</option>
-                  <option value="AM">Amazonas (AM)</option>
-                  <option value="BA">Bahia (BA)</option>
-                  <option value="CE">Ceará (CE)</option>
-                  <option value="DF">Distrito Federal (DF)</option>
-                  <option value="ES">Espírito Santo (ES)</option>
-                  <option value="GO">Goiás (GO)</option>
-                  <option value="MA">Maranhão (MA)</option>
-                  <option value="MT">Mato Grosso (MT)</option>
-                  <option value="MS">Mato Grosso do Sul (MS)</option>
-                  <option value="MG">Minas Gerais (MG)</option>
-                  <option value="PA">Pará (PA)</option>
-                  <option value="PB">Paraíba (PB)</option>
-                  <option value="PR">Paraná (PR)</option>
-                  <option value="PE">Pernambuco (PE)</option>
-                  <option value="PI">Piauí (PI)</option>
-                  <option value="RJ">Rio de Janeiro (RJ)</option>
-                  <option value="RN">Rio Grande do Norte (RN)</option>
-                  <option value="RS">Rio Grande do Sul (RS)</option>
-                  <option value="RO">Rondônia (RO)</option>
-                  <option value="RR">Roraima (RR)</option>
-                  <option value="SC">Santa Catarina (SC)</option>
-                  <option value="SP">São Paulo (SP)</option>
-                  <option value="SE">Sergipe (SE)</option>
-                  <option value="TO">Tocantins (TO)</option>
-                </select>
-              </div>
-
-              <!-- Botão de envio -->
-              <div class="col-12 text-center mt-3">
-                <button
-                  type="submit"
-                  id="enviar-form"
-                  name="enviar-form"
-                  class="btn-form"
-                >
-                  Enviar
-                </button>
-              </div>
-            </div>
-            <!-- fim row campos -->
+    <!-- ===== JOGOS GRATUITOS ===== -->
+    <section class="halt-section">
+      <div class="halt-section-title-row">
+        <div class="halt-section-title-group">
+          <p class="halt-section-title" style="font-size: 24px">
+            Jogos gratuitos
+          </p>
+          <div class="halt-filters">
+            <button type="button" class="active">Por tempo ilimitado</button>
+            <button type="button">XBOX</button>
+            <button type="button">PC</button>
+            <button type="button">Mobile</button>
+            <button type="button">Switch</button>
           </div>
         </div>
+        <a href="pages/jogos.html" class="halt-see-all">Ver todos</a>
       </div>
-    </form>
-    <!-- Fim Formulário -->
-
-    <!-- Area Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row g-4 align-items-stretch">
-          <!-- Coluna 1: Logo + Tagline + Idioma -->
-          <div class="col-12 col-lg-6 footer-brand-col">
-            <div class="footer-logo">
-              <img
-                src="assets/images/logo-iara-games.svg"
-                alt="Logo da Iara Games"
-                width="40"
-                height="33"
-              />
-              <h2 class="titulo-logo">Iara Games</h2>
+      <div class="halt-scroll-row">
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-horizon-chase.jpg"
+            alt="Horizon Chase Turbo"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Horizon Chase Turbo</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.0</span
+              >
             </div>
-            <p class="footer-tagline">
-              Plataforma de venda de jogos desenvolvidos por brasileiros ou
-              jogos ambientados no Brasil.
-            </p>
-            <div class="footer-lang">
-              <label>Idioma e País</label>
-              <div class="footer-selects">
-                <select>
-                  <option>Português</option>
-                </select>
-                <select>
-                  <option>Brasil</option>
-                </select>
-              </div>
-            </div>
-            <div class="footer-bottom">
-              <span>2026 – Desenvolvido por grupo 10</span>
-            </div>
+            <p class="halt-game-card-studio">Aquiris Game Studio</p>
+            <p class="halt-game-card-price">R$ 32,15</p>
           </div>
-
-          <div class="col-12 col-lg-6 d-flex">
-            <div class="footer-panel w-100">
-              <div class="row g-4 g-lg-0">
-                <!-- Coluna 2: Navegação -->
-                <div class="col-12 col-md-5 footer-panel-nav">
-                  <nav class="footer-links">
-                    <a href="#">Sobre</a>
-                    <a href="pages/jogos.html">Loja</a>
-                    <a href="#">Comunidade</a>
-                    <a href="#">Blog</a>
-                    <a href="/pages/suporte.html">Suporte</a>
-                  </nav>
-                </div>
-
-                <!-- Coluna 3: Redes + Legal -->
-                <div class="col-12 col-md-7 footer-panel-aside">
-                  <div class="footer-links footer-links-social">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-twitch" aria-hidden="true"></i>
-                      Twitch
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-instagram" aria-hidden="true"></i>
-                      Instagram
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-twitter" aria-hidden="true"></i>
-                      Twitter
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <i class="bi bi-youtube" aria-hidden="true"></i>
-                      Youtube
-                    </a>
-                  </div>
-
-                  <div class="footer-links footer-links-legal">
-                    <a href="#">Contato</a>
-                    <a
-                      href="pages/politica-privacidade.html"
-                      class="link-yellow"
-                    >
-                      Políticas de Privacidade
-                    </a>
-                    <a href="pages/termos-condicoes.html" class="link-yellow">
-                      Termos e Condições
-                    </a>
-                  </div>
-                </div>
-              </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-sludge-life.jpg"
+            alt="Sludge Life"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Sludge Life</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.9</span
+              >
             </div>
+            <p class="halt-game-card-studio">Terri Vellmann</p>
+            <p class="halt-game-card-price">R$ 49,90</p>
           </div>
+        </a>
+        <a
+          href="pages/pages-game/page-interna-9-kings.html"
+          class="halt-game-card"
+        >
+          <img
+            src="assets/images/image-9kings.jpg"
+            alt="9 Kings"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">9 Kings</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.1</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Hooded Horse</p>
+            <p class="halt-game-card-price">R$ 39,99</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-unsighted.jpg"
+            alt="Unsighted"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Unsighted</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>3.7</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Studio Pixel Punk</p>
+            <p class="halt-game-card-price">R$ 54,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-99-vidas.jpg"
+            alt="99 Vidas"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">99 Vidas</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.9</span
+              >
+            </div>
+            <p class="halt-game-card-studio">QUByte Interactive</p>
+            <p class="halt-game-card-price">R$ 27,90</p>
+          </div>
+        </a>
+        <a href="pages/jogos.html" class="halt-game-card">
+          <img
+            src="assets/images/image-moonleap.jpg"
+            alt="Moonleap"
+            loading="lazy"
+          />
+          <div class="halt-game-card-info">
+            <div class="halt-game-card-top">
+              <p class="halt-game-card-name">Moonleap</p>
+              <span class="halt-game-card-rating"
+                ><i class="bi bi-star-fill"></i>4.3</span
+              >
+            </div>
+            <p class="halt-game-card-studio">Sonhador Studio</p>
+            <p class="halt-game-card-price">R$ 34,90</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== FORMULÁRIO PARA DESENVOLVEDORES ===== -->
+    <section class="halt-subscribe">
+      <h3>
+        Deseja divulgar seus jogos na Iara Games?<br />
+        Envie seus dados
+      </h3>
+      <form class="halt-subscribe-form" id="form-parceiros" novalidate>
+        <div class="halt-field">
+          <input
+            type="text"
+            id="parceiro-nome"
+            placeholder="Nome completo"
+            required
+          />
         </div>
-        <!-- F Footer -->
+        <div class="halt-field">
+          <input
+            type="email"
+            id="parceiro-email"
+            placeholder="E-mail"
+            required
+          />
+        </div>
+        <div class="halt-field">
+          <input
+            type="tel"
+            id="parceiro-telefone"
+            placeholder="Telefone"
+            required
+          />
+        </div>
+        <div class="halt-field">
+          <select id="parceiro-regiao" required>
+            <option value="" disabled selected>Região</option>
+            <option>Norte</option>
+            <option>Nordeste</option>
+            <option>Centro-Oeste</option>
+            <option>Sudeste</option>
+            <option>Sul</option>
+          </select>
+        </div>
+        <button type="submit" class="halt-btn halt-btn-yellow">Enviar</button>
+        <p class="halt-form-msg" id="parceiro-msg"></p>
+      </form>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="halt-footer">
+      <div class="halt-footer-grid">
+        <div class="halt-footer-brand">
+          <div class="halt-footer-logo">
+            <img src="assets/images/logo-iara-games.svg" alt="Iara Games" />
+            <span>Iara Games</span>
+          </div>
+          <p>
+            A plataforma de jogos desenvolvidas por brasileiros ou jogos
+            ambientados no Brasil.
+          </p>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Produto</h5>
+          <ul>
+            <li><a href="pages/jogos.html">Loja</a></li>
+            <li><a href="#">Biblioteca</a></li>
+            <li><a href="#">Comunidade</a></li>
+            <li><a href="pages/suporte.html">Suporte</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Desenvolvedores</h5>
+          <ul>
+            <li><a href="#">Publicar Jogo</a></li>
+            <li><a href="#">Documentação</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Ferramentas</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Licenças</a></li>
+          </ul>
+        </div>
       </div>
-      <!-- Fim Container -->
+      <div class="halt-footer-bottom">
+        <p>© 2026 Iara Games. Todos os direitos reservados.</p>
+        <div class="halt-footer-social">
+          <a href="#">Twitter</a>
+          <a href="#">Discord</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
     </footer>
+
     <!-- Fim Footer -->
 
     <!-- Scripts -->
@@ -1305,25 +1305,47 @@
     <script src="https://unpkg.com/imask"></script>
     <script src="assets/js/tel.mask.js"></script>
 
-    <!-- Bootstrap JS (necessário para o menu hamburguer funcionar) -->
+    <!-- Painel do Carrinho -->
+    <div
+      class="offcanvas offcanvas-end offcanvas-carrinho"
+      tabindex="-1"
+      id="offcanvasCarrinho"
+      aria-labelledby="offcanvasCarrinhoLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCarrinhoLabel">
+          <i class="bi bi-cart3 me-2"></i>Seu carrinho
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Fechar"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="carrinho-lista"></div>
+        <p id="carrinho-vazio">Seu carrinho está vazio.</p>
+        <div class="carrinho-rodape">
+          <div class="carrinho-rodape-linha">
+            <span>Subtotal</span>
+            <span id="carrinho-subtotal">R$ 0,00</span>
+          </div>
+          <a
+            href="pages/carrinho.html"
+            class="btn btn-warning w-100 fw-bold text-center"
+          >
+            Finalizar compra
+          </a>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <!-- <script>
-      const backgroundVideo = document.querySelector(".video");
-
-      if (backgroundVideo) {
-        backgroundVideo.playbackRate = 0.75;
-      }
-
-      const video = document.getElementById("meu-video");
-
-      video.addEventListener("ended", function () {
-        video.currentTime = 3; // 👈 começa do segundo 3 no loop
-        video.play();
-      });
-    </script> -->
+    <script src="assets/js/carrinho.js"></script>
   </body>
 </html>
