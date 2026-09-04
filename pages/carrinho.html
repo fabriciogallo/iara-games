@@ -31,14 +31,14 @@
     />
 
     <link rel="stylesheet" href="../assets/styles/index.css" />
-    <link rel="stylesheet" href="../assets/styles/carrinho.css" />
-    <link rel="stylesheet" href="../assets/styles/home-alt.css" />
-    <link rel="stylesheet" href="../assets/styles/carrinho-pagina.css" />
   </head>
-  <body>
+  <body data-raiz="../">
     <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
       <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center gap-3 me-4" href="../index.html">
+        <a
+          class="navbar-brand d-flex align-items-center gap-3 me-4"
+          href="../index.html"
+        >
           <img
             src="../assets/images/logo-iara-games.svg"
             alt="Logo da Iara Games"
@@ -65,16 +65,18 @@
             class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
           >
             <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link px-3 fw-semibold" href="jogos.html">Loja</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
+              <a class="nav-link px-3 fw-semibold" href="add-game.html">Adicionar Jogo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="suporte.html">Suporte</a>
+              <a class="nav-link px-3 fw-semibold" href="suporte.html"
+                >Suporte</a
+              >
             </li>
           </ul>
 
@@ -90,6 +92,7 @@
               aria-controls="offcanvasCarrinho"
               aria-label="Abrir carrinho"
             >
+              <span>Carrinho</span>
               <i class="bi bi-cart3"></i>
               <span id="carrinho-contador" class="carrinho-contador">0</span>
             </button>
@@ -97,7 +100,7 @@
             <!-- Botão Entrar -->
             <a
               href="#"
-              class="btn-warning text-nowrap px-4 fw-semibold login-btn"
+              class="login-btn"
             >
               Entrar
             </a>
@@ -253,7 +256,10 @@
             <span>Subtotal</span>
             <span id="carrinho-subtotal">R$ 0,00</span>
           </div>
-          <a href="carrinho.html" class="btn btn-warning w-100 fw-bold text-center">
+          <a
+            href="carrinho.html"
+            class="btn btn-warning w-100 fw-bold text-center"
+          >
             Finalizar compra
           </a>
         </div>

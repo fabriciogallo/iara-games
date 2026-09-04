@@ -18,13 +18,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     />
 
@@ -33,12 +26,11 @@
       href="../assets/images/logo-iara-games.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../assets/styles/suporte.css" />
-    <link rel="stylesheet" href="../assets/styles/carrinho.css" />
-    <link rel="stylesheet" href="../assets/styles/home-alt.css" />
+    <!-- Estilos Customizados da Aplicação (arquivo único) -->
+    <link rel="stylesheet" href="../assets/styles/index.css" />
   </head>
 
-  <body>
+  <body data-raiz="../">
     <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
       <div class="container-fluid">
         <a
@@ -71,18 +63,18 @@
             class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
           >
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="../pages/jogos.html"
-                >Loja</a
-              >
+              <a class="nav-link px-3 fw-semibold" href="../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
+              <a class="nav-link px-3 fw-semibold" href="jogos.html">Loja</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
+              <a class="nav-link px-3 fw-semibold" href="add-game.html">Adicionar Jogo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="../pages/suporte.html"
+              <a
+                class="nav-link px-3 fw-semibold active text-warning"
+                href="suporte.html"
                 >Suporte</a
               >
             </li>
@@ -95,10 +87,9 @@
               <i
                 class="bi bi-search position-absolute top-50 translate-middle-y"
                 style="
-                  left: 12px;
+                  left: 16px;
                   font-size: 15px;
                   pointer-events: none;
-                  color: #aaa;
                 "
               ></i>
               <input
@@ -118,6 +109,7 @@
               aria-controls="offcanvasCarrinho"
               aria-label="Abrir carrinho"
             >
+              <span>Carrinho</span>
               <i class="bi bi-cart3"></i>
               <span id="carrinho-contador" class="carrinho-contador">0</span>
             </button>
@@ -125,7 +117,7 @@
             <!-- Botão Entrar -->
             <a
               href="#"
-              class="btn-warning text-nowrap px-4 fw-semibold login-btn"
+              class="login-btn"
             >
               Entrar
             </a>
@@ -520,45 +512,6 @@
     <!-- Fim Footer -->
 
     <!-- Scripts -->
-    <!-- Máscara de telefone -->
-    <script src="https://unpkg.com/imask"></script>
-    <script src="assets/js/tel.mask.js"></script>
-
-    <!-- Painel do Carrinho -->
-    <div
-      class="offcanvas offcanvas-end offcanvas-carrinho"
-      tabindex="-1"
-      id="offcanvasCarrinho"
-      aria-labelledby="offcanvasCarrinhoLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasCarrinhoLabel">
-          <i class="bi bi-cart3 me-2"></i>Seu carrinho
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Fechar"
-        ></button>
-      </div>
-      <div class="offcanvas-body d-flex flex-column">
-        <div id="carrinho-lista"></div>
-        <p id="carrinho-vazio">Seu carrinho está vazio.</p>
-        <div class="carrinho-rodape">
-          <div class="carrinho-rodape-linha">
-            <span>Subtotal</span>
-            <span id="carrinho-subtotal">R$ 0,00</span>
-          </div>
-          <a
-            href="pages/carrinho.html"
-            class="btn btn-warning w-100 fw-bold text-center"
-          >
-            Finalizar compra
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- Painel do Carrinho -->
     <div

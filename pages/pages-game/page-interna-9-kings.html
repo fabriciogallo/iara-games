@@ -30,11 +30,10 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../../assets/styles/internajogos.css" />
-    <link rel="stylesheet" href="../../assets/styles/carrinho.css" />
+    <link rel="stylesheet" href="../../assets/styles/index.css" />
   </head>
 
-  <body>
+  <body data-raiz="../../" class="pagina-interna">
     <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
       <div class="container-fluid">
         <a
@@ -67,15 +66,19 @@
             class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
           >
             <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="../../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
               <a class="nav-link px-3 fw-semibold" href="../../pages/jogos.html"
                 >Loja</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Comunidade</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3 fw-semibold" href="#">Sobre</a>
+              <a class="nav-link px-3 fw-semibold" href="../../pages/add-game.html"
+                >Adicionar Jogo</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -93,10 +96,9 @@
               <i
                 class="bi bi-search position-absolute top-50 translate-middle-y"
                 style="
-                  left: 12px;
+                  left: 16px;
                   font-size: 15px;
                   pointer-events: none;
-                  color: #aaa;
                 "
               ></i>
               <input
@@ -116,6 +118,7 @@
               aria-controls="offcanvasCarrinho"
               aria-label="Abrir carrinho"
             >
+              <span>Carrinho</span>
               <i class="bi bi-cart3"></i>
               <span id="carrinho-contador" class="carrinho-contador">0</span>
             </button>
@@ -123,7 +126,7 @@
             <!-- Botão Entrar -->
             <a
               href="#"
-              class="btn-warning text-nowrap px-4 fw-semibold login-btn"
+              class="login-btn"
             >
               Entrar
             </a>
@@ -414,7 +417,7 @@
                 data-id="9-kings"
                 data-nome="9 Kings"
                 data-preco="39.99"
-                data-imagem="../../assets/images/image-9kings.jpg"
+                data-imagem="assets/images/image-9kings.jpg"
               >
                 <i class="bi bi-cart-fill"></i>
                 Comprar jogo

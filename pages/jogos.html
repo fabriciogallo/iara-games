@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todos os Jogos</title>
+    <title>Todos os Jogos — Iara Games</title>
 
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,755 +22,239 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="../assets/styles/jogos.css" />
-    <link rel="stylesheet" href="../assets/styles/carrinho.css" />
+    <!-- Estilos Customizados -->
+    <link rel="stylesheet" href="../assets/styles/index.css" />
   </head>
-  <body>
-    <main class="jogos-page">
-      <!-- Hero Section -->
-      <section class="py-5 mb-5">
+
+  <body data-raiz="../" class="bg-dark text-white">
+    <!-- ===== HEADER / NAVBAR RESPONSIVA ===== -->
+    <header>
+      <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
         <div class="container-fluid">
-          <div class="row align-items-center justify-content-between">
-            <div class="col">
-              <a
-                href="../index.html"
-                class="btn btn-link text-decoration-none jogos-page-back mb-4 d-inline-flex align-items-center gap-2"
-              >
-                <i class="bi bi-arrow-left"></i>
-                <span>Voltar para a home</span>
-              </a>
-              <h1 class="display-4 fw-bold text-light">Todos os Jogos</h1>
-            </div>
-            <div class="col-auto">
-              <!-- Botão Carrinho -->
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+            <img
+              src="../assets/images/logo-iara-games.svg"
+              alt="Logo da Iara Games"
+              width="48"
+              height="40"
+            />
+            <span class="fw-bold fs-4 title text-white">Iara Games</span>
+          </a>
+
+          <!-- Botão Hambúrguer Mobile First -->
+          <button
+            class="navbar-toggler border-secondary text-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarJogos"
+            aria-controls="navbarJogos"
+            aria-expanded="false"
+            aria-label="Abrir menu de navegação"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Itens do Menu -->
+          <div class="collapse navbar-collapse" id="navbarJogos">
+            <ul class="navbar-nav mx-auto mb-3 mb-lg-0 gap-2 gap-lg-3 text-center">
+              <li class="nav-item">
+                <a class="nav-link text-white px-3 fw-semibold" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-warning px-3 fw-semibold active" href="jogos.html">Loja</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white px-3 fw-semibold" href="add-game.html">Adicionar Jogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white px-3 fw-semibold" href="suporte.html">Suporte</a>
+              </li>
+            </ul>
+
+            <!-- Ações Direita (Carrinho) -->
+            <div class="d-flex justify-content-center align-items-center gap-3">
               <button
                 type="button"
                 class="carrinho-btn"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasCarrinho"
                 aria-controls="offcanvasCarrinho"
-                aria-label="Abrir carrinho"
+                aria-label="Abrir carrinho de compras"
               >
-                <i class="bi bi-cart3"></i>
+                <span>Carrinho</span>
+                <i class="bi bi-cart3 fs-5"></i>
                 <span id="carrinho-contador" class="carrinho-contador">0</span>
+              </button>
+
+              <a href="add-game.html" class="btn btn-warning btn-sm fw-bold px-3">
+                <i class="bi bi-plus-lg me-1"></i>Adicionar Jogo
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===== CONTEÚDO PRINCIPAL (CATÁLOGO & FILTROS) ===== -->
+    <main class="py-4 py-lg-5" style="min-height: 80vh; background: radial-gradient(circle at 50% 0%, #131722 0%, #03050d 100%);">
+      <div class="container-fluid px-3 px-md-5">
+        
+        <!-- Topo da Seção de Jogos -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <a href="../index.html" class="text-secondary text-decoration-none small d-inline-flex align-items-center gap-1">
+                <i class="bi bi-arrow-left"></i> Voltar para a Home
+              </a>
+            </div>
+            <h1 class="display-6 fw-bold text-white m-0">Catálogo de Jogos Brasileiros</h1>
+            <p id="jogos-contador-resultado" class="text-secondary small mt-1 mb-0">Carregando jogos...</p>
+          </div>
+
+          <!-- Barra de Busca por Texto -->
+          <div class="position-relative" style="min-width: 280px; max-width: 400px;">
+            <i class="bi bi-search position-absolute top-50 translate-middle-y text-secondary" style="left: 14px;"></i>
+            <input
+              type="search"
+              id="busca-jogos"
+              class="form-control ps-5 bg-dark text-white border-secondary rounded-pill"
+              placeholder="Buscar por nome do jogo..."
+              aria-label="Buscar jogo por nome"
+            />
+          </div>
+        </div>
+
+        <!-- Barra de Filtros por Categoria -->
+        <div class="card bg-dark border border-secondary border-opacity-50 rounded-4 p-3 mb-4 shadow-sm">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+            <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
+              <i class="bi bi-funnel text-warning"></i>
+              <span class="fw-semibold text-white small text-uppercase">Filtrar por Categoria:</span>
+            </div>
+            <!-- Botões de Categoria -->
+            <div class="d-flex flex-wrap gap-2" id="barra-filtros-categorias">
+              <button type="button" class="btn btn-sm btn-warning active btn-filtro-categoria rounded-pill px-3" data-categoria="Todos">
+                Todos
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Ação">
+                Ação
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Aventura">
+                Aventura
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Terror">
+                Terror
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="RPG">
+                RPG
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Corrida">
+                Corrida
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Gratuito">
+                Gratuitos
               </button>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Games Grid -->
-      <section class="container-fluid pb-5">
-        <div class="row g-4">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-hellclock.jpg"
-                  alt="Capa do jogo Hell Clock"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Hell Clock</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 100,00</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="hell-clock"
-                    data-nome="Hell Clock"
-                    data-preco="100.00"
-                    data-imagem="../assets/images/image-hellclock.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-9kings.jpg"
-                  alt="Capa do jogo 9 Kings"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">9 Kings</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 39,99</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="9-kings"
-                    data-nome="9 Kings"
-                    data-preco="39.99"
-                    data-imagem="../assets/images/image-9kings.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-sky-dust.jpg"
-                  alt="Capa do jogo Sky Dust"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Sky Dust</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 46,99</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="sky-dust"
-                    data-nome="Sky Dust"
-                    data-preco="46.99"
-                    data-imagem="../assets/images/image-sky-dust.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-aviaozinho.jpg"
-                  alt="Capa do jogo Aviãozinho do Tráfico"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Aviãozinho do Tráfico</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 10,50</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="aviaozinho-do-trafico"
-                    data-nome="Aviãozinho do Tráfico"
-                    data-preco="10.50"
-                    data-imagem="../assets/images/image-aviaozinho.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-horizon-chase.jpg"
-                  alt="Capa do jogo Horizon Chase Turbo"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Horizon Chase Turbo</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 32,15</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="horizon-chase-turbo"
-                    data-nome="Horizon Chase Turbo"
-                    data-preco="32.15"
-                    data-imagem="../assets/images/image-horizon-chase.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-aila.jpg"
-                  alt="Capa do jogo A.I.L.A"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">A.I.L.A</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 79,95</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="a-i-l-a"
-                    data-nome="A.I.L.A"
-                    data-preco="79.95"
-                    data-imagem="../assets/images/image-aila.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-unsighted.jpg"
-                  alt="Capa do jogo Unsighted"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Unsighted</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 54,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="unsighted"
-                    data-nome="Unsighted"
-                    data-preco="54.90"
-                    data-imagem="../assets/images/image-unsighted.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-two-strikes.jpg"
-                  alt="Capa do jogo Two Strikes"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Two Strikes</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 44,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="two-strikes"
-                    data-nome="Two Strikes"
-                    data-preco="44.90"
-                    data-imagem="../assets/images/image-two-strikes.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-sludge-life.jpg"
-                  alt="Capa do jogo Sludge Life"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Sludge Life</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 49,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="sludge-life"
-                    data-nome="Sludge Life"
-                    data-preco="49.90"
-                    data-imagem="../assets/images/image-sludge-life.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-onikura.jpg"
-                  alt="Capa do jogo Onikura"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Onikura</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 39,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="onikura"
-                    data-nome="Onikura"
-                    data-preco="39.90"
-                    data-imagem="../assets/images/image-onikura.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-mullet-madjack.jpg"
-                  alt="Capa do jogo Mullet MadJack"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Mullet MadJack</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 59,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="mullet-madjack"
-                    data-nome="Mullet MadJack"
-                    data-preco="59.90"
-                    data-imagem="../assets/images/image-mullet-madjack.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-moonleap.jpg"
-                  alt="Capa do jogo Moonleap"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Moonleap</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 34,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="moonleap"
-                    data-nome="Moonleap"
-                    data-preco="34.90"
-                    data-imagem="../assets/images/image-moonleap.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-lead-the-dragon.jpg"
-                  alt="Capa do jogo Lead the Dragon"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Lead the Dragon</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 42,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="lead-the-dragon"
-                    data-nome="Lead the Dragon"
-                    data-preco="42.90"
-                    data-imagem="../assets/images/image-lead-the-dragon.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-investigacao-postuma.jpg"
-                  alt="Capa do jogo Investigação Póstuma"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Investigação Póstuma</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 36,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="investigacao-postuma"
-                    data-nome="Investigação Póstuma"
-                    data-preco="36.90"
-                    data-imagem="../assets/images/image-investigacao-postuma.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-fobia.jpg"
-                  alt="Capa do jogo Fobia"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Fobia</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 41,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="fobia"
-                    data-nome="Fobia"
-                    data-preco="41.90"
-                    data-imagem="../assets/images/image-fobia.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-enigma-do-medo.jpg"
-                  alt="Capa do jogo Enigma do Medo"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Enigma do Medo</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 69,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="enigma-do-medo"
-                    data-nome="Enigma do Medo"
-                    data-preco="69.90"
-                    data-imagem="../assets/images/image-enigma-do-medo.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-dandara.jpg"
-                  alt="Capa do jogo Dandara"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Dandara</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 38,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="dandara"
-                    data-nome="Dandara"
-                    data-preco="38.90"
-                    data-imagem="../assets/images/image-dandara.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-cordels-&amp;-spells.jpg"
-                  alt="Capa do jogo Cordels &amp; Spells"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Cordels &amp; Spells</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 46,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="cordels-amp-spells"
-                    data-nome="Cordels &amp; Spells"
-                    data-preco="46.90"
-                    data-imagem="../assets/images/image-cordels-&amp;-spells.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-bloodless.jpg"
-                  alt="Capa do jogo Bloodless"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Bloodless</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 57,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="bloodless"
-                    data-nome="Bloodless"
-                    data-preco="57.90"
-                    data-imagem="../assets/images/image-bloodless.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-asleep.png"
-                  alt="Capa do jogo Asleep"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Asleep</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 31,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="asleep"
-                    data-nome="Asleep"
-                    data-preco="31.90"
-                    data-imagem="../assets/images/image-asleep.png"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-zueirama-2.jpg"
-                  alt="Capa do jogo Zueirama 2"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">Zueirama 2</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 22,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="zueirama-2"
-                    data-nome="Zueirama 2"
-                    data-preco="22.90"
-                    data-imagem="../assets/images/image-zueirama-2.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card game-card h-100">
-              <div class="game-image-wrapper">
-                <img
-                  src="../assets/images/image-99-vidas.jpg"
-                  alt="Capa do jogo 99 Vidas"
-                  class="card-img-top"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold mb-3">99 Vidas</h5>
-                <div
-                  class="mt-auto d-flex justify-content-between align-items-center"
-                >
-                  <span class="game-price fw-bold">R$ 27,90</span>
-                  <button
-                    class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                    data-id="99-vidas"
-                    data-nome="99 Vidas"
-                    data-preco="27.90"
-                    data-imagem="../assets/images/image-99-vidas.jpg"
-                  >
-                    Comprar <i class="bi bi-arrow-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Grid Responsivo com os Jogos Renderizados Dinamicamente -->
+        <div class="row g-4" id="jogos-container">
+          <!-- Os cards são inseridos aqui pelo script assets/js/jogos.js via innerHTML -->
         </div>
-      </section>
+
+      </div>
     </main>
 
-    <!-- Painel do Carrinho -->
+    <!-- ===== FOOTER ===== -->
+    <footer class="halt-footer border-top border-secondary border-opacity-25">
+      <div class="halt-footer-grid">
+        <div class="halt-footer-brand">
+          <div class="halt-footer-logo">
+            <img src="../assets/images/logo-iara-games.svg" alt="Iara Games" />
+            <span>Iara Games</span>
+          </div>
+          <p>A plataforma dedicada aos desenvolvedores e jogadores de games brasileiros.</p>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="jogos.html">Todos os Jogos</a></li>
+            <li><a href="add-game.html">Adicionar Jogo</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Desenvolvedores</h5>
+          <ul>
+            <li><a href="add-game.html">Publicar Jogo</a></li>
+            <li><a href="suporte.html">Documentação</a></li>
+            <li><a href="suporte.html">Suporte Dev</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="termos-condicoes.html">Termos de Uso</a></li>
+            <li><a href="politica-privacidade.html">Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="halt-footer-bottom">
+        <p>© 2026 Iara Games. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- ===== OFFCANVAS DO CARRINHO (BOOTSTRAP 5) ===== -->
     <div
-      class="offcanvas offcanvas-end offcanvas-carrinho"
+      class="offcanvas offcanvas-end offcanvas-carrinho text-white"
       tabindex="-1"
       id="offcanvasCarrinho"
       aria-labelledby="offcanvasCarrinhoLabel"
+      style="background-color: #0d111a;"
     >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasCarrinhoLabel">
-          <i class="bi bi-cart3 me-2"></i>Seu carrinho
+      <div class="offcanvas-header border-bottom border-secondary border-opacity-50">
+        <h5 class="offcanvas-title text-warning fw-bold" id="offcanvasCarrinhoLabel">
+          <i class="bi bi-cart3 me-2"></i>Seu Carrinho
         </h5>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close btn-close-white"
           data-bs-dismiss="offcanvas"
           aria-label="Fechar"
         ></button>
       </div>
-      <div class="offcanvas-body d-flex flex-column">
-        <div id="carrinho-lista"></div>
-        <p id="carrinho-vazio">Seu carrinho está vazio.</p>
-        <div class="carrinho-rodape">
-          <div class="carrinho-rodape-linha">
-            <span>Subtotal</span>
-            <span id="carrinho-subtotal">R$ 0,00</span>
+      <div class="offcanvas-body d-flex flex-column justify-content-between">
+        <div>
+          <div id="carrinho-lista"></div>
+          <div id="carrinho-vazio" class="text-center py-5 text-secondary">
+            <i class="bi bi-cart-x display-4 d-block mb-3"></i>
+            <p>Seu carrinho está vazio no momento.</p>
           </div>
-          <a href="carrinho.html" class="btn btn-warning w-100 fw-bold text-center">
-            Finalizar compra
+        </div>
+        <div class="carrinho-rodape pt-3 border-top border-secondary border-opacity-50">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-secondary fw-semibold">Subtotal:</span>
+            <span id="carrinho-subtotal" class="fs-5 fw-bold text-warning">R$ 0,00</span>
+          </div>
+          <a href="carrinho.html" class="btn btn-warning w-100 fw-bold py-2">
+            Ver Carrinho Completo <i class="bi bi-arrow-right ms-1"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Scripts Bootstrap e JS Didático -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/carrinho.js"></script>
+    <script src="../assets/js/jogos.js"></script>
   </body>
 </html>
