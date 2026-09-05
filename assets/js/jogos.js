@@ -1,15 +1,3 @@
-// ==========================================================================
-// JOGOS.JS - IARA GAMES
-// ==========================================================================
-// Este script gerencia o catálogo de jogos na página "Todos os Jogos":
-// 1. Armazena a lista base de jogos brasileiros com suas categorias e preços.
-// 2. Lê novos jogos adicionados pelo usuário no localStorage (da página add-game.html).
-// 3. Permite filtrar os jogos por Categoria usando o método .filter().
-// 4. Permite buscar jogos pelo Nome em tempo real via campo de busca.
-// 5. Renderiza dinamicamente os cards responsivos na tela com Bootstrap.
-// Todo o código é didático e comentado linha a linha para aprendizado.
-// ==========================================================================
-
 // Lista padrão de jogos da plataforma Iara Games
 const JOGOS_PADRAO = [
   {
@@ -221,27 +209,20 @@ const JOGOS_PADRAO = [
   },
 ];
 
-// Categoria selecionada no momento (inicia com "Todos")
 let categoriaAtual = "Todos";
-
-// Texto digitado pelo usuário no campo de busca
 let termoBuscaAtual = "";
 
-// Função auxiliar própria para garantir o caminho correto das imagens
+// Páginas dentro de "pages/" usam data-raiz="../" para resolver caminhos relativos
 function resolverCaminhoImagemCatalogo(caminhoOriginal) {
   if (!caminhoOriginal) return "";
-  // Se for uma URL externa ou já tiver ../ mantemos como está
   if (caminhoOriginal.startsWith("http") || caminhoOriginal.startsWith("../")) {
     return caminhoOriginal;
   }
-  // Lê o data-raiz colocado na tag <body> (ex: "../" dentro de pages/)
   const raiz = document.body ? document.body.dataset.raiz || "" : "";
   return raiz + caminhoOriginal;
 }
 
-// Obtém a lista completa de jogos (padrão + novos jogos do localStorage)
 function obterTodosJogos() {
-  // Cria uma lista nova copiando cada jogo padrão, um por um, com um for
   const todosJogos = [];
   for (let i = 0; i < JOGOS_PADRAO.length; i++) {
     todosJogos.push(JOGOS_PADRAO[i]);
@@ -264,11 +245,9 @@ function obterTodosJogos() {
   return todosJogos;
 }
 
-// Função principal que filtra os jogos usando o método .filter()
 function aplicarFiltros() {
   const listaCompleta = obterTodosJogos();
 
-  // 1. Filtra por categoria usando .filter()
   const filtradosPorCategoria = listaCompleta.filter(function (jogo) {
     if (categoriaAtual === "Todos") {
       return true;
@@ -277,7 +256,6 @@ function aplicarFiltros() {
     return catJogo === categoriaAtual.toLowerCase();
   });
 
-  // 2. Filtra por texto digitado também usando .filter()
   const filtradosFinais = filtradosPorCategoria.filter(function (jogo) {
     if (termoBuscaAtual.trim() === "") {
       return true;
@@ -287,11 +265,9 @@ function aplicarFiltros() {
     return nomeJogo.includes(termo);
   });
 
-  // 3. Renderiza na tela
   renderizarCardsJogos(filtradosFinais);
 }
 
-// Cria os cards HTML com Bootstrap e insere no container
 function renderizarCardsJogos(jogosParaExibir) {
   const container = document.getElementById("jogos-container");
   const contadorTotal = document.getElementById("jogos-contador-resultado");
@@ -329,9 +305,9 @@ function renderizarCardsJogos(jogosParaExibir) {
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <article class="card game-card h-100 bg-dark text-white border border-secondary rounded-4 overflow-hidden shadow-sm">
           <div class="position-relative" style="height: 180px; overflow: hidden;">
-            <img 
-              src="${caminhoImg}" 
-              alt="Capa do jogo ${jogo.nome}" 
+            <img
+              src="${caminhoImg}"
+              alt="Capa do jogo ${jogo.nome}"
               class="w-100 h-100 object-fit-cover"
               loading="lazy"
             />
@@ -339,7 +315,7 @@ function renderizarCardsJogos(jogosParaExibir) {
               ${jogo.categoria || "Gamer"}
             </span>
           </div>
-          
+
           <div class="card-body d-flex flex-column justify-content-between p-3">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-1">
@@ -355,8 +331,8 @@ function renderizarCardsJogos(jogosParaExibir) {
               <span class="fw-bold ${precoNumero === 0 ? "text-success" : "text-warning"} fs-5">
                 ${textoPreco}
               </span>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
                 data-id="${jogo.id}"
                 data-nome="${jogo.nome}"
@@ -374,13 +350,11 @@ function renderizarCardsJogos(jogosParaExibir) {
 
   container.innerHTML = htmlCards;
 
-  // Reconecta os cliques nos botões de compra para o carrinho.js
   if (typeof configurarBotoesCompra === "function") {
     configurarBotoesCompra();
   }
 }
 
-// Reseta os filtros de categoria e busca
 function limparTodosFiltros() {
   categoriaAtual = "Todos";
   termoBuscaAtual = "";
@@ -392,7 +366,6 @@ function limparTodosFiltros() {
   aplicarFiltros();
 }
 
-// Atualiza o visual dos botões de categoria
 function atualizarBotoesCategoria() {
   const botoes = document.querySelectorAll(".btn-filtro-categoria");
   botoes.forEach(function (botao) {
@@ -407,12 +380,9 @@ function atualizarBotoesCategoria() {
   });
 }
 
-// Inicializa a página e seus ouvintes
 function inicializarPaginaJogos() {
-  // Renderiza a lista inicial
   aplicarFiltros();
 
-  // Conecta os botões de filtro por categoria
   const botoesCategoria = document.querySelectorAll(".btn-filtro-categoria");
   botoesCategoria.forEach(function (botao) {
     botao.addEventListener("click", function () {
@@ -422,10 +392,8 @@ function inicializarPaginaJogos() {
     });
   });
 
-  // Conecta o campo de busca por nome
   const campoBusca = document.getElementById("busca-jogos");
   if (campoBusca) {
-    // Se a página foi aberta com parâmetro de busca na URL (ex: ?busca=171)
     const parametrosUrl = new URLSearchParams(window.location.search);
     const buscaUrl = parametrosUrl.get("busca");
     if (buscaUrl) {
@@ -441,7 +409,6 @@ function inicializarPaginaJogos() {
   }
 }
 
-// Executa com verificação imediata para nunca perder o evento
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", inicializarPaginaJogos);
 } else {

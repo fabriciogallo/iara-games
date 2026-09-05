@@ -451,8 +451,6 @@ ol {
   }
 }
 
-/* Fim Area Explore jogos pelo Brasil */
-
 /* Area Footer */
 
 .footer {
@@ -613,8 +611,6 @@ ol {
   text-align: left;
   color: var(--color-light);
 }
-/* F Area Footer */
-
 /* Area Media Queries */
 
 @media (max-width: 1199px) {
@@ -693,8 +689,6 @@ ol {
     font-size: 0.92rem;
   }
 }
-
-/* F Area Media Queries */
 
 /* sr-only: acessibilidade */
 .sr-only {
@@ -794,39 +788,79 @@ ol {
 
 .halt-hero-bg1::before {
   background-image: url("../images/image-enigma-do-medo-hero.jpg");
+  background-image: image-set(
+    url("../images/image-enigma-do-medo-hero.webp") type("image/webp"),
+    url("../images/image-enigma-do-medo-hero.jpg") type("image/jpeg")
+  );
 }
 .halt-hero-bg2::before {
   background-image: url("../images/image-horizon-chase-hero.jpg");
+  background-image: image-set(
+    url("../images/image-horizon-chase-hero.webp") type("image/webp"),
+    url("../images/image-horizon-chase-hero.jpg") type("image/jpeg")
+  );
 }
 .halt-hero-bg3::before {
   background-image: url("../images/image-dandara-hero.jpg");
+  background-image: image-set(
+    url("../images/image-dandara-hero.webp") type("image/webp"),
+    url("../images/image-dandara-hero.jpg") type("image/jpeg")
+  );
 }
 .halt-hero-bg4::before {
   background-image: url("../images/image-171.jpg");
 }
 .halt-hero-bg5::before {
   background-image: url("../images/image-9kings-hero.jpg");
+  background-image: image-set(
+    url("../images/image-9kings-hero.webp") type("image/webp"),
+    url("../images/image-9kings-hero.jpg") type("image/jpeg")
+  );
 }
 .halt-hero-bg6::before {
   background-image: url("../images/image-hellclock-hero.jpg");
+  background-image: image-set(
+    url("../images/image-hellclock-hero.webp") type("image/webp"),
+    url("../images/image-hellclock-hero.jpg") type("image/jpeg")
+  );
 }
 
 /* Recortes verticais otimizados para telas pequenas (mesma arte, enquadramento mais centralizado) */
 @media (max-width: 767px) {
   .halt-hero-bg1::before {
     background-image: url("../images/image-enigma-do-medo-hero-mobile.jpg");
+    background-image: image-set(
+      url("../images/image-enigma-do-medo-hero-mobile.webp") type("image/webp"),
+      url("../images/image-enigma-do-medo-hero-mobile.jpg") type("image/jpeg")
+    );
   }
   .halt-hero-bg2::before {
     background-image: url("../images/image-horizon-chase-hero-mobile.jpg");
+    background-image: image-set(
+      url("../images/image-horizon-chase-hero-mobile.webp") type("image/webp"),
+      url("../images/image-horizon-chase-hero-mobile.jpg") type("image/jpeg")
+    );
   }
   .halt-hero-bg3::before {
     background-image: url("../images/image-dandara-hero-mobile.jpg");
+    background-image: image-set(
+      url("../images/image-dandara-hero-mobile.webp") type("image/webp"),
+      url("../images/image-dandara-hero-mobile.jpg") type("image/jpeg")
+    );
   }
   .halt-hero-bg5::before {
     background-image: url("../images/image-9kings-hero-mobile.jpg");
+    background-image: image-set(
+      url("../images/image-9kings-hero-mobile.webp") type("image/webp"),
+      url("../images/image-9kings-hero-mobile.jpg") type("image/jpeg")
+    );
   }
   .halt-hero-bg6::before {
     background-image: url("../images/image-hellclock-hero-mobile.jpg");
+    background-image: image-set(
+      url("../images/image-hellclock-hero-mobile.webp") type("image/webp"),
+      url("../images/image-hellclock-hero-mobile.jpg") type("image/jpeg")
+    );
   }
 }
 
@@ -1232,11 +1266,16 @@ ol {
   gap: 14px;
   overflow-x: auto;
   padding-bottom: 10px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: var(--color-yellow) transparent;
   -webkit-overflow-scrolling: touch;
   cursor: grab;
   scroll-behavior: smooth;
+}
+
+.halt-scroll-row:hover,
+.halt-scroll-row:focus-within {
+  scrollbar-width: thin;
 }
 
 .halt-scroll-row.is-dragging {
@@ -1246,7 +1285,12 @@ ol {
   user-select: none;
 }
 
+/* Barra de rolagem só aparece no hover/foco (fica escondida no resto do tempo) */
 .halt-scroll-row::-webkit-scrollbar {
+  height: 0;
+}
+.halt-scroll-row:hover::-webkit-scrollbar,
+.halt-scroll-row:focus-within::-webkit-scrollbar {
   height: 5px;
 }
 .halt-scroll-row::-webkit-scrollbar-thumb {
@@ -2438,6 +2482,7 @@ ol {
   gap: 20px;
   font-size: 0.82rem;
   color: #aaa;
+  margin-top: 30px;
 }
 
 .hero-meta strong {

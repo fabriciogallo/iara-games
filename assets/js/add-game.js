@@ -1,19 +1,5 @@
-// ==========================================================================
-// ADD-GAME.JS - IARA GAMES
-// ==========================================================================
-// Este script gerencia o cadastro de novos jogos na loja:
-// 1. Captura os dados digitados no formulário de cadastro.
-// 2. Valida se os campos obrigatórios foram preenchidos corretamente.
-// 3. Monta um novo objeto com os dados do jogo.
-// 4. Salva o novo jogo no localStorage do navegador para simular adição.
-// 5. Exibe um alerta de sucesso e disponibiliza atalho para ver o jogo no catálogo.
-// Todo o código é leve, didático e comentado linha a linha para aprendizado.
-// ==========================================================================
-
-// Chave utilizada para salvar os jogos adicionados pelo usuário no localStorage
 const CHAVE_JOGOS_CUSTOMIZADOS = "iaraJogosCustomizados";
 
-// Função para buscar os jogos que já foram salvos anteriormente no localStorage
 function obterJogosCustomizados() {
   const textoSalvo = localStorage.getItem(CHAVE_JOGOS_CUSTOMIZADOS);
   if (!textoSalvo) {
@@ -27,13 +13,10 @@ function obterJogosCustomizados() {
   }
 }
 
-// Função para salvar a lista atualizada de jogos customizados no localStorage
 function salvarJogosCustomizados(lista) {
-  const textoJson = JSON.stringify(lista);
-  localStorage.setItem(CHAVE_JOGOS_CUSTOMIZADOS, textoJson);
+  localStorage.setItem(CHAVE_JOGOS_CUSTOMIZADOS, JSON.stringify(lista));
 }
 
-// Função auxiliar para gerar um identificador (id) único
 function gerarIdDoJogo(titulo) {
   return titulo
     .toLowerCase()
@@ -43,7 +26,6 @@ function gerarIdDoJogo(titulo) {
     .replace(/^-+|-+$/g, "");
 }
 
-// Função principal que processa o envio do formulário de cadastro de jogo
 function cadastrarNovoJogo(evento) {
   evento.preventDefault();
 
@@ -61,7 +43,6 @@ function cadastrarNovoJogo(evento) {
   const estudio = campoEstudio ? campoEstudio.value.trim() : "";
   const descricao = campoDescricao ? campoDescricao.value.trim() : "";
 
-  // Validações básicas
   if (titulo === "") {
     exibirAlertaAddGame("Por favor, informe o título do jogo.", "danger");
     if (campoTitulo) campoTitulo.focus();
@@ -93,7 +74,6 @@ function cadastrarNovoJogo(evento) {
     return;
   }
 
-  // Cria o novo objeto do jogo
   const novoJogo = {
     id: (gerarIdDoJogo(titulo) || "jogo") + "-" + Date.now(),
     nome: titulo,
@@ -105,18 +85,15 @@ function cadastrarNovoJogo(evento) {
     avaliacao: 5.0,
   };
 
-  // Salva no localStorage
   const listaExistente = obterJogosCustomizados();
   listaExistente.push(novoJogo);
   salvarJogosCustomizados(listaExistente);
 
-  // Mensagem de sucesso
   exibirAlertaAddGame(
     `Jogo "<strong>${titulo}</strong>" cadastrado com sucesso! <a href="jogos.html" class="alert-link text-decoration-underline ms-2">Ver na Loja</a>`,
     "success",
   );
 
-  // Limpa os campos
   if (campoTitulo) campoTitulo.value = "";
   if (campoPreco) campoPreco.value = "";
   if (campoCategoria) campoCategoria.value = "";

@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iara Games — Plataforma de Jogos Brasileiros</title>
 
+    <!-- Preload da imagem do primeiro slide do Hero (LCP) -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="assets/images/image-enigma-do-medo-hero.webp"
+      fetchpriority="high"
+      media="(min-width: 768px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="assets/images/image-enigma-do-medo-hero-mobile.webp"
+      fetchpriority="high"
+      media="(max-width: 767px)"
+    />
+
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,9 +51,6 @@
   </head>
 
   <body data-raiz="">
-    <!-- ================================================================
-         1. HEADER / NAVBAR RESPONSIVA (BOOTSTRAP 5 & MOBILE FIRST)
-         ================================================================ -->
     <header>
       <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
         <div class="container-fluid">
@@ -89,7 +104,7 @@
                 <a
                   class="nav-link px-3 fw-semibold text-white"
                   href="pages/add-game.html"
-                  >Adicionar Jogo</a
+                  >Desenvolvedor</a
                 >
               </li>
               <li class="nav-item">
@@ -146,9 +161,6 @@
       </nav>
     </header>
 
-    <!-- ================================================================
-         2. HERO SECTION (BANNER PRINCIPAL COM CTA)
-         ================================================================ -->
     <main>
       <section
         class="halt-hero halt-hero-bg1 mt-3 carousel slide"
@@ -392,9 +404,7 @@
         </div>
       </section>
 
-      <!-- ================================================================
-           3. JOGOS EM DESTAQUE (POPULAR NO BRASIL)
-           ================================================================ -->
+      <!-- Jogos em destaque (Popular no Brasil) -->
       <section class="halt-section">
         <div class="halt-section-title-row">
           <h2 class="halt-section-title m-0">Jogos em Destaque</h2>
@@ -864,12 +874,7 @@
         </div>
       </section>
 
-      <!-- ================================================================
-           4. MAPA INTERATIVO (EXPLORE JOGOS PELO BRASIL)
-           Estrutura original restaurada: mapa SVG clicável por estado,
-           com painel lateral de jogo em destaque (assets/js/mapa.js).
-           ================================================================ -->
-      <!-- Area Explore jogos pelo Brasil -->
+      <!-- Mapa SVG clicável por estado, com painel de jogo em destaque (assets/js/mapa.js) -->
       <div class="explore-wrapper">
         <section class="explore" id="explore">
           <div class="explore-container">
@@ -1325,11 +1330,8 @@
           </div>
         </section>
       </div>
-      <!-- Fim Explore jogos pelo Brasil -->
 
-      <!-- ================================================================
-           5. JOGOS EM OFERTA (CARDS COM BADGES DE DESCONTO)
-           ================================================================ -->
+      <!-- Jogos em oferta -->
       <section class="halt-section">
         <div class="halt-section-title-row">
           <div class="halt-section-title-group">
@@ -1523,17 +1525,196 @@
               </div>
             </div>
           </article>
+
+          <!-- Oferta 6: 99 Vidas -->
+          <article class="halt-offer-card">
+            <img
+              src="assets/images/image-99-vidas.jpg"
+              alt="Jogo 99 Vidas em promoção"
+              loading="lazy"
+            />
+            <div class="halt-offer-card-info">
+              <div>
+                <h4>99 Vidas</h4>
+                <p>
+                  Beat 'em up cooperativo com visual retrô da QUByte
+                  Interactive, inspirado em clássicos dos anos 90.
+                </p>
+              </div>
+              <div class="halt-offer-bottom">
+                <div>
+                  <p class="halt-offer-percent">-35%</p>
+                  <p class="halt-offer-price">
+                    Preço: <strong>R$ 27,90</strong>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="halt-offer-play btn-add-carrinho"
+                  data-id="99-vidas"
+                  data-nome="99 Vidas"
+                  data-preco="27.90"
+                  data-imagem="assets/images/image-99-vidas.jpg"
+                >
+                  Jogar <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Oferta 7: Sky Dust -->
+          <article class="halt-offer-card">
+            <img
+              src="assets/images/image-sky-dust.jpg"
+              alt="Jogo Sky Dust em promoção"
+              loading="lazy"
+            />
+            <div class="halt-offer-card-info">
+              <div>
+                <h4>Sky Dust</h4>
+                <p>
+                  Plataforma indie brasileira com visual estilizado e fases
+                  desafiadoras cheias de segredos para explorar.
+                </p>
+              </div>
+              <div class="halt-offer-bottom">
+                <div>
+                  <p class="halt-offer-percent">-30%</p>
+                  <p class="halt-offer-price">
+                    Preço: <strong>R$ 46,99</strong>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="halt-offer-play btn-add-carrinho"
+                  data-id="sky-dust"
+                  data-nome="Sky Dust"
+                  data-preco="46.99"
+                  data-imagem="assets/images/image-sky-dust.jpg"
+                >
+                  Jogar <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Oferta 8: Fobia - St. Dinfna Hotel -->
+          <article class="halt-offer-card">
+            <img
+              src="assets/images/image-fobia.jpg"
+              alt="Jogo Fobia - St. Dinfna Hotel em promoção"
+              loading="lazy"
+            />
+            <div class="halt-offer-card-info">
+              <div>
+                <h4>Fobia - St. Dinfna Hotel</h4>
+                <p>
+                  Terror psicológico em primeira pessoa da Pulsatrix Studios,
+                  ambientado num hotel abandonado cheio de segredos.
+                </p>
+              </div>
+              <div class="halt-offer-bottom">
+                <div>
+                  <p class="halt-offer-percent">-20%</p>
+                  <p class="halt-offer-price">
+                    Preço: <strong>R$ 89,00</strong>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="halt-offer-play btn-add-carrinho"
+                  data-id="fobia"
+                  data-nome="Fobia - St. Dinfna Hotel"
+                  data-preco="89.00"
+                  data-imagem="assets/images/image-fobia.jpg"
+                >
+                  Jogar <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- Oferta 9: Bloodless -->
+          <article class="halt-offer-card">
+            <img
+              src="assets/images/image-bloodless.jpg"
+              alt="Jogo Bloodless em promoção"
+              loading="lazy"
+            />
+            <div class="halt-offer-card-info">
+              <div>
+                <h4>Bloodless</h4>
+                <p>
+                  Visual novel de mistério e investigação da Vaki Games, com
+                  arte sombria e narrativa cheia de reviravoltas.
+                </p>
+              </div>
+              <div class="halt-offer-bottom">
+                <div>
+                  <p class="halt-offer-percent">-25%</p>
+                  <p class="halt-offer-price">
+                    Preço: <strong>R$ 57,90</strong>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="halt-offer-play btn-add-carrinho"
+                  data-id="bloodless"
+                  data-nome="Bloodless"
+                  data-preco="57.90"
+                  data-imagem="assets/images/image-bloodless.jpg"
+                >
+                  Jogar <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Oferta 10: Mullet MadJack -->
+          <article class="halt-offer-card">
+            <img
+              src="assets/images/image-mullet-madjack.jpg"
+              alt="Jogo Mullet MadJack em promoção"
+              loading="lazy"
+            />
+            <div class="halt-offer-card-info">
+              <div>
+                <h4>Mullet MadJack</h4>
+                <p>
+                  FPS frenético em primeira pessoa da HAMMER95, correria
+                  non-stop contra hordas de robôs em 3 segundos por sala.
+                </p>
+              </div>
+              <div class="halt-offer-bottom">
+                <div>
+                  <p class="halt-offer-percent">-40%</p>
+                  <p class="halt-offer-price">
+                    Preço: <strong>R$ 29,96</strong>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="halt-offer-play btn-add-carrinho"
+                  data-id="mullet-madjack"
+                  data-nome="Mullet MadJack"
+                  data-preco="29.96"
+                  data-imagem="assets/images/image-mullet-madjack.jpg"
+                >
+                  Jogar <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- ================================================================
-           6. JOGOS GRATUITOS (FREE-TO-PLAY)
-           ================================================================ -->
+      <!-- Jogos gratuitos -->
       <section class="halt-section">
         <div class="halt-section-title-row">
           <div class="halt-section-title-group">
             <h2 class="halt-section-title m-0">Jogos Gratuitos</h2>
-            <span class="badge bg-success text-white px-3 py-2"
+            <span
+              class="badge text-white px-3 py-2"
+              style="background-color: #fab615"
               >Free-to-Play</span
             >
           </div>
@@ -1550,10 +1731,6 @@
               alt="Jogo Cordels & Spells Gratuito"
               loading="lazy"
             />
-            <span
-              class="badge bg-warning text-dark position-absolute top-0 start-0 m-2"
-              >DEMO</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Cordels & Spells</p>
@@ -1563,16 +1740,17 @@
               </div>
               <p class="halt-game-card-studio">Supernova Games</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="cordels-e-spells"
                   data-nome="Cordels & Spells"
                   data-preco="0.00"
                   data-imagem="assets/images/image-cordels-&-spells.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1585,10 +1763,6 @@
               alt="Sludge Life Demo Gratuita"
               loading="lazy"
             />
-            <span
-              class="badge bg-warning text-dark position-absolute top-0 start-0 m-2"
-              >DEMO</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Sludge Life Demo</p>
@@ -1598,16 +1772,17 @@
               </div>
               <p class="halt-game-card-studio">Devolver Digital</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="sludge-life"
                   data-nome="Sludge Life Demo"
                   data-preco="0.00"
                   data-imagem="assets/images/image-sludge-life.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1620,10 +1795,6 @@
               alt="Two Strikes Demo"
               loading="lazy"
             />
-            <span
-              class="badge bg-warning text-dark position-absolute top-0 start-0 m-2"
-              >DEMO</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Two Strikes Demo</p>
@@ -1633,16 +1804,17 @@
               </div>
               <p class="halt-game-card-studio">Retro Reactor</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="two-strikes"
                   data-nome="Two Strikes Demo"
                   data-preco="0.00"
                   data-imagem="assets/images/image-two-strikes.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1655,10 +1827,6 @@
               alt="Moonleap"
               loading="lazy"
             />
-            <span
-              class="badge bg-warning text-dark position-absolute top-0 start-0 m-2"
-              >DEMO</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Moonleap Demo</p>
@@ -1668,16 +1836,17 @@
               </div>
               <p class="halt-game-card-studio">Sonhador Studio</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="moonleap"
                   data-nome="Moonleap"
                   data-preco="0.00"
                   data-imagem="assets/images/image-moonleap.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1690,9 +1859,6 @@
               alt="Onikura Gratuito"
               loading="lazy"
             />
-            <span class="badge bg-success position-absolute top-0 start-0 m-2"
-              >GRÁTIS</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Onikura</p>
@@ -1702,16 +1868,17 @@
               </div>
               <p class="halt-game-card-studio">Kurokora Games</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="onikura"
                   data-nome="Onikura"
                   data-preco="0.00"
                   data-imagem="assets/images/image-onikura.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1724,10 +1891,6 @@
               alt="Lead the Dragon Demo"
               loading="lazy"
             />
-            <span
-              class="badge bg-warning text-dark position-absolute top-0 start-0 m-2"
-              >DEMO</span
-            >
             <div class="halt-game-card-info">
               <div class="halt-game-card-top">
                 <p class="halt-game-card-name">Lead the Dragon Demo</p>
@@ -1737,16 +1900,17 @@
               </div>
               <p class="halt-game-card-studio">Estúdio Independente</p>
               <div class="d-flex justify-content-between align-items-center">
-                <p class="halt-game-card-price text-success m-0">Gratuito</p>
+                <p class="halt-game-card-price m-0">Gratuito</p>
                 <button
                   type="button"
-                  class="btn btn-success btn-sm fw-bold px-3 py-1 btn-add-carrinho"
+                  class="btn btn-warning btn-sm fw-bold px-2 py-1 btn-add-carrinho"
                   data-id="lead-the-dragon"
                   data-nome="Lead the Dragon Demo"
                   data-preco="0.00"
                   data-imagem="assets/images/image-lead-the-dragon.jpg"
+                  title="Adicionar ao carrinho"
                 >
-                  Jogar <i class="bi bi-play-fill"></i>
+                  <i class="bi bi-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -1754,9 +1918,7 @@
         </div>
       </section>
 
-      <!-- ================================================================
-           7. FORMULÁRIO DE CONTATO (VALIDADO COM JAVASCRIPT DIDÁTICO)
-           ================================================================ -->
+      <!-- Formulário de contato (validado em assets/js/contato.js) -->
       <section class="halt-subscribe">
         <h3>
           Deseja divulgar seus jogos na Iara Games?<br />
@@ -1813,9 +1975,6 @@
       </section>
     </main>
 
-    <!-- ================================================================
-         8. FOOTER RESPONSIVO (ALINHADO AO FIGMA)
-         ================================================================ -->
     <footer class="halt-footer">
       <div class="halt-footer-grid">
         <div class="halt-footer-brand">
@@ -1935,27 +2094,18 @@
       </div>
     </div>
 
-    <!-- ================================================================
-         SCRIPTS: BOOTSTRAP 5 & SCRIPTS DIDÁTICOS VANILLA JS
-         ================================================================ -->
-    <!-- Bootstrap 5 Bundle JS (com Popper para Modals/Offcanvas/Dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scripts da aplicação (Didáticos e comentados linha a linha) -->
     <script src="assets/js/carrinho.js"></script>
     <script src="assets/js/mapa.js"></script>
     <script src="assets/js/contato.js"></script>
     <script src="assets/js/scroll-rows.js"></script>
 
-    <!-- Script pequeno e específico desta página: troca a imagem de fundo -->
-    <!-- do Hero conforme o slide do carrossel muda -->
+    <!-- Troca o fundo do Hero conforme o slide do carrossel muda -->
     <script>
-      // Pega o elemento principal do carrossel do Hero pelo id
       var heroCarousel = document.getElementById("heroCarousel");
 
-      // Só executa se o carrossel realmente existir nesta página
       if (heroCarousel) {
-        // Lista com todas as classes de fundo possíveis (uma por jogo)
         var classesDeFundo = [
           "halt-hero-bg1",
           "halt-hero-bg2",
@@ -1965,19 +2115,41 @@
           "halt-hero-bg6",
         ];
 
-        // O Bootstrap dispara o evento "slid.bs.carousel" quando a troca de
-        // slide termina. Trocamos o fundo só neste momento (e não no início
-        // da transição) para o novo texto não aparecer com o fundo errado.
+        // O primeiro slide já é carregado via <link rel="preload"> no <head>;
+        // os demais são pré-carregados aqui para a troca de slide não esperar
+        var ehMobile = window.matchMedia("(max-width: 767px)").matches;
+        var sufixoMobile = ehMobile ? "-mobile" : "";
+        var imagensRestantes = [
+          "image-horizon-chase-hero",
+          "image-dandara-hero",
+          "image-9kings-hero",
+          "image-hellclock-hero",
+        ].map(function (nome) {
+          return "assets/images/" + nome + sufixoMobile + ".webp";
+        });
+
+        function preCarregarImagensDoHero() {
+          imagensRestantes.forEach(function (src) {
+            var img = new Image();
+            img.src = src;
+          });
+        }
+
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(preCarregarImagensDoHero);
+        } else {
+          setTimeout(preCarregarImagensDoHero, 1500);
+        }
+
+        // Troca o fundo só quando a transição termina, para o texto não
+        // aparecer sobre o fundo do slide anterior
         heroCarousel.addEventListener("slid.bs.carousel", function (evento) {
-          // O slide que está entrando guarda a classe de fundo em data-bg
           var novaClasse = evento.relatedTarget.getAttribute("data-bg");
 
-          // Remove todas as classes de fundo antigas, uma por uma
           for (var i = 0; i < classesDeFundo.length; i++) {
             heroCarousel.classList.remove(classesDeFundo[i]);
           }
 
-          // Adiciona apenas a classe de fundo do novo slide
           heroCarousel.classList.add(novaClasse);
         });
       }

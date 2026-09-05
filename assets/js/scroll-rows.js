@@ -1,27 +1,12 @@
 // SCROLL-ROWS.JS - IARA GAMES
-// Dá rolagem horizontal com a roda do mouse e arraste (clique e arraste)
+// Dá rolagem horizontal apenas por arraste (clique e arraste)
 // para qualquer carrossel ".halt-scroll-row" da página.
+// A roda do mouse rola a página normalmente (verticalmente).
 
 document.addEventListener("DOMContentLoaded", function () {
   const fileiras = document.querySelectorAll(".halt-scroll-row");
 
   fileiras.forEach(function (fileira) {
-    // Roda do mouse: converte a rolagem vertical em rolagem horizontal
-    fileira.addEventListener(
-      "wheel",
-      function (evento) {
-        const rolagemVertical = Math.abs(evento.deltaY) > Math.abs(evento.deltaX);
-        if (!rolagemVertical) return;
-
-        const podeRolar = fileira.scrollWidth > fileira.clientWidth;
-        if (!podeRolar) return;
-
-        evento.preventDefault();
-        fileira.scrollLeft += evento.deltaY;
-      },
-      { passive: false }
-    );
-
     // Clique e arraste: permite arrastar o carrossel para os lados
     let arrastando = false;
     let posicaoInicialX = 0;
