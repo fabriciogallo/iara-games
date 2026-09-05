@@ -963,7 +963,7 @@ ol {
   font-weight: 700;
   font-size: clamp(24px, 4vw, 40px);
   color: #fff;
-  margin-top: 4px;
+  margin-top: 35px;
 }
 
 .halt-hero-actions {
@@ -1027,6 +1027,51 @@ ol {
 .halt-hero .carousel-control-prev:hover,
 .halt-hero .carousel-control-next:hover {
   opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .halt-hero-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .halt-hero .carousel-control-prev,
+  .halt-hero .carousel-control-next {
+    display: none;
+  }
+
+  .halt-hero-content {
+    padding-bottom: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .halt-hero {
+    min-height: 560px;
+  }
+
+  .halt-hero-content {
+    gap: 16px;
+  }
+
+  .halt-hero-title {
+    font-size: 26px;
+    margin: 6px 0 14px;
+  }
+
+  .halt-hero-sub {
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+
+  .halt-hero-price {
+    font-size: 22px;
+    padding-top: 35px;
+  }
 }
 
 /* ===== SEÇÕES GENÉRICAS ===== */
@@ -1470,7 +1515,11 @@ ol {
 }
 
 .halt-offer-card-info p {
-  font-size: 13.5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-size: 14px;
   margin: 0;
   opacity: 0.85;
 }
@@ -1482,16 +1531,49 @@ ol {
   gap: 8px;
 }
 
-.halt-offer-discount {
+.halt-offer-percent {
   font-size: 20px;
   font-weight: 700;
+  margin: 0;
+}
+
+.halt-offer-price {
+  font-size: 13.5px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .halt-offer-card-info h4 {
+    font-size: 16px;
+  }
+
+  .halt-offer-card-info p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .halt-offer-percent {
+    font-size: 16px;
+  }
+
+  .halt-offer-price {
+    font-size: 11px;
+  }
+
+  .halt-offer-play {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }
 
 .halt-offer-play {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 6px;
-  background: #f5ffe6;
+  background: #d4ffb0;
   color: #111;
   border-radius: 4px;
   padding: 7px 14px;
@@ -1504,7 +1586,7 @@ ol {
 }
 
 .halt-offer-play:hover {
-  background: #d4ffb0;
+  background: #84e533;
 }
 
 /* ===== FORMULÁRIO "ENVIE SEUS DADOS" ===== */
@@ -2396,12 +2478,6 @@ ol {
   }
 }
 
-/* =========================================================
-   PÁGINAS DE JOGO INDIVIDUAL (pages/pages-game/page-interna-*.html)
-   Originalmente em internajogos.css — consolidado aqui.
-   O corpo dessas páginas recebe a classe ".pagina-interna" para
-   isolar o navbar transparente sobre a imagem de fundo do hero.
-   ========================================================= */
 .pagina-interna .navbar {
   position: absolute;
   top: 0;
