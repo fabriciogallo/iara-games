@@ -1,8 +1,3 @@
-// SCROLL-ROWS.JS - IARA GAMES
-// Dá rolagem horizontal apenas por arraste (clique e arraste)
-// para qualquer carrossel ".halt-scroll-row" da página.
-// A roda do mouse rola a página normalmente (verticalmente).
-
 document.addEventListener("DOMContentLoaded", function () {
   const fileiras = document.querySelectorAll(".halt-scroll-row");
 
@@ -50,4 +45,28 @@ document.addEventListener("DOMContentLoaded", function () {
       { capture: true }
     );
   });
+
+  // Clicar em um card de jogo leva à página de detalhes daquele jogo
+  // (página interna, quando existe, ou a página "em desenvolvimento")
+  document
+    .querySelectorAll(".halt-game-card, .halt-offer-card")
+    .forEach(function (card) {
+      card.addEventListener("click", function (evento) {
+        if (evento.target.closest(".btn-add-carrinho") || evento.target.closest("a")) {
+          return;
+        }
+
+        const botaoCarrinho = card.querySelector(".btn-add-carrinho");
+        const idJogo = botaoCarrinho ? botaoCarrinho.getAttribute("data-id") : "";
+        const jogo =
+          idJogo && typeof obterTodosJogos === "function"
+            ? obterTodosJogos().find(function (j) {
+                return j.id === idJogo;
+              })
+            : null;
+        if (!jogo) return;
+
+        window.location.href = resolverCaminhoDetalhes(jogo);
+      });
+    });
 });

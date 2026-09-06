@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iara Games</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="../assets/images/logo-iara-games.svg"
+      type="image/x-icon"
+    />
+    <!-- Estilos Customizados da Aplicação (arquivo único) -->
+    <link rel="stylesheet" href="../assets/styles/index.css" />
+  </head>
+
+  <body data-raiz="../">
+    <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand d-flex align-items-center gap-3 me-4"
+          href="../index.html"
+        >
+          <img
+            src="../assets/images/logo-iara-games.svg"
+            alt="Logo da Iara Games"
+            width="59"
+            height="49"
+          />
+          <span class="fw-bold fs-2 title">Iara Games</span>
+        </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul
+            class="navbar-nav flex-grow-1 justify-content-center ms-lg-5 mb-3 mb-lg-0 gap-1"
+          >
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="jogos.html">Loja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="add-game.html">Desenvolvedor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 fw-semibold" href="suporte.html">Suporte</a>
+            </li>
+          </ul>
+
+          <div
+            class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-3 ms-lg-auto"
+          >
+            <div class="position-relative search-wrapper">
+              <i
+                class="bi bi-search position-absolute top-50 translate-middle-y"
+                style="
+                  left: 16px;
+                  font-size: 15px;
+                  pointer-events: none;
+                "
+              ></i>
+              <input
+                class="form-control ps-5"
+                type="search"
+                placeholder="Buscar jogos"
+                aria-label="Buscar jogos"
+              />
+            </div>
+
+            <!-- Botão Carrinho -->
+            <button
+              type="button"
+              class="carrinho-btn"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasCarrinho"
+              aria-controls="offcanvasCarrinho"
+              aria-label="Abrir carrinho"
+            >
+              <span>Carrinho</span>
+              <i class="bi bi-cart3"></i>
+              <span id="carrinho-contador" class="carrinho-contador">0</span>
+            </button>
+
+            <!-- Botão Entrar -->
+            <a href="#" class="login-btn"> Entrar </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="py-5">
+      <div class="container text-center py-5">
+        <i class="bi bi-tools display-1 text-warning mb-4 d-block"></i>
+        <h1 class="fw-bold mb-3">Página em desenvolvimento</h1>
+        <p class="lead mb-2 text-warning" id="dev-jogo-nome" style="display: none"></p>
+        <p class="mb-4 text-secondary">
+          Estamos preparando a página de detalhes deste jogo. Volte em breve
+          para conferir!
+        </p>
+        <a href="jogos.html" class="btn btn-warning fw-bold px-4 py-2">
+          Voltar para a loja
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="halt-footer">
+      <div class="halt-footer-grid">
+        <div class="halt-footer-brand">
+          <div class="halt-footer-logo">
+            <img src="../assets/images/logo-iara-games.svg" alt="Iara Games" />
+            <span>Iara Games</span>
+          </div>
+          <p>
+            A plataforma de jogos desenvolvidas por brasileiros ou jogos
+            ambientados no Brasil.
+          </p>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Produto</h5>
+          <ul>
+            <li><a href="jogos.html">Loja</a></li>
+            <li><a href="add-game.html">Adicionar Jogo</a></li>
+            <li><a href="carrinho.html">Carrinho</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Desenvolvedores</h5>
+          <ul>
+            <li><a href="add-game.html">Publicar Jogo</a></li>
+            <li><a href="suporte.html">Documentação</a></li>
+            <li><a href="suporte.html">API</a></li>
+            <li><a href="suporte.html">Ferramentas</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+          </ul>
+        </div>
+        <div class="halt-footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="termos-condicoes.html">Termos de Uso</a></li>
+            <li><a href="politica-privacidade.html">Privacidade</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Licenças</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="halt-footer-bottom">
+        <p>© 2026 Iara Games. Todos os direitos reservados.</p>
+        <div class="halt-footer-social">
+          <a href="#"><i class="bi bi-twitter-x me-1"></i>Twitter</a>
+          <a href="#"><i class="bi bi-discord me-1"></i>Discord</a>
+          <a href="#"><i class="bi bi-instagram me-1"></i>Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Painel do Carrinho -->
+    <div
+      class="offcanvas offcanvas-end offcanvas-carrinho"
+      tabindex="-1"
+      id="offcanvasCarrinho"
+      aria-labelledby="offcanvasCarrinhoLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasCarrinhoLabel">
+          <i class="bi bi-cart3 me-2"></i>Seu carrinho
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Fechar"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div id="carrinho-lista"></div>
+        <p id="carrinho-vazio">Seu carrinho está vazio.</p>
+        <div class="carrinho-rodape">
+          <div class="carrinho-rodape-linha">
+            <span>Subtotal</span>
+            <span id="carrinho-subtotal">R$ 0,00</span>
+          </div>
+          <a
+            href="carrinho.html"
+            class="btn btn-warning w-100 fw-bold text-center"
+          >
+            Finalizar compra
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/carrinho.js"></script>
+    <script>
+      const parametrosUrl = new URLSearchParams(window.location.search);
+      const nomeJogoDev = parametrosUrl.get("jogo");
+      if (nomeJogoDev) {
+        const elementoNomeJogo = document.getElementById("dev-jogo-nome");
+        elementoNomeJogo.textContent = 'Detalhes de "' + nomeJogoDev + '"';
+        elementoNomeJogo.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

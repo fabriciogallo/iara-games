@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/styles/index.css" />
   </head>
 
-  <body data-raiz="../" class="bg-dark text-white">
+  <body data-raiz="../" class="text-white">
     <!-- ===== HEADER / NAVBAR RESPONSIVA ===== -->
     <header>
       <nav class="navbar navbar-expand-lg px-3 px-lg-5 py-3">
@@ -78,7 +78,7 @@
               </li>
             </ul>
 
-            <!-- Ações Direita (Carrinho) -->
+            <!-- Ações Direita (Carrinho + Entrar) -->
             <div class="d-flex justify-content-center align-items-center gap-3">
               <button
                 type="button"
@@ -93,9 +93,7 @@
                 <span id="carrinho-contador" class="carrinho-contador">0</span>
               </button>
 
-              <a href="add-game.html" class="btn btn-warning btn-sm fw-bold px-3">
-                <i class="bi bi-plus-lg me-1"></i>Adicionar Jogo
-              </a>
+              <a href="#" class="login-btn">Entrar</a>
             </div>
           </div>
         </div>
@@ -103,72 +101,62 @@
     </header>
 
     <!-- ===== CONTEÚDO PRINCIPAL (CATÁLOGO & FILTROS) ===== -->
-    <main class="py-4 py-lg-5" style="min-height: 80vh; background: radial-gradient(circle at 50% 0%, #131722 0%, #03050d 100%);">
-      <div class="container-fluid px-3 px-md-5">
-        
-        <!-- Topo da Seção de Jogos -->
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+    <main class="loja-main">
+      <div class="container-fluid px-0">
+
+        <!-- Título, Filtros por Categoria, Ordenação e Busca -->
+        <div class="loja-header-block">
           <div>
-            <div class="d-flex align-items-center gap-2 mb-1">
-              <a href="../index.html" class="text-secondary text-decoration-none small d-inline-flex align-items-center gap-1">
-                <i class="bi bi-arrow-left"></i> Voltar para a Home
-              </a>
-            </div>
-            <h1 class="display-6 fw-bold text-white m-0">Catálogo de Jogos Brasileiros</h1>
-            <p id="jogos-contador-resultado" class="text-secondary small mt-1 mb-0">Carregando jogos...</p>
+            <h1 class="loja-title">Loja</h1>
+            <p id="jogos-contador-resultado" class="loja-subtitle">Mostrando todos os jogos disponíveis na Iara Games</p>
           </div>
 
-          <!-- Barra de Busca por Texto -->
-          <div class="position-relative" style="min-width: 280px; max-width: 400px;">
-            <i class="bi bi-search position-absolute top-50 translate-middle-y text-secondary" style="left: 14px;"></i>
-            <input
-              type="search"
-              id="busca-jogos"
-              class="form-control ps-5 bg-dark text-white border-secondary rounded-pill"
-              placeholder="Buscar por nome do jogo..."
-              aria-label="Buscar jogo por nome"
-            />
-          </div>
-        </div>
-
-        <!-- Barra de Filtros por Categoria -->
-        <div class="card bg-dark border border-secondary border-opacity-50 rounded-4 p-3 mb-4 shadow-sm">
-          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
-            <div class="d-flex align-items-center gap-2 mb-2 mb-md-0">
-              <i class="bi bi-funnel text-warning"></i>
-              <span class="fw-semibold text-white small text-uppercase">Filtrar por Categoria:</span>
+          <div class="loja-filters-row">
+            <div class="loja-tabs-group">
+              <span class="loja-tabs-label">Filtros</span>
+              <div class="loja-tabs" id="barra-filtros-categorias">
+                <button type="button" class="loja-tab active" data-categoria="Todos">Todos</button>
+                <button type="button" class="loja-tab" data-categoria="Ação">Ação</button>
+                <button type="button" class="loja-tab" data-categoria="Aventura">Aventura</button>
+                <button type="button" class="loja-tab" data-categoria="Terror">Terror</button>
+                <button type="button" class="loja-tab" data-categoria="RPG">RPG</button>
+                <button type="button" class="loja-tab" data-categoria="Corrida">Corrida</button>
+                <button type="button" class="loja-tab" data-categoria="Gratuito">Gratuitos</button>
+              </div>
             </div>
-            <!-- Botões de Categoria -->
-            <div class="d-flex flex-wrap gap-2" id="barra-filtros-categorias">
-              <button type="button" class="btn btn-sm btn-warning active btn-filtro-categoria rounded-pill px-3" data-categoria="Todos">
-                Todos
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Ação">
-                Ação
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Aventura">
-                Aventura
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Terror">
-                Terror
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="RPG">
-                RPG
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Corrida">
-                Corrida
-              </button>
-              <button type="button" class="btn btn-sm btn-outline-light btn-filtro-categoria rounded-pill px-3" data-categoria="Gratuito">
-                Gratuitos
-              </button>
+
+            <div class="loja-actions-group">
+              <label class="loja-sort">
+                <span>Ordenar por:</span>
+                <select id="ordenar-jogos" aria-label="Ordenar jogos">
+                  <option value="relevancia">Relevância</option>
+                  <option value="menor-preco">Menor preço</option>
+                  <option value="maior-preco">Maior preço</option>
+                  <option value="melhor-avaliado">Melhor avaliado</option>
+                </select>
+                <i class="bi bi-chevron-down"></i>
+              </label>
+
+              <div class="loja-search">
+                <i class="bi bi-search"></i>
+                <input
+                  type="search"
+                  id="busca-jogos"
+                  placeholder="Buscar jogos"
+                  aria-label="Buscar jogo por nome"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Grid Responsivo com os Jogos Renderizados Dinamicamente -->
-        <div class="row g-4" id="jogos-container">
+        <div class="loja-grid" id="jogos-container">
           <!-- Os cards são inseridos aqui pelo script assets/js/jogos.js via innerHTML -->
         </div>
+
+        <!-- Paginação -->
+        <nav class="loja-pagination" id="loja-paginacao" aria-label="Paginação de jogos"></nav>
 
       </div>
     </main>

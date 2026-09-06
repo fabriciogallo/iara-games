@@ -1,99 +1,134 @@
-// Dicionário relacionando estados brasileiros aos seus respectivos jogos
-const JOGOS_POR_ESTADO = {
-  "sao paulo": {
-    nome: "Fobia - St. Dinfna Hotel",
-    estudio: "Pulsatrix Studios",
-    cidade: "São Paulo, SP",
-    imagem: "assets/images/image-fobia.jpg",
-    link: "pages/jogos.html"
-  },
-  "parana": {
-    nome: "Enigma do Medo",
-    estudio: "Dumativa & Cellbit",
-    cidade: "Curitiba, PR",
-    imagem: "assets/images/image-enigma-do-medo.jpg",
-    link: "pages/pages-game/page-interna-enigma-do-medo.html"
-  },
-  "minas gerais": {
-    nome: "Dandara",
-    estudio: "Long Hat House",
-    cidade: "Belo Horizonte, MG",
-    imagem: "assets/images/image-dandara.jpg",
-    link: "pages/pages-game/page-interna-dandara.html"
-  },
-  "rio grande do sul": {
-    nome: "Horizon Chase Turbo",
-    estudio: "Aquiris Game Studio",
-    cidade: "Porto Alegre, RS",
-    imagem: "assets/images/image-horizon-chase.jpg",
-    link: "pages/jogos.html"
-  },
-  "distrito federal": {
-    nome: "Mullet MadJack",
-    estudio: "HAMMER95",
-    cidade: "Brasília, DF",
-    imagem: "assets/images/image-mullet-madjack.jpg",
-    link: "pages/jogos.html"
-  },
-  "bahia": {
-    nome: "Árida: Backland's Awakening",
-    estudio: "Aoca Game Lab",
-    cidade: "Salvador, BA",
-    imagem: "assets/images/image-aila.jpg",
-    link: "pages/jogos.html"
-  },
-  "pernambuco": {
-    nome: "Cordels & Spells",
-    estudio: "Supernova Games",
-    cidade: "Recife, PE",
-    imagem: "assets/images/image-cordels-&-spells.jpg",
-    link: "pages/jogos.html"
-  },
-  "rio de janeiro": {
-    nome: "Unsighted",
-    estudio: "Studio Pixel Punk",
-    cidade: "Rio de Janeiro, RJ",
-    imagem: "assets/images/image-unsighted.jpg",
-    link: "pages/jogos.html"
-  },
-  "santa catarina": {
-    nome: "9 Kings",
-    estudio: "Sad Socket",
-    cidade: "Florianópolis, SC",
-    imagem: "assets/images/image-9kings.jpg",
-    link: "pages/pages-game/page-interna-9-kings.html"
-  }
+// Estados brasileiros agrupados por região, usados para escolher os jogos em destaque
+const ESTADO_PARA_REGIAO = {
+  tocantins: "norte",
+  amapa: "norte",
+  para: "norte",
+  roraima: "norte",
+  amazonas: "norte",
+  acre: "norte",
+  rondonia: "norte",
+
+  bahia: "nordeste",
+  sergipe: "nordeste",
+  pernambuco: "nordeste",
+  alagoas: "nordeste",
+  "rio grande do norte": "nordeste",
+  ceara: "nordeste",
+  piaui: "nordeste",
+  maranhao: "nordeste",
+  paraiba: "nordeste",
+
+  "mato grosso": "centro-oeste",
+  "mato grosso do sul": "centro-oeste",
+  goias: "centro-oeste",
+  "distrito federal": "centro-oeste",
+
+  parana: "sul",
+  "santa catarina": "sul",
+  "rio grande do sul": "sul",
+
+  "sao paulo": "sudeste",
+  "minas gerais": "sudeste",
+  "rio de janeiro": "sudeste",
+  "espirito santo": "sudeste",
 };
 
-function atualizarDestaqueMapa(nomeEstado) {
-  const chave = nomeEstado
+const NOME_REGIAO = {
+  norte: "Norte",
+  nordeste: "Nordeste",
+  "centro-oeste": "Centro-Oeste",
+  sudeste: "Sudeste",
+  sul: "Sul",
+};
+
+// Top 4 jogos mais jogados de cada região (posição 0 = card em destaque, 1-3 = cards menores)
+const JOGOS_POR_REGIAO = {
+  norte: ["sky-dust", "onikura", "moonleap", "two-strikes"],
+  nordeste: ["dandara", "aila", "cordels-e-spells", "aviao-trafico"],
+  "centro-oeste": ["9-kings", "unsighted", "zueirama-2", "lead-the-dragon"],
+  sudeste: ["fobia", "enigma-do-medo", "hell-clock", "bloodless"],
+  sul: ["horizon-chase", "99-vidas", "171", "mullet-madjack"],
+};
+
+function normalizarNomeEstado(nomeEstado) {
+  return nomeEstado
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .trim();
+}
 
-  const dados = JOGOS_POR_ESTADO[chave] || JOGOS_POR_ESTADO["sao paulo"];
+function obterJogoPorId(id) {
+  return obterTodosJogos().find(function (jogo) {
+    return jogo.id === id;
+  });
+}
 
-  const badgeEstado = document.querySelector(".explore-featured-badge");
-  if (badgeEstado) {
-    badgeEstado.textContent = nomeEstado.toUpperCase();
+function linkBuscaJogo(jogo) {
+  return "pages/jogos.html?busca=" + encodeURIComponent(jogo.nome);
+}
+
+function tocarAnimacaoEntrada(elemento) {
+  if (!elemento) return;
+  elemento.classList.remove("explore-card-anim");
+  void elemento.offsetWidth;
+  elemento.classList.add("explore-card-anim");
+}
+
+function atualizarDestaqueMapa(nomeEstado) {
+  const chave = normalizarNomeEstado(nomeEstado);
+  const regiao = ESTADO_PARA_REGIAO[chave] || "sudeste";
+  const jogos = JOGOS_POR_REGIAO[regiao].map(obterJogoPorId);
+  const jogoDestaque = jogos[0];
+
+  const regiaoLabel = document.querySelector(".explore-featured-regiao");
+  if (regiaoLabel) {
+    regiaoLabel.textContent = nomeEstado + " · Região " + NOME_REGIAO[regiao];
+  }
+
+  const nomeDestaque = document.querySelector(".explore-featured-nome");
+  if (nomeDestaque) {
+    nomeDestaque.textContent = jogoDestaque.nome;
+  }
+
+  const estudioDestaque = document.querySelector(".explore-featured-estudio");
+  if (estudioDestaque) {
+    estudioDestaque.textContent = jogoDestaque.estudio;
+  }
+
+  const notaDestaque = document.querySelector(".explore-featured-nota-valor");
+  if (notaDestaque) {
+    notaDestaque.textContent = jogoDestaque.avaliacao.toFixed(1);
   }
 
   const imgDestaque = document.querySelector(".explore-featured-img");
   if (imgDestaque) {
-    imgDestaque.src = dados.imagem;
-    imgDestaque.alt = "Imagem para o Banner jogo " + dados.nome;
+    imgDestaque.src = jogoDestaque.imagem;
+    imgDestaque.alt = "Imagem para o Banner jogo " + jogoDestaque.nome;
   }
 
   const linkDestaque = document.querySelector(".explore-featured a");
   if (linkDestaque) {
-    linkDestaque.href = dados.link;
+    linkDestaque.href = linkBuscaJogo(jogoDestaque);
   }
 
-  const seloCidade = document.querySelector(".explore-city-label");
-  if (seloCidade) {
-    seloCidade.textContent = dados.cidade + " — " + dados.nome;
-  }
+  tocarAnimacaoEntrada(document.querySelector(".explore-featured"));
+
+  const thumbs = document.querySelectorAll(".explore-thumb");
+  thumbs.forEach(function (thumb, indice) {
+    const jogo = jogos[indice + 1];
+
+    thumb.href = linkBuscaJogo(jogo);
+
+    const imgThumb = thumb.querySelector(".explore-thumb-img");
+    imgThumb.src = jogo.imagem;
+    imgThumb.alt = "Imagem para o Banner jogo " + jogo.nome;
+
+    const nomeThumb = thumb.querySelector(".explore-thumb-nome");
+    nomeThumb.textContent = jogo.nome;
+
+    tocarAnimacaoEntrada(thumb);
+  });
 }
 
 function inicializarMapaSVG() {
@@ -103,45 +138,45 @@ function inicializarMapaSVG() {
     return;
   }
 
-  elementosEstados.forEach(function(elementoEstado) {
-    const nomeEstado = elementoEstado.getAttribute("name");
+  const elementosPorRegiao = {};
+  elementosEstados.forEach(function (elementoEstado) {
+    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(elementoEstado.getAttribute("name"))];
+    if (!elementosPorRegiao[regiao]) {
+      elementosPorRegiao[regiao] = [];
+    }
+    elementosPorRegiao[regiao].push(elementoEstado);
+  });
 
-    elementoEstado.addEventListener("click", function(evento) {
+  elementosEstados.forEach(function (elementoEstado) {
+    const nomeEstado = elementoEstado.getAttribute("name");
+    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(nomeEstado)];
+    const elementosRegiao = elementosPorRegiao[regiao];
+
+    elementoEstado.addEventListener("click", function (evento) {
       evento.preventDefault();
 
-      elementosEstados.forEach(function(est) {
+      elementosEstados.forEach(function (est) {
         est.classList.remove("estado-ativo");
-        const pathEst = est.querySelector("path");
-        if (pathEst) {
-          pathEst.style.fill = "";
-          pathEst.style.stroke = "#FFFFFF";
-        }
       });
-
-      elementoEstado.classList.add("estado-ativo");
-      const pathAtual = elementoEstado.querySelector("path");
-      if (pathAtual) {
-        pathAtual.style.fill = "#ffcb20";
-        pathAtual.style.stroke = "#ffcb20";
-      }
+      elementosRegiao.forEach(function (est) {
+        est.classList.add("estado-ativo");
+      });
 
       if (nomeEstado) {
         atualizarDestaqueMapa(nomeEstado);
       }
     });
 
-    elementoEstado.addEventListener("mouseenter", function() {
-      const pathHover = elementoEstado.querySelector("path");
-      if (pathHover && !elementoEstado.classList.contains("estado-ativo")) {
-        pathHover.style.fill = "rgba(255, 203, 32, 0.4)";
-      }
+    elementoEstado.addEventListener("mouseenter", function () {
+      elementosRegiao.forEach(function (est) {
+        est.classList.add("regiao-hover");
+      });
     });
 
-    elementoEstado.addEventListener("mouseleave", function() {
-      const pathHover = elementoEstado.querySelector("path");
-      if (pathHover && !elementoEstado.classList.contains("estado-ativo")) {
-        pathHover.style.fill = "";
-      }
+    elementoEstado.addEventListener("mouseleave", function () {
+      elementosRegiao.forEach(function (est) {
+        est.classList.remove("regiao-hover");
+      });
     });
   });
 

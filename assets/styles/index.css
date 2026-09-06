@@ -268,13 +268,19 @@ ol {
   border-radius: 2.5rem;
   border: 1px solid rgba(255, 255, 255, 0.07);
   background:
-    linear-gradient(
-      140deg,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.836) 52%,
-      rgba(0, 0, 0, 0.897) 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M-20,60 C60,20 110,100 190,70 S320,10 440,60'/%3E%3Cpath d='M-20,130 C70,90 120,170 200,140 S330,80 440,130'/%3E%3Cpath d='M-20,200 C80,160 130,240 210,210 S340,150 440,200'/%3E%3Cpath d='M-20,270 C60,240 140,310 220,280 S350,220 440,270'/%3E%3Cpath d='M-20,340 C70,310 150,380 230,350 S360,290 440,340'/%3E%3Cpath d='M-20,410 C80,380 160,440 240,410 S370,360 440,400'/%3E%3C/g%3E%3C/svg%3E")
+      0 0 / 420px 420px repeat,
+    radial-gradient(
+      52% 60% at 8% 100%,
+      rgba(39, 200, 64, 0.16) 0%,
+      rgba(39, 200, 64, 0) 70%
     ),
-    url(../images/bg-vidro-mapa-br.jpg) center / cover no-repeat;
+    radial-gradient(
+      46% 55% at 96% 0%,
+      rgba(255, 203, 32, 0.14) 0%,
+      rgba(255, 203, 32, 0) 70%
+    ),
+    linear-gradient(140deg, #121214 0%, #0a0a0b 55%, #0d0d0e 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 22px 50px rgba(0, 0, 0, 0.34);
@@ -287,7 +293,7 @@ ol {
   pointer-events: none;
   background: linear-gradient(
     110deg,
-    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.04) 0%,
     rgba(255, 255, 255, 0.01) 20%,
     rgba(255, 255, 255, 0) 42%
   );
@@ -346,6 +352,12 @@ ol {
   border: 1px solid rgba(255, 255, 255, 0.14);
   position: relative;
   margin-bottom: 0.875rem;
+  transition: var(--transition);
+}
+
+.explore-featured:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 203, 32, 0.3);
 }
 
 .explore-featured-badge {
@@ -370,6 +382,52 @@ ol {
   object-fit: contain;
 }
 
+.explore-featured-info {
+  padding: 0.875rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.explore-featured-regiao {
+  color: var(--color-yellow);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.explore-featured-nome {
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.explore-featured-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(244, 247, 243, 0.7);
+}
+
+.explore-featured-nota {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #f8bd2a;
+  font-weight: 700;
+}
+
+.explore-featured-nota i {
+  font-size: 0.7rem;
+}
+
 .explore-thumbs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -377,13 +435,40 @@ ol {
   margin-bottom: 0.625rem;
 }
 
-.explore-thumbs img {
+.explore-thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.explore-thumb:hover {
+  transform: translateY(-3px);
+}
+
+.explore-thumb-img {
   display: block;
   width: 100%;
   height: auto;
   max-height: 160px;
+  object-fit: cover;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.explore-thumb-nome {
+  color: rgba(244, 247, 243, 0.85);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.explore-card-anim {
+  animation: fadeInDown 0.35s ease forwards;
 }
 
 .explore-ver-mais {
@@ -398,6 +483,7 @@ ol {
 
 #svg-map path {
   fill: #27c840;
+  transition: fill 0.15s ease;
 }
 
 #svg-map text {
@@ -417,17 +503,24 @@ ol {
   text-decoration: none;
 }
 
-#svg-map a:hover path {
-  fill: #2550ff !important;
+#svg-map a.regiao-hover:not(.estado-ativo) path {
+  fill: var(--color-yellow-d);
+}
+
+#svg-map a.estado-ativo path {
+  fill: var(--color-yellow);
 }
 
 #svg-map .circle {
   fill: #146636;
 }
 
-#svg-map a:hover .circle {
-  fill: #2550ff !important;
-  cursor: pointer;
+#svg-map a.regiao-hover:not(.estado-ativo) .circle {
+  fill: var(--color-yellow-d);
+}
+
+#svg-map a.estado-ativo .circle {
+  fill: var(--color-yellow);
 }
 
 @media (max-width: 1280px) {
@@ -1235,7 +1328,6 @@ ol {
 .carrinho-item-img {
   width: 64px;
   height: 64px;
-  object-fit: cover;
   border-radius: var(--radius);
 }
 
@@ -1359,6 +1451,7 @@ ol {
   overflow: hidden;
   display: block;
   background: #1a1c1d;
+  cursor: pointer;
 }
 
 @media (min-width: 480px) {
@@ -1380,7 +1473,6 @@ ol {
   inset: 0;
   width: 100%;
   height: 55%;
-  object-fit: cover;
 }
 
 .halt-game-card-info {
@@ -1454,6 +1546,7 @@ ol {
   border-radius: 20px;
   overflow: hidden;
   display: block;
+  cursor: pointer;
 }
 
 @media (min-width: 480px) {
@@ -2183,127 +2276,416 @@ ol {
   color: var(--color-yellow) !important;
 }
 
-.game-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.game-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 200px;
-  background: var(--bg3);
-}
-
-.game-card .card-img-top {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition);
-}
-
-.game-card:hover .card-img-top {
-  transform: scale(1.08);
-}
-
-.game-card .card-body {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.game-card .card-title {
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-light);
-  text-transform: capitalize;
-}
-
-.game-price {
-  color: var(--color-yellow);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.game-card .btn-warning {
-  background: var(--color-yellow) !important;
-  color: var(--color-true-dark) !important;
-  border: none;
-  font-weight: 700;
-  transition: all var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.game-card .btn-warning:hover {
-  background: var(--color-yellow-d) !important;
-  transform: translateX(4px);
-}
-
-.game-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(255, 203, 32, 0.15);
-  border-color: var(--color-yellow);
-}
-
-.game-card:focus-within {
-  outline: 2px solid var(--color-yellow);
-  outline-offset: 2px;
-}
-
 @media (max-width: 768px) {
   .jogos-page {
     padding-top: 1.5rem;
   }
+}
 
-  .game-image-wrapper {
-    height: 180px;
-  }
+/* ===== CATÁLOGO DA LOJA (redesenho conforme Figma) ===== */
+.loja-main {
+  padding: 64px 16px;
+}
 
-  .game-card .card-body {
-    padding: 1.25rem;
-  }
-
-  .game-card .card-title {
-    font-size: 1rem;
-  }
-
-  .game-price {
-    font-size: 1.1rem;
+@media (min-width: 768px) {
+  .loja-main {
+    padding: 72px 32px;
   }
 }
 
-@media (max-width: 576px) {
-  .game-image-wrapper {
-    height: 160px;
+@media (min-width: 1200px) {
+  .loja-main {
+    padding: 60px 100px;
+  }
+}
+
+.loja-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-bottom: 1px solid rgba(50, 53, 56, 0.3);
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.loja-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  color: #e1e2e7;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.loja-subtitle {
+  color: #c0c8c3;
+  font-size: 16px;
+  margin: 0;
+}
+
+.loja-filters-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.loja-tabs-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.loja-tabs-label {
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.loja-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.loja-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #fff;
+  font-size: 18px;
+  opacity: 0.5;
+  padding: 0 0 4px;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    border-color 0.2s;
+}
+
+.loja-tab:hover {
+  opacity: 0.8;
+}
+
+.loja-tab.active {
+  opacity: 1;
+  border-bottom-color: var(--color-yellow);
+}
+
+.loja-actions-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.loja-sort {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 1px solid rgba(50, 53, 56, 0.2);
+}
+
+.loja-sort span {
+  color: #111;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.loja-sort select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  color: #08f;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.loja-sort select:focus {
+  outline: none;
+}
+
+.loja-sort i {
+  position: absolute;
+  right: 16px;
+  color: #08f;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.loja-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  background: #f6f6f6;
+  width: 314px;
+  max-width: 100%;
+}
+
+.loja-search i {
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.loja-search input {
+  background: none;
+  border: none;
+  color: #111;
+  font-size: 14px;
+  width: 100%;
+}
+
+.loja-search input::placeholder {
+  color: #6b7280;
+}
+
+.loja-search input:focus {
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .loja-filters-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .game-card .card-body {
-    padding: 1rem;
+  .loja-actions-group {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .game-card .card-title {
-    font-size: 0.95rem;
+  .loja-search {
+    width: 100%;
   }
+}
 
-  .game-price {
-    font-size: 1rem;
-  }
+.loja-contador {
+  color: #c0c8c3;
+  font-size: 14px;
+  margin: -16px 0 24px;
+}
 
-  .game-card .btn-warning {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.75rem !important;
+.loja-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1199px) {
+  .loja-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+@media (max-width: 900px) {
+  .loja-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .loja-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loja-card {
+  display: flex;
+  flex-direction: column;
+  background: #1a1c1d;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.loja-card-img {
+  height: 232px;
+  background: var(--bg3);
+}
+
+.loja-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.loja-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  backdrop-filter: blur(7.5px);
+}
+
+.loja-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.loja-card-name {
+  color: #f4f7f3;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.loja-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #f8bd2a;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.loja-card-rating i {
+  font-size: 11px;
+}
+
+.loja-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loja-card-studio {
+  color: rgba(244, 247, 243, 0.7);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.loja-card-price {
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.loja-card-price.is-free {
+  color: var(--color-green);
+}
+
+.loja-card-detalhes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  color: var(--color-yellow);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.loja-card-detalhes:hover {
+  color: #fff;
+}
+
+.loja-card-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 48px 0 32px;
+  clip-path: polygon(94% 0, 100% 40%, 100% 100%, 0 100%, 0 0);
+  background: var(--color-yellow);
+  box-shadow: 0 0 17px rgba(255, 203, 32, 0.3);
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.loja-card-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* Hover sutil compartilhado por todos os botões de "colocar no carrinho" do site */
+.btn-add-carrinho {
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.btn-add-carrinho:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.loja-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  color: #c0c8c3;
+}
+
+.loja-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 40px;
+}
+
+.loja-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  color: #c0c8c3;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.loja-page-btn:hover:not(:disabled):not(.is-ellipsis) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.loja-page-btn.active {
+  background: var(--color-yellow);
+  color: #003909;
+}
+
+.loja-page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.loja-page-btn.is-ellipsis {
+  cursor: default;
+  color: rgba(192, 200, 195, 0.4);
+  font-weight: 800;
 }
 
 /* =========================================================

@@ -181,8 +181,8 @@ const JOGOS_PADRAO = [
     avaliacao: 4.3,
   },
   {
-    id: "arida",
-    nome: "Árida: Backland's Awakening",
+    id: "aila",
+    nome: "A.I.L.A",
     preco: 13.99,
     categoria: "Aventura",
     imagem: "assets/images/image-aila.jpg",
@@ -209,8 +209,20 @@ const JOGOS_PADRAO = [
   },
 ];
 
+// Jogos que já possuem página interna própria (pages/pages-game/page-interna-<id>.html)
+const JOGOS_COM_PAGINA_INTERNA = [
+  "9-kings",
+  "dandara",
+  "enigma-do-medo",
+  "hell-clock",
+  "sky-dust",
+];
+
 let categoriaAtual = "Todos";
 let termoBuscaAtual = "";
+let ordenacaoAtual = "relevancia";
+let paginaAtual = 1;
+const JOGOS_POR_PAGINA = 8;
 
 // Páginas dentro de "pages/" usam data-raiz="../" para resolver caminhos relativos
 function resolverCaminhoImagemCatalogo(caminhoOriginal) {
@@ -220,6 +232,21 @@ function resolverCaminhoImagemCatalogo(caminhoOriginal) {
   }
   const raiz = document.body ? document.body.dataset.raiz || "" : "";
   return raiz + caminhoOriginal;
+}
+
+// Jogos sem página interna própria caem na página de detalhes "em desenvolvimento"
+function resolverCaminhoDetalhes(jogo) {
+  const raiz = document.body ? document.body.dataset.raiz || "" : "";
+
+  if (JOGOS_COM_PAGINA_INTERNA.includes(jogo.id)) {
+    return raiz + "pages/pages-game/page-interna-" + jogo.id + ".html";
+  }
+
+  return (
+    raiz +
+    "pages/pagina-em-desenvolvimento.html?jogo=" +
+    encodeURIComponent(jogo.nome)
+  );
 }
 
 function obterTodosJogos() {
@@ -245,7 +272,27 @@ function obterTodosJogos() {
   return todosJogos;
 }
 
-function aplicarFiltros() {
+function ordenarJogos(lista) {
+  const copia = lista.slice();
+
+  if (ordenacaoAtual === "menor-preco") {
+    copia.sort(function (a, b) {
+      return (Number(a.preco) || 0) - (Number(b.preco) || 0);
+    });
+  } else if (ordenacaoAtual === "maior-preco") {
+    copia.sort(function (a, b) {
+      return (Number(b.preco) || 0) - (Number(a.preco) || 0);
+    });
+  } else if (ordenacaoAtual === "melhor-avaliado") {
+    copia.sort(function (a, b) {
+      return (Number(b.avaliacao) || 0) - (Number(a.avaliacao) || 0);
+    });
+  }
+
+  return copia;
+}
+
+function aplicarFiltros(resetarPagina) {
   const listaCompleta = obterTodosJogos();
 
   const filtradosPorCategoria = listaCompleta.filter(function (jogo) {
@@ -256,7 +303,7 @@ function aplicarFiltros() {
     return catJogo === categoriaAtual.toLowerCase();
   });
 
-  const filtradosFinais = filtradosPorCategoria.filter(function (jogo) {
+  const filtradosPorBusca = filtradosPorCategoria.filter(function (jogo) {
     if (termoBuscaAtual.trim() === "") {
       return true;
     }
@@ -265,94 +312,225 @@ function aplicarFiltros() {
     return nomeJogo.includes(termo);
   });
 
+  const filtradosFinais = ordenarJogos(filtradosPorBusca);
+
+  if (resetarPagina !== false) {
+    paginaAtual = 1;
+  }
+
   renderizarCardsJogos(filtradosFinais);
 }
 
-function renderizarCardsJogos(jogosParaExibir) {
-  const container = document.getElementById("jogos-container");
-  const contadorTotal = document.getElementById("jogos-contador-resultado");
+function atualizarSubtitulo(totalFiltrado, totalGeral) {
+  const subtitulo = document.getElementById("jogos-contador-resultado");
+  if (!subtitulo) return;
 
+  const semFiltroAtivo =
+    categoriaAtual === "Todos" && termoBuscaAtual.trim() === "";
+
+  subtitulo.textContent = semFiltroAtivo
+    ? "Mostrando todos os jogos disponíveis na Iara Games"
+    : "Mostrando " + totalFiltrado + " de " + totalGeral + " jogos disponíveis";
+}
+
+function renderizarCardsJogos(jogosFiltrados) {
+  const container = document.getElementById("jogos-container");
   if (!container) return;
 
-  if (contadorTotal) {
-    contadorTotal.textContent = jogosParaExibir.length + " jogos encontrados";
-  }
+  atualizarSubtitulo(jogosFiltrados.length, obterTodosJogos().length);
 
-  if (jogosParaExibir.length === 0) {
+  if (jogosFiltrados.length === 0) {
     container.innerHTML = `
-      <div class="col-12 py-5 text-center">
+      <div class="loja-empty">
         <i class="bi bi-search display-1 text-secondary mb-3 d-block"></i>
         <h4 class="text-white">Nenhum jogo encontrado</h4>
         <p class="text-secondary">Tente escolher outra categoria ou limpar a pesquisa.</p>
         <button class="btn btn-outline-warning mt-2" onclick="limparTodosFiltros()">Limpar Filtros</button>
       </div>
     `;
+    renderizarPaginacao(0);
     return;
   }
 
+  const totalPaginas = Math.max(
+    1,
+    Math.ceil(jogosFiltrados.length / JOGOS_POR_PAGINA),
+  );
+  if (paginaAtual > totalPaginas) paginaAtual = totalPaginas;
+
+  const inicio = (paginaAtual - 1) * JOGOS_POR_PAGINA;
+  const jogosDaPagina = jogosFiltrados.slice(inicio, inicio + JOGOS_POR_PAGINA);
+
   let htmlCards = "";
 
-  for (let i = 0; i < jogosParaExibir.length; i++) {
-    const jogo = jogosParaExibir[i];
+  for (let i = 0; i < jogosDaPagina.length; i++) {
+    const jogo = jogosDaPagina[i];
     const precoNumero = Number(jogo.preco) || 0;
     const textoPreco =
       precoNumero === 0
         ? "Gratuito"
         : "R$ " + precoNumero.toFixed(2).replace(".", ",");
     const caminhoImg = resolverCaminhoImagemCatalogo(jogo.imagem);
+    const textoBotao = precoNumero === 0 ? "Jogar" : "Colocar no carrinho";
+    const caminhoDetalhes = resolverCaminhoDetalhes(jogo);
+    const linkDetalhes = `<a href="${caminhoDetalhes}" class="loja-card-detalhes">Ver detalhes <i class="bi bi-arrow-right"></i></a>`;
 
     htmlCards += `
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card game-card h-100 bg-dark text-white border border-secondary rounded-4 overflow-hidden shadow-sm">
-          <div class="position-relative" style="height: 180px; overflow: hidden;">
-            <img
-              src="${caminhoImg}"
-              alt="Capa do jogo ${jogo.nome}"
-              class="w-100 h-100 object-fit-cover"
-              loading="lazy"
-            />
-            <span class="badge position-absolute top-0 end-0 m-2 ${jogo.categoria === "Gratuito" ? "bg-success" : "bg-primary"}">
-              ${jogo.categoria || "Gamer"}
-            </span>
-          </div>
-
-          <div class="card-body d-flex flex-column justify-content-between p-3">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <h5 class="card-title text-truncate m-0 fw-bold fs-6" title="${jogo.nome}">${jogo.nome}</h5>
-                <span class="small text-warning fw-bold">
-                  <i class="bi bi-star-fill me-1"></i>${jogo.avaliacao || "4.5"}
-                </span>
-              </div>
-              <p class="text-secondary small mb-3">${jogo.estudio || "Estúdio Brasileiro"}</p>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary mt-2">
-              <span class="fw-bold ${precoNumero === 0 ? "text-success" : "text-warning"} fs-5">
-                ${textoPreco}
+      <article class="loja-card" data-detalhes-href="${caminhoDetalhes}">
+        <div class="loja-card-img">
+          <img
+            src="${caminhoImg}"
+            alt="Capa do jogo ${jogo.nome}"
+            loading="lazy"
+          />
+        </div>
+        <div class="loja-card-body">
+          <div>
+            <div class="loja-card-top">
+              <h3 class="loja-card-name" title="${jogo.nome}">${jogo.nome}</h3>
+              <span class="loja-card-rating">
+                <i class="bi bi-star-fill"></i>${jogo.avaliacao || "4.5"}
               </span>
-              <button
-                type="button"
-                class="btn btn-warning btn-sm fw-bold px-3 btn-add-carrinho"
-                data-id="${jogo.id}"
-                data-nome="${jogo.nome}"
-                data-preco="${precoNumero}"
-                data-imagem="${jogo.imagem}"
-              >
-                ${precoNumero === 0 ? "Jogar" : "Comprar"} <i class="bi bi-cart-plus ms-1"></i>
-              </button>
             </div>
+            <p class="loja-card-studio">${jogo.estudio || "Estúdio Brasileiro"}</p>
+            ${linkDetalhes}
           </div>
-        </article>
-      </div>
+
+          <span class="loja-card-price ${precoNumero === 0 ? "is-free" : ""}">${textoPreco}</span>
+
+          <button
+            type="button"
+            class="loja-card-btn btn-add-carrinho"
+            data-id="${jogo.id}"
+            data-nome="${jogo.nome}"
+            data-preco="${precoNumero}"
+            data-imagem="${jogo.imagem}"
+          >
+            ${textoBotao}
+          </button>
+        </div>
+      </article>
     `;
   }
 
   container.innerHTML = htmlCards;
+  renderizarPaginacao(totalPaginas);
 
   if (typeof configurarBotoesCompra === "function") {
     configurarBotoesCompra();
   }
+}
+
+function obterPaginasVisiveis(atual, total) {
+  if (total <= 7) {
+    const paginas = [];
+    for (let i = 1; i <= total; i++) paginas.push(i);
+    return paginas;
+  }
+
+  const candidatas = [
+    1,
+    2,
+    atual - 1,
+    atual,
+    atual + 1,
+    total - 1,
+    total,
+  ].filter(function (p) {
+    return p >= 1 && p <= total;
+  });
+
+  const unicas = Array.from(new Set(candidatas)).sort(function (a, b) {
+    return a - b;
+  });
+
+  const resultado = [];
+  let anterior = null;
+  unicas.forEach(function (pagina) {
+    if (anterior !== null && pagina - anterior > 1) {
+      resultado.push("...");
+    }
+    resultado.push(pagina);
+    anterior = pagina;
+  });
+
+  return resultado;
+}
+
+function renderizarPaginacao(totalPaginas) {
+  const nav = document.getElementById("loja-paginacao");
+  if (!nav) return;
+
+  if (totalPaginas <= 1) {
+    nav.innerHTML = "";
+    return;
+  }
+
+  let html = `
+    <button type="button" class="loja-page-btn" data-pagina="prev" ${paginaAtual === 1 ? "disabled" : ""} aria-label="Página anterior">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+  `;
+
+  obterPaginasVisiveis(paginaAtual, totalPaginas).forEach(function (pagina) {
+    if (pagina === "...") {
+      html += `<span class="loja-page-btn is-ellipsis">...</span>`;
+    } else {
+      html += `
+        <button type="button" class="loja-page-btn ${pagina === paginaAtual ? "active" : ""}" data-pagina="${pagina}">
+          ${pagina}
+        </button>
+      `;
+    }
+  });
+
+  html += `
+    <button type="button" class="loja-page-btn" data-pagina="next" ${paginaAtual === totalPaginas ? "disabled" : ""} aria-label="Próxima página">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  `;
+
+  nav.innerHTML = html;
+
+  nav.querySelectorAll("[data-pagina]").forEach(function (botao) {
+    botao.addEventListener("click", function () {
+      const valor = botao.getAttribute("data-pagina");
+
+      if (valor === "prev") {
+        paginaAtual = Math.max(1, paginaAtual - 1);
+      } else if (valor === "next") {
+        paginaAtual = Math.min(totalPaginas, paginaAtual + 1);
+      } else {
+        paginaAtual = Number(valor);
+      }
+
+      aplicarFiltros(false);
+
+      const container = document.getElementById("jogos-container");
+      if (container) {
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+}
+
+// Clique em qualquer ponto do card (imagem ou borda) leva aos detalhes do jogo,
+// exceto quando o clique é no botão de carrinho ou em outro link do próprio card
+function configurarCliqueCardsLoja() {
+  const container = document.getElementById("jogos-container");
+  if (!container) return;
+
+  container.addEventListener("click", function (evento) {
+    if (evento.target.closest(".btn-add-carrinho") || evento.target.closest("a")) {
+      return;
+    }
+
+    const card = evento.target.closest(".loja-card");
+    const destino = card ? card.getAttribute("data-detalhes-href") : null;
+    if (destino) {
+      window.location.href = destino;
+    }
+  });
 }
 
 function limparTodosFiltros() {
@@ -362,35 +540,41 @@ function limparTodosFiltros() {
   const campoBusca = document.getElementById("busca-jogos");
   if (campoBusca) campoBusca.value = "";
 
-  atualizarBotoesCategoria();
+  atualizarTabsCategoria();
   aplicarFiltros();
 }
 
-function atualizarBotoesCategoria() {
-  const botoes = document.querySelectorAll(".btn-filtro-categoria");
-  botoes.forEach(function (botao) {
-    const cat = botao.getAttribute("data-categoria");
-    if (cat.toLowerCase() === categoriaAtual.toLowerCase()) {
-      botao.classList.add("btn-warning", "active");
-      botao.classList.remove("btn-outline-light");
-    } else {
-      botao.classList.remove("btn-warning", "active");
-      botao.classList.add("btn-outline-light");
-    }
+function atualizarTabsCategoria() {
+  const abas = document.querySelectorAll(".loja-tab");
+  abas.forEach(function (aba) {
+    const cat = aba.getAttribute("data-categoria");
+    aba.classList.toggle(
+      "active",
+      cat.toLowerCase() === categoriaAtual.toLowerCase(),
+    );
   });
 }
 
 function inicializarPaginaJogos() {
   aplicarFiltros();
+  configurarCliqueCardsLoja();
 
-  const botoesCategoria = document.querySelectorAll(".btn-filtro-categoria");
-  botoesCategoria.forEach(function (botao) {
-    botao.addEventListener("click", function () {
-      categoriaAtual = botao.getAttribute("data-categoria");
-      atualizarBotoesCategoria();
+  const abasCategoria = document.querySelectorAll(".loja-tab");
+  abasCategoria.forEach(function (aba) {
+    aba.addEventListener("click", function () {
+      categoriaAtual = aba.getAttribute("data-categoria");
+      atualizarTabsCategoria();
       aplicarFiltros();
     });
   });
+
+  const seletorOrdenacao = document.getElementById("ordenar-jogos");
+  if (seletorOrdenacao) {
+    seletorOrdenacao.addEventListener("change", function (evento) {
+      ordenacaoAtual = evento.target.value;
+      aplicarFiltros();
+    });
+  }
 
   const campoBusca = document.getElementById("busca-jogos");
   if (campoBusca) {
