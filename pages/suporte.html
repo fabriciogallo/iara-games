@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iara Games</title>
+    <title>Suporte - Iara Games</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,10 +40,10 @@
           <img
             src="../assets/images/logo-iara-games.svg"
             alt="Logo da Iara Games"
-            width="59"
-            height="49"
+            width="56"
+            height="46"
           />
-          <span class="fw-bold fs-2 title">Iara Games</span>
+          <span class="fw-bold fs-3 title">Iara Games</span>
         </a>
 
         <button
@@ -127,15 +127,18 @@
     </nav>
 
     <section class="hero d-flex">
-      <div class="container pt-5">
-        <div class="row align-items-center pt-5">
-          <div class="col-lg-6">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
             <h1 class="display-4 fw-bold mb-4">
-              Como podemos <br /><span class="text-warning">ajudar?</span>
+              Como podemos
+              <br />
+              <span style="color: var(--color-green)">ajudar?</span>
             </h1>
             <p class="lead mb-3">
               Acesse recursos técnicos, gerenciamento de conta e canais diretos
-              de comunicação com desenvolvedores.
+              de comunicação com desenvolvedores para todo o ecossistema Iara
+              Games.
             </p>
           </div>
         </div>
@@ -144,138 +147,87 @@
 
     <section class="py-5">
       <div class="container">
-        <div class="row g-5">
+        <div class="row g-4">
           <div class="col-lg-8">
-            <div class="card shadow-sm border-0 faq-card">
-              <div class="card-body p-4 p-lg-5">
-                <div
-                  class="d-flex justify-content-between align-items-start gap-3 mb-4"
-                >
-                  <div>
-                    <h2 class="h2 mb-2">Perguntas Frequentes</h2>
-                    <p class="h6 mb-4 mt-4">
-                      Tudo o que você precisa saber para começar.
-                    </p>
-                  </div>
-                  <div class="faq-icon">?</div>
+            <div class="suporte-card">
+              <div class="suporte-card-head">
+                <div>
+                  <h2 class="suporte-card-title">Perguntas Frequentes</h2>
+                  <p class="suporte-card-subtitle">
+                    Tudo o que você precisa saber para começar.
+                  </p>
+                </div>
+                <i class="bi bi-question-circle suporte-faq-icon"></i>
+              </div>
+
+              <div class="suporte-faq-list">
+                <div class="suporte-faq-item active">
+                  <h3>
+                    Como restauro minha biblioteca de jogos após uma
+                    reinstalação?
+                  </h3>
+                  <p>
+                    Sincronize seus salvamentos na nuvem através das
+                    configurações do Launcher Iara antes de iniciar uma nova
+                    instalação.
+                  </p>
                 </div>
 
-                <div class="accordion" id="faqAccordion">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq1"
-                      >
-                        Como restauro minha biblioteca de jogos após uma
-                        reinstalação?
-                      </button>
-                    </h2>
-                    <div
-                      id="faq1"
-                      class="accordion-collapse collapse show"
-                      data-bs-parent="#faqAccordion"
-                    >
-                      <div class="accordion-body">
-                        Sincronize seus salvamentos na nuvem através das
-                        configurações do Launcher Iara antes de iniciar uma nova
-                        instalação.
-                      </div>
-                    </div>
-                  </div>
+                <div class="suporte-faq-item">
+                  <h3>Transações multiplataforma são suportadas para DLCs?</h3>
+                  <p>
+                    A maioria dos títulos suporta compra cruzada entre PC e
+                    Console quando vinculados ao seu ID Iara.
+                  </p>
+                </div>
 
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq2"
-                      >
-                        Transações multiplataforma são suportadas para DLCs?
-                      </button>
-                    </h2>
-                    <div
-                      id="faq2"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#faqAccordion"
-                    >
-                      <div class="accordion-body">
-                        A maioria dos títulos suporta compra cruzada entre PC e
-                        Console quando vinculados ao seu ID Iara.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#faq3"
-                      >
-                        Requisitos de sistema para Sky Dust
-                      </button>
-                    </h2>
-                    <div
-                      id="faq3"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#faqAccordion"
-                    >
-                      <div class="accordion-body">
-                        Recomendamos no mínimo uma Nvidia GeForce RTX 2060 / AMD
-                        Radeon RX 5600 XT para uma experiência ideal.
-                      </div>
-                    </div>
-                  </div>
+                <div class="suporte-faq-item">
+                  <h3>Requisitos de sistema para Sky Dust</h3>
+                  <p>
+                    Recomendamos no mínimo uma Nvidia GeForce RTX 2060 / AMD
+                    Radeon RX 5600 XT para uma experiência ideal.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="card shadow-sm border-0 h-100 status-card">
-              <div class="card-body p-0">
-                <h3 class="card-title h4 mb-4">Status do Servidor</h3>
+            <div class="suporte-card">
+              <h3 class="suporte-card-title">Status do Servidor</h3>
 
-                <div
-                  class="d-flex justify-content-between align-items-center py-3 border-bottom status-row"
-                >
-                  <span>Autenticação</span>
-                  <span class="badge status-badge badge-online"
-                    ><i class="bi bi-circle-fill me-1"></i>ONLINE</span
-                  >
+              <div class="suporte-status-list">
+                <div class="suporte-status-row">
+                  <span class="suporte-status-label">Autenticação</span>
+                  <span class="suporte-status-value is-online">
+                    <span class="suporte-status-dot"></span>ONLINE
+                  </span>
                 </div>
 
-                <div
-                  class="d-flex justify-content-between align-items-center py-3 border-bottom status-row"
-                >
-                  <span>Marketplace</span>
-                  <span class="badge status-badge badge-online"
-                    ><i class="bi bi-circle-fill me-1"></i>ONLINE</span
-                  >
+                <div class="suporte-status-row">
+                  <span class="suporte-status-label">Marketplace</span>
+                  <span class="suporte-status-value is-online">
+                    <span class="suporte-status-dot"></span>ONLINE
+                  </span>
                 </div>
 
-                <div
-                  class="d-flex justify-content-between align-items-center py-3 status-row"
-                >
-                  <span>API Multiplayer</span>
-                  <span class="badge status-badge badge-offline"
-                    ><i class="bi bi-circle-fill me-1"></i>OFFLINE</span
-                  >
+                <div class="suporte-status-row">
+                  <span class="suporte-status-label">API Multiplayer</span>
+                  <span class="suporte-status-value is-offline">
+                    <span class="suporte-status-dot"></span>DEGRADADO
+                  </span>
                 </div>
+              </div>
 
+              <div class="suporte-status-divider">
                 <img
                   src="../assets/images/image-data-center.png"
-                  alt="Imagem de data center"
-                  class="img-fluid rounded mt-3"
+                  alt="Infraestrutura de servidor"
+                  class="suporte-status-img"
                 />
-                <small class="d-block mt-2"
-                  >Última manutenção: 2 horas atrás</small
-                >
+                <p class="suporte-status-caption">
+                  Última manutenção: 2 horas atrás
+                </p>
               </div>
             </div>
           </div>
@@ -287,48 +239,40 @@
       <div class="container">
         <div class="row g-4 align-items-start">
           <div class="col-lg-5">
-            <div class="contact-info h-100 p-4">
-              <h2 class="display-6 fw-bold mb-4 text-success">NOVO CHAMADO</h2>
-              <p class="lead mb-4">
-                Não encontrou o que precisa nas perguntas frequentes?
-                <br /><br />
-                Envie um e-mail detalhando o problema para nossa equipe.
-                Normalmente respondemos o mais rápido possível para sua melhor
-                experiência.
-              </p>
+            <h2 class="suporte-contact-title">NOVO CHAMADO</h2>
+            <p class="suporte-contact-text">
+              Não encontrou o que precisa nas perguntas frequentes?
+              <br /><br />
+              Envie um e-mail detalhando o problema para nossa equipe.
+              Normalmente respondemos o mais rápido possível para sua melhor
+              experiência.
+            </p>
 
-              <div class="list-group list-group-flush">
-                <div
-                  class="list-group-item bg-transparent border-0 px-0 d-flex align-items-center gap-3"
-                >
-                  <img
-                    src="../assets/images/icon-mail.png"
-                    alt="Email"
-                    class="contact-icon"
-                  />
-                  <div>
-                    <strong>Envio por e-mail</strong>
-                    <div>iaragames@gmail.com</div>
-                  </div>
+            <div class="suporte-contact-list">
+              <div class="suporte-contact-item">
+                <img
+                  src="../assets/images/icon-mail.png"
+                  alt="Email"
+                  class="suporte-contact-icon"
+                />
+                <div>
+                  <strong>Envio por e-mail</strong>
+                  <div>ops@iaragames.com</div>
                 </div>
+              </div>
 
-                <div
-                  class="list-group-item bg-transparent border-0 px-0 d-flex align-items-center gap-3"
-                >
-                  <img
-                    src="../assets/images/icon-forum.png"
-                    alt="Discord"
-                    class="contact-icon"
-                  />
+              <div class="suporte-contact-item">
+                <img
+                  src="../assets/images/icon-forum.png"
+                  alt="Discord"
+                  class="suporte-contact-icon"
+                />
+                <div>
+                  <strong>Fórum da Comunidade</strong>
                   <div>
-                    <strong>Fórum da Comunidade</strong>
-                    <div>
-                      <a
-                        href="https://discord.gg/iaragames"
-                        class="text-decoration-none"
-                        >discord.gg/iaragames</a
-                      >
-                    </div>
+                    <a href="https://discord.gg/iaragames"
+                      >discord.gg/iaragames</a
+                    >
                   </div>
                 </div>
               </div>
@@ -336,73 +280,56 @@
           </div>
 
           <div class="col-lg-7">
-            <div class="card shadow-sm border-0 form-card">
-              <div class="card-body p-4 p-lg-5">
-                <form
-                  id="form-cadastro"
-                  name="form-cadastro"
-                  method="post"
-                  action=""
-                >
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label for="nome-usuario-novo" class="form-label"
-                        >Nome completo</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nome-usuario-novo"
-                        name="nome-usuario-novo"
-                        placeholder="Comandante Shepherd"
-                        minlength="5"
-                        maxlength="50"
-                        autocomplete="name"
-                        required
-                      />
-                    </div>
+            <div class="suporte-card suporte-form-card">
+              <form
+                id="form-cadastro"
+                name="form-cadastro"
+                method="post"
+                action=""
+              >
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label for="nome-usuario-novo" class="suporte-form-label"
+                      >Nome Completo</label
+                    >
+                    <input
+                      type="text"
+                      class="suporte-form-input"
+                      id="nome-usuario-novo"
+                      name="nome-usuario-novo"
+                      placeholder="Comandante Shepherd"
+                      minlength="5"
+                      maxlength="50"
+                      autocomplete="name"
+                      required
+                    />
+                  </div>
 
-                    <div class="col-md-6">
-                      <label for="id-iara-usuario" class="form-label"
-                        >ID Iara</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="id-iara-usuario"
-                        name="id-iara-usuario"
-                        placeholder="#9900221"
-                        required
-                      />
-                    </div>
+                  <div class="col-md-6">
+                    <label for="id-iara-usuario" class="suporte-form-label"
+                      >ID Iara (Opcional)</label
+                    >
+                    <input
+                      type="text"
+                      class="suporte-form-input"
+                      id="id-iara-usuario"
+                      name="id-iara-usuario"
+                      placeholder="#9900221"
+                    />
+                  </div>
 
-                    <div class="col-12">
-                      <label for="email-usuario" class="form-label"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email-usuario"
-                        name="email-usuario"
-                        placeholder="Insira seu e-mail"
-                        maxlength="30"
-                        autocomplete="email"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-12">
-                      <label for="assunto-sup-usuario" class="form-label"
-                        >Assunto</label
-                      >
+                  <div class="col-12">
+                    <label for="assunto-sup-usuario" class="suporte-form-label"
+                      >Assunto</label
+                    >
+                    <div class="suporte-form-select-wrap">
                       <select
-                        class="form-select"
+                        class="suporte-form-select"
                         id="assunto-sup-usuario"
                         name="assunto-sup-usuario"
                       >
-                        <option value="" selected disabled>
-                          Qual problema você está tendo com este produto?
+                        <option value="assistencia-tecnica">
+                          Assistência Técnica
                         </option>
                         <option value="problemas-com-itens">
                           Problemas com itens
@@ -410,38 +337,43 @@
                         <option value="conteudo-adicional">
                           Conteúdo adicional ou bônus ausente
                         </option>
-                        <option value="problema-tecnico">
-                          Problema técnico ou de jogabilidade
-                        </option>
                         <option value="nao-consta-na-biblio">
                           Não consta na minha biblioteca
                         </option>
                         <option value="outro-problema">Outro</option>
                       </select>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="mensagem" class="form-label">Mensagem</label>
-                      <textarea
-                        class="form-control"
-                        id="mensagem"
-                        name="mensagem"
-                        rows="6"
-                        placeholder="Descreva seu problema com o máximo de detalhes possível..."
-                      ></textarea>
-                    </div>
-
-                    <div class="col-12">
-                      <button
-                        type="submit"
-                        class="btn btn-warning w-100 fw-bold py-3 submit-btn"
-                      >
-                        Enviar mensagem
-                      </button>
+                      <i class="bi bi-chevron-down"></i>
                     </div>
                   </div>
-                </form>
-              </div>
+
+                  <div class="col-12">
+                    <label for="mensagem" class="suporte-form-label"
+                      >Mensagem</label
+                    >
+                    <textarea
+                      class="suporte-form-textarea"
+                      id="mensagem"
+                      name="mensagem"
+                      rows="4"
+                      placeholder="Descreva seu problema com o máximo de detalhes possível..."
+                    ></textarea>
+                  </div>
+
+                  <div class="col-12">
+                    <button
+                      type="submit"
+                      class="halt-form-submit halt-btn-submit-animated"
+                      id="suporte-enviar"
+                    >
+                      Enviar mensagem
+                    </button>
+                    <p class="halt-form-msg" id="suporte-feedback">
+                      <i class="bi bi-check2"></i>
+                      Chamado enviado! Nossa equipe vai responder em breve.
+                    </p>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -547,5 +479,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/carrinho.js"></script>
+    <script src="../assets/js/contato.js"></script>
+    <script>
+      document.querySelectorAll(".suporte-faq-item").forEach(function (item) {
+        item.addEventListener("click", function () {
+          document
+            .querySelectorAll(".suporte-faq-item.active")
+            .forEach(function (ativo) {
+              ativo.classList.remove("active");
+            });
+          item.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

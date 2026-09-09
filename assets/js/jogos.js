@@ -333,6 +333,56 @@ function atualizarSubtitulo(totalFiltrado, totalGeral) {
     : "Mostrando " + totalFiltrado + " de " + totalGeral + " jogos disponíveis";
 }
 
+// Reaproveitado tanto na grade da loja quanto nas recomendações do carrinho
+function montarCardJogoHtml(jogo) {
+  const precoNumero = Number(jogo.preco) || 0;
+  const textoPreco =
+    precoNumero === 0
+      ? "Gratuito"
+      : "R$ " + precoNumero.toFixed(2).replace(".", ",");
+  const caminhoImg = resolverCaminhoImagemCatalogo(jogo.imagem);
+  const textoBotao = precoNumero === 0 ? "Jogar" : "Adicionar";
+  const caminhoDetalhes = resolverCaminhoDetalhes(jogo);
+  const linkDetalhes = `<a href="${caminhoDetalhes}" class="loja-card-detalhes">Ver detalhes <i class="bi bi-arrow-right"></i></a>`;
+
+  return `
+    <article class="loja-card" data-detalhes-href="${caminhoDetalhes}">
+      <div class="loja-card-img">
+        <img
+          src="${caminhoImg}"
+          alt="Capa do jogo ${jogo.nome}"
+          loading="lazy"
+        />
+      </div>
+      <div class="loja-card-body">
+        <div>
+          <div class="loja-card-top">
+            <h3 class="loja-card-name" title="${jogo.nome}">${jogo.nome}</h3>
+            <span class="loja-card-rating">
+              <i class="bi bi-star-fill"></i>${jogo.avaliacao || "4.5"}
+            </span>
+          </div>
+          <p class="loja-card-studio">${jogo.estudio || "Estúdio Brasileiro"}</p>
+          ${linkDetalhes}
+        </div>
+
+        <span class="loja-card-price ${precoNumero === 0 ? "is-free" : ""}">${textoPreco}</span>
+
+        <button
+          type="button"
+          class="loja-card-btn btn-add-carrinho"
+          data-id="${jogo.id}"
+          data-nome="${jogo.nome}"
+          data-preco="${precoNumero}"
+          data-imagem="${jogo.imagem}"
+        >
+          ${textoBotao}
+        </button>
+      </div>
+    </article>
+  `;
+}
+
 function renderizarCardsJogos(jogosFiltrados) {
   const container = document.getElementById("jogos-container");
   if (!container) return;
@@ -364,53 +414,7 @@ function renderizarCardsJogos(jogosFiltrados) {
   let htmlCards = "";
 
   for (let i = 0; i < jogosDaPagina.length; i++) {
-    const jogo = jogosDaPagina[i];
-    const precoNumero = Number(jogo.preco) || 0;
-    const textoPreco =
-      precoNumero === 0
-        ? "Gratuito"
-        : "R$ " + precoNumero.toFixed(2).replace(".", ",");
-    const caminhoImg = resolverCaminhoImagemCatalogo(jogo.imagem);
-    const textoBotao = precoNumero === 0 ? "Jogar" : "Colocar no carrinho";
-    const caminhoDetalhes = resolverCaminhoDetalhes(jogo);
-    const linkDetalhes = `<a href="${caminhoDetalhes}" class="loja-card-detalhes">Ver detalhes <i class="bi bi-arrow-right"></i></a>`;
-
-    htmlCards += `
-      <article class="loja-card" data-detalhes-href="${caminhoDetalhes}">
-        <div class="loja-card-img">
-          <img
-            src="${caminhoImg}"
-            alt="Capa do jogo ${jogo.nome}"
-            loading="lazy"
-          />
-        </div>
-        <div class="loja-card-body">
-          <div>
-            <div class="loja-card-top">
-              <h3 class="loja-card-name" title="${jogo.nome}">${jogo.nome}</h3>
-              <span class="loja-card-rating">
-                <i class="bi bi-star-fill"></i>${jogo.avaliacao || "4.5"}
-              </span>
-            </div>
-            <p class="loja-card-studio">${jogo.estudio || "Estúdio Brasileiro"}</p>
-            ${linkDetalhes}
-          </div>
-
-          <span class="loja-card-price ${precoNumero === 0 ? "is-free" : ""}">${textoPreco}</span>
-
-          <button
-            type="button"
-            class="loja-card-btn btn-add-carrinho"
-            data-id="${jogo.id}"
-            data-nome="${jogo.nome}"
-            data-preco="${precoNumero}"
-            data-imagem="${jogo.imagem}"
-          >
-            ${textoBotao}
-          </button>
-        </div>
-      </article>
-    `;
+    htmlCards += montarCardJogoHtml(jogosDaPagina[i]);
   }
 
   container.innerHTML = htmlCards;
@@ -556,6 +560,8 @@ function atualizarTabsCategoria() {
 }
 
 function inicializarPaginaJogos() {
+  if (!document.getElementById("jogos-container")) return;
+
   aplicarFiltros();
   configurarCliqueCardsLoja();
 

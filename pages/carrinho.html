@@ -42,10 +42,10 @@
           <img
             src="../assets/images/logo-iara-games.svg"
             alt="Logo da Iara Games"
-            width="59"
-            height="49"
+            width="56"
+            height="46"
           />
-          <span class="fw-bold fs-2 title">Iara Games</span>
+          <span class="fw-bold fs-3 title">Iara Games</span>
         </a>
 
         <button
@@ -117,8 +117,12 @@
         <div>
           <div id="carrinho-pagina-lista" class="carrinho-pg-lista"></div>
           <div id="carrinho-pagina-vazio" style="display: none">
-            <p>Seu carrinho está vazio.</p>
-            <a href="jogos.html" class="halt-see-all">Ver jogos disponíveis</a>
+            <i class="bi bi-cart-x"></i>
+            <h2>Seu carrinho está vazio</h2>
+            <p>Explore o catálogo e encontre o próximo jogo brasileiro para chamar de seu.</p>
+            <a href="jogos.html" class="carrinho-pg-vazio-btn">
+              Explorar jogos <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
 
@@ -166,6 +170,11 @@
             <a href="#" class="carrinho-pg-reembolso">Políticas de reembolso</a>
           </div>
         </div>
+      </div>
+
+      <div class="carrinho-pg-recomendados">
+        <h2 id="carrinho-recomendados-titulo" class="carrinho-pg-recomendados-title">Jogos para você explorar</h2>
+        <div id="carrinho-recomendados-grid" class="carrinho-pg-recomendados-grid"></div>
       </div>
     </section>
 
@@ -270,6 +279,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="../assets/js/jogos.js"></script>
     <script src="../assets/js/carrinho.js"></script>
   </body>
 </html>

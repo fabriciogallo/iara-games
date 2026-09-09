@@ -165,6 +165,40 @@ function atualizarOffcanvas(lista) {
   }
 }
 
+function renderizarRecomendacoesCarrinho(lista) {
+  const container = document.getElementById("carrinho-recomendados-grid");
+  if (!container) return;
+  if (typeof obterTodosJogos !== "function") return;
+
+  const titulo = document.getElementById("carrinho-recomendados-titulo");
+  if (titulo) {
+    titulo.textContent =
+      lista.length === 0
+        ? "Jogos para você explorar"
+        : "Recomendado com base na sua compra";
+  }
+
+  const idsNoCarrinho = lista.map(function (item) {
+    return item.id;
+  });
+
+  const candidatos = obterTodosJogos().filter(function (jogo) {
+    return idsNoCarrinho.indexOf(jogo.id) === -1;
+  });
+
+  const embaralhados = candidatos.slice().sort(function () {
+    return Math.random() - 0.5;
+  });
+
+  const recomendados = embaralhados.slice(0, 3);
+
+  container.innerHTML = recomendados.map(montarCardJogoHtml).join("");
+
+  if (typeof configurarBotoesCompra === "function") {
+    configurarBotoesCompra();
+  }
+}
+
 function atualizarPaginaCarrinhoCompleta(lista) {
   const containerPaginaLista = document.getElementById("carrinho-pagina-lista");
   const containerPaginaVazio = document.getElementById("carrinho-pagina-vazio");
@@ -172,13 +206,17 @@ function atualizarPaginaCarrinhoCompleta(lista) {
 
   if (!containerPaginaLista) return;
 
+  renderizarRecomendacoesCarrinho(lista);
+
   if (lista.length === 0) {
     containerPaginaLista.innerHTML = "";
-    if (containerPaginaVazio) containerPaginaVazio.style.display = "block";
+    containerPaginaLista.style.display = "none";
+    if (containerPaginaVazio) containerPaginaVazio.style.display = "flex";
     if (containerResumo) containerResumo.style.display = "none";
     return;
   }
 
+  containerPaginaLista.style.display = "";
   if (containerPaginaVazio) containerPaginaVazio.style.display = "none";
   if (containerResumo) containerResumo.style.display = "flex";
 
@@ -187,25 +225,32 @@ function atualizarPaginaCarrinhoCompleta(lista) {
     const item = lista[i];
     const totalItem = item.preco * item.quantidade;
     const caminhoImg = obterCaminhoImagem(item.imagem);
+    const textoQtd = item.quantidade === 1 ? "item" : "itens";
 
     html += `
-      <div class="carrinho-pg-item p-3 mb-3 rounded bg-dark border border-secondary d-flex flex-column flex-sm-row align-items-sm-center gap-3">
-        <img src="${caminhoImg}" alt="${item.nome}" class="rounded" style="width: 100px; height: 75px; object-fit: cover;" />
-        <div class="flex-grow-1">
-          <h5 class="text-white mb-1">${item.nome}</h5>
-          <p class="text-secondary small mb-2">Edição Digital PC</p>
-          <div class="d-flex align-items-center gap-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary text-white" onclick="mudarQuantidade('${item.id}', -1)">-</button>
-            <span class="text-white px-2 fw-bold">${item.quantidade}</span>
-            <button type="button" class="btn btn-sm btn-outline-secondary text-white" onclick="mudarQuantidade('${item.id}', 1)">+</button>
-            <button type="button" class="btn btn-sm btn-link text-danger ms-3 text-decoration-none" onclick="removerDoCarrinho('${item.id}')">
-              <i class="bi bi-trash me-1"></i>Remover
+      <div class="carrinho-pg-item" data-id="${item.id}">
+        <img src="${caminhoImg}" alt="${item.nome}" class="carrinho-pg-item-img" />
+        <div class="carrinho-pg-item-info">
+          <div class="carrinho-pg-item-topo">
+            <div>
+              <h3 class="carrinho-pg-item-nome">${item.nome}</h3>
+              <p class="carrinho-pg-item-plataforma">Edição Digital PC</p>
+            </div>
+            <div class="carrinho-pg-item-preco-col">
+              <p class="carrinho-pg-item-preco">${formatarMoeda(totalItem)}</p>
+              <p class="carrinho-pg-item-qtd-label">${item.quantidade} ${textoQtd}</p>
+            </div>
+          </div>
+          <div class="carrinho-pg-item-rodape">
+            <div class="carrinho-pg-item-qtd">
+              <button type="button" class="btn-qtd" onclick="mudarQuantidade('${item.id}', -1)">-</button>
+              <span>${item.quantidade}</span>
+              <button type="button" class="btn-qtd" onclick="mudarQuantidade('${item.id}', 1)">+</button>
+            </div>
+            <button type="button" class="carrinho-pg-remover" onclick="removerDoCarrinho('${item.id}')">
+              Remover <i class="bi bi-trash ms-1"></i>
             </button>
           </div>
-        </div>
-        <div class="text-sm-end">
-          <span class="h5 text-warning fw-bold d-block mb-0">${formatarMoeda(totalItem)}</span>
-          <small class="text-secondary">(${item.quantidade} un)</small>
         </div>
       </div>
     `;
@@ -295,9 +340,11 @@ function abrirPainelCarrinho() {
 }
 
 function configurarBotoesCompra() {
-  const botoes = document.querySelectorAll(".btn-add-carrinho");
+  const botoes = document.querySelectorAll(".btn-add-carrinho:not([data-carrinho-vinculado])");
 
   botoes.forEach(function(botao) {
+    botao.setAttribute("data-carrinho-vinculado", "1");
+
     botao.addEventListener("click", function(evento) {
       evento.preventDefault();
 
