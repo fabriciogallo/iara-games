@@ -23,16 +23,8 @@ function aplicarMascaraTelefoneBR(campoTelefone) {
   });
 }
 
-function inicializarFormularioParceiros() {
-  const formulario = document.getElementById("form-parceiros");
-  if (!formulario) return;
-
-  const botao = document.getElementById("parceiro-enviar");
-  const feedback = document.getElementById("parceiro-feedback");
-  const campoTelefone = document.getElementById("parceiro-telefone");
-
-  aplicarMascaraTelefoneBR(campoTelefone);
-
+// Sem backend real: simula o tempo de uma requisição e reseta o formulário
+function tratarEnvioSimulado(formulario, botao, feedback) {
   formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
@@ -48,7 +40,6 @@ function inicializarFormularioParceiros() {
     botao.disabled = true;
     botao.textContent = "Enviando...";
 
-    // Sem backend real: simula o tempo de uma requisição
     setTimeout(function () {
       botao.classList.remove("halt-btn-sending");
       botao.disabled = false;
@@ -63,8 +54,36 @@ function inicializarFormularioParceiros() {
   });
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", inicializarFormularioParceiros);
-} else {
+function inicializarFormularioParceiros() {
+  const formulario = document.getElementById("form-parceiros");
+  if (!formulario) return;
+
+  aplicarMascaraTelefoneBR(document.getElementById("parceiro-telefone"));
+  tratarEnvioSimulado(
+    formulario,
+    document.getElementById("parceiro-enviar"),
+    document.getElementById("parceiro-feedback"),
+  );
+}
+
+function inicializarFormularioSuporte() {
+  const formulario = document.getElementById("form-cadastro");
+  if (!formulario) return;
+
+  tratarEnvioSimulado(
+    formulario,
+    document.getElementById("suporte-enviar"),
+    document.getElementById("suporte-feedback"),
+  );
+}
+
+function inicializarFormulariosDeContato() {
   inicializarFormularioParceiros();
+  inicializarFormularioSuporte();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", inicializarFormulariosDeContato);
+} else {
+  inicializarFormulariosDeContato();
 }
