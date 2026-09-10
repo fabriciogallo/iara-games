@@ -140,18 +140,18 @@ function atualizarOffcanvas(lista) {
     const caminhoImg = obterCaminhoImagem(item.imagem);
 
     htmlItens += `
-      <div class="carrinho-item d-flex align-items-center gap-3 p-2 mb-2 rounded bg-dark border border-secondary" data-id="${item.id}">
-        <img src="${caminhoImg}" alt="${item.nome}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
-        <div class="flex-grow-1">
-          <p class="m-0 fw-semibold text-white small">${item.nome}</p>
-          <p class="m-0 text-warning small fw-bold">${formatarMoeda(totalDoItem)}</p>
-          <div class="d-flex align-items-center gap-2 mt-1">
-            <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2 text-white" onclick="mudarQuantidade('${item.id}', -1)">-</button>
-            <span class="small text-white fw-bold">${item.quantidade}</span>
-            <button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2 text-white" onclick="mudarQuantidade('${item.id}', 1)">+</button>
+      <div class="carrinho-item" data-id="${item.id}">
+        <img src="${caminhoImg}" alt="${item.nome}" class="carrinho-item-img" />
+        <div>
+          <p class="carrinho-item-nome">${item.nome}</p>
+          <p class="carrinho-item-preco">${formatarMoeda(totalDoItem)}</p>
+          <div class="carrinho-item-qtd">
+            <button type="button" class="btn-qtd" onclick="mudarQuantidade('${item.id}', -1)">-</button>
+            <span>${item.quantidade}</span>
+            <button type="button" class="btn-qtd" onclick="mudarQuantidade('${item.id}', 1)">+</button>
           </div>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-danger" onclick="removerDoCarrinho('${item.id}')" title="Remover item">
+        <button type="button" class="carrinho-item-remover" onclick="removerDoCarrinho('${item.id}')" title="Remover item">
           <i class="bi bi-trash"></i>
         </button>
       </div>
@@ -290,7 +290,7 @@ function atualizarPaginaCarrinhoCompleta(lista) {
     if (elInputCupom && !elInputCupom.value) {
       elInputCupom.value = cupomSalvo;
     }
-    elMsgCupom.className = "text-success small mt-2 fw-semibold";
+    elMsgCupom.className = "cupom-msg-sucesso small mt-2 fw-semibold";
     elMsgCupom.textContent = "Cupom " + cupomSalvo + " ativo (-10% de desconto)!";
   }
 }
@@ -311,19 +311,19 @@ function aplicarCupomDesconto() {
   const codigo = inputCupom.value.trim().toUpperCase();
 
   if (codigo === "") {
-    msgCupom.className = "text-danger small mt-2";
+    msgCupom.className = "cupom-msg-erro small mt-2";
     msgCupom.textContent = "Por favor, digite um código de cupom.";
     return;
   }
 
   if (codigo === "FIAP10") {
     localStorage.setItem(CHAVE_CUPOM, "FIAP10");
-    msgCupom.className = "text-success small mt-2 fw-bold";
+    msgCupom.className = "cupom-msg-sucesso small mt-2 fw-bold";
     msgCupom.textContent = "Cupom FIAP10 aplicado com sucesso! Desconto de 10%.";
     atualizarTodaInterface();
   } else {
     localStorage.removeItem(CHAVE_CUPOM);
-    msgCupom.className = "text-danger small mt-2";
+    msgCupom.className = "cupom-msg-erro small mt-2";
     msgCupom.textContent = "Cupom inválido. Tente 'FIAP10' para 10% de desconto.";
     atualizarTodaInterface();
   }

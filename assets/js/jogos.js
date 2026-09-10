@@ -38,7 +38,7 @@ const JOGOS_PADRAO = [
   },
   {
     id: "fobia",
-    nome: "Fobia - St. Dinfna Hotel",
+    nome: "Fobia",
     preco: 89.0,
     categoria: "Terror",
     imagem: "assets/images/image-fobia.jpg",
