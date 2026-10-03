@@ -1,0 +1,30 @@
+{
+  "name": "iara-games-loja",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Loja da Iara Games feita em React: catálogo, página do jogo e carrinho.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.8",
+    "bootstrap-icons": "1.13.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.1.1",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}
