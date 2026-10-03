@@ -132,6 +132,35 @@ ol {
   }
 }
 
+/* Em notebooks (1201px a 1535px) a busca de 300px mais os botões passavam da tela e criavam rolagem lateral */
+@media (min-width: 1201px) and (max-width: 1535px) {
+  .navbar > .container-fluid {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .navbar .navbar-brand {
+    margin-right: 0.5rem !important;
+  }
+
+  .navbar-expand-lg .navbar-nav {
+    margin-left: 0.5rem !important;
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  .search-wrapper {
+    width: clamp(150px, calc(100vw - 1090px), 300px);
+  }
+
+  .navbar .form-control {
+    min-width: 0;
+  }
+}
+
 .navbar .form-control::placeholder {
   color: #111;
   opacity: 0.55;
@@ -3126,7 +3155,7 @@ ol {
 
 .review-text {
   font-size: 0.85rem;
-  color: #777;
+  color: #a8aeb8;
   line-height: 1.65;
   margin: 0;
 }
@@ -3170,7 +3199,7 @@ ol {
 
 .recommend-hours {
   font-size: 0.72rem;
-  color: #666;
+  color: #9ca3af;
   letter-spacing: 0.5px;
 }
 
@@ -3215,7 +3244,7 @@ ol {
 
 .dev-desc {
   font-size: 0.82rem;
-  color: #666;
+  color: #9ca3af;
   line-height: 1.6;
   margin-bottom: 10px;
 }
@@ -3251,7 +3280,7 @@ ol {
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #666;
+  color: #9ca3af;
   margin-bottom: 2px;
 }
 
@@ -3345,7 +3374,7 @@ ol {
   font-size: 0.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #555;
+  color: #9ca3af;
 }
 
 .specs-grid {
@@ -3359,7 +3388,7 @@ ol {
   font-size: 0.62rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #444;
+  color: #9ca3af;
   margin-bottom: 2px;
 }
 
