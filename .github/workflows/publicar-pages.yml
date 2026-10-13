@@ -1,0 +1,62 @@
+# Publica a plataforma no GitHub Pages: as páginas estáticas na raiz e a loja em React em /loja/.
+# Antes de publicar, instala, testa e gera a loja. Se um teste falhar, nada é publicado.
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: loja-react/package-lock.json
+
+      - name: Instalar as dependências da loja em React
+        run: npm ci
+        working-directory: loja-react
+
+      - name: Rodar os testes
+        run: npm test
+        working-directory: loja-react
+
+      - name: Gerar a loja em React
+        run: npm run build
+        working-directory: loja-react
+
+      - name: Juntar a plataforma estática com a loja em React
+        run: |
+          mkdir _site
+          cp -r index.html assets pages _site/
+          cp -r loja-react/dist _site/loja
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - id: publicacao
+        uses: actions/deploy-pages@v4

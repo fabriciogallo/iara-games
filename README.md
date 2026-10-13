@@ -90,3 +90,10 @@ Durante o desenvolvimento, aplicamos boas práticas de acessibilidade para garan
 - Textos alternativos para imagens
 - Fontes legíveis
 - Estrutura clara de conteúdo
+
+## LOJA EM REACT
+
+Na fase de React, a área da **Loja** (catálogo, página do jogo e carrinho) foi reconstruída com React, reaproveitando o CSS e as imagens da plataforma.
+
+- Código: pasta [`loja-react/`](loja-react/README.md) (como rodar, estrutura de pastas e decisões)
+- Hospedagem e texto da entrega: [`docs/entrega-react.md`](docs/entrega-react.md)
