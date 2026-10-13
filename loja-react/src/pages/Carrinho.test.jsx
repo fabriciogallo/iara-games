@@ -1,4 +1,4 @@
-import { screen, within } from "@testing-library/react";
+import { act, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { ASLEEP, DANDARA, guardarCarrinho, renderizarApp } from "../test/renderizar";
@@ -53,13 +53,14 @@ describe("Carrinho", () => {
     expect(screen.getByRole("heading", { name: "Seu carrinho está vazio" })).toBeInTheDocument();
   });
 
-  it("remove um item pelo botão Remover", async () => {
+   it("remove um item pelo botão Remover", async () => {
     const usuario = userEvent.setup();
     guardarCarrinho([DANDARA, ASLEEP]);
     renderizarApp("/carrinho");
 
     await usuario.click(pagina().getByRole("button", { name: "Remover Asleep: Ato 2 do carrinho" }));
-    expect(screen.queryByRole("heading", { name: "Asleep: Ato 2" })).not.toBeInTheDocument();
+    // olha o botão do carrinho, e não o título: o Asleep pode reaparecer como sugestão sorteada
+    expect(pagina().queryByRole("button", { name: "Remover Asleep: Ato 2 do carrinho" })).not.toBeInTheDocument();
     expect(linhaDoResumo("Subtotal (1 itens)")).toBe("Subtotal (1 itens)R$ 46,99");
   });
 
@@ -121,11 +122,15 @@ describe("Carrinho", () => {
   it("lê o carrinho que a loja estática salvou e acompanha mudanças feitas em outra aba", async () => {
     guardarCarrinho([DANDARA]);
     renderizarApp("/carrinho");
-    expect(screen.getByRole("heading", { name: "Dandara" })).toBeInTheDocument();
+    expect(pagina().getByRole("button", { name: "Remover Dandara do carrinho" })).toBeInTheDocument();
 
-    guardarCarrinho([ASLEEP]);
-    window.dispatchEvent(new StorageEvent("storage", { key: "iaraCarrinhoItens" }));
-    expect(await screen.findByRole("heading", { name: "Asleep: Ato 2" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "Dandara" })).not.toBeInTheDocument();
+    await act(async () => {
+      guardarCarrinho([ASLEEP]);
+      window.dispatchEvent(new StorageEvent("storage", { key: "iaraCarrinhoItens" }));
+    });
+
+    // o botão de remover só existe para itens do carrinho, então não se confunde com as sugestões
+    expect(await pagina().findByRole("button", { name: "Remover Asleep: Ato 2 do carrinho" })).toBeInTheDocument();
+    expect(pagina().queryByRole("button", { name: "Remover Dandara do carrinho" })).not.toBeInTheDocument();
   });
 });

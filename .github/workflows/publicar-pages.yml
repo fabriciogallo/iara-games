@@ -39,6 +39,8 @@ jobs:
       - name: Gerar a loja em React
         run: npm run build
         working-directory: loja-react
+        env:
+          VITE_BASE: /iara-games/loja/
 
       - name: Juntar a plataforma estática com a loja em React
         run: |
