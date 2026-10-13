@@ -12,7 +12,9 @@ Foram desenvolvidas duas páginas principais:
 - Página extra com temática complementar ao projeto
 
 Durante o desenvolvimento, utilizamos o Bootstrap para estruturar os elementos da interface e otimizar a responsividade da plataforma.
+
 ## IDENTIDADE VISUAL
+
 A identidade visual da Iara Games foi criada para representar a conexão entre tecnologia, games e brasilidade.
 
 O conceito visual combina elementos modernos com referências culturais brasileiras, criando uma marca jovem, dinâmica e facilmente reconhecível.
@@ -24,20 +26,21 @@ O conceito visual combina elementos modernos com referências culturais brasilei
 O logotipo da Iara Games foi desenvolvido de forma original, unindo a representação de uma cauda inspirada na personagem folclórica Iara com um controle de videogame, reforçando a conexão entre cultura brasileira e universo gamer.
 
 Essa construção visual transmite:
+
 - Modernidade
 - Criatividade
 - Tecnologia
 - Identidade nacional
 
-
 ### PALETA DE CORES
+
 As cores escolhidas foram definidas estrategicamente para fortalecer a identidade da plataforma:
 
-| Cor             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
+| Cor     | Hex                                                                     |
+| ------- | ----------------------------------------------------------------------- |
 | AMARELO | ![#FFCB20](https://dummyimage.com/50/FFCB200a192f/white?text=+) #FFCB20 |
-| AZUL | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF |
-| VERDE | ![#1AA108](https://dummyimage.com/50/1AA108/white?text=+) #1AA108 |
+| AZUL    | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF       |
+| VERDE   | ![#1AA108](https://dummyimage.com/50/1AA108/white?text=+) #1AA108       |
 
 AMARELO — Representa criatividade, destaque e energia.
 
@@ -52,6 +55,7 @@ A combinação dessas cores cria uma identidade vibrante e moderna, alinhada à 
 A fonte principal utilizada é a Montserrat e Lexend.
 
 Sua escolha foi baseada em características como:
+
 - Fácil leitura
 - Visual moderno
 - Boa acessibilidade
@@ -90,10 +94,3 @@ Durante o desenvolvimento, aplicamos boas práticas de acessibilidade para garan
 - Textos alternativos para imagens
 - Fontes legíveis
 - Estrutura clara de conteúdo
-
-## LOJA EM REACT
-
-Na fase de React, a área da **Loja** (catálogo, página do jogo e carrinho) foi reconstruída com React, reaproveitando o CSS e as imagens da plataforma.
-
-- Código: pasta [`loja-react/`](loja-react/README.md) (como rodar, estrutura de pastas e decisões)
-- Hospedagem e texto da entrega: [`docs/entrega-react.md`](docs/entrega-react.md)

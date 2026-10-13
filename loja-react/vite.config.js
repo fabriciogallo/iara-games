@@ -1,9 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// base "./" faz o build funcionar em qualquer endereço (GitHub Pages numa subpasta, Vercel, Netlify...)
+// base: de onde o site é servido.
+// - Sem VITE_BASE (Vercel, Netlify, npm run dev): "/", a raiz do endereço.
+// - No GitHub Pages, o workflow define VITE_BASE=/iara-games/loja/ (a loja fica dentro de /loja/).
 export default defineConfig({
-  base: "./iara-games",
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react()],
   server: {
     // o CSS e as imagens da plataforma ficam na pasta de cima (assets/)
