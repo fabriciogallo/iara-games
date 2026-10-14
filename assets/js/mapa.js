@@ -65,7 +65,7 @@ function obterJogoPorId(id) {
 }
 
 function linkBuscaJogo(jogo) {
-  return "pages/jogos.html?busca=" + encodeURIComponent(jogo.nome);
+  return "loja/#/?busca=" + encodeURIComponent(jogo.nome);
 }
 
 function tocarAnimacaoEntrada(elemento) {

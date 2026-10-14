@@ -96,7 +96,7 @@
               <li class="nav-item">
                 <a
                   class="nav-link px-3 fw-semibold text-white"
-                  href="pages/jogos.html"
+                  href="loja/"
                   >Loja</a
                 >
               </li>
@@ -408,7 +408,7 @@
       <section class="halt-section">
         <div class="halt-section-title-row">
           <h2 class="halt-section-title m-0">Jogos em Destaque</h2>
-          <a href="pages/jogos.html" class="halt-see-all text-decoration-none">
+          <a href="loja/" class="halt-see-all text-decoration-none">
             Ver todos <i class="bi bi-chevron-right ms-1"></i>
           </a>
         </div>
@@ -1286,7 +1286,7 @@
                     <!-- Jogo mais jogado em destaque (atualizado por mapa.js ao clicar num estado) -->
                     <div class="explore-featured">
                       <div class="explore-featured-badge">Mais jogado</div>
-                      <a href="pages/jogos.html?busca=Fobia">
+                      <a href="loja/#/?busca=Fobia">
                         <img
                           src="assets/images/image-fobia.jpg"
                           alt="Imagem para Banner jogo Fobia"
@@ -1305,7 +1305,7 @@
 
                     <!-- 2º a 4º jogos mais jogados da região (atualizados por mapa.js) -->
                     <div class="explore-thumbs">
-                      <a class="explore-thumb" href="pages/jogos.html?busca=Enigma%20do%20Medo">
+                      <a class="explore-thumb" href="loja/#/?busca=Enigma%20do%20Medo">
                         <img
                           class="explore-thumb-img"
                           src="assets/images/image-enigma-do-medo.jpg"
@@ -1313,7 +1313,7 @@
                         />
                         <span class="explore-thumb-nome">Enigma do Medo</span>
                       </a>
-                      <a class="explore-thumb" href="pages/jogos.html?busca=Hell%20Clock">
+                      <a class="explore-thumb" href="loja/#/?busca=Hell%20Clock">
                         <img
                           class="explore-thumb-img"
                           src="assets/images/image-hellclock.jpg"
@@ -1321,7 +1321,7 @@
                         />
                         <span class="explore-thumb-nome">Hell Clock</span>
                       </a>
-                      <a class="explore-thumb" href="pages/jogos.html?busca=Bloodless">
+                      <a class="explore-thumb" href="loja/#/?busca=Bloodless">
                         <img
                           class="explore-thumb-img"
                           src="assets/images/image-bloodless.jpg"
@@ -1333,7 +1333,7 @@
 
                     <div class="explore-ver-mais">
                       <a
-                        href="pages/jogos.html"
+                        href="loja/"
                         class="link-see-all link-ver-todos"
                         >Ver mais</a
                       >
@@ -1359,7 +1359,7 @@
               <button>Switch</button>
             </div>
           </div>
-          <a href="pages/jogos.html" class="halt-see-all text-decoration-none">
+          <a href="loja/" class="halt-see-all text-decoration-none">
             Ver todas as ofertas <i class="bi bi-chevron-right ms-1"></i>
           </a>
         </div>
@@ -1733,7 +1733,7 @@
               >Free-to-Play</span
             >
           </div>
-          <a href="pages/jogos.html" class="halt-see-all text-decoration-none">
+          <a href="loja/" class="halt-see-all text-decoration-none">
             Ver catálogo completo <i class="bi bi-chevron-right ms-1"></i>
           </a>
         </div>
@@ -2005,7 +2005,7 @@
         <div class="halt-footer-col">
           <h5>Produto</h5>
           <ul>
-            <li><a href="pages/jogos.html">Loja</a></li>
+            <li><a href="loja/">Loja</a></li>
             <li><a href="pages/add-game.html">Adicionar Jogo</a></li>
             <li><a href="pages/carrinho.html">Carrinho</a></li>
             <li><a href="pages/suporte.html">Suporte</a></li>
@@ -2083,7 +2083,7 @@
           <div id="carrinho-vazio" class="text-center py-5 text-secondary">
             <i class="bi bi-cart-x display-4 d-block mb-3"></i>
             <p>Seu carrinho está vazio no momento.</p>
-            <a href="pages/jogos.html" class="btn btn-sm btn-outline-warning"
+            <a href="loja/" class="btn btn-sm btn-outline-warning"
               >Explorar Jogos</a
             >
           </div>
@@ -2167,6 +2167,23 @@
           }
 
           heroCarousel.classList.add(novaClasse);
+        });
+      }
+    </script>
+
+    <script>
+      var formularioBusca = document.querySelector(
+        'form[action="pages/jogos.html"]',
+      );
+
+      if (formularioBusca) {
+        formularioBusca.addEventListener("submit", function (evento) {
+          evento.preventDefault();
+          var campoBusca = formularioBusca.querySelector('[name="busca"]');
+          var valorBusca = campoBusca ? campoBusca.value.trim() : "";
+          window.location.href = valorBusca
+            ? "loja/#/?busca=" + encodeURIComponent(valorBusca)
+            : "loja/";
         });
       }
     </script>
