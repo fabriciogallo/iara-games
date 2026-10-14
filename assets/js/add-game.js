@@ -90,7 +90,7 @@ function cadastrarNovoJogo(evento) {
   salvarJogosCustomizados(listaExistente);
 
   exibirAlertaAddGame(
-    `Jogo "<strong>${titulo}</strong>" cadastrado com sucesso! <a href="jogos.html" class="alert-link text-decoration-underline ms-2">Ver na Loja</a>`,
+    `Jogo "<strong>${titulo}</strong>" cadastrado com sucesso! <a href="../loja/" class="alert-link text-decoration-underline ms-2">Ver na Loja</a>`,
     "success",
   );
 
