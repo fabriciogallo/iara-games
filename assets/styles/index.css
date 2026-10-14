@@ -2182,30 +2182,30 @@ ol {
 
 .loja-filters-row {
   display: flex;
+  flex-wrap: wrap; /* se não couber, o grupo desce pra linha de baixo */
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between; /* categorias à esquerda, ordenar/busca à direita */
+  gap: 16px 24px;
 }
 
 .loja-tabs-group {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 16px; /* era 24px */
 }
 
 .loja-tabs-label {
   color: var(--color-green);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px; /* era 22px */
 }
 
 .loja-tabs {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 8px 18px; /* era 24px */
 }
 
 .loja-tab {
@@ -2213,7 +2213,8 @@ ol {
   border: none;
   border-bottom: 2px solid transparent;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px; /* era 18px */
+  white-space: nowrap; /* NOVO: impede "Favoritos (0)" de quebrar em duas linhas */
   opacity: 0.5;
   padding: 0 0 4px;
   cursor: pointer;
@@ -2289,7 +2290,7 @@ ol {
   padding: 0 16px;
   border-radius: 9999px;
   background: #f6f6f6;
-  width: 314px;
+  width: 240px; /* era 314px */
   max-width: 100%;
 }
 
@@ -2312,6 +2313,30 @@ ol {
 
 .loja-search input:focus {
   outline: none;
+}
+
+/* NOVO: notebooks e telas médias — compacta mais para caber na mesma linha */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .loja-main {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .loja-tabs-label {
+    font-size: 18px;
+  }
+
+  .loja-tabs {
+    gap: 8px 14px;
+  }
+
+  .loja-tab {
+    font-size: 16px;
+  }
+
+  .loja-search {
+    width: 220px;
+  }
 }
 
 @media (max-width: 767px) {
