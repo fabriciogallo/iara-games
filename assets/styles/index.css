@@ -353,6 +353,37 @@ ol {
   margin-bottom: 0;
 }
 
+.explore-cep {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+
+.explore-cep-controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.explore-cep-controles .form-control {
+  flex: 1 1 9rem;
+  min-width: 0;
+}
+
+.explore-cep-controles [aria-invalid="true"] {
+  border-color: #ff9da9;
+}
+
+.explore-cep-erro:not(:empty),
+.explore-cep-resultado:not(:empty) {
+  margin-top: .5rem;
+  font-size: .875rem;
+}
+
+.explore-cep-erro {
+  color: #ffb6be;
+}
+
 .explore-map {
   position: relative;
   width: 100%;

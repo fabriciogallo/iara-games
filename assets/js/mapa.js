@@ -154,17 +154,7 @@ function inicializarMapaSVG() {
 
     elementoEstado.addEventListener("click", function (evento) {
       evento.preventDefault();
-
-      elementosEstados.forEach(function (est) {
-        est.classList.remove("estado-ativo");
-      });
-      elementosRegiao.forEach(function (est) {
-        est.classList.add("estado-ativo");
-      });
-
-      if (nomeEstado) {
-        atualizarDestaqueMapa(nomeEstado);
-      }
+      selecionarEstado(nomeEstado);
     });
 
     elementoEstado.addEventListener("mouseenter", function () {
@@ -178,6 +168,33 @@ function inicializarMapaSVG() {
         est.classList.remove("regiao-hover");
       });
     });
+  });
+
+  function selecionarEstado(nomeEstado) {
+    const regiao = nomeEstado && ESTADO_PARA_REGIAO[normalizarNomeEstado(nomeEstado)];
+    elementosEstados.forEach(function (estado) {
+      estado.classList.remove("estado-ativo");
+    });
+    if (regiao) {
+      elementosPorRegiao[regiao].forEach(function (estado) {
+        estado.classList.add("estado-ativo");
+      });
+    }
+    atualizarDestaqueMapa(regiao ? nomeEstado : "São Paulo");
+  }
+
+  document.addEventListener("iara:localizar-cep", function (evento) {
+    const endereco = evento.detail;
+    if (!endereco) {
+      selecionarEstado(null);
+      return;
+    }
+
+    const codigoEstado = endereco.ibge?.slice(0, 2);
+    const estado = Array.from(elementosEstados).find(function (elemento) {
+      return elemento.getAttribute("code") === codigoEstado;
+    });
+    selecionarEstado(estado?.getAttribute("name") || endereco.estado);
   });
 
   atualizarDestaqueMapa("São Paulo");
