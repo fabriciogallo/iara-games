@@ -53,6 +53,16 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  className={`nav-link px-3 fw-semibold ${pathname === "/minha-regiao" ? "text-warning active" : "text-white"}`}
+                  to="/minha-regiao"
+                  aria-current={pathname === "/minha-regiao" ? "page" : undefined}
+                  onClick={() => setMenuAberto(false)}
+                >
+                  Minha região
+                </Link>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link text-white px-3 fw-semibold" href={urlPlataforma("pages/add-game.html")}>
                   Desenvolvedor
                 </a>
