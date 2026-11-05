@@ -3,7 +3,6 @@ import Layout from "./components/Layout";
 import Carrinho from "./pages/Carrinho";
 import Jogo from "./pages/Jogo";
 import Loja from "./pages/Loja";
-import MinhaRegiao from "./pages/MinhaRegiao";
 import NaoEncontrado from "./pages/NaoEncontrado";
 import Providers from "./Providers";
 
@@ -16,7 +15,6 @@ export function Rotas() {
           <Route index element={<Loja />} />
           <Route path="jogo/:id" element={<Jogo />} />
           <Route path="carrinho" element={<Carrinho />} />
-          <Route path="minha-regiao" element={<MinhaRegiao />} />
           <Route path="*" element={<NaoEncontrado />} />
         </Route>
       </Routes>
