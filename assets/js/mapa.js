@@ -139,6 +139,47 @@ function inicializarMapaSVG() {
   }
 
   const elementosPorRegiao = {};
+  const conteudo = document.querySelector(".explore-conteudo");
+  const mapa = document.getElementById("svg-map");
+  const jogos = document.querySelector(".explore-games-side");
+  const conexao = document.querySelector(".explore-conexao");
+  const legenda = document.querySelector(".explore-estado-selecionado");
+  let estadoSelecionado = null;
+
+  function atualizarLinha() {
+    if (!conexao || !legenda || !conteudo || !jogos || !estadoSelecionado) {
+      if (conexao) conexao.style.visibility = "hidden";
+      return;
+    }
+
+    const contorno = estadoSelecionado.querySelector("path");
+    const limites = contorno.getBBox();
+    const matriz = contorno.getScreenCTM();
+    if (!matriz) return;
+
+    const centro = new DOMPoint(limites.x + limites.width / 2, limites.y + limites.height / 2).matrixTransform(matriz);
+    const area = conteudo.getBoundingClientRect();
+    const areaMapa = mapa.getBoundingClientRect();
+    const areaJogos = jogos.getBoundingClientRect();
+    const ladoALado = areaJogos.left >= areaMapa.right;
+    const inicioX = centro.x - area.left;
+    const inicioY = centro.y - area.top;
+    const fimY = (ladoALado ? Math.max(areaMapa.bottom, areaJogos.bottom) : areaMapa.bottom) - area.top + 12;
+    const fimX = ladoALado ? areaJogos.right - area.left : area.width - 8;
+    const curvaX = ladoALado ? areaJogos.left - area.left - 20 : Math.min(inicioX + 40, fimX - 24);
+
+    conexao.setAttribute("viewBox", "0 0 " + area.width + " " + area.height);
+    conexao.querySelector("path").setAttribute("d", "M " + inicioX + " " + inicioY + " L " + curvaX + " " + fimY + " H " + fimX);
+    conexao.querySelector("circle").setAttribute("cx", inicioX);
+    conexao.querySelector("circle").setAttribute("cy", inicioY);
+    conexao.style.visibility = "visible";
+    legenda.style.left = Math.max(0, Math.min(curvaX, area.width - legenda.offsetWidth)) + "px";
+    legenda.style.top = fimY + 8 + "px";
+  }
+
+  function agendarLinha() {
+    requestAnimationFrame(atualizarLinha);
+  }
   elementosEstados.forEach(function (elementoEstado) {
     const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(elementoEstado.getAttribute("name"))];
     if (!elementosPorRegiao[regiao]) {
@@ -180,7 +221,12 @@ function inicializarMapaSVG() {
         estado.classList.add("estado-ativo");
       });
     }
+    estadoSelecionado = Array.from(elementosEstados).find(function (estado) {
+      return normalizarNomeEstado(estado.getAttribute("name")) === normalizarNomeEstado(nomeEstado || "");
+    });
+    if (legenda) legenda.textContent = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
     atualizarDestaqueMapa(regiao ? nomeEstado : "São Paulo");
+    agendarLinha();
   }
 
   document.addEventListener("iara:localizar-cep", function (evento) {
@@ -198,6 +244,19 @@ function inicializarMapaSVG() {
   });
 
   atualizarDestaqueMapa("São Paulo");
+  estadoSelecionado = Array.from(elementosEstados).find(function (estado) {
+    return estado.getAttribute("code") === "35";
+  });
+  if (legenda) legenda.textContent = "São Paulo";
+  if (conteudo && jogos) {
+    const observador = new ResizeObserver(agendarLinha);
+    observador.observe(conteudo);
+    observador.observe(mapa);
+    observador.observe(jogos);
+  }
+  window.addEventListener("resize", agendarLinha);
+  document.fonts.ready.then(agendarLinha);
+  agendarLinha();
 }
 
 if (document.readyState === "loading") {
