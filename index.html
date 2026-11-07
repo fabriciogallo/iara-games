@@ -879,12 +879,19 @@
         <section class="explore" id="explore">
           <div class="explore-container">
             <div class="container-xl">
+              <div class="explore-cabecalho">
+                <h2 class="explore-title">Explore jogos pelo Brasil</h2>
+                <div id="consulta-cep"></div>
+              </div>
+              <div class="explore-conteudo">
+              <svg class="explore-conexao" aria-hidden="true" focusable="false">
+                <path></path>
+                <circle r="4"></circle>
+              </svg>
               <div class="row align-items-center g-4 g-xl-5">
                 <!-- Coluna do Mapa SVG -->
                 <div class="col-12 col-lg-6">
                   <div class="explore-map-side">
-                    <h2 class="explore-title">Explore jogos pelo Brasil</h2>
-                    <div id="consulta-cep"></div>
 
                     <!-- O SVG do mapa do Brasil -->
                     <div class="explore-map">
@@ -1341,6 +1348,8 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <p class="explore-estado-selecionado" aria-live="polite"></p>
               </div>
             </div>
           </div>

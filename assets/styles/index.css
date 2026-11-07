@@ -353,25 +353,119 @@ ol {
   margin-bottom: 0;
 }
 
+.explore-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.explore-cabecalho .explore-title {
+  padding-top: .5rem;
+}
+
+#consulta-cep {
+  flex: 0 1 29rem;
+  min-width: 0;
+}
+
 .explore-cep {
   width: 100%;
-  margin-bottom: 1.25rem;
   color: #fff;
 }
 
 .explore-cep-controles {
   display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
+  align-items: center;
+  gap: .75rem;
 }
 
-.explore-cep-controles .form-control {
-  flex: 1 1 9rem;
+.explore-cep-campo {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  flex: 1;
   min-width: 0;
+  padding: .65rem .9rem;
+  background: #f3f4f7;
+  color: #5b6371;
+  border-radius: 999px;
+}
+
+.explore-cep-campo input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #18202a;
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.explore-cep-campo input::placeholder {
+  color: #5b6371;
+  opacity: 1;
+}
+
+.explore-cep-campo:focus-within {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 3px;
+}
+
+.explore-cep-campo input:focus-visible {
+  outline: none;
 }
 
 .explore-cep-controles [aria-invalid="true"] {
-  border-color: #ff9da9;
+  box-shadow: 0 2px #c62c47;
+}
+
+.explore-cep-buscar {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  border-radius: 0;
+  padding: .65rem 1.6rem;
+  background: transparent;
+  color: #151515;
+  font-size: .875rem;
+  white-space: nowrap;
+}
+
+.explore-cep-buscar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-yellow);
+  clip-path: polygon(0 0, 82% 0, 100% 40%, 100% 100%, 0 100%);
+}
+
+.explore-cep-buscar:hover::before {
+  background: #ffe16b;
+}
+
+.explore-cep-buscar:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.explore-cep-buscar:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 575.98px) {
+  .explore-cep-controles {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .explore-cep-campo {
+    flex-basis: 100%;
+  }
 }
 
 .explore-cep-erro:not(:empty),
@@ -382,6 +476,58 @@ ol {
 
 .explore-cep-erro {
   color: #ffb6be;
+}
+
+.explore-conteudo {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.explore-conexao {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+  visibility: hidden;
+}
+
+.explore-conexao path {
+  fill: none;
+  stroke: #f3f4f7;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.explore-conexao circle {
+  fill: #f3f4f7;
+}
+
+.explore-estado-selecionado {
+  position: absolute;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+@media (max-width: 991.98px) {
+  #consulta-cep {
+    flex-basis: 100%;
+  }
+
+  .explore-conteudo {
+    padding-bottom: 0;
+  }
+
+  .explore-map-side {
+    padding-bottom: 3rem;
+  }
 }
 
 .explore-map {

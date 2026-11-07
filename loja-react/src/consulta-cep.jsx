@@ -60,16 +60,17 @@ function ConsultaCep() {
 
   return (
     <form className="explore-cep" onSubmit={consultarCep} noValidate>
-      <label className="form-label fw-semibold" htmlFor="mapa-cep">Encontre sua região pelo CEP</label>
+      <label className="visually-hidden" htmlFor="mapa-cep">Encontre sua região pelo CEP</label>
       <div className="explore-cep-controles">
+        <div className="explore-cep-campo">
+        <i className="bi bi-search" aria-hidden="true"></i>
         <input
-          className="form-control"
           id="mapa-cep"
           name="cep"
           type="text"
           inputMode="numeric"
           autoComplete="postal-code"
-          placeholder="00000-000"
+          placeholder="Digite seu CEP e encontre os jogos da sua região"
           aria-describedby="mapa-cep-erro"
           aria-invalid={cepInvalido || undefined}
           required
@@ -77,8 +78,9 @@ function ConsultaCep() {
           value={cep}
           onChange={alterarCep}
         />
-        <button className="btn btn-warning fw-semibold" type="submit" disabled={carregando}>
-          Buscar CEP
+        </div>
+        <button className="explore-cep-buscar" type="submit" disabled={carregando}>
+          Buscar
         </button>
       </div>
       <div className="explore-cep-erro" id="mapa-cep-erro" role="alert">{erro}</div>
