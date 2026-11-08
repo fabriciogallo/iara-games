@@ -176,7 +176,6 @@ function inicializarMapaSVG() {
     return;
   }
 
-  const elementosPorRegiao = {};
   const conteudo = document.querySelector(".explore-conteudo");
   const mapa = document.getElementById("svg-map");
   preencherEstadosComBanners(mapa, elementosEstados);
@@ -220,17 +219,7 @@ function inicializarMapaSVG() {
     requestAnimationFrame(atualizarLinha);
   }
   elementosEstados.forEach(function (elementoEstado) {
-    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(elementoEstado.getAttribute("name"))];
-    if (!elementosPorRegiao[regiao]) {
-      elementosPorRegiao[regiao] = [];
-    }
-    elementosPorRegiao[regiao].push(elementoEstado);
-  });
-
-  elementosEstados.forEach(function (elementoEstado) {
     const nomeEstado = elementoEstado.getAttribute("name");
-    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(nomeEstado)];
-    const elementosRegiao = elementosPorRegiao[regiao];
 
     elementoEstado.addEventListener("click", function (evento) {
       evento.preventDefault();
@@ -238,15 +227,11 @@ function inicializarMapaSVG() {
     });
 
     elementoEstado.addEventListener("mouseenter", function () {
-      elementosRegiao.forEach(function (est) {
-        est.classList.add("regiao-hover");
-      });
+      elementoEstado.classList.add("estado-hover");
     });
 
     elementoEstado.addEventListener("mouseleave", function () {
-      elementosRegiao.forEach(function (est) {
-        est.classList.remove("regiao-hover");
-      });
+      elementoEstado.classList.remove("estado-hover");
     });
   });
 
@@ -255,14 +240,10 @@ function inicializarMapaSVG() {
     elementosEstados.forEach(function (estado) {
       estado.classList.remove("estado-ativo");
     });
-    if (regiao) {
-      elementosPorRegiao[regiao].forEach(function (estado) {
-        estado.classList.add("estado-ativo");
-      });
-    }
     estadoSelecionado = Array.from(elementosEstados).find(function (estado) {
       return normalizarNomeEstado(estado.getAttribute("name")) === normalizarNomeEstado(nomeEstado || "");
     });
+    if (estadoSelecionado) estadoSelecionado.classList.add("estado-ativo");
     if (legenda) legenda.textContent = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
     atualizarDestaqueMapa(regiao ? nomeEstado : "São Paulo");
     agendarLinha();

@@ -707,7 +707,7 @@ ol {
   text-decoration: none;
 }
 
-#svg-map a.regiao-hover:not(.estado-ativo) path {
+#svg-map a.estado-hover:not(.estado-ativo) path {
   fill: var(--color-yellow-d);
 }
 
@@ -719,7 +719,7 @@ ol {
   fill: #146636;
 }
 
-#svg-map a.regiao-hover:not(.estado-ativo) .circle {
+#svg-map a.estado-hover:not(.estado-ativo) .circle {
   fill: var(--color-yellow-d);
 }
 
@@ -735,7 +735,7 @@ ol {
 }
 
 #svg-map.mapa-com-banners .estado-ativo path,
-#svg-map.mapa-com-banners .estado.regiao-hover path,
+#svg-map.mapa-com-banners .estado.estado-hover path,
 #svg-map.mapa-com-banners .estado:focus-visible path {
   fill: var(--banner-estado);
 }
@@ -746,7 +746,7 @@ ol {
   filter: brightness(1.2);
 }
 
-#svg-map.mapa-com-banners .regiao-hover:not(.estado-ativo) path,
+#svg-map.mapa-com-banners .estado-hover:not(.estado-ativo) path,
 #svg-map.mapa-com-banners .estado:focus-visible path {
   stroke: #ffe580;
   stroke-width: 2;
