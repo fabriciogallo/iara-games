@@ -727,6 +727,25 @@ ol {
   fill: var(--color-yellow);
 }
 
+#svg-map.mapa-com-banners .estado path {
+  fill: var(--banner-estado);
+  stroke: #e5e9ee;
+  stroke-width: 1.25;
+  transition: filter .15s ease, stroke .15s ease;
+}
+
+#svg-map.mapa-com-banners .estado-ativo path {
+  stroke: var(--color-yellow);
+  stroke-width: 2;
+  filter: brightness(1.2);
+}
+
+#svg-map.mapa-com-banners .regiao-hover:not(.estado-ativo) path {
+  stroke: #ffe580;
+  stroke-width: 2;
+  filter: brightness(1.15);
+}
+
 @media (max-width: 1280px) {
   .explore {
     width: 94%;

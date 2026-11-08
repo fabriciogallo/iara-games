@@ -75,6 +75,44 @@ function tocarAnimacaoEntrada(elemento) {
   elemento.classList.add("explore-card-anim");
 }
 
+function preencherEstadosComBanners(mapa, estados) {
+  const svgNS = "http://www.w3.org/2000/svg";
+  const definicoes = document.createElementNS(svgNS, "defs");
+  mapa.prepend(definicoes);
+
+  estados.forEach(function (estado) {
+    const nome = estado.getAttribute("name");
+    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(nome)];
+    const jogo = obterJogoPorId(JOGOS_POR_REGIAO[regiao][0]);
+    const contorno = estado.querySelector("path");
+    const limites = contorno.getBBox();
+    const id = "banner-estado-" + estado.getAttribute("code");
+    const padrao = document.createElementNS(svgNS, "pattern");
+    padrao.id = id;
+    padrao.setAttribute("patternUnits", "userSpaceOnUse");
+    padrao.setAttribute("viewBox", "0 0 " + limites.width + " " + limites.height);
+
+    const imagem = document.createElementNS(svgNS, "image");
+    imagem.setAttribute("href", jogo.imagem);
+    imagem.setAttribute("preserveAspectRatio", "xMidYMid slice");
+    ["x", "y", "width", "height"].forEach(function (atributo) {
+      padrao.setAttribute(atributo, limites[atributo]);
+    });
+    imagem.setAttribute("width", limites.width);
+    imagem.setAttribute("height", limites.height);
+    padrao.append(imagem);
+    definicoes.append(padrao);
+    contorno.style.setProperty("--banner-estado", "url(#" + id + ")");
+
+    const titulo = document.createElementNS(svgNS, "title");
+    titulo.textContent = nome + " — " + jogo.nome;
+    estado.prepend(titulo);
+    estado.setAttribute("aria-label", titulo.textContent);
+  });
+
+  mapa.classList.add("mapa-com-banners");
+}
+
 function atualizarDestaqueMapa(nomeEstado) {
   const chave = normalizarNomeEstado(nomeEstado);
   const regiao = ESTADO_PARA_REGIAO[chave] || "sudeste";
@@ -141,6 +179,7 @@ function inicializarMapaSVG() {
   const elementosPorRegiao = {};
   const conteudo = document.querySelector(".explore-conteudo");
   const mapa = document.getElementById("svg-map");
+  preencherEstadosComBanners(mapa, elementosEstados);
   const jogos = document.querySelector(".explore-games-side");
   const conexao = document.querySelector(".explore-conexao");
   const legenda = document.querySelector(".explore-estado-selecionado");
