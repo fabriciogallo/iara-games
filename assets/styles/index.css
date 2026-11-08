@@ -753,6 +753,13 @@ ol {
   filter: brightness(1.15);
 }
 
+#svg-map.mapa-com-banners .estado.estado-hover path,
+#svg-map.mapa-com-banners .estado:focus-visible path {
+  filter: brightness(1.15)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, .85))
+    drop-shadow(0 0 3px rgba(255, 212, 57, .9));
+}
+
 @media (max-width: 1280px) {
   .explore {
     width: 94%;
