@@ -175,6 +175,33 @@ function inicializarMapaSVG() {
   const conexao = document.querySelector(".explore-conexao");
   const legenda = document.querySelector(".explore-estado-selecionado");
   let estadoSelecionado = null;
+  let estadoExpandido = null;
+  let contornoAmpliado = null;
+
+  function ampliarEstado(estado) {
+    if (contornoAmpliado) contornoAmpliado.remove();
+    contornoAmpliado = null;
+    const alvo = estadoExpandido || estado;
+    if (!alvo) return;
+
+    const ampliado = alvo.querySelector("path").cloneNode(true);
+    ampliado.classList.add("estado-zoom");
+    ampliado.setAttribute("aria-hidden", "true");
+    if (estadoExpandido) ampliado.classList.add("estado-zoom-selecionado");
+    mapa.append(ampliado);
+    contornoAmpliado = ampliado;
+    if (!estadoExpandido) {
+      requestAnimationFrame(function () {
+        ampliado.classList.add("estado-ampliado");
+      });
+    }
+  }
+
+  function recolherEstado() {
+    if (!estadoExpandido) return;
+    estadoExpandido = null;
+    ampliarEstado(null);
+  }
 
   function atualizarLinha() {
     if (!conexao || !legenda || !conteudo || !jogos || !estadoSelecionado) {
@@ -215,19 +242,29 @@ function inicializarMapaSVG() {
 
     elementoEstado.addEventListener("click", function (evento) {
       evento.preventDefault();
-      selecionarEstado(nomeEstado);
+      selecionarEstado(nomeEstado, true);
     });
 
     elementoEstado.addEventListener("mouseenter", function () {
       elementoEstado.classList.add("estado-hover");
+      if (!estadoExpandido) ampliarEstado(elementoEstado);
     });
 
     elementoEstado.addEventListener("mouseleave", function () {
       elementoEstado.classList.remove("estado-hover");
+      if (!estadoExpandido) ampliarEstado(null);
+    });
+
+    elementoEstado.addEventListener("focus", function () {
+      if (!estadoExpandido) ampliarEstado(elementoEstado);
+    });
+
+    elementoEstado.addEventListener("blur", function () {
+      if (!estadoExpandido) ampliarEstado(null);
     });
   });
 
-  function selecionarEstado(nomeEstado) {
+  function selecionarEstado(nomeEstado, deveAmpliar = false) {
     elementosEstados.forEach(function (estado) {
       estado.classList.remove("estado-ativo");
     });
@@ -235,10 +272,21 @@ function inicializarMapaSVG() {
       return normalizarNomeEstado(estado.getAttribute("name")) === normalizarNomeEstado(nomeEstado || "");
     });
     if (estadoSelecionado) estadoSelecionado.classList.add("estado-ativo");
-    if (legenda) legenda.textContent = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
-    atualizarDestaqueMapa(estadoSelecionado ? estadoSelecionado.getAttribute("name") : "São Paulo");
+    estadoExpandido = deveAmpliar && estadoSelecionado !== estadoExpandido ? estadoSelecionado : null;
+    ampliarEstado(null);
+    const nomeSelecionado = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
+    if (legenda) legenda.textContent = nomeSelecionado;
+    atualizarDestaqueMapa(nomeSelecionado || "São Paulo");
     agendarLinha();
   }
+
+  document.addEventListener("click", function (evento) {
+    if (!evento.target.closest?.("#svg-map .estado")) recolherEstado();
+  }, true);
+
+  document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape") recolherEstado();
+  });
 
   document.addEventListener("iara:localizar-cep", function (evento) {
     const endereco = evento.detail;

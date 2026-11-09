@@ -540,6 +540,7 @@ ol {
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .explore-games-side {
@@ -702,6 +703,10 @@ ol {
   text-decoration: none;
 }
 
+#svg-map a.estado:focus {
+  outline: none;
+}
+
 #svg-map a:hover {
   cursor: pointer;
   text-decoration: none;
@@ -758,6 +763,38 @@ ol {
   filter: brightness(1.15)
     drop-shadow(0 2px 4px rgba(0, 0, 0, .85))
     drop-shadow(0 0 3px rgba(255, 212, 57, .9));
+}
+
+#svg-map.mapa-com-banners .estado-zoom {
+  fill: var(--banner-estado);
+  stroke: #ffe580;
+  stroke-width: 2;
+  filter: brightness(1.15)
+    drop-shadow(0 2px 4px rgba(0, 0, 0, .85))
+    drop-shadow(0 0 3px rgba(255, 212, 57, .9));
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  scale: 1;
+  transition: scale .18s ease;
+}
+
+#svg-map.mapa-com-banners .estado-ampliado {
+  scale: 1.15;
+}
+
+#svg-map.mapa-com-banners .estado-zoom-selecionado {
+  scale: 1.5;
+  vector-effect: non-scaling-stroke;
+  pointer-events: visiblePainted;
+  cursor: pointer;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #svg-map.mapa-com-banners .estado-zoom {
+    transition: none;
+  }
 }
 
 @media (max-width: 1280px) {
