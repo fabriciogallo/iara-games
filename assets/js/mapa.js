@@ -1,36 +1,36 @@
-// Estados brasileiros agrupados por região, usados para escolher os jogos em destaque
-const ESTADO_PARA_REGIAO = {
-  tocantins: "norte",
-  amapa: "norte",
-  para: "norte",
-  roraima: "norte",
-  amazonas: "norte",
-  acre: "norte",
-  rondonia: "norte",
+// O mapa e o card usam o mesmo destaque. Quatro estados usam artes alternativas do hero.
+const DESTAQUES_POR_ESTADO = {
+  tocantins: { regiao: "norte", jogo: "lead-the-dragon" },
+  amapa: { regiao: "norte", jogo: "two-strikes" },
+  para: { regiao: "norte", jogo: "moonleap" },
+  roraima: { regiao: "norte", jogo: "onikura" },
+  amazonas: { regiao: "norte", jogo: "sky-dust" },
+  acre: { regiao: "norte", jogo: "unsighted" },
+  rondonia: { regiao: "norte", jogo: "sludge-life" },
 
-  bahia: "nordeste",
-  sergipe: "nordeste",
-  pernambuco: "nordeste",
-  alagoas: "nordeste",
-  "rio grande do norte": "nordeste",
-  ceara: "nordeste",
-  piaui: "nordeste",
-  maranhao: "nordeste",
-  paraiba: "nordeste",
+  bahia: { regiao: "nordeste", jogo: "dandara" },
+  sergipe: { regiao: "nordeste", jogo: "hell-clock" },
+  pernambuco: { regiao: "nordeste", jogo: "cordels-e-spells" },
+  alagoas: { regiao: "nordeste", jogo: "aviao-trafico" },
+  "rio grande do norte": { regiao: "nordeste", jogo: "aila" },
+  ceara: { regiao: "nordeste", jogo: "mullet-madjack" },
+  piaui: { regiao: "nordeste", jogo: "enigma-do-medo", imagem: "assets/images/image-enigma-do-medo-hero.webp" },
+  maranhao: { regiao: "nordeste", jogo: "9-kings", imagem: "assets/images/image-9kings-hero.webp" },
+  paraiba: { regiao: "nordeste", jogo: "investigacao-postuma" },
 
-  "mato grosso": "centro-oeste",
-  "mato grosso do sul": "centro-oeste",
-  goias: "centro-oeste",
-  "distrito federal": "centro-oeste",
+  "mato grosso": { regiao: "centro-oeste", jogo: "9-kings" },
+  "mato grosso do sul": { regiao: "centro-oeste", jogo: "zueirama-2" },
+  goias: { regiao: "centro-oeste", jogo: "asleep" },
+  "distrito federal": { regiao: "centro-oeste", jogo: "horizon-chase", imagem: "assets/images/image-horizon-chase-hero.webp" },
 
-  parana: "sul",
-  "santa catarina": "sul",
-  "rio grande do sul": "sul",
+  parana: { regiao: "sul", jogo: "99-vidas" },
+  "santa catarina": { regiao: "sul", jogo: "171" },
+  "rio grande do sul": { regiao: "sul", jogo: "horizon-chase" },
 
-  "sao paulo": "sudeste",
-  "minas gerais": "sudeste",
-  "rio de janeiro": "sudeste",
-  "espirito santo": "sudeste",
+  "sao paulo": { regiao: "sudeste", jogo: "fobia" },
+  "minas gerais": { regiao: "sudeste", jogo: "bloodless" },
+  "rio de janeiro": { regiao: "sudeste", jogo: "enigma-do-medo" },
+  "espirito santo": { regiao: "sudeste", jogo: "hell-clock", imagem: "assets/images/image-hellclock-hero.webp" },
 };
 
 const NOME_REGIAO = {
@@ -41,15 +41,6 @@ const NOME_REGIAO = {
   sul: "Sul",
 };
 
-// Top 4 jogos mais jogados de cada região (posição 0 = card em destaque, 1-3 = cards menores)
-const JOGOS_POR_REGIAO = {
-  norte: ["sky-dust", "onikura", "moonleap", "two-strikes"],
-  nordeste: ["dandara", "aila", "cordels-e-spells", "aviao-trafico"],
-  "centro-oeste": ["9-kings", "unsighted", "zueirama-2", "lead-the-dragon"],
-  sudeste: ["fobia", "enigma-do-medo", "hell-clock", "bloodless"],
-  sul: ["horizon-chase", "99-vidas", "171", "mullet-madjack"],
-};
-
 function normalizarNomeEstado(nomeEstado) {
   return nomeEstado
     .toLowerCase()
@@ -58,10 +49,12 @@ function normalizarNomeEstado(nomeEstado) {
     .trim();
 }
 
-function obterJogoPorId(id) {
-  return obterTodosJogos().find(function (jogo) {
-    return jogo.id === id;
+function obterDestaque(nomeEstado) {
+  const destaque = DESTAQUES_POR_ESTADO[normalizarNomeEstado(nomeEstado)];
+  const jogo = JOGOS_PADRAO.find(function (jogo) {
+    return jogo.id === destaque.jogo;
   });
+  return { ...jogo, regiao: destaque.regiao, imagem: destaque.imagem || jogo.imagem };
 }
 
 function linkBuscaJogo(jogo) {
@@ -82,8 +75,7 @@ function preencherEstadosComBanners(mapa, estados) {
 
   estados.forEach(function (estado) {
     const nome = estado.getAttribute("name");
-    const regiao = ESTADO_PARA_REGIAO[normalizarNomeEstado(nome)];
-    const jogo = obterJogoPorId(JOGOS_POR_REGIAO[regiao][0]);
+    const jogo = obterDestaque(nome);
     const contorno = estado.querySelector("path");
     const limites = contorno.getBBox();
     const id = "banner-estado-" + estado.getAttribute("code");
@@ -114,14 +106,14 @@ function preencherEstadosComBanners(mapa, estados) {
 }
 
 function atualizarDestaqueMapa(nomeEstado) {
-  const chave = normalizarNomeEstado(nomeEstado);
-  const regiao = ESTADO_PARA_REGIAO[chave] || "sudeste";
-  const jogos = JOGOS_POR_REGIAO[regiao].map(obterJogoPorId);
-  const jogoDestaque = jogos[0];
+  const jogoDestaque = obterDestaque(nomeEstado);
+  const indiceDestaque = JOGOS_PADRAO.findIndex(function (jogo) {
+    return jogo.id === jogoDestaque.id;
+  });
 
   const regiaoLabel = document.querySelector(".explore-featured-regiao");
   if (regiaoLabel) {
-    regiaoLabel.textContent = nomeEstado + " · Região " + NOME_REGIAO[regiao];
+    regiaoLabel.textContent = nomeEstado + " · Região " + NOME_REGIAO[jogoDestaque.regiao];
   }
 
   const nomeDestaque = document.querySelector(".explore-featured-nome");
@@ -154,7 +146,7 @@ function atualizarDestaqueMapa(nomeEstado) {
 
   const thumbs = document.querySelectorAll(".explore-thumb");
   thumbs.forEach(function (thumb, indice) {
-    const jogo = jogos[indice + 1];
+    const jogo = JOGOS_PADRAO[(indiceDestaque + indice + 1) % JOGOS_PADRAO.length];
 
     thumb.href = linkBuscaJogo(jogo);
 
@@ -236,7 +228,6 @@ function inicializarMapaSVG() {
   });
 
   function selecionarEstado(nomeEstado) {
-    const regiao = nomeEstado && ESTADO_PARA_REGIAO[normalizarNomeEstado(nomeEstado)];
     elementosEstados.forEach(function (estado) {
       estado.classList.remove("estado-ativo");
     });
@@ -245,7 +236,7 @@ function inicializarMapaSVG() {
     });
     if (estadoSelecionado) estadoSelecionado.classList.add("estado-ativo");
     if (legenda) legenda.textContent = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
-    atualizarDestaqueMapa(regiao ? nomeEstado : "São Paulo");
+    atualizarDestaqueMapa(estadoSelecionado ? estadoSelecionado.getAttribute("name") : "São Paulo");
     agendarLinha();
   }
 
