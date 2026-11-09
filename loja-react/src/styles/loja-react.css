@@ -1,5 +1,12 @@
 /* Ajustes que só existem na versão em React. O visual da plataforma vem de assets/styles/index.css. */
 
+.loja-total-jogos {
+  margin: 1rem 0 0;
+  color: #c3cbd9;
+  font-size: .875rem;
+  text-align: center;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-yellow);
   outline-offset: 2px;
