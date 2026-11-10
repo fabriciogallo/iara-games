@@ -91,6 +91,9 @@ export default function Loja() {
         </div>
 
         <Paginacao pagina={pagina} totalPaginas={totalPaginas} aoMudar={irParaPagina} />
+        <p className="loja-total-jogos" aria-live="polite">
+          Total de jogos no catálogo: {todos.length}
+        </p>
       </div>
     </main>
   );
