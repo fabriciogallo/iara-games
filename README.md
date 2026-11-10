@@ -1,151 +1,96 @@
-![Logo](assets/images/logo-iara-games.png)
+![Logo da Iara Games](assets/images/logo-iara-games.png)
 
 # Iara Games
 
-Nesta sexta fase do projeto, o grupo teve como objetivo aplicar a identidade visual da Iara Games no ambiente digital, utilizando conceitos modernos de desenvolvimento front-end, responsividade e acessibilidade.
+A Iara Games é uma loja fictícia dedicada a jogos brasileiros. O projeto da faculdade reúne a Home e as páginas institucionais em HTML, CSS e JavaScript, uma loja em React e um mapa interativo para explorar jogos por estado.
 
-A proposta foi transformar a identidade criada anteriormente em uma experiência funcional e visualmente consistente, desenvolvendo páginas responsivas com foco em navegação intuitiva, organização visual e valorização dos jogos brasileiros.
+## Fase 7 · Explore jogos pelo Brasil
 
-Foram desenvolvidas duas páginas principais:
+Na Home, a seção **Explore jogos pelo Brasil** tem um formulário em React integrado à API pública do ViaCEP. A pessoa digita um CEP, vê o endereço retornado e encontra seu estado no mapa, junto dos jogos em destaque.
 
-- Home da plataforma Iara Games
-- Página extra com temática complementar ao projeto
+### Como a consulta funciona
 
-Durante o desenvolvimento, utilizamos o Bootstrap para estruturar os elementos da interface e otimizar a responsividade da plataforma.
+1. Ao clicar em **Buscar**, o formulário remove o hífen e os demais caracteres que não são dígitos. A consulta só é feita quando restam oito dígitos.
+2. O navegador faz uma requisição GET para `https://viacep.com.br/ws/{cep}/json/`. A interface mostra **Consultando CEP…** enquanto aguarda a resposta.
+3. Quando o CEP é encontrado, o formulário exibe os dados disponíveis do endereço, como logradouro, bairro, cidade e UF. O mapa usa o código IBGE retornado pela API para selecionar o estado, com o nome do estado como alternativa.
+4. A seção mostra o estado selecionado, a região e os destaques do catálogo. Uma linha liga o estado aos jogos. O formulário também exibe mensagens para CEP incompleto, CEP não encontrado ou falha na consulta.
 
-Na fase seguinte, a Loja foi reconstruída em React (veja a seção [Loja em React](#loja-em-react)).
+O formulário fica em [`loja-react/src/consulta-cep.jsx`](loja-react/src/consulta-cep.jsx). A seleção do mapa e os jogos em destaque ficam em [`assets/js/mapa.js`](assets/js/mapa.js). [Documentação do ViaCEP](https://viacep.com.br/)
 
-## PROJETO NO AR
+### Outras melhorias da Fase 7
 
-- Plataforma (Home e demais páginas): https://fabriciogallo.github.io/iara-games/
-- Loja em React: https://fabriciogallo.github.io/iara-games/loja/
+- Contornos do mapa atualizados com a malha do IBGE.
+- Cada estado tem uma arte fixa de um jogo do catálogo. Ao passar o mouse ou navegar com o teclado, o mapa destaca o estado com a arte e um contorno luminoso.
+- Ao clicar, o estado amplia e os jogos ao lado são atualizados. Clicar fora ou pressionar `Esc` recolhe a ampliação.
+- O carrossel principal da Home troca de imagem a cada três segundos.
+- A loja exibe a quantidade total de jogos do catálogo no fim da página.
 
-## INTEGRANTES
+## Projeto no ar
+
+- [Home da plataforma](https://fabriciogallo.github.io/iara-games/)
+- [Loja em React](https://fabriciogallo.github.io/iara-games/loja/)
+
+Esses links mostram a versão publicada no GitHub Pages. Quando a Fase 7 for integrada à `main`, o [workflow de publicação](.github/workflows/publicar-pages.yml) vai rodar os testes, gerar o build e publicar a atualização se as etapas anteriores passarem. O workflow publica a Home na raiz do site e a loja em `/loja/`.
+
+## Como testar no computador
+
+Para rodar a loja em desenvolvimento, use o Node.js 24. Execute estes comandos na raiz do repositório.
+
+```powershell
+npm.cmd --prefix loja-react ci
+npm.cmd --prefix loja-react run dev
+```
+
+Abra o endereço mostrado pelo Vite. Para rodar os testes da loja, use `npm.cmd --prefix loja-react test`.
+
+### Testar a Home, o CEP e a loja juntos
+
+No Windows, com Node.js 24 e Python 3 instalados, execute os comandos abaixo no PowerShell a partir da raiz do repositório. O primeiro comando instala as dependências, o segundo gera a loja e o restante monta uma cópia de teste em uma pasta temporária.
+
+```powershell
+npm.cmd --prefix loja-react ci
+npm.cmd --prefix loja-react run build -- --base /loja/
+
+$site = Join-Path $env:TEMP ("iara-games-preview-" + (Get-Date -Format yyyyMMdd-HHmmss))
+New-Item -ItemType Directory -Path "$site/loja" -Force | Out-Null
+Copy-Item -Path index.html, assets, pages -Destination $site -Recurse
+Copy-Item -Path "loja-react/dist/*" -Destination "$site/loja" -Recurse
+python -m http.server 8000 --bind 127.0.0.1 --directory "$site"
+```
+
+1. Abra [http://127.0.0.1:8000](http://127.0.0.1:8000) e encontre a seção **Explore jogos pelo Brasil**.
+2. Busque `01001-000`. Com acesso à internet, o resultado mostra Praça da Sé, em São Paulo (SP), e seleciona o estado no mapa.
+3. Busque `123` para testar a validação de oito dígitos ou `99999-999` para testar o aviso de CEP não encontrado.
+4. Clique em outro estado e siga o link do jogo em destaque para a loja. Confira o total de jogos abaixo da paginação.
+
+## Loja em React
+
+A loja reaproveita os estilos e as imagens da plataforma.
+
+- Catálogo inicial com 23 jogos, busca por nome, filtros por categoria, ordenação e paginação.
+- Filtros na URL, que permitem compartilhar uma busca, e favoritos salvos no navegador.
+- Páginas de detalhes com informações dos jogos, galerias, avaliações e requisitos.
+- Carrinho com cupom `FIAP10` e finalização de pedido de demonstração.
+- Carrinho, cupom e jogos cadastrados pelo formulário Desenvolvedor compartilhados com as páginas estáticas pelo `localStorage`.
+
+A loja usa React 19, React Router, Vite, Bootstrap 5, Vitest e Testing Library.
+
+## Identidade visual e acessibilidade
+
+A identidade visual combina tecnologia, games e brasilidade. O logotipo une a cauda inspirada na Iara do folclore brasileiro a um controle de videogame. A tipografia usa Montserrat e Lexend.
+
+| Cor | Hex | Papel na identidade |
+| --- | --- | --- |
+| Amarelo | `#FFCB20` | Destaque, criatividade e energia |
+| Azul | `#2550FF` | Tecnologia e referência ao azul da bandeira brasileira |
+| Verde | `#1AA108` | Brasilidade, diversidade e crescimento |
+
+O Bootstrap ajuda a organizar o layout em diferentes tamanhos de tela. A interface usa elementos semânticos, textos alternativos para imagens e foco visível. No formulário de CEP, as mensagens de erro e resultado também são anunciadas por leitores de tela.
+
+## Integrantes
 
 - Edu Eder Batagelo Rodrigues Carvalho
 - Fabricio Costa Gallo
 - Kauã Aurelio Silva
 - Matheus Santos Matta
 - Patrick de Souza Bigi dos Santos
-
-## IDENTIDADE VISUAL
-
-A identidade visual da Iara Games foi criada para representar a conexão entre tecnologia, games e brasilidade.
-
-O conceito visual combina elementos modernos com referências culturais brasileiras, criando uma marca jovem, dinâmica e facilmente reconhecível.
-
-### LOGOTIPO
-
-![Logo](assets/images/logo-iara-games.png)
-
-O logotipo da Iara Games foi desenvolvido de forma original, unindo a representação de uma cauda inspirada na personagem folclórica Iara com um controle de videogame, reforçando a conexão entre cultura brasileira e universo gamer.
-
-Essa construção visual transmite:
-
-- Modernidade
-- Criatividade
-- Tecnologia
-- Identidade nacional
-
-### PALETA DE CORES
-
-As cores escolhidas foram definidas estrategicamente para fortalecer a identidade da plataforma:
-
-| Cor     | Hex                                                                |
-| ------- | ------------------------------------------------------------------ |
-| AMARELO | ![#FFCB20](https://dummyimage.com/50/FFCB20/white?text=+) #FFCB20 |
-| AZUL    | ![#2550FF](https://dummyimage.com/50/2550FF/white?text=+) #2550FF |
-| VERDE   | ![#1AA108](https://dummyimage.com/50/1AA108/white?text=+) #1AA108 |
-
-AMARELO — Representa criatividade, destaque e energia.
-
-AZUL — Transmite inovação, tecnologia e conexão com o azul da bandeira brasileira.
-
-VERDE — Simboliza brasilidade, diversidade e crescimento.
-
-A combinação dessas cores cria uma identidade vibrante e moderna, alinhada à proposta da plataforma de valorizar jogos brasileiros.
-
-### TIPOGRAFIA
-
-A fonte principal utilizada é a Montserrat e Lexend.
-
-Sua escolha foi baseada em características como:
-
-- Fácil leitura
-- Visual moderno
-- Boa acessibilidade
-- Clareza em diferentes tamanhos de tela
-
-A tipografia fortalece a proposta tecnológica da plataforma e melhora a experiência de navegação do usuário.
-
-## DESENVOLVIMENTO FRONT-END
-
-### UTILIZAÇÃO DO BOOTSTRAP
-
-O framework Bootstrap foi utilizado para estruturar e organizar o layout das páginas.
-
-Entre os principais recursos utilizados estão:
-
-- Containers responsivos
-- Sistema de Grid
-- Navbar
-- Cards
-- Responsividade com colunas adaptáveis
-- Espaçamentos e alinhamentos utilitários
-
-Esses recursos facilitaram o desenvolvimento de uma interface moderna, organizada e compatível com diferentes resoluções de tela.
-
-### ACESSIBILIDADE
-
-A interface utiliza uma paleta inspirada nas cores do Brasil, reforçando a proposta da plataforma de valorizar jogos desenvolvidos no país. O amarelo aparece como cor de destaque para ações importantes e elementos de navegação, criando contraste com o fundo escuro e ajudando a direcionar a atenção do usuário. Além de fortalecer a identidade visual da plataforma, essa escolha conecta o produto à cultura brasileira de forma sutil e reconhecível.
-
-Durante o desenvolvimento, aplicamos boas práticas de acessibilidade para garantir melhor usabilidade e inclusão digital.
-
-#### RECURSOS IMPLEMENTADOS
-
-- Uso correto de tags semânticas
-- Contraste adequado entre texto e fundo
-- Navegação simples e intuitiva
-- Textos alternativos para imagens
-- Fontes legíveis
-- Estrutura clara de conteúdo
-
-## LOJA EM REACT
-
-Na fase de React, a área da Loja (catálogo, página do jogo e carrinho) foi reconstruída com React, reaproveitando o CSS e as imagens da plataforma. Por isso a loja nova mantém a mesma aparência do resto do site.
-
-### O que a loja faz
-
-- Catálogo com 23 jogos, filtro por categoria, busca por nome (ignora acento e maiúscula), ordenação e paginação de 8 em 8
-- Filtros guardados no endereço (por exemplo, `/#/?categoria=Terror&pagina=2`), então o link pode ser compartilhado
-- Página de cada jogo, com descrição, galeria, avaliações, estúdio e requisitos do sistema
-- Carrinho lateral e página do carrinho, com cupom `FIAP10` (10% de desconto) e finalização de um pedido de demonstração
-- Favoritos com contador e filtro próprio, salvos no navegador
-- Carrinho, cupom e jogos cadastrados no formulário Desenvolvedor compartilhados com as páginas estáticas, pelas mesmas chaves do `localStorage`
-
-### Tecnologias
-
-React 19, React Router, Vite, Bootstrap 5, Vitest e Testing Library.
-
-### Como rodar a loja
-
-O código fica na pasta [`loja-react/`](loja-react/README.md). Dentro dela:
-
-```bash
-npm install     # instala as dependências (só na primeira vez)
-npm run dev     # servidor de desenvolvimento
-npm test        # roda os 76 testes automatizados
-npm run build   # gera a versão de produção na pasta dist
-```
-
-Os links Home, Desenvolvedor e Suporte da loja apontam para a plataforma estática. Quando a loja é publicada fora do GitHub Pages (por exemplo, na Vercel), defina a variável de ambiente `VITE_URL_PLATAFORMA` com o endereço da plataforma.
-
-### Publicação
-
-O site é publicado no GitHub Pages pelo GitHub Actions (arquivo `.github/workflows/publicar-pages.yml`). A cada alteração na branch `main`, o workflow instala as dependências, roda os testes, gera a loja e publica a plataforma estática na raiz do site e a loja em React em `/loja/`. Se algum teste falhar, nada é publicado.
-
-No workflow, a variável `VITE_BASE` define a pasta em que a loja fica no endereço. Sem ela, a loja usa a raiz (`/`), que é o valor certo para o `npm run dev` e para hospedagens como a Vercel.
-
-### Observação sobre o ambiente local
-
-A plataforma estática, aberta direto no computador (por exemplo, com o Live Server), não enxerga a loja em React: o link **Loja** leva à pasta `loja/`, que só existe no site publicado. Para ver a loja localmente, rode `npm run dev` dentro de `loja-react/`.
