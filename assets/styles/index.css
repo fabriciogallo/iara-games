@@ -783,14 +783,6 @@ ol {
   scale: 1.15;
 }
 
-#svg-map.mapa-com-banners .estado-zoom-selecionado {
-  scale: 1.5;
-  vector-effect: non-scaling-stroke;
-  pointer-events: visiblePainted;
-  cursor: pointer;
-  filter: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
   #svg-map.mapa-com-banners .estado-zoom {
     transition: none;
