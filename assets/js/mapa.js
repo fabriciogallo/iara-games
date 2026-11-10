@@ -175,32 +175,21 @@ function inicializarMapaSVG() {
   const conexao = document.querySelector(".explore-conexao");
   const legenda = document.querySelector(".explore-estado-selecionado");
   let estadoSelecionado = null;
-  let estadoExpandido = null;
   let contornoAmpliado = null;
 
   function ampliarEstado(estado) {
     if (contornoAmpliado) contornoAmpliado.remove();
     contornoAmpliado = null;
-    const alvo = estadoExpandido || estado;
-    if (!alvo) return;
+    if (!estado) return;
 
-    const ampliado = alvo.querySelector("path").cloneNode(true);
+    const ampliado = estado.querySelector("path").cloneNode(true);
     ampliado.classList.add("estado-zoom");
     ampliado.setAttribute("aria-hidden", "true");
-    if (estadoExpandido) ampliado.classList.add("estado-zoom-selecionado");
     mapa.append(ampliado);
     contornoAmpliado = ampliado;
-    if (!estadoExpandido) {
-      requestAnimationFrame(function () {
-        ampliado.classList.add("estado-ampliado");
-      });
-    }
-  }
-
-  function recolherEstado() {
-    if (!estadoExpandido) return;
-    estadoExpandido = null;
-    ampliarEstado(null);
+    requestAnimationFrame(function () {
+      ampliado.classList.add("estado-ampliado");
+    });
   }
 
   function atualizarLinha() {
@@ -242,29 +231,31 @@ function inicializarMapaSVG() {
 
     elementoEstado.addEventListener("click", function (evento) {
       evento.preventDefault();
-      selecionarEstado(nomeEstado, true);
+      selecionarEstado(nomeEstado);
     });
 
-    elementoEstado.addEventListener("mouseenter", function () {
+    elementoEstado.addEventListener("pointerenter", function (evento) {
+      if (evento.pointerType === "touch") return;
       elementoEstado.classList.add("estado-hover");
-      if (!estadoExpandido) ampliarEstado(elementoEstado);
+      ampliarEstado(elementoEstado);
     });
 
-    elementoEstado.addEventListener("mouseleave", function () {
+    elementoEstado.addEventListener("pointerleave", function (evento) {
+      if (evento.pointerType === "touch") return;
       elementoEstado.classList.remove("estado-hover");
-      if (!estadoExpandido) ampliarEstado(null);
+      ampliarEstado(mapa.querySelector(".estado:focus-visible"));
     });
 
     elementoEstado.addEventListener("focus", function () {
-      if (!estadoExpandido) ampliarEstado(elementoEstado);
+      if (elementoEstado.matches(":focus-visible")) ampliarEstado(elementoEstado);
     });
 
     elementoEstado.addEventListener("blur", function () {
-      if (!estadoExpandido) ampliarEstado(null);
+      ampliarEstado(mapa.querySelector(".estado-hover"));
     });
   });
 
-  function selecionarEstado(nomeEstado, deveAmpliar = false) {
+  function selecionarEstado(nomeEstado) {
     elementosEstados.forEach(function (estado) {
       estado.classList.remove("estado-ativo");
     });
@@ -272,21 +263,11 @@ function inicializarMapaSVG() {
       return normalizarNomeEstado(estado.getAttribute("name")) === normalizarNomeEstado(nomeEstado || "");
     });
     if (estadoSelecionado) estadoSelecionado.classList.add("estado-ativo");
-    estadoExpandido = deveAmpliar && estadoSelecionado !== estadoExpandido ? estadoSelecionado : null;
-    ampliarEstado(null);
     const nomeSelecionado = estadoSelecionado ? estadoSelecionado.getAttribute("name") : "";
     if (legenda) legenda.textContent = nomeSelecionado;
     atualizarDestaqueMapa(nomeSelecionado || "São Paulo");
     agendarLinha();
   }
-
-  document.addEventListener("click", function (evento) {
-    if (!evento.target.closest?.("#svg-map .estado")) recolherEstado();
-  }, true);
-
-  document.addEventListener("keydown", function (evento) {
-    if (evento.key === "Escape") recolherEstado();
-  });
 
   document.addEventListener("iara:localizar-cep", function (evento) {
     const endereco = evento.detail;

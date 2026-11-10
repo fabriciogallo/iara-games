@@ -20,8 +20,8 @@ O formulário fica em [`loja-react/src/consulta-cep.jsx`](loja-react/src/consult
 ### Outras melhorias da Fase 7
 
 - Contornos do mapa atualizados com a malha do IBGE.
-- Cada estado tem uma arte fixa de um jogo do catálogo. Ao passar o mouse ou navegar com o teclado, o mapa destaca o estado com a arte e um contorno luminoso.
-- Ao clicar, o estado amplia e os jogos ao lado são atualizados. Clicar fora ou pressionar `Esc` recolhe a ampliação.
+- Cada estado tem uma arte fixa de um jogo do catálogo. Ao passar o mouse ou navegar com o teclado, o mapa amplia e destaca o estado com a arte e um contorno luminoso.
+- Ao clicar, o mapa seleciona o estado e atualiza os jogos ao lado.
 - O carrossel principal da Home troca de imagem a cada três segundos.
 - A loja exibe a quantidade total de jogos do catálogo no fim da página.
 
